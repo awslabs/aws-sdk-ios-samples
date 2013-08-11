@@ -12,41 +12,7 @@
 		CE56927317062BD200322C51 /* AWSSimpleDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE56926E17062BD200322C51 /* AWSSimpleDB.framework */; };
 		CE56927417062BD200322C51 /* AWSSNS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE56926F17062BD200322C51 /* AWSSNS.framework */; };
 		CE56927517062BD200322C51 /* AWSSQS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE56927017062BD200322C51 /* AWSSQS.framework */; };
-		CE65E80C160B969E000F1A54 /* DomainList.m in Sources */ = {isa = PBXBuildFile; fileRef = CE65E802160B969E000F1A54 /* DomainList.m */; };
-		CE65E80D160B969E000F1A54 /* ItemListing.m in Sources */ = {isa = PBXBuildFile; fileRef = CE65E804160B969E000F1A54 /* ItemListing.m */; };
-		CE65E80E160B969E000F1A54 /* ItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE65E806160B969E000F1A54 /* ItemViewController.m */; };
-		CE65E80F160B969E000F1A54 /* SdbAsyncViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE65E808160B969E000F1A54 /* SdbAsyncViewController.m */; };
-		CE65E810160B969E000F1A54 /* SdbAsyncViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE65E809160B969E000F1A54 /* SdbAsyncViewController.xib */; };
-		CE65E811160B969E000F1A54 /* SdbRequestDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE65E80B160B969E000F1A54 /* SdbRequestDelegate.m */; };
-		CE65E814160B96D1000F1A54 /* TopicList.m in Sources */ = {isa = PBXBuildFile; fileRef = CE65E813160B96D1000F1A54 /* TopicList.m */; };
-		CE65E822160B96E5000F1A54 /* AddQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = CE65E816160B96E5000F1A54 /* AddQueue.m */; };
-		CE65E823160B96E5000F1A54 /* AddQueue.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE65E817160B96E5000F1A54 /* AddQueue.xib */; };
-		CE65E824160B96E5000F1A54 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = CE65E819160B96E5000F1A54 /* Message.m */; };
-		CE65E825160B96E5000F1A54 /* Message.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE65E81A160B96E5000F1A54 /* Message.xib */; };
-		CE65E826160B96E5000F1A54 /* MessageList.m in Sources */ = {isa = PBXBuildFile; fileRef = CE65E81C160B96E5000F1A54 /* MessageList.m */; };
-		CE65E827160B96E5000F1A54 /* QueueList.m in Sources */ = {isa = PBXBuildFile; fileRef = CE65E81E160B96E5000F1A54 /* QueueList.m */; };
-		CE65E828160B96E5000F1A54 /* SendMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = CE65E820160B96E5000F1A54 /* SendMessage.m */; };
-		CE65E829160B96E5000F1A54 /* SendMessage.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE65E821160B96E5000F1A54 /* SendMessage.xib */; };
 		CE65E855160B9DEC000F1A54 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE65E854160B9DEC000F1A54 /* Default-568h@2x.png */; };
-		CE65E85B160BA10B000F1A54 /* image1.png in Resources */ = {isa = PBXBuildFile; fileRef = CE65E857160BA10B000F1A54 /* image1.png */; };
-		CE65E85C160BA10B000F1A54 /* image2.png in Resources */ = {isa = PBXBuildFile; fileRef = CE65E858160BA10B000F1A54 /* image2.png */; };
-		CE65E85D160BA10B000F1A54 /* image3.png in Resources */ = {isa = PBXBuildFile; fileRef = CE65E859160BA10B000F1A54 /* image3.png */; };
-		CE65E85E160BA10B000F1A54 /* temp.txt in Resources */ = {isa = PBXBuildFile; fileRef = CE65E85A160BA10B000F1A54 /* temp.txt */; };
-		CE65E878160BA4FF000F1A54 /* AddBucketViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE65E860160BA4FF000F1A54 /* AddBucketViewController.m */; };
-		CE65E879160BA4FF000F1A54 /* AddBucketViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE65E861160BA4FF000F1A54 /* AddBucketViewController.xib */; };
-		CE65E87A160BA4FF000F1A54 /* AddObjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE65E863160BA4FF000F1A54 /* AddObjectViewController.m */; };
-		CE65E87B160BA4FF000F1A54 /* AddObjectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE65E864160BA4FF000F1A54 /* AddObjectViewController.xib */; };
-		CE65E87C160BA4FF000F1A54 /* AsyncImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = CE65E866160BA4FF000F1A54 /* AsyncImageDownloader.m */; };
-		CE65E87D160BA4FF000F1A54 /* AsyncImageUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = CE65E868160BA4FF000F1A54 /* AsyncImageUploader.m */; };
-		CE65E87E160BA4FF000F1A54 /* BucketList.m in Sources */ = {isa = PBXBuildFile; fileRef = CE65E86A160BA4FF000F1A54 /* BucketList.m */; };
-		CE65E87F160BA4FF000F1A54 /* ObjectListing.m in Sources */ = {isa = PBXBuildFile; fileRef = CE65E86C160BA4FF000F1A54 /* ObjectListing.m */; };
-		CE65E880160BA4FF000F1A54 /* ObjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE65E86E160BA4FF000F1A54 /* ObjectViewController.m */; };
-		CE65E881160BA4FF000F1A54 /* ObjectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE65E86F160BA4FF000F1A54 /* ObjectViewController.xib */; };
-		CE65E882160BA4FF000F1A54 /* S3AsyncViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE65E871160BA4FF000F1A54 /* S3AsyncViewController.m */; };
-		CE65E883160BA4FF000F1A54 /* S3AsyncViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE65E872160BA4FF000F1A54 /* S3AsyncViewController.xib */; };
-		CE65E884160BA4FF000F1A54 /* S3NSOperationDemoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE65E873160BA4FF000F1A54 /* S3NSOperationDemoView.xib */; };
-		CE65E885160BA4FF000F1A54 /* S3NSOperationDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE65E875160BA4FF000F1A54 /* S3NSOperationDemoViewController.m */; };
-		CE65E886160BA4FF000F1A54 /* S3ResponseHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = CE65E877160BA4FF000F1A54 /* S3ResponseHandler.m */; };
 		D00F7D3813E737B900C72263 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D00F7D3713E737B900C72263 /* UIKit.framework */; };
 		D00F7D3A13E737B900C72263 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D00F7D3913E737B900C72263 /* Foundation.framework */; };
 		D00F7D3C13E737B900C72263 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D00F7D3B13E737B900C72263 /* CoreGraphics.framework */; };
@@ -67,6 +33,40 @@
 		D02A9FBB13E762850007810F /* RequestDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D02A9FAD13E762850007810F /* RequestDelegate.m */; };
 		D02A9FBC13E762850007810F /* Response.m in Sources */ = {isa = PBXBuildFile; fileRef = D02A9FAF13E762850007810F /* Response.m */; };
 		D02A9FBD13E762850007810F /* ResponseHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = D02A9FB113E762850007810F /* ResponseHandler.m */; };
+		D060468417B8095400FDBE3D /* AddBucketViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D060466C17B8095400FDBE3D /* AddBucketViewController.m */; };
+		D060468517B8095400FDBE3D /* AddBucketViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D060466D17B8095400FDBE3D /* AddBucketViewController.xib */; };
+		D060468617B8095400FDBE3D /* AddObjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D060466F17B8095400FDBE3D /* AddObjectViewController.m */; };
+		D060468717B8095400FDBE3D /* AddObjectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D060467017B8095400FDBE3D /* AddObjectViewController.xib */; };
+		D060468817B8095400FDBE3D /* AsyncImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = D060467217B8095400FDBE3D /* AsyncImageDownloader.m */; };
+		D060468917B8095400FDBE3D /* AsyncImageUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = D060467417B8095400FDBE3D /* AsyncImageUploader.m */; };
+		D060468A17B8095400FDBE3D /* BucketList.m in Sources */ = {isa = PBXBuildFile; fileRef = D060467617B8095400FDBE3D /* BucketList.m */; };
+		D060468B17B8095400FDBE3D /* ObjectListing.m in Sources */ = {isa = PBXBuildFile; fileRef = D060467817B8095400FDBE3D /* ObjectListing.m */; };
+		D060468C17B8095400FDBE3D /* ObjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D060467A17B8095400FDBE3D /* ObjectViewController.m */; };
+		D060468D17B8095400FDBE3D /* ObjectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D060467B17B8095400FDBE3D /* ObjectViewController.xib */; };
+		D060468E17B8095400FDBE3D /* S3AsyncViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D060467D17B8095400FDBE3D /* S3AsyncViewController.m */; };
+		D060468F17B8095400FDBE3D /* S3AsyncViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D060467E17B8095400FDBE3D /* S3AsyncViewController.xib */; };
+		D060469017B8095400FDBE3D /* S3NSOperationDemoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D060467F17B8095400FDBE3D /* S3NSOperationDemoView.xib */; };
+		D060469117B8095400FDBE3D /* S3NSOperationDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D060468117B8095400FDBE3D /* S3NSOperationDemoViewController.m */; };
+		D060469217B8095400FDBE3D /* S3ResponseHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = D060468317B8095400FDBE3D /* S3ResponseHandler.m */; };
+		D060469F17B8097C00FDBE3D /* DomainList.m in Sources */ = {isa = PBXBuildFile; fileRef = D060469517B8097C00FDBE3D /* DomainList.m */; };
+		D06046A017B8097C00FDBE3D /* ItemListing.m in Sources */ = {isa = PBXBuildFile; fileRef = D060469717B8097C00FDBE3D /* ItemListing.m */; };
+		D06046A117B8097C00FDBE3D /* ItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D060469917B8097C00FDBE3D /* ItemViewController.m */; };
+		D06046A217B8097C00FDBE3D /* SdbAsyncViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D060469B17B8097C00FDBE3D /* SdbAsyncViewController.m */; };
+		D06046A317B8097C00FDBE3D /* SdbAsyncViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D060469C17B8097C00FDBE3D /* SdbAsyncViewController.xib */; };
+		D06046A417B8097C00FDBE3D /* SdbRequestDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D060469E17B8097C00FDBE3D /* SdbRequestDelegate.m */; };
+		D06046A717B8098600FDBE3D /* TopicList.m in Sources */ = {isa = PBXBuildFile; fileRef = D06046A617B8098600FDBE3D /* TopicList.m */; };
+		D06046B517B8098F00FDBE3D /* AddQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = D06046A917B8098F00FDBE3D /* AddQueue.m */; };
+		D06046B617B8098F00FDBE3D /* AddQueue.xib in Resources */ = {isa = PBXBuildFile; fileRef = D06046AA17B8098F00FDBE3D /* AddQueue.xib */; };
+		D06046B717B8098F00FDBE3D /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = D06046AC17B8098F00FDBE3D /* Message.m */; };
+		D06046B817B8098F00FDBE3D /* Message.xib in Resources */ = {isa = PBXBuildFile; fileRef = D06046AD17B8098F00FDBE3D /* Message.xib */; };
+		D06046B917B8098F00FDBE3D /* MessageList.m in Sources */ = {isa = PBXBuildFile; fileRef = D06046AF17B8098F00FDBE3D /* MessageList.m */; };
+		D06046BA17B8098F00FDBE3D /* QueueList.m in Sources */ = {isa = PBXBuildFile; fileRef = D06046B117B8098F00FDBE3D /* QueueList.m */; };
+		D06046BB17B8098F00FDBE3D /* SendMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = D06046B317B8098F00FDBE3D /* SendMessage.m */; };
+		D06046BC17B8098F00FDBE3D /* SendMessage.xib in Resources */ = {isa = PBXBuildFile; fileRef = D06046B417B8098F00FDBE3D /* SendMessage.xib */; };
+		D06046C117B8099C00FDBE3D /* image1.png in Resources */ = {isa = PBXBuildFile; fileRef = D06046BD17B8099C00FDBE3D /* image1.png */; };
+		D06046C217B8099C00FDBE3D /* image2.png in Resources */ = {isa = PBXBuildFile; fileRef = D06046BE17B8099C00FDBE3D /* image2.png */; };
+		D06046C317B8099C00FDBE3D /* image3.png in Resources */ = {isa = PBXBuildFile; fileRef = D06046BF17B8099C00FDBE3D /* image3.png */; };
+		D06046C417B8099C00FDBE3D /* temp.txt in Resources */ = {isa = PBXBuildFile; fileRef = D06046C017B8099C00FDBE3D /* temp.txt */; };
 		D0B715F413E73AC3006220BB /* AmazonClientManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B715B813E73AC2006220BB /* AmazonClientManager.m */; };
 		D0B715F513E73AC3006220BB /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B715BA13E73AC2006220BB /* Constants.m */; };
 		D0B7163713E7445B006220BB /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0B7163613E7445B006220BB /* Security.framework */; };
@@ -78,62 +78,7 @@
 		CE56926E17062BD200322C51 /* AWSSimpleDB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSSimpleDB.framework; path = ../../AWSSimpleDB.framework; sourceTree = "<group>"; };
 		CE56926F17062BD200322C51 /* AWSSNS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSSNS.framework; path = ../../AWSSNS.framework; sourceTree = "<group>"; };
 		CE56927017062BD200322C51 /* AWSSQS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSSQS.framework; path = ../../AWSSQS.framework; sourceTree = "<group>"; };
-		CE65E801160B969E000F1A54 /* DomainList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DomainList.h; path = ../../../S3_SimpleDB_SNS_SQS_Demo/AWSiOSDemo/Classes/SDB/DomainList.h; sourceTree = "<group>"; };
-		CE65E802160B969E000F1A54 /* DomainList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DomainList.m; path = ../../../S3_SimpleDB_SNS_SQS_Demo/AWSiOSDemo/Classes/SDB/DomainList.m; sourceTree = "<group>"; };
-		CE65E803160B969E000F1A54 /* ItemListing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ItemListing.h; path = ../../../S3_SimpleDB_SNS_SQS_Demo/AWSiOSDemo/Classes/SDB/ItemListing.h; sourceTree = "<group>"; };
-		CE65E804160B969E000F1A54 /* ItemListing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ItemListing.m; path = ../../../S3_SimpleDB_SNS_SQS_Demo/AWSiOSDemo/Classes/SDB/ItemListing.m; sourceTree = "<group>"; };
-		CE65E805160B969E000F1A54 /* ItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ItemViewController.h; path = ../../../S3_SimpleDB_SNS_SQS_Demo/AWSiOSDemo/Classes/SDB/ItemViewController.h; sourceTree = "<group>"; };
-		CE65E806160B969E000F1A54 /* ItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ItemViewController.m; path = ../../../S3_SimpleDB_SNS_SQS_Demo/AWSiOSDemo/Classes/SDB/ItemViewController.m; sourceTree = "<group>"; };
-		CE65E807160B969E000F1A54 /* SdbAsyncViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SdbAsyncViewController.h; path = ../../../S3_SimpleDB_SNS_SQS_Demo/AWSiOSDemo/Classes/SDB/SdbAsyncViewController.h; sourceTree = "<group>"; };
-		CE65E808160B969E000F1A54 /* SdbAsyncViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SdbAsyncViewController.m; path = ../../../S3_SimpleDB_SNS_SQS_Demo/AWSiOSDemo/Classes/SDB/SdbAsyncViewController.m; sourceTree = "<group>"; };
-		CE65E809160B969E000F1A54 /* SdbAsyncViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SdbAsyncViewController.xib; path = ../../../S3_SimpleDB_SNS_SQS_Demo/AWSiOSDemo/Classes/SDB/SdbAsyncViewController.xib; sourceTree = "<group>"; };
-		CE65E80A160B969E000F1A54 /* SdbRequestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SdbRequestDelegate.h; path = ../../../S3_SimpleDB_SNS_SQS_Demo/AWSiOSDemo/Classes/SDB/SdbRequestDelegate.h; sourceTree = "<group>"; };
-		CE65E80B160B969E000F1A54 /* SdbRequestDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SdbRequestDelegate.m; path = ../../../S3_SimpleDB_SNS_SQS_Demo/AWSiOSDemo/Classes/SDB/SdbRequestDelegate.m; sourceTree = "<group>"; };
-		CE65E812160B96D1000F1A54 /* TopicList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopicList.h; path = ../../../S3_SimpleDB_SNS_SQS_Demo/AWSiOSDemo/Classes/SNS/TopicList.h; sourceTree = "<group>"; };
-		CE65E813160B96D1000F1A54 /* TopicList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopicList.m; path = ../../../S3_SimpleDB_SNS_SQS_Demo/AWSiOSDemo/Classes/SNS/TopicList.m; sourceTree = "<group>"; };
-		CE65E815160B96E5000F1A54 /* AddQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddQueue.h; path = ../../../S3_SimpleDB_SNS_SQS_Demo/AWSiOSDemo/Classes/SQS/AddQueue.h; sourceTree = "<group>"; };
-		CE65E816160B96E5000F1A54 /* AddQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddQueue.m; path = ../../../S3_SimpleDB_SNS_SQS_Demo/AWSiOSDemo/Classes/SQS/AddQueue.m; sourceTree = "<group>"; };
-		CE65E817160B96E5000F1A54 /* AddQueue.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AddQueue.xib; path = ../../../S3_SimpleDB_SNS_SQS_Demo/AWSiOSDemo/Classes/SQS/AddQueue.xib; sourceTree = "<group>"; };
-		CE65E818160B96E5000F1A54 /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Message.h; path = ../../../S3_SimpleDB_SNS_SQS_Demo/AWSiOSDemo/Classes/SQS/Message.h; sourceTree = "<group>"; };
-		CE65E819160B96E5000F1A54 /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Message.m; path = ../../../S3_SimpleDB_SNS_SQS_Demo/AWSiOSDemo/Classes/SQS/Message.m; sourceTree = "<group>"; };
-		CE65E81A160B96E5000F1A54 /* Message.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Message.xib; path = ../../../S3_SimpleDB_SNS_SQS_Demo/AWSiOSDemo/Classes/SQS/Message.xib; sourceTree = "<group>"; };
-		CE65E81B160B96E5000F1A54 /* MessageList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessageList.h; path = ../../../S3_SimpleDB_SNS_SQS_Demo/AWSiOSDemo/Classes/SQS/MessageList.h; sourceTree = "<group>"; };
-		CE65E81C160B96E5000F1A54 /* MessageList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessageList.m; path = ../../../S3_SimpleDB_SNS_SQS_Demo/AWSiOSDemo/Classes/SQS/MessageList.m; sourceTree = "<group>"; };
-		CE65E81D160B96E5000F1A54 /* QueueList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QueueList.h; path = ../../../S3_SimpleDB_SNS_SQS_Demo/AWSiOSDemo/Classes/SQS/QueueList.h; sourceTree = "<group>"; };
-		CE65E81E160B96E5000F1A54 /* QueueList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QueueList.m; path = ../../../S3_SimpleDB_SNS_SQS_Demo/AWSiOSDemo/Classes/SQS/QueueList.m; sourceTree = "<group>"; };
-		CE65E81F160B96E5000F1A54 /* SendMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SendMessage.h; path = ../../../S3_SimpleDB_SNS_SQS_Demo/AWSiOSDemo/Classes/SQS/SendMessage.h; sourceTree = "<group>"; };
-		CE65E820160B96E5000F1A54 /* SendMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SendMessage.m; path = ../../../S3_SimpleDB_SNS_SQS_Demo/AWSiOSDemo/Classes/SQS/SendMessage.m; sourceTree = "<group>"; };
-		CE65E821160B96E5000F1A54 /* SendMessage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SendMessage.xib; path = ../../../S3_SimpleDB_SNS_SQS_Demo/AWSiOSDemo/Classes/SQS/SendMessage.xib; sourceTree = "<group>"; };
 		CE65E854160B9DEC000F1A54 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		CE65E857160BA10B000F1A54 /* image1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = image1.png; path = ../../../S3_SimpleDB_SNS_SQS_Demo/AWSiOSDemo/Classes/image1.png; sourceTree = "<group>"; };
-		CE65E858160BA10B000F1A54 /* image2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = image2.png; path = ../../../S3_SimpleDB_SNS_SQS_Demo/AWSiOSDemo/Classes/image2.png; sourceTree = "<group>"; };
-		CE65E859160BA10B000F1A54 /* image3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = image3.png; path = ../../../S3_SimpleDB_SNS_SQS_Demo/AWSiOSDemo/Classes/image3.png; sourceTree = "<group>"; };
-		CE65E85A160BA10B000F1A54 /* temp.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = temp.txt; path = ../../../S3_SimpleDB_SNS_SQS_Demo/AWSiOSDemo/Classes/temp.txt; sourceTree = "<group>"; };
-		CE65E85F160BA4FF000F1A54 /* AddBucketViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddBucketViewController.h; path = ../../../S3_SimpleDB_SNS_SQS_Demo/AWSiOSDemo/Classes/S3/AddBucketViewController.h; sourceTree = "<group>"; };
-		CE65E860160BA4FF000F1A54 /* AddBucketViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddBucketViewController.m; path = ../../../S3_SimpleDB_SNS_SQS_Demo/AWSiOSDemo/Classes/S3/AddBucketViewController.m; sourceTree = "<group>"; };
-		CE65E861160BA4FF000F1A54 /* AddBucketViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AddBucketViewController.xib; path = ../../../S3_SimpleDB_SNS_SQS_Demo/AWSiOSDemo/Classes/S3/AddBucketViewController.xib; sourceTree = "<group>"; };
-		CE65E862160BA4FF000F1A54 /* AddObjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddObjectViewController.h; path = ../../../S3_SimpleDB_SNS_SQS_Demo/AWSiOSDemo/Classes/S3/AddObjectViewController.h; sourceTree = "<group>"; };
-		CE65E863160BA4FF000F1A54 /* AddObjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddObjectViewController.m; path = ../../../S3_SimpleDB_SNS_SQS_Demo/AWSiOSDemo/Classes/S3/AddObjectViewController.m; sourceTree = "<group>"; };
-		CE65E864160BA4FF000F1A54 /* AddObjectViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AddObjectViewController.xib; path = ../../../S3_SimpleDB_SNS_SQS_Demo/AWSiOSDemo/Classes/S3/AddObjectViewController.xib; sourceTree = "<group>"; };
-		CE65E865160BA4FF000F1A54 /* AsyncImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AsyncImageDownloader.h; path = ../../../S3_SimpleDB_SNS_SQS_Demo/AWSiOSDemo/Classes/S3/AsyncImageDownloader.h; sourceTree = "<group>"; };
-		CE65E866160BA4FF000F1A54 /* AsyncImageDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AsyncImageDownloader.m; path = ../../../S3_SimpleDB_SNS_SQS_Demo/AWSiOSDemo/Classes/S3/AsyncImageDownloader.m; sourceTree = "<group>"; };
-		CE65E867160BA4FF000F1A54 /* AsyncImageUploader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AsyncImageUploader.h; path = ../../../S3_SimpleDB_SNS_SQS_Demo/AWSiOSDemo/Classes/S3/AsyncImageUploader.h; sourceTree = "<group>"; };
-		CE65E868160BA4FF000F1A54 /* AsyncImageUploader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AsyncImageUploader.m; path = ../../../S3_SimpleDB_SNS_SQS_Demo/AWSiOSDemo/Classes/S3/AsyncImageUploader.m; sourceTree = "<group>"; };
-		CE65E869160BA4FF000F1A54 /* BucketList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BucketList.h; path = ../../../S3_SimpleDB_SNS_SQS_Demo/AWSiOSDemo/Classes/S3/BucketList.h; sourceTree = "<group>"; };
-		CE65E86A160BA4FF000F1A54 /* BucketList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BucketList.m; path = ../../../S3_SimpleDB_SNS_SQS_Demo/AWSiOSDemo/Classes/S3/BucketList.m; sourceTree = "<group>"; };
-		CE65E86B160BA4FF000F1A54 /* ObjectListing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ObjectListing.h; path = ../../../S3_SimpleDB_SNS_SQS_Demo/AWSiOSDemo/Classes/S3/ObjectListing.h; sourceTree = "<group>"; };
-		CE65E86C160BA4FF000F1A54 /* ObjectListing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ObjectListing.m; path = ../../../S3_SimpleDB_SNS_SQS_Demo/AWSiOSDemo/Classes/S3/ObjectListing.m; sourceTree = "<group>"; };
-		CE65E86D160BA4FF000F1A54 /* ObjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ObjectViewController.h; path = ../../../S3_SimpleDB_SNS_SQS_Demo/AWSiOSDemo/Classes/S3/ObjectViewController.h; sourceTree = "<group>"; };
-		CE65E86E160BA4FF000F1A54 /* ObjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ObjectViewController.m; path = ../../../S3_SimpleDB_SNS_SQS_Demo/AWSiOSDemo/Classes/S3/ObjectViewController.m; sourceTree = "<group>"; };
-		CE65E86F160BA4FF000F1A54 /* ObjectViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ObjectViewController.xib; path = ../../../S3_SimpleDB_SNS_SQS_Demo/AWSiOSDemo/Classes/S3/ObjectViewController.xib; sourceTree = "<group>"; };
-		CE65E870160BA4FF000F1A54 /* S3AsyncViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3AsyncViewController.h; path = ../../../S3_SimpleDB_SNS_SQS_Demo/AWSiOSDemo/Classes/S3/S3AsyncViewController.h; sourceTree = "<group>"; };
-		CE65E871160BA4FF000F1A54 /* S3AsyncViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = S3AsyncViewController.m; path = ../../../S3_SimpleDB_SNS_SQS_Demo/AWSiOSDemo/Classes/S3/S3AsyncViewController.m; sourceTree = "<group>"; };
-		CE65E872160BA4FF000F1A54 /* S3AsyncViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = S3AsyncViewController.xib; path = ../../../S3_SimpleDB_SNS_SQS_Demo/AWSiOSDemo/Classes/S3/S3AsyncViewController.xib; sourceTree = "<group>"; };
-		CE65E873160BA4FF000F1A54 /* S3NSOperationDemoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = S3NSOperationDemoView.xib; path = ../../../S3_SimpleDB_SNS_SQS_Demo/AWSiOSDemo/Classes/S3/S3NSOperationDemoView.xib; sourceTree = "<group>"; };
-		CE65E874160BA4FF000F1A54 /* S3NSOperationDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3NSOperationDemoViewController.h; path = ../../../S3_SimpleDB_SNS_SQS_Demo/AWSiOSDemo/Classes/S3/S3NSOperationDemoViewController.h; sourceTree = "<group>"; };
-		CE65E875160BA4FF000F1A54 /* S3NSOperationDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = S3NSOperationDemoViewController.m; path = ../../../S3_SimpleDB_SNS_SQS_Demo/AWSiOSDemo/Classes/S3/S3NSOperationDemoViewController.m; sourceTree = "<group>"; };
-		CE65E876160BA4FF000F1A54 /* S3ResponseHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3ResponseHandler.h; path = ../../../S3_SimpleDB_SNS_SQS_Demo/AWSiOSDemo/Classes/S3/S3ResponseHandler.h; sourceTree = "<group>"; };
-		CE65E877160BA4FF000F1A54 /* S3ResponseHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = S3ResponseHandler.m; path = ../../../S3_SimpleDB_SNS_SQS_Demo/AWSiOSDemo/Classes/S3/S3ResponseHandler.m; sourceTree = "<group>"; };
 		D00F7D3313E737B900C72263 /* AWSiOSDemoTVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AWSiOSDemoTVM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D00F7D3713E737B900C72263 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D00F7D3913E737B900C72263 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -171,6 +116,61 @@
 		D02A9FAF13E762850007810F /* Response.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Response.m; sourceTree = "<group>"; };
 		D02A9FB013E762850007810F /* ResponseHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResponseHandler.h; sourceTree = "<group>"; };
 		D02A9FB113E762850007810F /* ResponseHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResponseHandler.m; sourceTree = "<group>"; };
+		D060466B17B8095400FDBE3D /* AddBucketViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddBucketViewController.h; path = S3/AddBucketViewController.h; sourceTree = "<group>"; };
+		D060466C17B8095400FDBE3D /* AddBucketViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddBucketViewController.m; path = S3/AddBucketViewController.m; sourceTree = "<group>"; };
+		D060466D17B8095400FDBE3D /* AddBucketViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AddBucketViewController.xib; path = S3/AddBucketViewController.xib; sourceTree = "<group>"; };
+		D060466E17B8095400FDBE3D /* AddObjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddObjectViewController.h; path = S3/AddObjectViewController.h; sourceTree = "<group>"; };
+		D060466F17B8095400FDBE3D /* AddObjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddObjectViewController.m; path = S3/AddObjectViewController.m; sourceTree = "<group>"; };
+		D060467017B8095400FDBE3D /* AddObjectViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AddObjectViewController.xib; path = S3/AddObjectViewController.xib; sourceTree = "<group>"; };
+		D060467117B8095400FDBE3D /* AsyncImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AsyncImageDownloader.h; path = S3/AsyncImageDownloader.h; sourceTree = "<group>"; };
+		D060467217B8095400FDBE3D /* AsyncImageDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AsyncImageDownloader.m; path = S3/AsyncImageDownloader.m; sourceTree = "<group>"; };
+		D060467317B8095400FDBE3D /* AsyncImageUploader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AsyncImageUploader.h; path = S3/AsyncImageUploader.h; sourceTree = "<group>"; };
+		D060467417B8095400FDBE3D /* AsyncImageUploader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AsyncImageUploader.m; path = S3/AsyncImageUploader.m; sourceTree = "<group>"; };
+		D060467517B8095400FDBE3D /* BucketList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BucketList.h; path = S3/BucketList.h; sourceTree = "<group>"; };
+		D060467617B8095400FDBE3D /* BucketList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BucketList.m; path = S3/BucketList.m; sourceTree = "<group>"; };
+		D060467717B8095400FDBE3D /* ObjectListing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ObjectListing.h; path = S3/ObjectListing.h; sourceTree = "<group>"; };
+		D060467817B8095400FDBE3D /* ObjectListing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ObjectListing.m; path = S3/ObjectListing.m; sourceTree = "<group>"; };
+		D060467917B8095400FDBE3D /* ObjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ObjectViewController.h; path = S3/ObjectViewController.h; sourceTree = "<group>"; };
+		D060467A17B8095400FDBE3D /* ObjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ObjectViewController.m; path = S3/ObjectViewController.m; sourceTree = "<group>"; };
+		D060467B17B8095400FDBE3D /* ObjectViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ObjectViewController.xib; path = S3/ObjectViewController.xib; sourceTree = "<group>"; };
+		D060467C17B8095400FDBE3D /* S3AsyncViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3AsyncViewController.h; path = S3/S3AsyncViewController.h; sourceTree = "<group>"; };
+		D060467D17B8095400FDBE3D /* S3AsyncViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = S3AsyncViewController.m; path = S3/S3AsyncViewController.m; sourceTree = "<group>"; };
+		D060467E17B8095400FDBE3D /* S3AsyncViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = S3AsyncViewController.xib; path = S3/S3AsyncViewController.xib; sourceTree = "<group>"; };
+		D060467F17B8095400FDBE3D /* S3NSOperationDemoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = S3NSOperationDemoView.xib; path = S3/S3NSOperationDemoView.xib; sourceTree = "<group>"; };
+		D060468017B8095400FDBE3D /* S3NSOperationDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3NSOperationDemoViewController.h; path = S3/S3NSOperationDemoViewController.h; sourceTree = "<group>"; };
+		D060468117B8095400FDBE3D /* S3NSOperationDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = S3NSOperationDemoViewController.m; path = S3/S3NSOperationDemoViewController.m; sourceTree = "<group>"; };
+		D060468217B8095400FDBE3D /* S3ResponseHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3ResponseHandler.h; path = S3/S3ResponseHandler.h; sourceTree = "<group>"; };
+		D060468317B8095400FDBE3D /* S3ResponseHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = S3ResponseHandler.m; path = S3/S3ResponseHandler.m; sourceTree = "<group>"; };
+		D060469417B8097C00FDBE3D /* DomainList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DomainList.h; path = SDB/DomainList.h; sourceTree = "<group>"; };
+		D060469517B8097C00FDBE3D /* DomainList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DomainList.m; path = SDB/DomainList.m; sourceTree = "<group>"; };
+		D060469617B8097C00FDBE3D /* ItemListing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ItemListing.h; path = SDB/ItemListing.h; sourceTree = "<group>"; };
+		D060469717B8097C00FDBE3D /* ItemListing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ItemListing.m; path = SDB/ItemListing.m; sourceTree = "<group>"; };
+		D060469817B8097C00FDBE3D /* ItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ItemViewController.h; path = SDB/ItemViewController.h; sourceTree = "<group>"; };
+		D060469917B8097C00FDBE3D /* ItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ItemViewController.m; path = SDB/ItemViewController.m; sourceTree = "<group>"; };
+		D060469A17B8097C00FDBE3D /* SdbAsyncViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SdbAsyncViewController.h; path = SDB/SdbAsyncViewController.h; sourceTree = "<group>"; };
+		D060469B17B8097C00FDBE3D /* SdbAsyncViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SdbAsyncViewController.m; path = SDB/SdbAsyncViewController.m; sourceTree = "<group>"; };
+		D060469C17B8097C00FDBE3D /* SdbAsyncViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SdbAsyncViewController.xib; path = SDB/SdbAsyncViewController.xib; sourceTree = "<group>"; };
+		D060469D17B8097C00FDBE3D /* SdbRequestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SdbRequestDelegate.h; path = SDB/SdbRequestDelegate.h; sourceTree = "<group>"; };
+		D060469E17B8097C00FDBE3D /* SdbRequestDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SdbRequestDelegate.m; path = SDB/SdbRequestDelegate.m; sourceTree = "<group>"; };
+		D06046A517B8098600FDBE3D /* TopicList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopicList.h; path = SNS/TopicList.h; sourceTree = "<group>"; };
+		D06046A617B8098600FDBE3D /* TopicList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopicList.m; path = SNS/TopicList.m; sourceTree = "<group>"; };
+		D06046A817B8098F00FDBE3D /* AddQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddQueue.h; path = SQS/AddQueue.h; sourceTree = "<group>"; };
+		D06046A917B8098F00FDBE3D /* AddQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddQueue.m; path = SQS/AddQueue.m; sourceTree = "<group>"; };
+		D06046AA17B8098F00FDBE3D /* AddQueue.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AddQueue.xib; path = SQS/AddQueue.xib; sourceTree = "<group>"; };
+		D06046AB17B8098F00FDBE3D /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Message.h; path = SQS/Message.h; sourceTree = "<group>"; };
+		D06046AC17B8098F00FDBE3D /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Message.m; path = SQS/Message.m; sourceTree = "<group>"; };
+		D06046AD17B8098F00FDBE3D /* Message.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Message.xib; path = SQS/Message.xib; sourceTree = "<group>"; };
+		D06046AE17B8098F00FDBE3D /* MessageList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessageList.h; path = SQS/MessageList.h; sourceTree = "<group>"; };
+		D06046AF17B8098F00FDBE3D /* MessageList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessageList.m; path = SQS/MessageList.m; sourceTree = "<group>"; };
+		D06046B017B8098F00FDBE3D /* QueueList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QueueList.h; path = SQS/QueueList.h; sourceTree = "<group>"; };
+		D06046B117B8098F00FDBE3D /* QueueList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QueueList.m; path = SQS/QueueList.m; sourceTree = "<group>"; };
+		D06046B217B8098F00FDBE3D /* SendMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SendMessage.h; path = SQS/SendMessage.h; sourceTree = "<group>"; };
+		D06046B317B8098F00FDBE3D /* SendMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SendMessage.m; path = SQS/SendMessage.m; sourceTree = "<group>"; };
+		D06046B417B8098F00FDBE3D /* SendMessage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SendMessage.xib; path = SQS/SendMessage.xib; sourceTree = "<group>"; };
+		D06046BD17B8099C00FDBE3D /* image1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image1.png; sourceTree = "<group>"; };
+		D06046BE17B8099C00FDBE3D /* image2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image2.png; sourceTree = "<group>"; };
+		D06046BF17B8099C00FDBE3D /* image3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image3.png; sourceTree = "<group>"; };
+		D06046C017B8099C00FDBE3D /* temp.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = temp.txt; sourceTree = "<group>"; };
 		D0B715B713E73AC2006220BB /* AmazonClientManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmazonClientManager.h; sourceTree = "<group>"; };
 		D0B715B813E73AC2006220BB /* AmazonClientManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmazonClientManager.m; sourceTree = "<group>"; };
 		D0B715B913E73AC2006220BB /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
@@ -201,10 +201,10 @@
 		CE65E856160BA0DE000F1A54 /* TestData */ = {
 			isa = PBXGroup;
 			children = (
-				CE65E857160BA10B000F1A54 /* image1.png */,
-				CE65E858160BA10B000F1A54 /* image2.png */,
-				CE65E859160BA10B000F1A54 /* image3.png */,
-				CE65E85A160BA10B000F1A54 /* temp.txt */,
+				D06046BD17B8099C00FDBE3D /* image1.png */,
+				D06046BE17B8099C00FDBE3D /* image2.png */,
+				D06046BF17B8099C00FDBE3D /* image3.png */,
+				D06046C017B8099C00FDBE3D /* temp.txt */,
 			);
 			name = TestData;
 			sourceTree = "<group>";
@@ -212,31 +212,31 @@
 		CE65E888160BA5EF000F1A54 /* S3 */ = {
 			isa = PBXGroup;
 			children = (
-				CE65E85F160BA4FF000F1A54 /* AddBucketViewController.h */,
-				CE65E860160BA4FF000F1A54 /* AddBucketViewController.m */,
-				CE65E861160BA4FF000F1A54 /* AddBucketViewController.xib */,
-				CE65E862160BA4FF000F1A54 /* AddObjectViewController.h */,
-				CE65E863160BA4FF000F1A54 /* AddObjectViewController.m */,
-				CE65E864160BA4FF000F1A54 /* AddObjectViewController.xib */,
-				CE65E865160BA4FF000F1A54 /* AsyncImageDownloader.h */,
-				CE65E866160BA4FF000F1A54 /* AsyncImageDownloader.m */,
-				CE65E867160BA4FF000F1A54 /* AsyncImageUploader.h */,
-				CE65E868160BA4FF000F1A54 /* AsyncImageUploader.m */,
-				CE65E869160BA4FF000F1A54 /* BucketList.h */,
-				CE65E86A160BA4FF000F1A54 /* BucketList.m */,
-				CE65E86B160BA4FF000F1A54 /* ObjectListing.h */,
-				CE65E86C160BA4FF000F1A54 /* ObjectListing.m */,
-				CE65E86D160BA4FF000F1A54 /* ObjectViewController.h */,
-				CE65E86E160BA4FF000F1A54 /* ObjectViewController.m */,
-				CE65E86F160BA4FF000F1A54 /* ObjectViewController.xib */,
-				CE65E870160BA4FF000F1A54 /* S3AsyncViewController.h */,
-				CE65E871160BA4FF000F1A54 /* S3AsyncViewController.m */,
-				CE65E872160BA4FF000F1A54 /* S3AsyncViewController.xib */,
-				CE65E873160BA4FF000F1A54 /* S3NSOperationDemoView.xib */,
-				CE65E874160BA4FF000F1A54 /* S3NSOperationDemoViewController.h */,
-				CE65E875160BA4FF000F1A54 /* S3NSOperationDemoViewController.m */,
-				CE65E876160BA4FF000F1A54 /* S3ResponseHandler.h */,
-				CE65E877160BA4FF000F1A54 /* S3ResponseHandler.m */,
+				D060466B17B8095400FDBE3D /* AddBucketViewController.h */,
+				D060466C17B8095400FDBE3D /* AddBucketViewController.m */,
+				D060466D17B8095400FDBE3D /* AddBucketViewController.xib */,
+				D060466E17B8095400FDBE3D /* AddObjectViewController.h */,
+				D060466F17B8095400FDBE3D /* AddObjectViewController.m */,
+				D060467017B8095400FDBE3D /* AddObjectViewController.xib */,
+				D060467117B8095400FDBE3D /* AsyncImageDownloader.h */,
+				D060467217B8095400FDBE3D /* AsyncImageDownloader.m */,
+				D060467317B8095400FDBE3D /* AsyncImageUploader.h */,
+				D060467417B8095400FDBE3D /* AsyncImageUploader.m */,
+				D060467517B8095400FDBE3D /* BucketList.h */,
+				D060467617B8095400FDBE3D /* BucketList.m */,
+				D060467717B8095400FDBE3D /* ObjectListing.h */,
+				D060467817B8095400FDBE3D /* ObjectListing.m */,
+				D060467917B8095400FDBE3D /* ObjectViewController.h */,
+				D060467A17B8095400FDBE3D /* ObjectViewController.m */,
+				D060467B17B8095400FDBE3D /* ObjectViewController.xib */,
+				D060467C17B8095400FDBE3D /* S3AsyncViewController.h */,
+				D060467D17B8095400FDBE3D /* S3AsyncViewController.m */,
+				D060467E17B8095400FDBE3D /* S3AsyncViewController.xib */,
+				D060467F17B8095400FDBE3D /* S3NSOperationDemoView.xib */,
+				D060468017B8095400FDBE3D /* S3NSOperationDemoViewController.h */,
+				D060468117B8095400FDBE3D /* S3NSOperationDemoViewController.m */,
+				D060468217B8095400FDBE3D /* S3ResponseHandler.h */,
+				D060468317B8095400FDBE3D /* S3ResponseHandler.m */,
 			);
 			name = S3;
 			sourceTree = "<group>";
@@ -244,17 +244,17 @@
 		CE65E889160BA604000F1A54 /* SDB */ = {
 			isa = PBXGroup;
 			children = (
-				CE65E801160B969E000F1A54 /* DomainList.h */,
-				CE65E802160B969E000F1A54 /* DomainList.m */,
-				CE65E803160B969E000F1A54 /* ItemListing.h */,
-				CE65E804160B969E000F1A54 /* ItemListing.m */,
-				CE65E805160B969E000F1A54 /* ItemViewController.h */,
-				CE65E806160B969E000F1A54 /* ItemViewController.m */,
-				CE65E807160B969E000F1A54 /* SdbAsyncViewController.h */,
-				CE65E808160B969E000F1A54 /* SdbAsyncViewController.m */,
-				CE65E809160B969E000F1A54 /* SdbAsyncViewController.xib */,
-				CE65E80A160B969E000F1A54 /* SdbRequestDelegate.h */,
-				CE65E80B160B969E000F1A54 /* SdbRequestDelegate.m */,
+				D060469417B8097C00FDBE3D /* DomainList.h */,
+				D060469517B8097C00FDBE3D /* DomainList.m */,
+				D060469617B8097C00FDBE3D /* ItemListing.h */,
+				D060469717B8097C00FDBE3D /* ItemListing.m */,
+				D060469817B8097C00FDBE3D /* ItemViewController.h */,
+				D060469917B8097C00FDBE3D /* ItemViewController.m */,
+				D060469A17B8097C00FDBE3D /* SdbAsyncViewController.h */,
+				D060469B17B8097C00FDBE3D /* SdbAsyncViewController.m */,
+				D060469C17B8097C00FDBE3D /* SdbAsyncViewController.xib */,
+				D060469D17B8097C00FDBE3D /* SdbRequestDelegate.h */,
+				D060469E17B8097C00FDBE3D /* SdbRequestDelegate.m */,
 			);
 			name = SDB;
 			sourceTree = "<group>";
@@ -262,8 +262,8 @@
 		CE65E88A160BA620000F1A54 /* SNS */ = {
 			isa = PBXGroup;
 			children = (
-				CE65E812160B96D1000F1A54 /* TopicList.h */,
-				CE65E813160B96D1000F1A54 /* TopicList.m */,
+				D06046A517B8098600FDBE3D /* TopicList.h */,
+				D06046A617B8098600FDBE3D /* TopicList.m */,
 			);
 			name = SNS;
 			sourceTree = "<group>";
@@ -271,19 +271,19 @@
 		CE65E88B160BA625000F1A54 /* SQS */ = {
 			isa = PBXGroup;
 			children = (
-				CE65E815160B96E5000F1A54 /* AddQueue.h */,
-				CE65E816160B96E5000F1A54 /* AddQueue.m */,
-				CE65E817160B96E5000F1A54 /* AddQueue.xib */,
-				CE65E818160B96E5000F1A54 /* Message.h */,
-				CE65E819160B96E5000F1A54 /* Message.m */,
-				CE65E81A160B96E5000F1A54 /* Message.xib */,
-				CE65E81B160B96E5000F1A54 /* MessageList.h */,
-				CE65E81C160B96E5000F1A54 /* MessageList.m */,
-				CE65E81D160B96E5000F1A54 /* QueueList.h */,
-				CE65E81E160B96E5000F1A54 /* QueueList.m */,
-				CE65E81F160B96E5000F1A54 /* SendMessage.h */,
-				CE65E820160B96E5000F1A54 /* SendMessage.m */,
-				CE65E821160B96E5000F1A54 /* SendMessage.xib */,
+				D06046A817B8098F00FDBE3D /* AddQueue.h */,
+				D06046A917B8098F00FDBE3D /* AddQueue.m */,
+				D06046AA17B8098F00FDBE3D /* AddQueue.xib */,
+				D06046AB17B8098F00FDBE3D /* Message.h */,
+				D06046AC17B8098F00FDBE3D /* Message.m */,
+				D06046AD17B8098F00FDBE3D /* Message.xib */,
+				D06046AE17B8098F00FDBE3D /* MessageList.h */,
+				D06046AF17B8098F00FDBE3D /* MessageList.m */,
+				D06046B017B8098F00FDBE3D /* QueueList.h */,
+				D06046B117B8098F00FDBE3D /* QueueList.m */,
+				D06046B217B8098F00FDBE3D /* SendMessage.h */,
+				D06046B317B8098F00FDBE3D /* SendMessage.m */,
+				D06046B417B8098F00FDBE3D /* SendMessage.xib */,
 			);
 			name = SQS;
 			sourceTree = "<group>";
@@ -447,20 +447,20 @@
 			files = (
 				D00F7D4213E737B900C72263 /* InfoPlist.strings in Resources */,
 				D00F7D5113E737B900C72263 /* AWSiOSDemoTVMViewController.xib in Resources */,
-				CE65E810160B969E000F1A54 /* SdbAsyncViewController.xib in Resources */,
-				CE65E823160B96E5000F1A54 /* AddQueue.xib in Resources */,
-				CE65E825160B96E5000F1A54 /* Message.xib in Resources */,
-				CE65E829160B96E5000F1A54 /* SendMessage.xib in Resources */,
 				CE65E855160B9DEC000F1A54 /* Default-568h@2x.png in Resources */,
-				CE65E85B160BA10B000F1A54 /* image1.png in Resources */,
-				CE65E85C160BA10B000F1A54 /* image2.png in Resources */,
-				CE65E85D160BA10B000F1A54 /* image3.png in Resources */,
-				CE65E85E160BA10B000F1A54 /* temp.txt in Resources */,
-				CE65E879160BA4FF000F1A54 /* AddBucketViewController.xib in Resources */,
-				CE65E87B160BA4FF000F1A54 /* AddObjectViewController.xib in Resources */,
-				CE65E881160BA4FF000F1A54 /* ObjectViewController.xib in Resources */,
-				CE65E883160BA4FF000F1A54 /* S3AsyncViewController.xib in Resources */,
-				CE65E884160BA4FF000F1A54 /* S3NSOperationDemoView.xib in Resources */,
+				D060468517B8095400FDBE3D /* AddBucketViewController.xib in Resources */,
+				D060468717B8095400FDBE3D /* AddObjectViewController.xib in Resources */,
+				D060468D17B8095400FDBE3D /* ObjectViewController.xib in Resources */,
+				D060468F17B8095400FDBE3D /* S3AsyncViewController.xib in Resources */,
+				D060469017B8095400FDBE3D /* S3NSOperationDemoView.xib in Resources */,
+				D06046A317B8097C00FDBE3D /* SdbAsyncViewController.xib in Resources */,
+				D06046B617B8098F00FDBE3D /* AddQueue.xib in Resources */,
+				D06046B817B8098F00FDBE3D /* Message.xib in Resources */,
+				D06046BC17B8098F00FDBE3D /* SendMessage.xib in Resources */,
+				D06046C117B8099C00FDBE3D /* image1.png in Resources */,
+				D06046C217B8099C00FDBE3D /* image2.png in Resources */,
+				D06046C317B8099C00FDBE3D /* image3.png in Resources */,
+				D06046C417B8099C00FDBE3D /* temp.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -488,27 +488,27 @@
 				D02A9FBB13E762850007810F /* RequestDelegate.m in Sources */,
 				D02A9FBC13E762850007810F /* Response.m in Sources */,
 				D02A9FBD13E762850007810F /* ResponseHandler.m in Sources */,
-				CE65E80C160B969E000F1A54 /* DomainList.m in Sources */,
-				CE65E80D160B969E000F1A54 /* ItemListing.m in Sources */,
-				CE65E80E160B969E000F1A54 /* ItemViewController.m in Sources */,
-				CE65E80F160B969E000F1A54 /* SdbAsyncViewController.m in Sources */,
-				CE65E811160B969E000F1A54 /* SdbRequestDelegate.m in Sources */,
-				CE65E814160B96D1000F1A54 /* TopicList.m in Sources */,
-				CE65E822160B96E5000F1A54 /* AddQueue.m in Sources */,
-				CE65E824160B96E5000F1A54 /* Message.m in Sources */,
-				CE65E826160B96E5000F1A54 /* MessageList.m in Sources */,
-				CE65E827160B96E5000F1A54 /* QueueList.m in Sources */,
-				CE65E828160B96E5000F1A54 /* SendMessage.m in Sources */,
-				CE65E878160BA4FF000F1A54 /* AddBucketViewController.m in Sources */,
-				CE65E87A160BA4FF000F1A54 /* AddObjectViewController.m in Sources */,
-				CE65E87C160BA4FF000F1A54 /* AsyncImageDownloader.m in Sources */,
-				CE65E87D160BA4FF000F1A54 /* AsyncImageUploader.m in Sources */,
-				CE65E87E160BA4FF000F1A54 /* BucketList.m in Sources */,
-				CE65E87F160BA4FF000F1A54 /* ObjectListing.m in Sources */,
-				CE65E880160BA4FF000F1A54 /* ObjectViewController.m in Sources */,
-				CE65E882160BA4FF000F1A54 /* S3AsyncViewController.m in Sources */,
-				CE65E885160BA4FF000F1A54 /* S3NSOperationDemoViewController.m in Sources */,
-				CE65E886160BA4FF000F1A54 /* S3ResponseHandler.m in Sources */,
+				D060468417B8095400FDBE3D /* AddBucketViewController.m in Sources */,
+				D060468617B8095400FDBE3D /* AddObjectViewController.m in Sources */,
+				D060468817B8095400FDBE3D /* AsyncImageDownloader.m in Sources */,
+				D060468917B8095400FDBE3D /* AsyncImageUploader.m in Sources */,
+				D060468A17B8095400FDBE3D /* BucketList.m in Sources */,
+				D060468B17B8095400FDBE3D /* ObjectListing.m in Sources */,
+				D060468C17B8095400FDBE3D /* ObjectViewController.m in Sources */,
+				D060468E17B8095400FDBE3D /* S3AsyncViewController.m in Sources */,
+				D060469117B8095400FDBE3D /* S3NSOperationDemoViewController.m in Sources */,
+				D060469217B8095400FDBE3D /* S3ResponseHandler.m in Sources */,
+				D060469F17B8097C00FDBE3D /* DomainList.m in Sources */,
+				D06046A017B8097C00FDBE3D /* ItemListing.m in Sources */,
+				D06046A117B8097C00FDBE3D /* ItemViewController.m in Sources */,
+				D06046A217B8097C00FDBE3D /* SdbAsyncViewController.m in Sources */,
+				D06046A417B8097C00FDBE3D /* SdbRequestDelegate.m in Sources */,
+				D06046A717B8098600FDBE3D /* TopicList.m in Sources */,
+				D06046B517B8098F00FDBE3D /* AddQueue.m in Sources */,
+				D06046B717B8098F00FDBE3D /* Message.m in Sources */,
+				D06046B917B8098F00FDBE3D /* MessageList.m in Sources */,
+				D06046BA17B8098F00FDBE3D /* QueueList.m in Sources */,
+				D06046BB17B8098F00FDBE3D /* SendMessage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -574,9 +574,7 @@
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../../..\"",
 					"\"$(SRCROOT)\"",
-					"\"$(SRCROOT)/../..\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -596,9 +594,7 @@
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../../..\"",
 					"\"$(SRCROOT)\"",
-					"\"$(SRCROOT)/../..\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AWSiOSDemoTVM/AWSiOSDemoTVM-Prefix.pch";
