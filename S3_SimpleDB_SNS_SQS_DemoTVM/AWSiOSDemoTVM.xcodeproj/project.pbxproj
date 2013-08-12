@@ -7,11 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CE56927117062BD200322C51 /* AWSRuntime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE56926C17062BD200322C51 /* AWSRuntime.framework */; };
-		CE56927217062BD200322C51 /* AWSS3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE56926D17062BD200322C51 /* AWSS3.framework */; };
-		CE56927317062BD200322C51 /* AWSSimpleDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE56926E17062BD200322C51 /* AWSSimpleDB.framework */; };
-		CE56927417062BD200322C51 /* AWSSNS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE56926F17062BD200322C51 /* AWSSNS.framework */; };
-		CE56927517062BD200322C51 /* AWSSQS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE56927017062BD200322C51 /* AWSSQS.framework */; };
 		CE65E855160B9DEC000F1A54 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE65E854160B9DEC000F1A54 /* Default-568h@2x.png */; };
 		D00F7D3813E737B900C72263 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D00F7D3713E737B900C72263 /* UIKit.framework */; };
 		D00F7D3A13E737B900C72263 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D00F7D3913E737B900C72263 /* Foundation.framework */; };
@@ -73,11 +68,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		CE56926C17062BD200322C51 /* AWSRuntime.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSRuntime.framework; path = ../../AWSRuntime.framework; sourceTree = "<group>"; };
-		CE56926D17062BD200322C51 /* AWSS3.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSS3.framework; path = ../../AWSS3.framework; sourceTree = "<group>"; };
-		CE56926E17062BD200322C51 /* AWSSimpleDB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSSimpleDB.framework; path = ../../AWSSimpleDB.framework; sourceTree = "<group>"; };
-		CE56926F17062BD200322C51 /* AWSSNS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSSNS.framework; path = ../../AWSSNS.framework; sourceTree = "<group>"; };
-		CE56927017062BD200322C51 /* AWSSQS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSSQS.framework; path = ../../AWSSQS.framework; sourceTree = "<group>"; };
 		CE65E854160B9DEC000F1A54 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		D00F7D3313E737B900C72263 /* AWSiOSDemoTVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AWSiOSDemoTVM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D00F7D3713E737B900C72263 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -187,11 +177,6 @@
 				D00F7D3813E737B900C72263 /* UIKit.framework in Frameworks */,
 				D00F7D3A13E737B900C72263 /* Foundation.framework in Frameworks */,
 				D00F7D3C13E737B900C72263 /* CoreGraphics.framework in Frameworks */,
-				CE56927117062BD200322C51 /* AWSRuntime.framework in Frameworks */,
-				CE56927217062BD200322C51 /* AWSS3.framework in Frameworks */,
-				CE56927317062BD200322C51 /* AWSSimpleDB.framework in Frameworks */,
-				CE56927417062BD200322C51 /* AWSSNS.framework in Frameworks */,
-				CE56927517062BD200322C51 /* AWSSQS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,11 +293,6 @@
 		D00F7D3613E737B900C72263 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CE56926C17062BD200322C51 /* AWSRuntime.framework */,
-				CE56926D17062BD200322C51 /* AWSS3.framework */,
-				CE56926E17062BD200322C51 /* AWSSimpleDB.framework */,
-				CE56926F17062BD200322C51 /* AWSSNS.framework */,
-				CE56927017062BD200322C51 /* AWSSQS.framework */,
 				D0B7163613E7445B006220BB /* Security.framework */,
 				D00F7D3713E737B900C72263 /* UIKit.framework */,
 				D00F7D3913E737B900C72263 /* Foundation.framework */,
@@ -572,10 +552,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)\"",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AWSiOSDemoTVM/AWSiOSDemoTVM-Prefix.pch";
@@ -592,10 +569,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)\"",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AWSiOSDemoTVM/AWSiOSDemoTVM-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
