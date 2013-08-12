@@ -1,10 +1,8 @@
 <html>
 <body>
 <h2>Running the S3_SimpleDB_SNS_SQS_DemoTVMIdentity Sample</h2>
-<p>This sample demonstrates interaction with a Token Vending Machine where a username/password combination is required.
-The user is expected to register with the App first by connecting to  an external website.  In this sample the the website is a specific page on the 
-Token Vending Machine.  After registering, the user would be able to start the App by logging in.</p>
-<p>It is assumed that you were able to run the S3_SimpleDB_SNS_SQS_Demo sample and that you are currently running an Identity version of the TVM, token vending machine.</p>
+<p>This sample demonstrates interaction with a <a href="http://aws.amazon.com/articles/4611615499399490">Token Vending Machine</a> where a username/password combination is required.  The user is expected to register with the App first by connecting to  an external website.  In this sample the the website is a specific page on the Token Vending Machine.  After registering, the user would be able to start the App by logging in.</p>
+<p>It is assumed that you were able to run the S3_SimpleDB_SNS_SQS_Demo sample and that you are currently running an <a href="http://aws.amazon.com/code/7351543942956566">Identity</a> version of the TVM, token vending machine.</p>
 <ol>
   <li>Open the <code>aws-sdk-ios-samples/S3_SimpleDB_SNS_SQS_DemoTVMIdentity/AWSiOSDemoTVMIdentity.xcodeproj</code> project file in Xcode. </li>
   <li>Configure the sample with your Token Vending Machine settings:

@@ -1,10 +1,10 @@
 <html>
 <body>
 <h2>Running the S3_SimpleDB_SNS_SQS_DemoTVM Sample</h2>
-<p>This sample demonstrates interaction with the Token Vending Machine without requiring an identity from the user.</p>
-<p>It is assumed that you were able to run the S3_SimpleDB_SNS_SQS_Demo sample and that you are currently running the Anonymous version of the TVM, token vending machine.</p>
+<p>This sample demonstrates interaction with the <a href="http://aws.amazon.com/articles/4611615499399490">Token Vending Machine</a> without requiring an identity from the user.</p>
+<p>It is assumed that you were able to run the S3_SimpleDB_SNS_SQS_Demo sample and that you are currently running the <a href="http://aws.amazon.com/code/8872061742402990">Anonymous</a> version of the TVM, token vending machine.</p>
 <ol>
-  <li>Open the <code>aws-sdk-ios-samples//S3_SimpleDB_SNS_SQS_DemoTVM/AWSiOSDemoTVM.xcodeproj</code> project file in Xcode. </li>
+  <li>Open the <code>aws-sdk-ios-samples/S3_SimpleDB_SNS_SQS_DemoTVM/AWSiOSDemoTVM.xcodeproj</code> project file in Xcode. </li>
   <li>Configure the sample with your Token Vending Machine settings:
     <ol>
       <li>Open the <code>Constants.h</code> file. </li>
