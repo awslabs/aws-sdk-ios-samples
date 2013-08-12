@@ -12,6 +12,18 @@
       <li>Modify the <code>USE_SSL</code> to YES or NO based on whether your Token Vending Machine is running SSL or not.</li>
     </ol>
   </li>
+  <li>Add the AWS SDK for iOS Frameworks to the sample.
+  	<ol>In the Project Navigator, Right-Click on the Frameworks group.</ol>
+  	<ol>In the Menu select Add Files to "AWSiOSDemoTVM"</ol>
+  	<ol>Navigate to the location where you downloaded and expanded the AWS SDK for iOS.</ol>
+  	<ol>Select the follwing frameworks and click Add
+  		<ol>AWSRuntime.framework</ol>
+  		<ol>AWSS3.framework</ol>
+  		<ol>AWSSimpleDB.framework</ol>
+  		<ol>AWSSQS.framework</ol>
+  		<ol>AWSSNS.framework</ol>
+  	<ol>
+  </li>
   <li>Run the project.</li>
 </ol>
 </body>
