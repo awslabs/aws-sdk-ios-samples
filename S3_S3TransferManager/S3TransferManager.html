@@ -1,0 +1,192 @@
+<html>
+<head>
+    <title>S3 Transfer Manager Pause and Resume</title>
+    <style type="text/css">
+        table.sample {
+	        border-width: 2px;
+	        border-spacing: 5px;
+	        border-style: dashed;
+	        border-color: cornflowerblue;
+        }
+        table.sample td {
+	        padding: 5px;
+        }        
+        table.sample tr {
+	        padding: 5px;
+        }        
+    </style>    
+</head>
+<body style="padding: 10px">
+    <h1>Uploading, Downloading, Pausing and Resuming using the S3TransferManager for iOS</h1>
+    <p>
+    This article shows how to interact with <a href="http://aws.amazon.com/s3/">Amazon S3</a> 
+    using some of the new pause and resume features of the S3TransferManager. 
+    The S3TransferManager is a layer of abstraction on top of the Amazon S3 APIs which automatically 
+    switches to resumable multipart uploads when file sizes exceed 5MB. This article has 
+    sample code for the iOS platform which demonstrates how you can incorporate pause and resume functionality
+    into your app. The complete sample code and project files are hosted in GitHub 
+    which is linked at the end of this article.
+    </p>
+
+    <p>
+    To use the AWS SDK for iOS, you will need your AWS credentials, that is, 
+    your Access Key ID and Secret Access Key. If you haven't already signed up for 
+    <a href="http://aws.amazon.com/">Amazon Web Services</a>
+    (AWS), you will need to do that first to get your AWS credentials. You can sign up for AWS 
+    <a href="https://aws-portal.amazon.com/gp/aws/developer/registration/index.html">here</a>.    
+    <p>
+
+    <h2>Overview</h2>
+    <p>
+    There are several reasons you might want to pause uploads or downloads in a mobile app.
+    One might be you only want to transfer files while you are on a wifi network, another is
+    to enable the user to pause a transfer on demand.  S3TransferManager simplifies the pause and resume process
+    for you.  It does not handle connection timeouts or drops aside from a configurable number of retries, but it 
+    will surface those errors so you can retry from within your app.
+    </p>
+    Below are some screenshots from the sample app.  The upload screen allows you to upload 2 files, 1 which is &lt;4.8 MB 
+    to exercise the standard upload functionality and 1 which is 10 MB to exercise the multipart upload functionality which allows you to resume.
+    From the upload view you can pause, resume and cancel the uploads in progress.  The download screen downloads the 4.8 MB file you uploaded via the upload screen
+    and lets you pause, resume and cancel.
+    </p>
+    <p><img src="images/upload.png"/> <img src="images/download.png"/></p>
+    <h2>How it works</h2>
+    <p>Starting with <b>S3TransferManagerUploadViewController.m</b></p>
+    <p>
+    First you initialize your S3TransferManager by creating an S3 client with your credentials and endpoint.
+    You also set the delegate to a class that implements the AmazonServiceDelegate interface.
+    This allows you to react to callbacks when the transfer makes progress, completes or has an error.  You should
+    never embed your security credentials in your production apps.  Review the link at the end of this article
+    about Token Vending Machines for a more secure way of vending credentials to your app.
+    </p>
+    <pre>
+    // Initialize the S3 Client.
+    AmazonS3Client *s3 = [[AmazonS3Client alloc] initWithAccessKey:ACCESS_KEY_ID
+                                                          withSecretKey:SECRET_KEY];
+    s3.endpoint = [AmazonEndpoints s3Endpoint:US_WEST_2];
+        
+    // Initialize the S3TransferManager
+    self.tm = [S3TransferManager new];
+    self.tm.s3 = s3;
+    self.tm.delegate = self;
+    </pre>
+    </p>
+    <p>
+    Now you can use your S3TransferManager to upload a file
+    </p>
+    <pre>
+    self.uploadSmallFileOperation = [self.tm uploadFile:self.pathForSmallFile bucket: [Constants transferManagerBucket] key: kKeyForSmallFile];
+    </pre>
+    If you would like to pause an individual transfer you can do it like this
+    <pre>
+    [self.tm pause: self.uploadSmallFileOperation];
+    </pre>
+    Otherwise you use pauseAllTransfers to pause all uploads and downloads.
+    <pre>
+    [self.tm pauseAllTransfers];
+    </pre>
+    If you would like to cancel an individual transfer you can do it like this:
+    <pre>
+    [self.uploadSmallFileOperation cancel];
+    </pre>
+    Otherwise you use cancelAllTransfers to cancel all uploads and downloads.
+    <pre>
+    [self.tm cancelAllTransfers];
+    </pre>
+    Finally to resume a paused transfer on an individual file you do this. The handle to the paused
+    transfer is no longer valid on resume, so update it with the returned value.
+    <pre>
+    self.uploadSmallFileOperation = [self.tm resume self.uploadSmallFileOperation];
+    </pre>
+    Similarily to resume all uploads do this:
+    <pre>
+    NSArray *ops = [self.tm resumeUploads:self];
+    
+    // When you resume, the original handle to the S3TransferOperation
+    // is no longer valid.  Obtain the new handles
+    for (S3TransferOperation *op in ops) {
+        if ([op.putRequest.key isEqualToString:kKeyForBigFile]) {
+            self.uploadBigFileOperation = op;
+        }else if ([op.putRequest.key isEqualToString:kKeyForSmallFile]) {
+            self.uploadSmallFileOperation = op;
+        }
+    }
+    </pre>
+    <p>Examples on how to react to callbacks from the AmazonServiceDelegate are also found in this sample. Here we react to didSendData to update the progress textbox.</p>
+    <pre>
+    -(void)request:(AmazonServiceRequest *)request didSendData:(long long) bytesWritten totalBytesWritten:(long long)totalBytesWritten totalBytesExpectedToWrite:(long long)totalBytesExpectedToWrite
+    {
+       if([((S3PutObjectRequest *)request).key isEqualToString:kKeyForSmallFile]){
+           double percent = ((double)totalBytesWritten/(double)totalBytesExpectedToWrite)*100;
+           self.putObjectTextField.text = [NSString stringWithFormat:@"%.2f%%", percent];
+       }
+       else if([((S3PutObjectRequest *)request).key isEqualToString:kKeyForBigFile]) {
+           double percent = ((double)totalBytesWritten/(double)totalBytesExpectedToWrite)*100;
+           self.multipartObjectTextField.text = [NSString stringWithFormat:@"%.2f%%", percent];
+       }
+    }
+    </pre>
+    <p>Moving on to <b>S3TransferManagerDownloadViewController.m</b> After similar logic to initialize a S3TransferManager object, you can initiate a download like this:</p>
+    <pre>
+    NSString *filepath = [NSTemporaryDirectory() stringByAppendingPathComponent:@"download-tm-small-file.txt"];
+    self.downloadFileOperation = [self.tm downloadFile:filepath bucket:[Constants transferManagerBucket] key:kKeyForSmallFile];
+    </pre>
+    <p>Now if you would like to pause, you can do: </p>
+    <pre>
+    [self.tm pause: self.downloadFileOperation];
+    </pre>
+    <p>Or you can pauseAllTransfers</p>
+    <pre>
+    [self.tm pauseAllTransfers];
+    </pre>
+    To cancel, you can do:
+    <pre>
+    [self.tm cancel: self.downloadFileOperation];
+    </pre>
+    Or you can cancelAllTransfers
+    <pre>
+    [self.tm cancelAllTransfers];
+    </pre>
+    
+    Finally to resume a paused transfer on an individual file you do this. The handle to the paused
+    transfer is no longer valid on resume, so update it with the returned value.
+    <pre>
+    self.downloadFileOperation = [self.tm resume:self.downloadFileOperation requestDelegate:self];
+    </pre>
+ 
+    
+    <h2>Limitations</h2>
+    <p>There are some important limitations to keep in mind while using the new features of the S3TransferManager</p>
+    <ul>
+    <li>For uploads pause and resume only work if you use the uploadFile method or specify the filename on the putObjectRequest. They will not work if you use the NSData or NSInputStream uploads.  If all you have is NSData or NSInputStream, it is recommended to write the content to a temporary file first to take advantage of pause and resume.</li>
+    <li>For downloads you must specify the targetFilePath on the getObjectRequest or use the downloadFile method.  Pause and resume will not work if you use an NSOutputStream.</li>
+    <li>Resuming uploads will start from the beginning if the file you are uploading &lt;5MB. Resuming uploads will start from the last successfully uploaded 5MB part if the file is &gt;5MB.</li>
+    <li>Pause and resume stores a metadata file in the /tmp directory for your application.  If iOS cleans up that file you will not be able to resume.  Usually this means you won't be able to resume files if you pause for more than 3 days.</li>
+    <li>Integrity checks are done when downloading files that weren't uploaded using multipart uploads. By default, S3TransferManager uses multipart uploads for files >5MB. </li>
+    </ul>
+    
+    <h2>References</h2>
+    <p>The sample app requires the iOS mobile SDK to run. The download link can be found here:</p>
+
+    <ul>
+        <li><a href="http://aws.amazon.com/sdkforios">AWS SDK for iOS</a></li>
+    </ul>
+    
+    <p>The sample app is packaged with the AWS SDK iOS samples available on GitHub.  
+    Read the README for instructions on how to run it.</p>
+
+    <ul>
+        <li><a href="https://github.com/awslabs/aws-sdk-ios-samples/tree/master/S3_S3TransferManager ">AWS S3_S3TransferManager iOS Sample</a></li>
+    </ul>
+
+    <p>For more information about using AWS credentials with mobile applications see the following article:</p>
+    <ul>
+        <li><a href="http://aws.amazon.com/articles/4611615499399490">Authenticating Users of AWS Mobile Applications with a Token Vending Machine</a></li>    
+    </ul>
+    
+    <h2>Questions?</h2>
+    <p>Please feel free to ask questions or make comments in the <a href="https://forums.aws.amazon.com/forum.jspa?forumID=88">Mobile Development Forum</a>.</p>
+
+
+</body>
+</html>
