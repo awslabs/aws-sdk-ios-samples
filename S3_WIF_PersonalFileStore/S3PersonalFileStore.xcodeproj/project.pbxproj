@@ -1,0 +1,477 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3858E51416A8D34400DA7AD0 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3858E51316A8D34400DA7AD0 /* Default-568h@2x.png */; };
+		3858E55D16A9BEAC00DA7AD0 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3858E55C16A9BEAC00DA7AD0 /* SystemConfiguration.framework */; };
+		3863D33E17189EE00049D976 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3863D33D17189EE00049D976 /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		3863D34017189F2E0049D976 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3863D33F17189F2E0049D976 /* Accounts.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		3863D34217189F360049D976 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3863D34117189F360049D976 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		388625811739F88A00A038FF /* AmazonKeyChainWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3886257A1739F67700A038FF /* AmazonKeyChainWrapper.m */; };
+		D0184EF015A62F54008F0BE7 /* AddObjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0184EE815A62F54008F0BE7 /* AddObjectViewController.m */; };
+		D0184EF115A62F54008F0BE7 /* AddObjectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0184EE915A62F54008F0BE7 /* AddObjectViewController.xib */; };
+		D0184EF215A62F54008F0BE7 /* ObjectListing.m in Sources */ = {isa = PBXBuildFile; fileRef = D0184EEB15A62F54008F0BE7 /* ObjectListing.m */; };
+		D0184EF315A62F54008F0BE7 /* ObjectListing.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0184EEC15A62F54008F0BE7 /* ObjectListing.xib */; };
+		D0184EF415A62F54008F0BE7 /* ObjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0184EEE15A62F54008F0BE7 /* ObjectViewController.m */; };
+		D0184EF515A62F54008F0BE7 /* ObjectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0184EEF15A62F54008F0BE7 /* ObjectViewController.xib */; };
+		D02B6C5913E8783D000A4055 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D02B6C5813E8783D000A4055 /* UIKit.framework */; };
+		D02B6C5B13E8783D000A4055 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D02B6C5A13E8783D000A4055 /* Foundation.framework */; };
+		D02B6C5D13E8783D000A4055 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D02B6C5C13E8783D000A4055 /* CoreGraphics.framework */; };
+		D02B6C6313E8783D000A4055 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D02B6C6113E8783D000A4055 /* InfoPlist.strings */; };
+		D02B6C6613E8783D000A4055 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D02B6C6513E8783D000A4055 /* main.m */; };
+		D02B6C6913E8783D000A4055 /* S3PersonalFileStoreAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D02B6C6813E8783D000A4055 /* S3PersonalFileStoreAppDelegate.m */; };
+		D02B6C6C13E8783D000A4055 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D02B6C6A13E8783D000A4055 /* MainWindow.xib */; };
+		D02B6C6F13E8783D000A4055 /* S3PersonalFileStoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D02B6C6E13E8783D000A4055 /* S3PersonalFileStoreViewController.m */; };
+		D02B6C7213E8783D000A4055 /* S3PersonalFileStoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D02B6C7013E8783D000A4055 /* S3PersonalFileStoreViewController.xib */; };
+		D09583A713E878CF009E4171 /* AmazonClientManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D095836413E878CF009E4171 /* AmazonClientManager.m */; };
+		D09583AA13E878CF009E4171 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = D095836A13E878CF009E4171 /* Constants.m */; };
+		D09583AB13E878CF009E4171 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D095836C13E878CF009E4171 /* LoginViewController.m */; };
+		D09583AC13E878CF009E4171 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D095836D13E878CF009E4171 /* LoginViewController.xib */; };
+		D09583FF13E87DBF009E4171 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D09583FE13E87DBF009E4171 /* Security.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3858E51316A8D34400DA7AD0 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
+		3858E55C16A9BEAC00DA7AD0 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		3863D33D17189EE00049D976 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		3863D33F17189F2E0049D976 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		3863D34117189F360049D976 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		388625791739F67700A038FF /* AmazonKeyChainWrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AmazonKeyChainWrapper.h; sourceTree = "<group>"; };
+		3886257A1739F67700A038FF /* AmazonKeyChainWrapper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AmazonKeyChainWrapper.m; sourceTree = "<group>"; };
+		D0184EE715A62F54008F0BE7 /* AddObjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddObjectViewController.h; sourceTree = "<group>"; };
+		D0184EE815A62F54008F0BE7 /* AddObjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddObjectViewController.m; sourceTree = "<group>"; };
+		D0184EE915A62F54008F0BE7 /* AddObjectViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddObjectViewController.xib; sourceTree = "<group>"; };
+		D0184EEA15A62F54008F0BE7 /* ObjectListing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectListing.h; sourceTree = "<group>"; };
+		D0184EEB15A62F54008F0BE7 /* ObjectListing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectListing.m; sourceTree = "<group>"; };
+		D0184EEC15A62F54008F0BE7 /* ObjectListing.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ObjectListing.xib; sourceTree = "<group>"; };
+		D0184EED15A62F54008F0BE7 /* ObjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectViewController.h; sourceTree = "<group>"; };
+		D0184EEE15A62F54008F0BE7 /* ObjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectViewController.m; sourceTree = "<group>"; };
+		D0184EEF15A62F54008F0BE7 /* ObjectViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ObjectViewController.xib; sourceTree = "<group>"; };
+		D02B6C5413E8783D000A4055 /* S3PersonalFileStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = S3PersonalFileStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D02B6C5813E8783D000A4055 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		D02B6C5A13E8783D000A4055 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D02B6C5C13E8783D000A4055 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D02B6C6013E8783D000A4055 /* S3PersonalFileStore-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "S3PersonalFileStore-Info.plist"; sourceTree = "<group>"; };
+		D02B6C6213E8783D000A4055 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D02B6C6413E8783D000A4055 /* S3PersonalFileStore-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "S3PersonalFileStore-Prefix.pch"; sourceTree = "<group>"; };
+		D02B6C6513E8783D000A4055 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D02B6C6713E8783D000A4055 /* S3PersonalFileStoreAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = S3PersonalFileStoreAppDelegate.h; sourceTree = "<group>"; };
+		D02B6C6813E8783D000A4055 /* S3PersonalFileStoreAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = S3PersonalFileStoreAppDelegate.m; sourceTree = "<group>"; };
+		D02B6C6B13E8783D000A4055 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		D02B6C6D13E8783D000A4055 /* S3PersonalFileStoreViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = S3PersonalFileStoreViewController.h; sourceTree = "<group>"; };
+		D02B6C6E13E8783D000A4055 /* S3PersonalFileStoreViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = S3PersonalFileStoreViewController.m; sourceTree = "<group>"; };
+		D02B6C7113E8783D000A4055 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/S3PersonalFileStoreViewController.xib; sourceTree = "<group>"; };
+		D095836313E878CF009E4171 /* AmazonClientManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmazonClientManager.h; sourceTree = "<group>"; };
+		D095836413E878CF009E4171 /* AmazonClientManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmazonClientManager.m; sourceTree = "<group>"; };
+		D095836913E878CF009E4171 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		D095836A13E878CF009E4171 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		D095836B13E878CF009E4171 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		D095836C13E878CF009E4171 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		D095836D13E878CF009E4171 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		D09583FE13E87DBF009E4171 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D02B6C5113E8783D000A4055 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3863D34217189F360049D976 /* Social.framework in Frameworks */,
+				3863D34017189F2E0049D976 /* Accounts.framework in Frameworks */,
+				3863D33E17189EE00049D976 /* AdSupport.framework in Frameworks */,
+				3858E55D16A9BEAC00DA7AD0 /* SystemConfiguration.framework in Frameworks */,
+				D09583FF13E87DBF009E4171 /* Security.framework in Frameworks */,
+				D02B6C5913E8783D000A4055 /* UIKit.framework in Frameworks */,
+				D02B6C5B13E8783D000A4055 /* Foundation.framework in Frameworks */,
+				D02B6C5D13E8783D000A4055 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D02B6C4913E8783D000A4055 = {
+			isa = PBXGroup;
+			children = (
+				D02B6C5E13E8783D000A4055 /* S3PersonalFileStore */,
+				D02B6C5713E8783D000A4055 /* Frameworks */,
+				D02B6C5513E8783D000A4055 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D02B6C5513E8783D000A4055 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D02B6C5413E8783D000A4055 /* S3PersonalFileStore.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D02B6C5713E8783D000A4055 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3863D34117189F360049D976 /* Social.framework */,
+				3863D33F17189F2E0049D976 /* Accounts.framework */,
+				3863D33D17189EE00049D976 /* AdSupport.framework */,
+				3858E55C16A9BEAC00DA7AD0 /* SystemConfiguration.framework */,
+				D09583FE13E87DBF009E4171 /* Security.framework */,
+				D02B6C5813E8783D000A4055 /* UIKit.framework */,
+				D02B6C5A13E8783D000A4055 /* Foundation.framework */,
+				D02B6C5C13E8783D000A4055 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D02B6C5E13E8783D000A4055 /* S3PersonalFileStore */ = {
+			isa = PBXGroup;
+			children = (
+				D095836213E878CF009E4171 /* Classes */,
+				D02B6C6713E8783D000A4055 /* S3PersonalFileStoreAppDelegate.h */,
+				D02B6C6813E8783D000A4055 /* S3PersonalFileStoreAppDelegate.m */,
+				D02B6C6A13E8783D000A4055 /* MainWindow.xib */,
+				D02B6C6D13E8783D000A4055 /* S3PersonalFileStoreViewController.h */,
+				D02B6C6E13E8783D000A4055 /* S3PersonalFileStoreViewController.m */,
+				D02B6C7013E8783D000A4055 /* S3PersonalFileStoreViewController.xib */,
+				D02B6C5F13E8783D000A4055 /* Supporting Files */,
+			);
+			path = S3PersonalFileStore;
+			sourceTree = "<group>";
+		};
+		D02B6C5F13E8783D000A4055 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3858E51316A8D34400DA7AD0 /* Default-568h@2x.png */,
+				D02B6C6013E8783D000A4055 /* S3PersonalFileStore-Info.plist */,
+				D02B6C6113E8783D000A4055 /* InfoPlist.strings */,
+				D02B6C6413E8783D000A4055 /* S3PersonalFileStore-Prefix.pch */,
+				D02B6C6513E8783D000A4055 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D095836213E878CF009E4171 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				388625791739F67700A038FF /* AmazonKeyChainWrapper.h */,
+				3886257A1739F67700A038FF /* AmazonKeyChainWrapper.m */,
+				D0184EE715A62F54008F0BE7 /* AddObjectViewController.h */,
+				D0184EE815A62F54008F0BE7 /* AddObjectViewController.m */,
+				D0184EE915A62F54008F0BE7 /* AddObjectViewController.xib */,
+				D0184EEA15A62F54008F0BE7 /* ObjectListing.h */,
+				D0184EEB15A62F54008F0BE7 /* ObjectListing.m */,
+				D0184EEC15A62F54008F0BE7 /* ObjectListing.xib */,
+				D0184EED15A62F54008F0BE7 /* ObjectViewController.h */,
+				D0184EEE15A62F54008F0BE7 /* ObjectViewController.m */,
+				D0184EEF15A62F54008F0BE7 /* ObjectViewController.xib */,
+				D095836313E878CF009E4171 /* AmazonClientManager.h */,
+				D095836413E878CF009E4171 /* AmazonClientManager.m */,
+				D095836913E878CF009E4171 /* Constants.h */,
+				D095836A13E878CF009E4171 /* Constants.m */,
+				D095836B13E878CF009E4171 /* LoginViewController.h */,
+				D095836C13E878CF009E4171 /* LoginViewController.m */,
+				D095836D13E878CF009E4171 /* LoginViewController.xib */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D02B6C5313E8783D000A4055 /* S3PersonalFileStore */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D02B6C7513E8783D000A4055 /* Build configuration list for PBXNativeTarget "S3PersonalFileStore" */;
+			buildPhases = (
+				D02B6C5013E8783D000A4055 /* Sources */,
+				D02B6C5113E8783D000A4055 /* Frameworks */,
+				D02B6C5213E8783D000A4055 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = S3PersonalFileStore;
+			productName = S3PersonalFileStore;
+			productReference = D02B6C5413E8783D000A4055 /* S3PersonalFileStore.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D02B6C4B13E8783D000A4055 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = D02B6C4E13E8783D000A4055 /* Build configuration list for PBXProject "S3PersonalFileStore" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				af,
+				am,
+				ar,
+				be,
+				bg,
+				ca,
+				cs,
+				da,
+				de,
+				de_AT,
+				de_CH,
+				el,
+				en_GB,
+				en_IE,
+				en_IN,
+				en_SG,
+				en_ZA,
+				es,
+				es_419,
+				es_AR,
+				es_BO,
+				es_CL,
+				es_CO,
+				es_CR,
+				es_DO,
+				es_EC,
+				es_GT,
+				es_HN,
+				es_MX,
+				es_NI,
+				es_PA,
+				es_PE,
+				es_PR,
+				es_PY,
+				es_SV,
+				es_US,
+				es_UY,
+				es_VE,
+				et,
+				fa,
+				fi,
+				fil,
+				fr,
+				fr_CH,
+				gsw,
+				he,
+				hi,
+				hr,
+				hu,
+				id,
+				in,
+				it,
+				iw,
+				ja,
+				ko,
+				ln,
+				lt,
+				lv,
+				mo,
+				ms,
+				nb,
+				nl,
+				no,
+				pl,
+				pt,
+				pt_BR,
+				pt_PT,
+				ro,
+				ru,
+				sk,
+				sl,
+				sr,
+				sv,
+				sw,
+				th,
+				tl,
+				tr,
+				uk,
+				vi,
+				zh,
+				zh_CN,
+				zh_HK,
+				zh_TW,
+				zu,
+			);
+			mainGroup = D02B6C4913E8783D000A4055;
+			productRefGroup = D02B6C5513E8783D000A4055 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D02B6C5313E8783D000A4055 /* S3PersonalFileStore */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D02B6C5213E8783D000A4055 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D02B6C6313E8783D000A4055 /* InfoPlist.strings in Resources */,
+				D02B6C6C13E8783D000A4055 /* MainWindow.xib in Resources */,
+				D02B6C7213E8783D000A4055 /* S3PersonalFileStoreViewController.xib in Resources */,
+				D09583AC13E878CF009E4171 /* LoginViewController.xib in Resources */,
+				D0184EF115A62F54008F0BE7 /* AddObjectViewController.xib in Resources */,
+				D0184EF315A62F54008F0BE7 /* ObjectListing.xib in Resources */,
+				D0184EF515A62F54008F0BE7 /* ObjectViewController.xib in Resources */,
+				3858E51416A8D34400DA7AD0 /* Default-568h@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D02B6C5013E8783D000A4055 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				388625811739F88A00A038FF /* AmazonKeyChainWrapper.m in Sources */,
+				D02B6C6613E8783D000A4055 /* main.m in Sources */,
+				D02B6C6913E8783D000A4055 /* S3PersonalFileStoreAppDelegate.m in Sources */,
+				D02B6C6F13E8783D000A4055 /* S3PersonalFileStoreViewController.m in Sources */,
+				D09583A713E878CF009E4171 /* AmazonClientManager.m in Sources */,
+				D09583AA13E878CF009E4171 /* Constants.m in Sources */,
+				D09583AB13E878CF009E4171 /* LoginViewController.m in Sources */,
+				D0184EF015A62F54008F0BE7 /* AddObjectViewController.m in Sources */,
+				D0184EF215A62F54008F0BE7 /* ObjectListing.m in Sources */,
+				D0184EF415A62F54008F0BE7 /* ObjectViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		D02B6C6113E8783D000A4055 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D02B6C6213E8783D000A4055 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		D02B6C6A13E8783D000A4055 /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D02B6C6B13E8783D000A4055 /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+		D02B6C7013E8783D000A4055 /* S3PersonalFileStoreViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D02B6C7113E8783D000A4055 /* en */,
+			);
+			name = S3PersonalFileStoreViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D02B6C7313E8783D000A4055 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		D02B6C7413E8783D000A4055 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+		D02B6C7613E8783D000A4055 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "S3PersonalFileStore/S3PersonalFileStore-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				INFOPLIST_FILE = "S3PersonalFileStore/S3PersonalFileStore-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = (
+					"-lsqlite3.0",
+					"-ObjC",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		D02B6C7713E8783D000A4055 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "S3PersonalFileStore/S3PersonalFileStore-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				INFOPLIST_FILE = "S3PersonalFileStore/S3PersonalFileStore-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = (
+					"-lsqlite3.0",
+					"-ObjC",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D02B6C4E13E8783D000A4055 /* Build configuration list for PBXProject "S3PersonalFileStore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D02B6C7313E8783D000A4055 /* Debug */,
+				D02B6C7413E8783D000A4055 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D02B6C7513E8783D000A4055 /* Build configuration list for PBXNativeTarget "S3PersonalFileStore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D02B6C7613E8783D000A4055 /* Debug */,
+				D02B6C7713E8783D000A4055 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D02B6C4B13E8783D000A4055 /* Project object */;
+}

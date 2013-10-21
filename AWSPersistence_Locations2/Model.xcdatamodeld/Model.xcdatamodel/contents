@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1171" systemVersion="11D50" minimumToolsVersion="Xcode 4.1" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Checkin" representedClassName="Checkin" syncable="YES">
+        <attribute name="checkinId" attributeType="String" syncable="YES"/>
+        <attribute name="checkinTime" attributeType="Date" syncable="YES"/>
+        <attribute name="comment" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="location" minCount="1" maxCount="1" deletionRule="Cascade" destinationEntity="Location" inverseName="checkins" inverseEntity="Location" syncable="YES"/>
+    </entity>
+    <entity name="Location" representedClassName="Location" syncable="YES">
+        <attribute name="lat" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="lng" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="locationId" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="checkins" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Checkin" inverseName="location" inverseEntity="Checkin" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Checkin" positionX="63" positionY="84" width="128" height="105"/>
+        <element name="Location" positionX="358" positionY="72" width="128" height="120"/>
+    </elements>
+</model>
