@@ -13,6 +13,11 @@ Please refer to README file in each folder for more specific instructions.
       + DynamoDB
       + Security Token Service
 
+#### [S3_S3TransferManager](S3_S3TransferManager/README.md)
+* This is a sample mobile application that demonstrates how to upload/download/pause/resume/cancel using the S3TransferManager for S3.
+    * AWS Services involved:
+      + Simple Storage (S3)
+
 #### [S3_SimpleDB_SNS_SQS_Demo](S3_SimpleDB_SNS_SQS_Demo/README.md)
 * This is a sample mobile application that demonstrates how to make requests to AWS using the iOS SDK.
     * AWS Services involved:
@@ -22,7 +27,7 @@ Please refer to README file in each folder for more specific instructions.
       + Simple Notification Service (SNS)
 
 #### [S3_SimpleDB_SNS_SQS_DemoTVM](S3_SimpleDB_SNS_SQS_DemoTVM/README.md)
-* This is a sample mobile application demonstrates interaction with the Token Vending Machine without requiring an identity from the user.
+* This is a sample mobile application that demonstrates interaction with the Token Vending Machine without requiring an identity from the user.
     * AWS Services involved:
       + Simple Storage (S3)
       + SimpleDB
@@ -31,7 +36,7 @@ Please refer to README file in each folder for more specific instructions.
       + Token Vending Machine (Anonymous version)
 
 #### [S3_SimpleDB_SNS_SQS_DemoTVMIdentity](S3_SimpleDB_SNS_SQS_DemoTVMIdentity/README.md)
-* This is a sample mobile application demonstrates interaction with a Token Vending Machine where a username/password combination is required.
+* This is a sample mobile application that demonstrates interaction with a Token Vending Machine where a username/password combination is required.
     * AWS Services involved:
       + Simple Storage (S3)
       + SimpleDB
@@ -51,7 +56,7 @@ Please refer to README file in each folder for more specific instructions.
       + Security Token Service
 
 #### [SES_FeedbackForm](SES_FeedbackForm/README.md)
-* This is a sample mobile application demonstrates how to use Amazon SES to record user feedback using the AWS iOS SDK.
+* This is a sample mobile application that demonstrates how to use Amazon SES to record user feedback using the AWS iOS SDK.
     * AWS Services involved:
       + Simple Storage (S3)
       + Simple Email Service (SES)
