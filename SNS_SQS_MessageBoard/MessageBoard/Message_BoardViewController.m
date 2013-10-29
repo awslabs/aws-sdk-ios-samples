@@ -29,6 +29,8 @@
     
     if ( [ACCESS_KEY_ID isEqualToString:@"CHANGE ME"]) {
         [[Constants credentialsAlert] show];
+    } else {
+         [MessageBoard instance];
     }
     
     self.title = @"Message Board";

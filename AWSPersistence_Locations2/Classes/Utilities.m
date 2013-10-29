@@ -29,8 +29,10 @@
 {
     // verify that TVM has been updated
     if ([TOKEN_VENDING_MACHINE_URL isEqualToString:@"CHANGEME.elasticbeanstalk.com"] || ([AmazonClientManager ddb] == nil) ) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Credentials" message:CREDENTIALS_ALERT_MESSAGE delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [alert show];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Credentials" message:CREDENTIALS_ALERT_MESSAGE delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
+        });
         return NO;
     }
 

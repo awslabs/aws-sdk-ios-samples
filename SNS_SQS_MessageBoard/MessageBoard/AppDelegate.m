@@ -28,11 +28,12 @@
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
 
     // Override point for customization after application launch.
-    [MessageBoard instance]; // Initialized here to more quickly be available when the app is running.
 
     Message_BoardViewController *boardViewController = [Message_BoardViewController new];
     UINavigationController *navigationController = [UINavigationController new];
-    navigationController.navigationBar.barStyle = UIBarStyleBlack;
+    
+    navigationController.navigationBar.translucent = NO;
+    
     [navigationController pushViewController:boardViewController animated:NO];
     [boardViewController release];
 

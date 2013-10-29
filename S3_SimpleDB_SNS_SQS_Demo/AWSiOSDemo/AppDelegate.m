@@ -31,6 +31,7 @@
     _viewController = [[AWSiOSDemoViewController alloc] initWithNibName:@"AWSiOSDemoViewController" bundle:nil];
     [container pushViewController:self.viewController animated:NO];
 
+    container.navigationBar.translucent = NO;
     self.window.rootViewController = container;
     [container release];
 

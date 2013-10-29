@@ -66,6 +66,7 @@
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
 
     self.navigationController      = [[[UINavigationController alloc] init] autorelease];
+    self.navigationController.navigationBar.translucent = NO;
     self.window.rootViewController = self.navigationController;
 
     WelcomeViewController *welcome_view = [[WelcomeViewController alloc] initWithNibName:@"WelcomeView" bundle:nil];

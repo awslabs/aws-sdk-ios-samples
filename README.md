@@ -1,7 +1,7 @@
 aws-sdk-ios-samples
 ===================
 
-This repository has samples that demonstrate various aspects of the AWS SDK for iOS, get the [source on Github](https://github.com/aws/aws-sdk-ios).
+This repository has samples that demonstrate various aspects of the AWS SDK for iOS, get the [source on Github](https://github.com/aws/aws-sdk-ios) or download the binary release from our [website](http://aws.amazon.com/sdkforios/).
 
 Please refer to README file in each folder for more specific instructions.
 

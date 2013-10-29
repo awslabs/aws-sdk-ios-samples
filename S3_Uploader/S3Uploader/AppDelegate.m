@@ -26,7 +26,7 @@
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     
     UINavigationController *container = [UINavigationController new];
-    container.navigationBar.translucent = YES;
+    container.navigationBar.translucent = NO;
     
     S3UploaderViewController *s3Uploader = [S3UploaderViewController new];
     [container pushViewController:s3Uploader animated:NO];

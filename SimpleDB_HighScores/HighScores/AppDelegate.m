@@ -28,13 +28,14 @@
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     
     UINavigationController *container = [UINavigationController new];
-    container.navigationBar.barStyle = UIBarStyleBlack;
+    
+    container.navigationBar.translucent = NO;
 
     _viewController = [[HighScoresViewController alloc] initWithNibName:@"HighScoresViewController" bundle:nil];
 
     [container pushViewController:self.viewController animated:NO];
 
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackOpaque];
+    
     
     // Logging Control - Do NOT use logging for non-development builds.
 #ifdef DEBUG

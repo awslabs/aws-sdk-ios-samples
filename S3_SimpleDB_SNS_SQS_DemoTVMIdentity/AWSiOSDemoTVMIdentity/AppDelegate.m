@@ -28,6 +28,7 @@
     _window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
     UINavigationController *container = [UINavigationController new];
+    container.navigationBar.translucent = NO;
     AWSiOSDemoTVMIdentityViewController *viewController = [[AWSiOSDemoTVMIdentityViewController alloc] initWithNibName:@"AWSiOSDemoTVMIdentityViewController" bundle:nil];
     [container pushViewController:viewController animated:NO];
     [viewController release];

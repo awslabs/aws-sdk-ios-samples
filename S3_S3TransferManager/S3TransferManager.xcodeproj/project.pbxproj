@@ -289,9 +289,7 @@
 		4AD20C3617AC22E80073DC55 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "S3TransferManager/S3TransferManager-Prefix.pch";
 				INFOPLIST_FILE = "S3TransferManager/S3TransferManager-Info.plist";
@@ -305,9 +303,7 @@
 		4AD20C3717AC22E80073DC55 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "S3TransferManager/S3TransferManager-Prefix.pch";
 				INFOPLIST_FILE = "S3TransferManager/S3TransferManager-Info.plist";

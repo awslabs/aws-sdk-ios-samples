@@ -39,6 +39,7 @@
     [signInButton addTarget:self
                      action:@selector(Glogin:)
            forControlEvents:(UIControlEvents)UIControlEventTouchDown];
+    [signInButton setBackgroundColor:[UIColor colorWithRed:242.0/255 green:242.0/255 blue:242.0/255 alpha:1.0]];
     [self.view addSubview:signInButton];
    
 #endif
