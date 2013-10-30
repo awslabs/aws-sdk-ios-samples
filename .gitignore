@@ -33,7 +33,7 @@ AWS*.framework
 
 Makefile
 Config
-
+pre-commit.sh
 
 */build/*
 *.pbxuser
