@@ -21,20 +21,28 @@
     AmazonSQSClient *sqsClient;
     NSString        *topicARN;
     NSString        *queueUrl;
+    
+    NSString        *endpointARN;
 }
 
 +(MessageBoard *)instance;
 
 -(id)init;
 -(NSString *)createTopic;
+-(bool)createApplicationEndpoint;
 -(void)deleteTopic;
 -(NSString *)findTopicArn;
+-(NSString *)findEndpointARN;
+-(bool)subscribeDevice;
 -(void)subscribeEmail:(NSString *)emailAddress;
 -(void)subscribeSms:(NSString *)smsNumber;
 -(void)post:(NSString *)theMessage;
+-(bool)pushToMobile:(NSString*)theMessage;
 -(NSMutableArray *)listSubscribers;
+-(NSMutableArray *)listEndpoints;
+-(void)updateEndpointAttributesWithendPointARN:(NSString *)endpointArn Attributes:(NSMutableDictionary *)attributeDic;
 -(void)removeSubscriber:(NSString *)subscriptionArn;
-
+-(void)removeEndpoint:(NSString *)endpointArn;
 -(NSString *)findQueueUrl;
 -(NSMutableArray *)getMessagesFromQueue;
 -(void)subscribeQueue;
@@ -45,4 +53,5 @@
 -(NSString *)generateSqsPolicyForTopic:(NSString *)queueArn;
 -(void)deleteMessageFromQueue:(SQSMessage *)message;
 
+-(void)changeVisibilityTimeoutForQueue:(NSString*)theQueueUrl toSeconds:(int)seconds;
 @end

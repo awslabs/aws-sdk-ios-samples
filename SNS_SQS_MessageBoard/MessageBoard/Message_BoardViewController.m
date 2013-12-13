@@ -19,7 +19,7 @@
 #import "MembersViewController.h"
 #import "MessageQueueController.h"
 #import "Constants.h"
-
+#import "MobilePushViewController.h"
 // Main View
 @implementation Message_BoardViewController
 
@@ -34,6 +34,36 @@
     }
     
     self.title = @"Message Board";
+}
+
+- (IBAction)subscribeDevice:(id)sender {
+    
+#if TARGET_IPHONE_SIMULATOR
+    [[Constants universalAlertsWithTitle:@"Unable to Subscribe Device" andMessage:@"Push notifications are not supported in the simulator."] show];
+    return;
+#endif
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(queue, ^{
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+        });
+        
+        if ([[MessageBoard instance] subscribeDevice]) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                [[Constants universalAlertsWithTitle:@"Subscription succeed" andMessage:nil] show];
+            });
+        }
+    
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        });
+    });
+
 }
 
 -(IBAction)subscribeEmail:(id)sender
@@ -125,6 +155,19 @@
             [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         });
     });
+}
+
+- (IBAction)snsMobilePushBtnPressed:(id)sender {
+    
+#if TARGET_IPHONE_SIMULATOR
+    [[Constants universalAlertsWithTitle:@"Ooops!" andMessage:@"Push notifications are not supported in the simulator."] show];
+    return;
+#endif
+    
+    MobilePushViewController *pushVC = [[[MobilePushViewController alloc] init] autorelease];
+    
+    [self.navigationController pushViewController:pushVC animated:YES];
+    
 }
 
 -(BOOL) textFieldShouldReturn:(UITextField *)textField

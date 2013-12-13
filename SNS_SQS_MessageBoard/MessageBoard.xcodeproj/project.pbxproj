@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BDC72AF6184FF82000DCFF0A /* MobilePushViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDC72AF4184FF82000DCFF0A /* MobilePushViewController.m */; };
+		BDC72AF7184FF82000DCFF0A /* MobilePushViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BDC72AF5184FF82000DCFF0A /* MobilePushViewController.xib */; };
+		BDC72AFA1851475900DCFF0A /* EndpointsListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDC72AF91851475900DCFF0A /* EndpointsListTableViewController.m */; };
 		CE79F3CF160D3D6D001BED1E /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE79F3CE160D3D6D001BED1E /* Default-568h@2x.png */; };
 		D03E18DC148CB91F00C122AC /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = D03E18C6148CB91F00C122AC /* Constants.m */; };
 		D03E18DD148CB91F00C122AC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D03E18C7148CB91F00C122AC /* InfoPlist.strings */; };
@@ -23,6 +26,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BDC72AF3184FF82000DCFF0A /* MobilePushViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobilePushViewController.h; sourceTree = "<group>"; };
+		BDC72AF4184FF82000DCFF0A /* MobilePushViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MobilePushViewController.m; sourceTree = "<group>"; };
+		BDC72AF5184FF82000DCFF0A /* MobilePushViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MobilePushViewController.xib; sourceTree = "<group>"; };
+		BDC72AF81851475900DCFF0A /* EndpointsListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EndpointsListTableViewController.h; sourceTree = "<group>"; };
+		BDC72AF91851475900DCFF0A /* EndpointsListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EndpointsListTableViewController.m; sourceTree = "<group>"; };
 		CE79F3CE160D3D6D001BED1E /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		D03E18C5148CB91F00C122AC /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		D03E18C6148CB91F00C122AC /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
@@ -85,10 +93,15 @@
 				D03E18D5148CB91F00C122AC /* Message_BoardViewController.h */,
 				D03E18D6148CB91F00C122AC /* Message_BoardViewController.m */,
 				D03E18CB148CB91F00C122AC /* Message_BoardViewController.xib */,
-				D03E18CE148CB91F00C122AC /* MembersViewController.h */,
-				D03E18CF148CB91F00C122AC /* MembersViewController.m */,
 				D03E18D9148CB91F00C122AC /* MessageQueueController.h */,
 				D03E18DA148CB91F00C122AC /* MessageQueueController.m */,
+				D03E18CE148CB91F00C122AC /* MembersViewController.h */,
+				D03E18CF148CB91F00C122AC /* MembersViewController.m */,
+				BDC72AF3184FF82000DCFF0A /* MobilePushViewController.h */,
+				BDC72AF4184FF82000DCFF0A /* MobilePushViewController.m */,
+				BDC72AF5184FF82000DCFF0A /* MobilePushViewController.xib */,
+				BDC72AF81851475900DCFF0A /* EndpointsListTableViewController.h */,
+				BDC72AF91851475900DCFF0A /* EndpointsListTableViewController.m */,
 				CE79F3CD160D3D4D001BED1E /* Supporting Files */,
 			);
 			name = "Message Board";
@@ -149,6 +162,11 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0420;
+				TargetAttributes = {
+					D05465781476DBDE00D74192 = {
+						DevelopmentTeam = W3DRXD72QU;
+					};
+				};
 			};
 			buildConfigurationList = D05465731476DBDE00D74192 /* Build configuration list for PBXProject "MessageBoard" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -172,6 +190,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDC72AF7184FF82000DCFF0A /* MobilePushViewController.xib in Resources */,
 				D03E18DD148CB91F00C122AC /* InfoPlist.strings in Resources */,
 				D03E18DF148CB91F00C122AC /* Message_BoardViewController.xib in Resources */,
 				CE79F3CF160D3D6D001BED1E /* Default-568h@2x.png in Resources */,
@@ -187,8 +206,10 @@
 			files = (
 				D03E18DC148CB91F00C122AC /* Constants.m in Sources */,
 				D03E18E0148CB91F00C122AC /* main.m in Sources */,
+				BDC72AFA1851475900DCFF0A /* EndpointsListTableViewController.m in Sources */,
 				D03E18E1148CB91F00C122AC /* MembersViewController.m in Sources */,
 				D03E18E4148CB91F00C122AC /* AppDelegate.m in Sources */,
+				BDC72AF6184FF82000DCFF0A /* MobilePushViewController.m in Sources */,
 				D03E18E5148CB91F00C122AC /* Message_BoardViewController.m in Sources */,
 				D03E18E6148CB91F00C122AC /* MessageBoard.m in Sources */,
 				D03E18E7148CB91F00C122AC /* MessageQueueController.m in Sources */,
@@ -253,6 +274,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -261,6 +284,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "MessageBoard/Message Board-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -269,6 +293,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -276,6 +302,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "MessageBoard/Message Board-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};

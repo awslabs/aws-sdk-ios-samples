@@ -13,28 +13,9 @@
  * permissions and limitations under the License.
  */
 
+#import <UIKit/UIKit.h>
 
-#import "MessageBoard.h"
+@interface EndpointsListTableViewController : UITableViewController
 
-// Main View
-@interface Message_BoardViewController:UIViewController {
-
-    IBOutlet UITextField *message;
-    IBOutlet UITextField *email;
-    IBOutlet UITextField *sms;
-
-    bool                 seenQueueMessage;
-}
-
-- (IBAction)subscribeDevice:(id)sender;
--(IBAction)subscribeEmail:(id)sender;
--(IBAction)subscribeSMS:(id)sender;
--(IBAction)viewMembers:(id)sender;
--(IBAction)viewQueue:(id)sender;
--(IBAction)post:(id)sender;
-- (IBAction)snsMobilePushBtnPressed:(id)sender;
-
--(void)animateTextField:(UITextField *)textField up:(BOOL)moveUp;
-
-
+@property (nonatomic, retain) NSMutableArray *endpointListsArray;
 @end

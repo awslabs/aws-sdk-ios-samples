@@ -70,7 +70,7 @@
 
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier] autorelease];
-        cell.textLabel.adjustsFontSizeToFitWidth = YES;
+        cell.textLabel.lineBreakMode = NSLineBreakByTruncatingHead;
     }
 
     // Configure the cell...

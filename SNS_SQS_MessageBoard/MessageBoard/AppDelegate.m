@@ -18,13 +18,52 @@
 #import "Message_BoardViewController.h"
 #import "MessageBoard.h"
 #import <AWSRuntime/AWSRuntime.h>
-
+#import "Constants.h"
 @implementation AppDelegate
 
 @synthesize window = _window;
 
+
+
+- (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken{
+    
+    //Convert deviceToken to String Type
+    const char* data = [deviceToken bytes];
+    NSMutableString* tokenString = [NSMutableString string];
+    for (int i = 0; i < [deviceToken length]; i++) {
+        [tokenString appendFormat:@"%02.2hhX", data[i]];
+    }
+    NSLog(@"deviceToken String: %@", tokenString);
+    
+    [[NSUserDefaults standardUserDefaults] setObject:tokenString forKey:@"myDeviceToken"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+}
+
+- (void)application:(UIApplication*)application didFailToRegisterForRemoteNotificationsWithError:(NSError*)error{
+	NSLog(@"Failed to register with error : %@", error);
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    application.applicationIconBadgeNumber = 0;
+    NSString *msg = [NSString stringWithFormat:@"%@", userInfo];
+    NSLog(@"%@",msg);
+    [[Constants universalAlertsWithTitle:@"Push Notification Received" andMessage:msg] show];
+}
+
+
 -(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    //Register for push notification
+    application.applicationIconBadgeNumber = 0;
+    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
+     (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
+    if(launchOptions!=nil){
+        NSString *msg = [NSString stringWithFormat:@"%@", launchOptions];
+        NSLog(@"%@",msg);
+        [[Constants universalAlertsWithTitle:@"Push Notification Received" andMessage:msg] show];
+    }
+    
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
 
     // Override point for customization after application launch.

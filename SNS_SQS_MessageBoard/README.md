@@ -16,4 +16,5 @@ For a more detailed description of the code, please visit this [online article](
 		*  AWSRuntime.framework
 		*  AWSSNS.framework
 		*  AWSSQS.framework
-4.  Run the project.
+4.	(Optional) Setup ""SNS Mobile Push" by following these [instructions](setupSNSMobilePush.md).
+5.  Run the project.

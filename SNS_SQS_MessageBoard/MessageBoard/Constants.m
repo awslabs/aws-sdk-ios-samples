@@ -38,4 +38,13 @@
     return [[[UIAlertView alloc] initWithTitle:@"Missing Credentials" message:CREDENTIALS_MESSAGE delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease];
 }
 
++(UIAlertView *)platformApplicationARNAlert
+{
+    return [[[UIAlertView alloc] initWithTitle:@"Missing PlatformApplicationARN" message:PLATFORM_APPLICATION_ARN_MESSAGE delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease];
+}
+
++(UIAlertView *)universalAlertsWithTitle:(NSString*)title andMessage:(NSString*)message {
+    return [[[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease];
+}
+
 @end

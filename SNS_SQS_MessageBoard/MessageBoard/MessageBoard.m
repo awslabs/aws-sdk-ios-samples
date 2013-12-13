@@ -45,10 +45,10 @@ static MessageBoard *_instance = nil;
     self = [super init];
     if (self != nil) {
         snsClient = [[AmazonSNSClient alloc] initWithAccessKey:ACCESS_KEY_ID withSecretKey:SECRET_KEY];
-        snsClient.endpoint = [AmazonEndpoints snsEndpoint:US_WEST_2];
+        snsClient.endpoint = [AmazonEndpoints snsEndpoint:US_EAST_1];
 
         sqsClient = [[AmazonSQSClient alloc] initWithAccessKey:ACCESS_KEY_ID withSecretKey:SECRET_KEY];
-        sqsClient.endpoint = [AmazonEndpoints sqsEndpoint:US_WEST_2];
+        sqsClient.endpoint = [AmazonEndpoints sqsEndpoint:US_EAST_1];
         
         // Find the Topic for this App or create one.
         topicARN = [[self findTopicArn] retain];
@@ -66,6 +66,10 @@ static MessageBoard *_instance = nil;
             
             [self subscribeQueue];
         }
+        
+        // Find endpointARN for this device if there is one.
+        endpointARN = [[self findEndpointARN] retain];
+        
     }
     
     return self;
@@ -91,6 +95,56 @@ static MessageBoard *_instance = nil;
     }
     
     return response.topicArn;
+}
+
+-(bool)createApplicationEndpoint{
+    
+    NSString *deviceToken = [[NSUserDefaults standardUserDefaults] stringForKey:@"myDeviceToken"];
+    if (!deviceToken) {
+        [[Constants universalAlertsWithTitle:@"deviceToken not found!" andMessage:@"Device may fail to register with Apple's Notification Service, please check debug window for details"] show];
+    }
+    
+    SNSCreatePlatformEndpointRequest *endpointReq = [[SNSCreatePlatformEndpointRequest alloc] init];
+    endpointReq.platformApplicationArn = PLATFORM_APPLICATION_ARN;
+    endpointReq.token = deviceToken;
+    
+    SNSCreatePlatformEndpointResponse *endpointResponse = [snsClient createPlatformEndpoint:endpointReq];
+    if (endpointResponse.error != nil) {
+        NSLog(@"Error: %@", endpointResponse.error);
+        [[Constants universalAlertsWithTitle:@"CreateApplicationEndpoint Error" andMessage:endpointResponse.error.userInfo.description] show];
+        return NO;
+    }
+    
+    endpointARN = endpointResponse.endpointArn;
+    [[NSUserDefaults standardUserDefaults] setObject:endpointResponse.endpointArn forKey:@"DEVICE_ENDPOINT"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    return YES;
+}
+
+-(bool)subscribeDevice {
+    if (endpointARN == nil) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            [[Constants universalAlertsWithTitle:@"endpointARN not found!" andMessage:@"Please create an endpoint for this device before subscribe to topic"] show];
+        });
+        return NO;
+    }
+    
+    SNSSubscribeRequest *sr = [[[SNSSubscribeRequest alloc] initWithTopicArn:topicARN andProtocol:@"application" andEndpoint:endpointARN] autorelease];
+    SNSSubscribeResponse *subscribeResponse = [snsClient subscribe:sr];
+    if(subscribeResponse.error != nil)
+    {
+        NSLog(@"Error: %@", subscribeResponse.error);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            [[Constants universalAlertsWithTitle:@"Subscription Error" andMessage:subscribeResponse.error.userInfo.description] show];
+        });
+        
+        return NO;
+    }
+    
+    return YES;
 }
 
 -(void)subscribeEmail:(NSString *)emailAddress
@@ -125,6 +179,28 @@ static MessageBoard *_instance = nil;
     }
 }
 
+-(NSMutableArray *)listEndpoints
+{
+    SNSListEndpointsByPlatformApplicationRequest *le = [[[SNSListEndpointsByPlatformApplicationRequest alloc] init] autorelease];
+    le.platformApplicationArn = PLATFORM_APPLICATION_ARN;
+    SNSListEndpointsByPlatformApplicationResponse *response = [snsClient listEndpointsByPlatformApplication:le];
+    if(response.error != nil)
+    {
+        NSLog(@"Error: %@", response.error);
+        return [NSMutableArray array];
+    }
+    
+    /*
+     The results for ListEndpointsByPlatformApplication are paginated and return a limited list of endpoints, up to 100.
+     If additional records are available after the first page results, then a NextToken string will be returned. 
+     To receive the next page, you call ListEndpointsByPlatformApplication again using the NextToken string received from the previous call. 
+     When there are no more records to return, NextToken will be null. 
+     For more information, see http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html
+    */
+    
+    return response.endpoints;
+}
+
 -(NSMutableArray *)listSubscribers
 {
     SNSListSubscriptionsByTopicRequest  *ls       = [[[SNSListSubscriptionsByTopicRequest alloc] initWithTopicArn:topicARN] autorelease];
@@ -132,12 +208,32 @@ static MessageBoard *_instance = nil;
     if(response.error != nil)
     {
         NSLog(@"Error: %@", response.error);
-        return [NSArray array];
+        return [NSMutableArray array];
     }
     
     return response.subscriptions;
 }
 
+// update attributes for an endpoint
+-(void)updateEndpointAttributesWithendPointARN:(NSString *)endpointArn Attributes:(NSMutableDictionary *)attributeDic {
+    SNSSetEndpointAttributesRequest *req = [[[SNSSetEndpointAttributesRequest alloc] init] autorelease];
+    req.endpointArn = endpointArn;
+    req.attributes = attributeDic;
+    SNSSetEndpointAttributesResponse *response = [snsClient setEndpointAttributes:req];
+    if (response.error != nil) {
+        NSLog(@"Error: %@", response.error);
+    }
+    
+}
+// remove an endpoint from endpoints list
+-(void)removeEndpoint:(NSString *)endpointArn {
+    SNSDeleteEndpointRequest *deleteEndpointReq = [[[SNSDeleteEndpointRequest alloc] init] autorelease];
+    deleteEndpointReq.endpointArn = endpointArn;
+    SNSDeleteEndpointResponse *response = [snsClient deleteEndpoint:deleteEndpointReq];
+    if (response.error != nil) {
+        NSLog(@"Error: %@", response.error);
+    }
+}
 // Unscribe an endpoint from the topic.
 -(void)removeSubscriber:(NSString *)subscriptionArn
 {
@@ -147,6 +243,27 @@ static MessageBoard *_instance = nil;
     {
         NSLog(@"Error: %@", unsubscribeResponse.error);
     }
+}
+
+//Push a message to Mobile Device
+-(bool)pushToMobile:(NSString*)theMessage
+{
+    SNSPublishRequest *pr = [[SNSPublishRequest alloc] init];
+    pr.targetArn = endpointARN;
+    pr.message = theMessage;
+    
+    SNSPublishResponse *publishResponse = [snsClient publish:pr];
+    if(publishResponse.error != nil)
+    {
+        NSLog(@"Error: %@", publishResponse.error);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            [[Constants universalAlertsWithTitle:@"Push to Mobile Error" andMessage:publishResponse.error.userInfo.description] show];
+        });
+        
+        return NO;
+    }
+    return YES;
 }
 
 // Post a notification to the topic.
@@ -198,6 +315,7 @@ static MessageBoard *_instance = nil;
     
     NSString *queueArn = [self getQueueArn:response.queueUrl];
     [self addPolicyToQueueForTopic:response.queueUrl queueArn:queueArn];
+    [self changeVisibilityTimeoutForQueue:response.queueUrl toSeconds:30]; //Default is 30, can have range between 0 - 43200 seconds
     
     return response.queueUrl;
 }
@@ -206,7 +324,7 @@ static MessageBoard *_instance = nil;
 {
     SQSReceiveMessageRequest *rmr = [[[SQSReceiveMessageRequest alloc] initWithQueueUrl:queueUrl] autorelease];
     rmr.maxNumberOfMessages = [NSNumber numberWithInt:10];
-    rmr.visibilityTimeout   = [NSNumber numberWithInt:50];
+    rmr.visibilityTimeout   = [NSNumber numberWithInt:10];
     
     SQSReceiveMessageResponse *response    = nil;
     NSMutableArray *allMessages = [NSMutableArray array];
@@ -215,7 +333,7 @@ static MessageBoard *_instance = nil;
         if(response.error != nil)
         {
             NSLog(@"Error: %@", response.error);
-            return [NSArray array];
+            return [NSMutableArray array];
         }
         
         [allMessages addObjectsFromArray:response.messages];
@@ -251,6 +369,23 @@ static MessageBoard *_instance = nil;
     
     return [response.attributes valueForKey:@"QueueArn"];
 }
+
+// Change Visibility Timeout for a queue.
+// For more details about Visibility timeout, please visit
+// http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html
+-(void)changeVisibilityTimeoutForQueue:(NSString*)theQueueUrl toSeconds:(int)seconds{
+    NSMutableDictionary *attributes = [NSMutableDictionary dictionary];
+    [attributes setValue:[NSNumber numberWithInt:seconds] forKey:@"VisibilityTimeout"];
+    
+    SQSSetQueueAttributesRequest *request = [[[SQSSetQueueAttributesRequest alloc] initWithQueueUrl:theQueueUrl andAttributes:attributes] autorelease];
+    SQSSetQueueAttributesResponse *setQueueAttributesResponse = [sqsClient setQueueAttributes:request];
+    if(setQueueAttributesResponse.error != nil)
+    {
+        NSLog(@"Error: %@", setQueueAttributesResponse.error);
+    }
+    // It can take some time for policy to propagate to the queue.
+}
+
 
 // Add a policy to a specific queue by setting the queue's Policy attribute.
 // Assigning a policy to the queue is necessary as described in Amazon SNS' FAQ:
@@ -342,6 +477,16 @@ static MessageBoard *_instance = nil;
     return nil;
 }
 
+-(NSString *)findEndpointARN
+{
+    if (endpointARN != nil) {
+        return endpointARN;
+    }else {
+        NSString *storedEndpoint = [[NSUserDefaults standardUserDefaults] stringForKey:@"DEVICE_ENDPOINT"];
+        return storedEndpoint;
+    }
+    
+}
 -(void)dealloc
 {
     [topicARN release];
