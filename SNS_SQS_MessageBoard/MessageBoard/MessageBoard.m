@@ -320,14 +320,32 @@ static MessageBoard *_instance = nil;
     return response.queueUrl;
 }
 
+/*
+ * This method uses long polling technique for getting the messages from the queue.
+ * The visibility timeout is set to 30 seconds at the start.
+ * Once all the messages are received a batch operation is run to update the visibility timeout
+    of all the recieved messages to 0 seconds so that the messages are again visible.
+ * The batch operation to change visibility of multiple messages in a batch has a limit of 10 messages per request. In this code each request is restricted to 10 messages.
+ * Developers can also use the Result of the batch operation to get the list of failed messages. Please refer to API docs for more information.
+ * http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_ChangeMessageVisibilityBatch.html
+ */
 -(NSMutableArray *)getMessagesFromQueue
 {
     SQSReceiveMessageRequest *rmr = [[[SQSReceiveMessageRequest alloc] initWithQueueUrl:queueUrl] autorelease];
     rmr.maxNumberOfMessages = [NSNumber numberWithInt:10];
-    rmr.visibilityTimeout   = [NSNumber numberWithInt:10];
+    //The visibility timeout is set to 30 seconds for this operation
+    rmr.visibilityTimeout   = [NSNumber numberWithInt:30];
+    /* A long poll of 3 seconds helps us to fetch more than one message in each recveive message call, when there are not that many number of messages in the queue.
+     */
+    rmr.waitTimeSeconds = [NSNumber numberWithInt:3];
     
     SQSReceiveMessageResponse *response    = nil;
     NSMutableArray *allMessages = [NSMutableArray array];
+    SQSChangeMessageVisibilityBatchRequest *batchRequest = [[SQSChangeMessageVisibilityBatchRequest alloc] init];
+    batchRequest.queueUrl = queueUrl;
+    SQSChangeMessageVisibilityBatchRequestEntry *batchEntry;
+    NSMutableArray *batchRequestList = [NSMutableArray array];
+  
     do {
         response = [sqsClient receiveMessage:rmr];
         if(response.error != nil)
@@ -335,11 +353,33 @@ static MessageBoard *_instance = nil;
             NSLog(@"Error: %@", response.error);
             return [NSMutableArray array];
         }
-        
         [allMessages addObjectsFromArray:response.messages];
-        [NSThread sleepForTimeInterval:0.2];
     } while ( [response.messages count] != 0);
     
+    if([allMessages count] != 0)
+    {
+        int8_t counter = 0;
+        int16_t total = [allMessages count];
+        for (SQSMessage *message in allMessages)
+        {
+            batchEntry = [[SQSChangeMessageVisibilityBatchRequestEntry alloc] init];
+            batchEntry.idValue = [message messageId];
+            batchEntry.receiptHandle = [message receiptHandle];
+            batchEntry.visibilityTimeout = [NSNumber numberWithInt:0];
+            [batchRequestList addObject:batchEntry];
+            counter++;
+            total--;
+            if(counter == 10 || total == 0)
+            {
+                counter = 0;
+                batchRequest.entries = batchRequestList;
+                SQSChangeMessageVisibilityBatchResponse *batchResponse = nil;
+                batchResponse = [sqsClient changeMessageVisibilityBatch:batchRequest];
+                batchRequestList = [NSMutableArray array];
+            }
+        }
+        
+    }
     return allMessages;
 }
 

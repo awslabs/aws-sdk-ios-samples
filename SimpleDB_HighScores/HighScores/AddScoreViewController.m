@@ -44,6 +44,11 @@
 
         HighScore     *highScore     = [[[HighScore alloc] initWithPlayer:[player text] andScore:[[score text] intValue]] autorelease];
         HighScoreList *highScoreList = [[[HighScoreList alloc] init] autorelease];
+        
+        //Create the domain again, if the domain is present it will not create a duplicate.
+        //Code added to make sure if user adds a single score before populating the correctness of the app is maintained
+        [highScoreList createHighScoresDomain];
+                
         [highScoreList addHighScore:highScore];
 
         dispatch_async(dispatch_get_main_queue(), ^{

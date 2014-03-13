@@ -14,7 +14,21 @@ This _Amazon S3 Personal File Store_ sample is fully detailed in the [web identi
   4. Make sure to click **Get API Key Value** after creating your API key. This value is used in configuring the sample.  
 ![](images/Amazon_Get_iOS_API_Key.png)
 
-### 2. Create your role for web identity federation
+###2. Create the AWS Resources
+
+You can **automate** the creation of AWS Resources or create them **manually**. **Skip** to step 3 for creating the resources **manually**.
+
+[AWS CloudFormation](https://console.aws.amazon.com/cloudformation/home) can be used to **automate** the creation of the resources thus **skipping step 3**.
+
+This step assumes that you have already created a stack in [CloudFormation](console.aws.amazon.com/cloudformation) following the instructions in the [base README](README.md).
+
+1. If you specified the Amazon App Id at the time of stack creation you will already have the user role ARN needed in step 4. **Skip step 3** and **proceed** directly to **step 4**.
+
+2. Otherwise **Update Stack** using the [template](https://github.com/awslabs/aws-sdk-ios-samples/blob/master/S3_WIF_PersonalFileStore/WIFCloudFormationTemplate.json) and follow the [instructions](https://mobile.awsblog.com/post/Tx3ILZHIKNTQQ83/Simplify-Web-Identity-Federation-Setup-with-AWS-CloudFormation) to add a new Web Identity Federation provider to the stack. Using the Amazon App Id, you will get the user role ARN required in later steps. **Skip to step 4**. 
+
+### 3. Create your role for web identity federation
+
+**Skip to step 4 if you have already user role using the instructions in step 2.**
 
   1. Visit the [AWS Management Console](https://console.aws.amazon.com/iam/home) to create a **new** role.  
 ![](images/Create_New_Role.png)
@@ -64,7 +78,7 @@ This _Amazon S3 Personal File Store_ sample is fully detailed in the [web identi
   9. Select the Role and switch to the **Summary** tab. Take note of the **Role ARN**; you'll use it in configuring the sample.  
 ![](images/Amazon_Role_ARN.png)
 
-### 3. Update sample configuration
+### 4. Update sample configuration
 
   1. Open the `S3PersonalFileStore.xcodeproj` in Xcode.
   2. Update Constants.h to enable Amazon login and with your role ARN: 
@@ -78,7 +92,7 @@ This _Amazon S3 Personal File Store_ sample is fully detailed in the [web identi
   4. Enter just your Amazon API key under **APIKey** in **Custom iOS Target Properties**  
 ![](images/Amazon_Update_iOS_Project_Settings.png)
 
-### 4. Run the sample
+### 5. Run the sample
 
 Run the sample on your simulator or device.
 

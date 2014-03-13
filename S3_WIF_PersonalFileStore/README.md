@@ -13,11 +13,22 @@ This _Amazon S3 Personal File Store_ sample is fully detailed in the [web identi
 5.  Enter the following as your **Bundle ID**: `com.amazon.aws.demo.s3personalfilestore.S3PersonalFileStore`.
     ![](images/iOS_Bundle_ID.png)
 
-### 2. Create an Amazon S3 bucket to use for the sample.
+###2. Create the AWS Resources
+
+You can **automate** the creation of AWS Resources or create them **manually**. **Skip** to step 3 for creating the resources **manually**.
+
+[AWS CloudFormation](https://console.aws.amazon.com/cloudformation/home) can be used to **automate** the creation and deletion of the resources specified in steps 3 and 4. 
+
+1. Follow the [instructions](https://mobile.awsblog.com/post/Tx3ILZHIKNTQQ83/Simplify-Web-Identity-Federation-Setup-with-AWS-CloudFormation) on how to use [CloudFormation](https://console.aws.amazon.com/cloudformation/home) for Web Identity Federation setup for this app.
+2. Once the stack is created **succesfully** you will get the S3 Bucket Name and User Role ARN required in later steps. **Skip to step 5**.
+
+### 3. Create an Amazon S3 bucket to use for the sample.
+
+**Skip to step 5 if you have already created S3 bucket and user role using the instructions in step 2.**
 
 Using the [AWS Management Console](https://console.aws.amazon.com/s3/home), create a **new** Amazon S3 bucket for testing with this sample.  The name you choose for the bucket is necessary for a number of steps to follow.
 
-### 3. Create your Role for web identity federation
+### 4. Create your Role for web identity federation
 
 1.  Visit the [AWS Management Console](https://console.aws.amazon.com/iam/home) to create a **new** role.
     ![](images/Create_New_Role.png)
@@ -59,7 +70,7 @@ Using the [AWS Management Console](https://console.aws.amazon.com/s3/home), crea
 9.  Select the role and switch to the **Summary** tab. Take note of the **Role ARN**; you'll use it in configuring the sample.
     ![](images/FB_Role_ARN.png)
 
-### 4. Update sample configuration
+### 5. Update sample configuration
 
 1.  Open the `S3PersonalFileStore.xcodeproj` in Xcode.
 2.  Add the AWS SDK for iOS Frameworks to the sample.
@@ -85,7 +96,7 @@ Using the [AWS Management Console](https://console.aws.amazon.com/s3/home), crea
 
     ![](images/Update_iOS_Project_Settings.png)
 
-### 5. Run the sample
+### 6. Run the sample
 
 1.  Run the sample on your simulator or device.
 2.  You may want to install the Facebook application on your device to see the native login experience.

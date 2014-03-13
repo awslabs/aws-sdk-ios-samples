@@ -25,16 +25,17 @@
 // http://aws.amazon.com/articles/1231
 // ========================================================
 
+//Modified the macros to use HIGH_SCORE_DOMAIN macro for all the queries
+
 #define HIGH_SCORE_DOMAIN    @"HighScores"
 
 #define PLAYER_ATTRIBUTE     @"player"
 #define SCORE_ATTRIBUTE      @"score"
 
-#define COUNT_QUERY          @"select count(*) from HighScores"
-
-#define PLAYER_SORT_QUERY    @"select player, score from HighScores where player > '' order by player asc"
-#define SCORE_SORT_QUERY     @"select player, score from HighScores where score >= '0' order by score desc"
-#define NO_SORT_QUERY        @"select player, score from HighScores"
+#define COUNT_QUERY          [@"select count(*) from " stringByAppendingString: HIGH_SCORE_DOMAIN]
+#define PLAYER_SORT_QUERY    [@"select player, score from "  stringByAppendingString : [HIGH_SCORE_DOMAIN stringByAppendingString: @" where player > '' order by player asc"]]
+#define SCORE_SORT_QUERY     [@"select player, score from" stringByAppendingString: [HIGH_SCORE_DOMAIN stringByAppendingString: @"where score >= '0' order by score desc"]]
+#define NO_SORT_QUERY        [@"select player, score from " stringByAppendingString: HIGH_SCORE_DOMAIN]
 
 
 /*

@@ -33,6 +33,12 @@
 		D09583AB13E878CF009E4171 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D095836C13E878CF009E4171 /* LoginViewController.m */; };
 		D09583AC13E878CF009E4171 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D095836D13E878CF009E4171 /* LoginViewController.xib */; };
 		D09583FF13E87DBF009E4171 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D09583FE13E87DBF009E4171 /* Security.framework */; };
+		FCB293D118BD5D5600662D35 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCB293D018BD5D5600662D35 /* AddressBook.framework */; };
+		FCB293D318BD5D5B00662D35 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCB293D218BD5D5B00662D35 /* AssetsLibrary.framework */; };
+		FCB293D518BD5D6800662D35 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCB293D418BD5D6800662D35 /* CoreLocation.framework */; };
+		FCB293D718BD5D6E00662D35 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCB293D618BD5D6E00662D35 /* CoreMotion.framework */; };
+		FCB293D918BD5D8200662D35 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCB293D818BD5D8200662D35 /* CoreText.framework */; };
+		FCB293DB18BD5D8900662D35 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCB293DA18BD5D8900662D35 /* MediaPlayer.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +80,12 @@
 		D095836C13E878CF009E4171 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		D095836D13E878CF009E4171 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		D09583FE13E87DBF009E4171 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		FCB293D018BD5D5600662D35 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		FCB293D218BD5D5B00662D35 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		FCB293D418BD5D6800662D35 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		FCB293D618BD5D6E00662D35 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		FCB293D818BD5D8200662D35 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		FCB293DA18BD5D8900662D35 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +93,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCB293DB18BD5D8900662D35 /* MediaPlayer.framework in Frameworks */,
+				FCB293D918BD5D8200662D35 /* CoreText.framework in Frameworks */,
+				D02B6C5D13E8783D000A4055 /* CoreGraphics.framework in Frameworks */,
+				FCB293D718BD5D6E00662D35 /* CoreMotion.framework in Frameworks */,
+				FCB293D518BD5D6800662D35 /* CoreLocation.framework in Frameworks */,
+				FCB293D318BD5D5B00662D35 /* AssetsLibrary.framework in Frameworks */,
+				FCB293D118BD5D5600662D35 /* AddressBook.framework in Frameworks */,
 				3863D34217189F360049D976 /* Social.framework in Frameworks */,
 				3863D34017189F2E0049D976 /* Accounts.framework in Frameworks */,
 				3863D33E17189EE00049D976 /* AdSupport.framework in Frameworks */,
@@ -88,7 +107,6 @@
 				D09583FF13E87DBF009E4171 /* Security.framework in Frameworks */,
 				D02B6C5913E8783D000A4055 /* UIKit.framework in Frameworks */,
 				D02B6C5B13E8783D000A4055 /* Foundation.framework in Frameworks */,
-				D02B6C5D13E8783D000A4055 /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,6 +133,12 @@
 		D02B6C5713E8783D000A4055 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FCB293DA18BD5D8900662D35 /* MediaPlayer.framework */,
+				FCB293D818BD5D8200662D35 /* CoreText.framework */,
+				FCB293D618BD5D6E00662D35 /* CoreMotion.framework */,
+				FCB293D418BD5D6800662D35 /* CoreLocation.framework */,
+				FCB293D218BD5D5B00662D35 /* AssetsLibrary.framework */,
+				FCB293D018BD5D5600662D35 /* AddressBook.framework */,
 				3863D34117189F360049D976 /* Social.framework */,
 				3863D33F17189F2E0049D976 /* Accounts.framework */,
 				3863D33D17189EE00049D976 /* AdSupport.framework */,
