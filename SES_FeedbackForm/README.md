@@ -7,7 +7,8 @@ For a more detailed description of the code, please visit this [online article](
 1.  Open the `FeedbackForm/FeedbackForm.xcodeproj` project file in Xcode.
 2.  Configure the sample with your AWS security credentials:
 	1.  Open the `Constants.h` file.
-	2.  Modify the `ACCESS_KEY` and `SECRET_KEY` definitions with your AWS Credentials.
+	2.  Modify the `ACCESS_KEY` and `SECRET_KEY` definitions with your AWS Credentials.  
+		**DO NOT EMBED YOUR CREDENTIALS IN PRODUCTION APPS.**
 	3.  (Verify your email address if you haven't done it before:)
 		*  Go to AWS SES Console
 		*  Click "Email Addresses" Under "Verified Senders" section on left of the screen.

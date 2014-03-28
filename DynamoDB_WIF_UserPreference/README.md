@@ -8,7 +8,8 @@ For a more detailed description of the code, please visit this [online article](
 2.  Configure the sample with your AWS security credentials or WIF:
 	1. If using AWS security credentials:
 		1.  Open the `Constants.h` file.
-		2.  Modify the `ACCESS_KEY` and `SECRET_KEY` definitions with your AWS Credentials.
+		2.  Modify the `ACCESS_KEY` and `SECRET_KEY` definitions with your AWS Credentials.  
+			**DO NOT EMBED YOUR CREDENTIALS IN PRODUCTION APPS.**
 	2. If using Web Identity Federation(WIF), see the [README](../S3_WIF_PersonalFileStore/README.md) file under `/S3_WIF_PersonalFileStore/`.
 3.  Add the AWS SDK for iOS Frameworks to the sample.
 	1.  In the Project Navigator, Right-Click on the Frameworks group.

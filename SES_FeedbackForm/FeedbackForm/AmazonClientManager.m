@@ -37,6 +37,16 @@ static AmazonSESClient *ses  = nil;
 
 +(void)validateCredentials
 {
+    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    // This sample App is for demonstration purposes only.
+    // It is not secure to embed your credentials into source code.
+    // DO NOT EMBED YOUR CREDENTIALS IN PRODUCTION APPS.
+    // We offer two solutions for getting credentials to your mobile App.
+    // Please read the following article to learn about Token Vending Machine:
+    // * http://aws.amazon.com/articles/Mobile/4611615499399490
+    // Or consider using web identity federation:
+    // * http://aws.amazon.com/articles/Mobile/4617974389850313
+    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     if (ses == nil) {
         [AmazonClientManager clearCredentials];
 
