@@ -1,0 +1,1 @@
+pod 'AWSiOSSDKv2'
