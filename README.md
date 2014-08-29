@@ -4,6 +4,13 @@ This repository contains sample apps that demonstrate various aspects of the AWS
 
 ## List of Samples
 
+* [Cognito Sync Sample](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/CognitoSyncDemo/)
+	This sample demonstrates how to securely manage and sync your mobile app data and create unique identifies via login providers like Amazon,Facebook and Google.
+	
+	**AWS Service Involved:**
+	* Amazon Cognito Sync
+
+
 * [DynamoDB Object Mapper Sample](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/DynamoDBSample)
 	This sample demonstrates how to insert / update / delete / query items using DynamoDB Object Mapper.
 	
