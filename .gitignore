@@ -51,6 +51,5 @@ profile
 DerivedData
 .idea/
 *.hmap
-DynamoDBSample/Pods
 Podfile.lock
-S3TransferManagerSample/Pods
+**/Pods
