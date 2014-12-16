@@ -1,0 +1,294 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CE1B8398161A16C100856E2F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE1B8397161A16C100856E2F /* Default-568h@2x.png */; };
+		D00F6B9E141FEA1800A058E8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D00F6B9D141FEA1800A058E8 /* UIKit.framework */; };
+		D00F6BA0141FEA1800A058E8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D00F6B9F141FEA1800A058E8 /* Foundation.framework */; };
+		D00F6BA2141FEA1800A058E8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D00F6BA1141FEA1800A058E8 /* CoreGraphics.framework */; };
+		D00F6BA8141FEA1800A058E8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D00F6BA6141FEA1800A058E8 /* InfoPlist.strings */; };
+		D00F6BAB141FEA1800A058E8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D00F6BAA141FEA1800A058E8 /* main.m */; };
+		D00F6BAE141FEA1800A058E8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D00F6BAD141FEA1800A058E8 /* AppDelegate.m */; };
+		D00F6BB4141FEA1800A058E8 /* S3UploaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D00F6BB3141FEA1800A058E8 /* S3UploaderViewController.m */; };
+		D00F6BB7141FEA1800A058E8 /* S3UploaderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D00F6BB5141FEA1800A058E8 /* S3UploaderViewController.xib */; };
+		D00F6BC8141FF06500A058E8 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = D00F6BC7141FF06400A058E8 /* Constants.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		CE1B8397161A16C100856E2F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		D00F6B99141FEA1800A058E8 /* S3Uploader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = S3Uploader.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D00F6B9D141FEA1800A058E8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		D00F6B9F141FEA1800A058E8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D00F6BA1141FEA1800A058E8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D00F6BA5141FEA1800A058E8 /* S3Uploader-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "S3Uploader-Info.plist"; sourceTree = "<group>"; };
+		D00F6BA7141FEA1800A058E8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D00F6BA9141FEA1800A058E8 /* S3Uploader-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "S3Uploader-Prefix.pch"; sourceTree = "<group>"; };
+		D00F6BAA141FEA1800A058E8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D00F6BAC141FEA1800A058E8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		D00F6BAD141FEA1800A058E8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		D00F6BB2141FEA1800A058E8 /* S3UploaderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = S3UploaderViewController.h; sourceTree = "<group>"; };
+		D00F6BB3141FEA1800A058E8 /* S3UploaderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = S3UploaderViewController.m; sourceTree = "<group>"; };
+		D00F6BB6141FEA1800A058E8 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/S3UploaderViewController.xib; sourceTree = "<group>"; };
+		D00F6BC5141FECC300A058E8 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		D00F6BC7141FF06400A058E8 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D00F6B96141FEA1800A058E8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D00F6B9E141FEA1800A058E8 /* UIKit.framework in Frameworks */,
+				D00F6BA0141FEA1800A058E8 /* Foundation.framework in Frameworks */,
+				D00F6BA2141FEA1800A058E8 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D00F6B8E141FEA1800A058E8 = {
+			isa = PBXGroup;
+			children = (
+				D00F6BA3141FEA1800A058E8 /* S3Uploader */,
+				D00F6B9C141FEA1800A058E8 /* Frameworks */,
+				D00F6B9A141FEA1800A058E8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D00F6B9A141FEA1800A058E8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D00F6B99141FEA1800A058E8 /* S3Uploader.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D00F6B9C141FEA1800A058E8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D00F6B9D141FEA1800A058E8 /* UIKit.framework */,
+				D00F6B9F141FEA1800A058E8 /* Foundation.framework */,
+				D00F6BA1141FEA1800A058E8 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D00F6BA3141FEA1800A058E8 /* S3Uploader */ = {
+			isa = PBXGroup;
+			children = (
+				D00F6BAC141FEA1800A058E8 /* AppDelegate.h */,
+				D00F6BAD141FEA1800A058E8 /* AppDelegate.m */,
+				D00F6BC5141FECC300A058E8 /* Constants.h */,
+				D00F6BC7141FF06400A058E8 /* Constants.m */,
+				D00F6BB5141FEA1800A058E8 /* S3UploaderViewController.xib */,
+				D00F6BB2141FEA1800A058E8 /* S3UploaderViewController.h */,
+				D00F6BB3141FEA1800A058E8 /* S3UploaderViewController.m */,
+				D00F6BA4141FEA1800A058E8 /* Supporting Files */,
+			);
+			path = S3Uploader;
+			sourceTree = "<group>";
+		};
+		D00F6BA4141FEA1800A058E8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CE1B8397161A16C100856E2F /* Default-568h@2x.png */,
+				D00F6BA5141FEA1800A058E8 /* S3Uploader-Info.plist */,
+				D00F6BA6141FEA1800A058E8 /* InfoPlist.strings */,
+				D00F6BA9141FEA1800A058E8 /* S3Uploader-Prefix.pch */,
+				D00F6BAA141FEA1800A058E8 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D00F6B98141FEA1800A058E8 /* S3Uploader */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D00F6BBA141FEA1800A058E8 /* Build configuration list for PBXNativeTarget "S3Uploader" */;
+			buildPhases = (
+				D00F6B95141FEA1800A058E8 /* Sources */,
+				D00F6B96141FEA1800A058E8 /* Frameworks */,
+				D00F6B97141FEA1800A058E8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = S3Uploader;
+			productName = S3Uploader;
+			productReference = D00F6B99141FEA1800A058E8 /* S3Uploader.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D00F6B90141FEA1800A058E8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+			};
+			buildConfigurationList = D00F6B93141FEA1800A058E8 /* Build configuration list for PBXProject "S3Uploader" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D00F6B8E141FEA1800A058E8;
+			productRefGroup = D00F6B9A141FEA1800A058E8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D00F6B98141FEA1800A058E8 /* S3Uploader */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D00F6B97141FEA1800A058E8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D00F6BA8141FEA1800A058E8 /* InfoPlist.strings in Resources */,
+				D00F6BB7141FEA1800A058E8 /* S3UploaderViewController.xib in Resources */,
+				CE1B8398161A16C100856E2F /* Default-568h@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D00F6B95141FEA1800A058E8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D00F6BAB141FEA1800A058E8 /* main.m in Sources */,
+				D00F6BAE141FEA1800A058E8 /* AppDelegate.m in Sources */,
+				D00F6BB4141FEA1800A058E8 /* S3UploaderViewController.m in Sources */,
+				D00F6BC8141FF06500A058E8 /* Constants.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		D00F6BA6141FEA1800A058E8 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D00F6BA7141FEA1800A058E8 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		D00F6BB5141FEA1800A058E8 /* S3UploaderViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D00F6BB6141FEA1800A058E8 /* en */,
+			);
+			name = S3UploaderViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D00F6BB8141FEA1800A058E8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = "";
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		D00F6BB9141FEA1800A058E8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = "";
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+		D00F6BBB141FEA1800A058E8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "S3Uploader/S3Uploader-Prefix.pch";
+				GCC_VERSION = "";
+				INFOPLIST_FILE = "S3Uploader/S3Uploader-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		D00F6BBC141FEA1800A058E8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "S3Uploader/S3Uploader-Prefix.pch";
+				GCC_VERSION = "";
+				INFOPLIST_FILE = "S3Uploader/S3Uploader-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D00F6B93141FEA1800A058E8 /* Build configuration list for PBXProject "S3Uploader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D00F6BB8141FEA1800A058E8 /* Debug */,
+				D00F6BB9141FEA1800A058E8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D00F6BBA141FEA1800A058E8 /* Build configuration list for PBXNativeTarget "S3Uploader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D00F6BBB141FEA1800A058E8 /* Debug */,
+				D00F6BBC141FEA1800A058E8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D00F6B90141FEA1800A058E8 /* Project object */;
+}

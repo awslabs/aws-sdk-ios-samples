@@ -1,43 +1,79 @@
-#The AWS Mobile SDK for iOS Samples
+aws-sdk-ios-samples
+===================
 
-This repository contains sample apps that demonstrate various aspects of the AWS Mobile SDK for iOS. Please refer to **README.md** in each sample directory for more specific instructions.
+This repository has samples that demonstrate various aspects of the AWS SDK for iOS.
 
-##Cognito Sync Sample ([Objective-C](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/CognitoSync-Sample/Objective-C/))
+Please refer to README file in each folder for more specific instructions.
 
-This sample demonstrates how to securely manage and sync your mobile app data and create unique identities via login providers including Facebook, Google, and Login with Amazon.
+### List of Samples
+    
+#### DynamoDB_WIF_UserPreference
+* This is a sample mobile application that demonstrates how to use Amazon DynamoDB to store a user preferences by using Web Identity Federation.
+    * AWS Services involved:
+      + DynamoDB
+      + Security Token Service
 
-###AWS Services Demonstrated:
+#### S3_S3TransferManager
+* This is a sample mobile application that demonstrates how to upload/download/pause/resume/cancel using the S3TransferManager for S3.
+    * AWS Services involved:
+      + Simple Storage (S3)
 
-* [Amazon Cognito Sync](http://aws.amazon.com/cognito/)
-* [Amazon Cognito Identity](http://aws.amazon.com/cognito/)
+#### S3_SimpleDB_SNS_SQS_Demo
+* This is a sample mobile application that demonstrates how to make requests to AWS using the iOS SDK.
+    * AWS Services involved:
+      + Simple Storage (S3)
+      + SimpleDB
+      + Simple Queue Service (SQS)
+      + Simple Notification Service (SNS)
 
-##DynamoDB Object Mapper Sample ([Objective-C](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/DynamoDBObjectMapper-Sample/Objective-C/))
+#### S3_SimpleDB_SNS_SQS_DemoTVM
+* This is a sample mobile application that demonstrates interaction with the Token Vending Machine without requiring an identity from the user.
+    * AWS Services involved:
+      + Simple Storage (S3)
+      + SimpleDB
+      + Simple Queue Service (SQS)
+      + Simple Notification Service (SNS)
+      + Token Vending Machine (Anonymous version)
 
-This sample demonstrates how to insert / update / delete / query items using DynamoDB Object Mapper.
+#### S3_SimpleDB_SNS_SQS_DemoTVMIdentity
+* This is a sample mobile application that demonstrates interaction with a Token Vending Machine where a username/password combination is required.
+    * AWS Services involved:
+      + Simple Storage (S3)
+      + SimpleDB
+      + Simple Queue Service (SQS)
+      + Simple Notification Service (SNS)
+      + Token Vending Machine (Identity version)
 
-###AWS Services Demonstrated:
+#### S3_Uploader
+* This is a sample mobile application that demonstrates how to make requests to Amazon S3 using the iOS SDK.
+    * AWS Services involved:
+      + Simple Storage (S3)
 
-* [Amazon DynamoDB](http://aws.amazon.com/dynamodb/)
+#### S3_WIF_PersonalFileStore
+* The is a sample mobile application that demonstrates how to use AWS Security Token Service (STS) to give application users specific and constrained permissions to an Amazon S3 bucket. 
+    * AWS Services involved:
+      + Simple Storage (S3)
+      + Security Token Service
 
-##S3 Transfer Manager Sample ([Objective-C](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/S3TransferManager-Sample/Objective-C/))
+#### SES_FeedbackForm
+* This is a sample mobile application that demonstrates how to use Amazon SES to record user feedback using the AWS iOS SDK.
+    * AWS Services involved:
+      + Simple Storage (S3)
+      + Simple Email Service (SES)
 
-This sample demonstrates how to upload / download multiple files simultaneously using S3 Transfer Manager. It also shows how to pause, resume, and cancel file upload / download.
+#### AWSPersistence_Locations2
+* This is a sample mobile application that demonstrates how to use AWSPersistence framework.
+    * AWS Services involved:
+      + DynamoDB
+      + AWS Persistence Framework for Core Data
 
-###AWS Services Demonstrated:
+#### SimpleDB_HighScores
+* This is a sample mobile application that demonstrates how to use SimpleDB to store a high score list using the AWS iOS SDK.
+    * AWS Services involved:
+      + SimpleDB
 
-* [Amazon S3](http://aws.amazon.com/s3/)
-
-##SNS Mobile Push and Mobile Analytics Sample ([Swift](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/SNS-MobileAnalytics-Sample/Swift/))
-
-This sample demonstrates how to set up Amazon SNS Mobile Push and record events using Amazon Mobile Analytics.
-
-###AWS Services Demonstrated:
-
-* [Amazon SNS Mobile Push](http://aws.amazon.com/sns/)
-* [Amazon Mobile Analytics](http://aws.amazon.com/mobileanalytics/)
-
-#Sample Apps for Version 1 SDK
-
-Version 1 of the AWS Mobile SDK for iOS is deprecated as of September 29, 2014. If you are building new apps, we recommend you use Version 2.
-
-To find the samples for Version 1 of the AWS Mobile SDK for iOS, select the [v1 branch](/awslabs/aws-sdk-ios-samples/tree/v1).
+#### SNS_SQS_MessageBoard
+* This is a sample mobile application that demonstrates how to use Amazon SQS and Amazon SNS to create a message board using the AWS iOS SDK.
+    * AWS Services involved:
+      + Simple Notification Service (SNS)
+      + Simple Queue Service (SQS)
