@@ -23,7 +23,7 @@ This sample demonstrates the DynamoDB object mapper found in the AWS SDK for iOS
 
 1. In the [Amazon Cognito console](https://console.aws.amazon.com/cognito/), use Amazon Cognito to create a new identity pool. Obtain the `AccountID`, `PoolID`, and `RoleUnauth` constants. Make sure the [role](https://console.aws.amazon.com/iam/home?region=us-east-1#roles) has full permissions for the sample table.
 
-1. Open `DynamoDBSample.xcodeproj`.
+1. Open `DynamoDBSample.xcworkspace`.
 
 1. Open `Constants.m` and update the following lines with the constants from step 1:
 
