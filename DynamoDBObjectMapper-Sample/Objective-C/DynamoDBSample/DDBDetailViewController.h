@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -28,6 +28,7 @@ typedef NS_ENUM(NSInteger, DDBDetailViewType) {
 @property (nonatomic, assign) DDBDetailViewType viewType;
 @property (nonatomic, strong) DDBTableRow *tableRow;
 
+@property (nonatomic, weak) IBOutlet UITextField *hashKeyTextField;
 @property (nonatomic, weak) IBOutlet UITextField *rangeKeyTextField;
 @property (nonatomic, weak) IBOutlet UITextField *attribute1TextField;
 @property (nonatomic, weak) IBOutlet UITextField *attribute2TextField;

@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="49e-Tb-3d3">
+    <dependencies>
+        <deployment defaultVersion="1792" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Upload-->
+        <scene sceneID="hNz-n2-bh7">
+            <objects>
+                <viewController id="9pv-A4-QxB" customClass="FirstViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ia1-K6-d13"/>
+                        <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AL5-ne-5ba">
+                                <rect key="frame" x="16" y="28" width="71" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="71" id="5VH-kR-tQ9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Start">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="start:" destination="9pv-A4-QxB" eventType="touchUpInside" id="ci4-HJ-gwf"/>
+                                </connections>
+                            </button>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="oPO-sz-mls">
+                                <rect key="frame" x="50" y="81" width="220" height="2"/>
+                            </progressView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ready" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lfo-bg-NE1">
+                                <rect key="frame" x="50" y="110" width="220" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="oPO-sz-mls" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="34" id="6Vh-wC-yCc"/>
+                            <constraint firstItem="Lfo-bg-NE1" firstAttribute="leading" secondItem="oPO-sz-mls" secondAttribute="leading" id="NvC-a7-h02"/>
+                            <constraint firstItem="oPO-sz-mls" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="WIt-SK-SnE"/>
+                            <constraint firstItem="oPO-sz-mls" firstAttribute="top" secondItem="AL5-ne-5ba" secondAttribute="bottom" constant="20" id="aXm-St-ugz"/>
+                            <constraint firstItem="AL5-ne-5ba" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" id="hqP-I2-RAf"/>
+                            <constraint firstItem="Lfo-bg-NE1" firstAttribute="top" secondItem="oPO-sz-mls" secondAttribute="bottom" constant="27" id="ms0-bW-Oqe"/>
+                            <constraint firstItem="oPO-sz-mls" firstAttribute="trailing" secondItem="Lfo-bg-NE1" secondAttribute="trailing" id="nBN-6G-1ll"/>
+                            <constraint firstItem="AL5-ne-5ba" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="8" symbolic="YES" id="usD-Q0-Cua"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Upload" image="first" id="acW-dT-cKf"/>
+                    <connections>
+                        <outlet property="progressView" destination="oPO-sz-mls" id="Xln-Oi-Q1v"/>
+                        <outlet property="statusLabel" destination="Lfo-bg-NE1" id="EOC-91-RGI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="400" y="-303"/>
+        </scene>
+        <!--Download-->
+        <scene sceneID="wg7-f3-ORb">
+            <objects>
+                <viewController id="8rJ-Kc-sve" customClass="SecondViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="L7p-HK-0SC"/>
+                        <viewControllerLayoutGuide type="bottom" id="Djb-ko-YwX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HAK-J9-oLh">
+                                <rect key="frame" x="0.0" y="158" width="320" height="361"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </imageView>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="p5G-Be-Ywf">
+                                <rect key="frame" x="50" y="81" width="220" height="2"/>
+                            </progressView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Kx-U1-TLZ">
+                                <rect key="frame" x="16" y="28" width="71" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="71" id="ZgA-IK-CLk"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Start">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="start:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="SX1-Ye-QKk"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ready" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="abZ-v1-6LS">
+                                <rect key="frame" x="50" y="110" width="220" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="6Kx-U1-TLZ" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" constant="8" symbolic="YES" id="5ht-6V-1k5"/>
+                            <constraint firstAttribute="trailing" secondItem="p5G-Be-Ywf" secondAttribute="trailing" constant="50" id="93o-ub-MYv"/>
+                            <constraint firstItem="p5G-Be-Ywf" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" constant="50" id="Hjp-UD-glR"/>
+                            <constraint firstAttribute="centerX" secondItem="p5G-Be-Ywf" secondAttribute="centerX" id="RLL-Vw-iR8"/>
+                            <constraint firstAttribute="trailing" secondItem="HAK-J9-oLh" secondAttribute="trailing" id="RbH-dI-zxi"/>
+                            <constraint firstItem="HAK-J9-oLh" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" id="RlA-9F-dc2"/>
+                            <constraint firstItem="HAK-J9-oLh" firstAttribute="top" secondItem="p5G-Be-Ywf" secondAttribute="bottom" constant="75" id="Sim-UG-96u"/>
+                            <constraint firstItem="abZ-v1-6LS" firstAttribute="leading" secondItem="p5G-Be-Ywf" secondAttribute="leading" id="eeM-iL-Mvj"/>
+                            <constraint firstItem="6Kx-U1-TLZ" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" id="kSN-cg-FhI"/>
+                            <constraint firstItem="abZ-v1-6LS" firstAttribute="trailing" secondItem="p5G-Be-Ywf" secondAttribute="trailing" id="nrb-zq-rPw"/>
+                            <constraint firstItem="abZ-v1-6LS" firstAttribute="top" secondItem="p5G-Be-Ywf" secondAttribute="bottom" constant="27" id="ppH-FY-unJ"/>
+                            <constraint firstAttribute="bottom" secondItem="HAK-J9-oLh" secondAttribute="bottom" constant="49" id="qXI-aH-Y6k"/>
+                            <constraint firstItem="p5G-Be-Ywf" firstAttribute="top" secondItem="QS5-Rx-YEW" secondAttribute="top" constant="81" id="tGB-fW-HGG"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Download" image="second" id="cPa-gy-q4n"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="568"/>
+                    <connections>
+                        <outlet property="imageView" destination="HAK-J9-oLh" id="6bm-an-TN2"/>
+                        <outlet property="progressView" destination="p5G-Be-Ywf" id="FAc-a8-TQv"/>
+                        <outlet property="statusLabel" destination="abZ-v1-6LS" id="00N-mz-Vdi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="400" y="337"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="yl2-sM-qoP">
+            <objects>
+                <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
+                        <rect key="frame" x="0.0" y="975" width="768" height="49"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
+                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="0.0" y="0.0"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="first" width="30" height="30"/>
+        <image name="second" width="30" height="30"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

@@ -1,0 +1,379 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9244DD57889E689B5F8B6F7F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FF0178CEA1F46200BC931929 /* libPods.a */; };
+		BD5E346A1A4A22F9007A5169 /* DDBSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5E34691A4A22F9007A5169 /* DDBSearchViewController.swift */; };
+		BD843AFD1A44B071005E2575 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD843AFC1A44B071005E2575 /* AppDelegate.swift */; };
+		BD843B021A44B071005E2575 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD843B001A44B071005E2575 /* Main.storyboard */; };
+		BD843B041A44B071005E2575 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD843B031A44B071005E2575 /* Images.xcassets */; };
+		BD843B071A44B071005E2575 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD843B051A44B071005E2575 /* LaunchScreen.xib */; };
+		BD843B231A44C37E005E2575 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD843B221A44C37E005E2575 /* Constants.swift */; };
+		BD843B251A44C3E5005E2575 /* DDBDynamoDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD843B241A44C3E5005E2575 /* DDBDynamoDBManager.swift */; };
+		BD843B2A1A44F4C3005E2575 /* DDBDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD843B291A44F4C3005E2575 /* DDBDetailViewController.swift */; };
+		BD843B2E1A44F575005E2575 /* DDBMainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD843B2D1A44F575005E2575 /* DDBMainTableViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		81D29617C9A717EDC419212F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		BD5E34691A4A22F9007A5169 /* DDBSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = DDBSearchViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		BD843AF71A44B071005E2575 /* DynamoDBSampleSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DynamoDBSampleSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD843AFB1A44B071005E2575 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BD843AFC1A44B071005E2575 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BD843B011A44B071005E2575 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BD843B031A44B071005E2575 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		BD843B061A44B071005E2575 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		BD843B221A44C37E005E2575 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		BD843B241A44C3E5005E2575 /* DDBDynamoDBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDBDynamoDBManager.swift; sourceTree = "<group>"; };
+		BD843B261A44C53D005E2575 /* DynamoDBSampleSwift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DynamoDBSampleSwift-Bridging-Header.h"; sourceTree = "<group>"; };
+		BD843B291A44F4C3005E2575 /* DDBDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDBDetailViewController.swift; sourceTree = "<group>"; };
+		BD843B2D1A44F575005E2575 /* DDBMainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = DDBMainTableViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		DDFE5AC52C51D83443C124DC /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		FF0178CEA1F46200BC931929 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BD843AF41A44B071005E2575 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9244DD57889E689B5F8B6F7F /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BD843AEE1A44B071005E2575 = {
+			isa = PBXGroup;
+			children = (
+				BD843AF91A44B071005E2575 /* DynamoDBSampleSwift */,
+				BD843AF81A44B071005E2575 /* Products */,
+				CBA19D3843F7A33C79B02126 /* Pods */,
+				F97FE3DBE3C0C7AB85401551 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		BD843AF81A44B071005E2575 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BD843AF71A44B071005E2575 /* DynamoDBSampleSwift.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BD843AF91A44B071005E2575 /* DynamoDBSampleSwift */ = {
+			isa = PBXGroup;
+			children = (
+				BD843B221A44C37E005E2575 /* Constants.swift */,
+				BD843AFC1A44B071005E2575 /* AppDelegate.swift */,
+				BD843B241A44C3E5005E2575 /* DDBDynamoDBManager.swift */,
+				BD843B2D1A44F575005E2575 /* DDBMainTableViewController.swift */,
+				BD843B291A44F4C3005E2575 /* DDBDetailViewController.swift */,
+				BD5E34691A4A22F9007A5169 /* DDBSearchViewController.swift */,
+				BD843B001A44B071005E2575 /* Main.storyboard */,
+				BD843B031A44B071005E2575 /* Images.xcassets */,
+				BD843B051A44B071005E2575 /* LaunchScreen.xib */,
+				BD843AFA1A44B071005E2575 /* Supporting Files */,
+			);
+			path = DynamoDBSampleSwift;
+			sourceTree = "<group>";
+		};
+		BD843AFA1A44B071005E2575 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BD843AFB1A44B071005E2575 /* Info.plist */,
+				BD843B261A44C53D005E2575 /* DynamoDBSampleSwift-Bridging-Header.h */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CBA19D3843F7A33C79B02126 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DDFE5AC52C51D83443C124DC /* Pods.debug.xcconfig */,
+				81D29617C9A717EDC419212F /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F97FE3DBE3C0C7AB85401551 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FF0178CEA1F46200BC931929 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BD843AF61A44B071005E2575 /* DynamoDBSampleSwift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BD843B161A44B071005E2575 /* Build configuration list for PBXNativeTarget "DynamoDBSampleSwift" */;
+			buildPhases = (
+				333574F80DC85CCE88742EFD /* Check Pods Manifest.lock */,
+				BD843AF31A44B071005E2575 /* Sources */,
+				BD843AF41A44B071005E2575 /* Frameworks */,
+				BD843AF51A44B071005E2575 /* Resources */,
+				683E128064F4FFD3E256A6CC /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DynamoDBSampleSwift;
+			productName = DynamoDBSampleSwift;
+			productReference = BD843AF71A44B071005E2575 /* DynamoDBSampleSwift.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BD843AEF1A44B071005E2575 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = Amazon;
+				TargetAttributes = {
+					BD843AF61A44B071005E2575 = {
+						CreatedOnToolsVersion = 6.1;
+					};
+				};
+			};
+			buildConfigurationList = BD843AF21A44B071005E2575 /* Build configuration list for PBXProject "DynamoDBSampleSwift" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BD843AEE1A44B071005E2575;
+			productRefGroup = BD843AF81A44B071005E2575 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BD843AF61A44B071005E2575 /* DynamoDBSampleSwift */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BD843AF51A44B071005E2575 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD843B021A44B071005E2575 /* Main.storyboard in Resources */,
+				BD843B071A44B071005E2575 /* LaunchScreen.xib in Resources */,
+				BD843B041A44B071005E2575 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		333574F80DC85CCE88742EFD /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		683E128064F4FFD3E256A6CC /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BD843AF31A44B071005E2575 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD843B2A1A44F4C3005E2575 /* DDBDetailViewController.swift in Sources */,
+				BD843B2E1A44F575005E2575 /* DDBMainTableViewController.swift in Sources */,
+				BD843AFD1A44B071005E2575 /* AppDelegate.swift in Sources */,
+				BD843B251A44C3E5005E2575 /* DDBDynamoDBManager.swift in Sources */,
+				BD843B231A44C37E005E2575 /* Constants.swift in Sources */,
+				BD5E346A1A4A22F9007A5169 /* DDBSearchViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		BD843B001A44B071005E2575 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BD843B011A44B071005E2575 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BD843B051A44B071005E2575 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BD843B061A44B071005E2575 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BD843B141A44B071005E2575 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BD843B151A44B071005E2575 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BD843B171A44B071005E2575 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DDFE5AC52C51D83443C124DC /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				INFOPLIST_FILE = DynamoDBSampleSwift/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "DynamoDBSampleSwift/DynamoDBSampleSwift-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BD843B181A44B071005E2575 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 81D29617C9A717EDC419212F /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				INFOPLIST_FILE = DynamoDBSampleSwift/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "DynamoDBSampleSwift/DynamoDBSampleSwift-Bridging-Header.h";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BD843AF21A44B071005E2575 /* Build configuration list for PBXProject "DynamoDBSampleSwift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BD843B141A44B071005E2575 /* Debug */,
+				BD843B151A44B071005E2575 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BD843B161A44B071005E2575 /* Build configuration list for PBXNativeTarget "DynamoDBSampleSwift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BD843B171A44B071005E2575 /* Debug */,
+				BD843B181A44B071005E2575 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BD843AEF1A44B071005E2575 /* Project object */;
+}

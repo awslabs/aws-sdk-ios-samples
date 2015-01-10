@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -28,10 +28,40 @@
 
 @interface DDBTableRow : AWSDynamoDBModel <AWSDynamoDBModeling>
 
-@property (nonatomic, strong) NSString *hashKey;
-@property (nonatomic, strong) NSString *rangeKey;
-@property (nonatomic, strong) NSString *attribute1;
-@property (nonatomic, strong) NSString *attribute2;
-@property (nonatomic, strong) NSString *attribute3;
+@property (nonatomic, strong) NSString *UserId;
+@property (nonatomic, strong) NSString *GameTitle;
+@property (nonatomic, strong) NSNumber *TopScore;
+@property (nonatomic, strong) NSNumber *Wins;
+@property (nonatomic, strong) NSNumber *Losses;
+
+@end
+
+@interface DDBTableRowTopScore : AWSDynamoDBModel <AWSDynamoDBModeling>
+
+@property (nonatomic, strong) NSString *UserId;
+@property (nonatomic, strong) NSString *GameTitle;
+@property (nonatomic, strong) NSNumber *TopScore;
+@property (nonatomic, strong) NSNumber *Wins;
+@property (nonatomic, strong) NSNumber *Losses;
+
+@end
+
+@interface DDBTableRowWins : AWSDynamoDBModel <AWSDynamoDBModeling>
+
+@property (nonatomic, strong) NSString *UserId;
+@property (nonatomic, strong) NSString *GameTitle;
+@property (nonatomic, strong) NSNumber *TopScore;
+@property (nonatomic, strong) NSNumber *Wins;
+@property (nonatomic, strong) NSNumber *Losses;
+
+@end
+
+@interface DDBTableRowLosses : AWSDynamoDBModel <AWSDynamoDBModeling>
+
+@property (nonatomic, strong) NSString *UserId;
+@property (nonatomic, strong) NSString *GameTitle;
+@property (nonatomic, strong) NSNumber *TopScore;
+@property (nonatomic, strong) NSNumber *Wins;
+@property (nonatomic, strong) NSNumber *Losses;
 
 @end

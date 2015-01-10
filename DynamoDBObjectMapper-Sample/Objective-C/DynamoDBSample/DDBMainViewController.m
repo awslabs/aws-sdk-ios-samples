@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -18,6 +18,7 @@
 #import "DynamoDB.h"
 #import "DDBDetailViewController.h"
 #import "DDBDynamoDBManager.h"
+#import "DDBSearchViewController.h"
 
 @interface DDBMainViewController ()
 
@@ -30,6 +31,19 @@
 
 @implementation DDBMainViewController
 
+-(IBAction)unwindToMainViewControllerFromSearchViewController:(UIStoryboardSegue *)unwindSegue {
+    
+    DDBSearchViewController *searchVC = (DDBSearchViewController *)[unwindSegue sourceViewController];
+    [self.tableRows removeAllObjects];
+    for (DDBTableRow *item in searchVC.paginatedOutput.items) {
+        [self.tableRows addObject:item];
+    }
+    self.doneLoading = YES;
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.tableView reloadData];
+    });
+}
 #pragma mark - DynamoDB management
 
 - (void)setupTable {
@@ -61,6 +75,9 @@
 
                          return nil;
                      }];
+         } else {
+             //load table contents
+             [self refreshList:YES];
          }
 
          return nil;
@@ -77,13 +94,12 @@
         [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 
         AWSDynamoDBObjectMapper *dynamoDBObjectMapper = [AWSDynamoDBObjectMapper defaultDynamoDBObjectMapper];
-        AWSDynamoDBQueryExpression *queryExpression = [AWSDynamoDBQueryExpression new];
-        queryExpression.exclusiveStartKey = self.lastEvaluatedKey;
-        queryExpression.limit = @20;
-        queryExpression.hashKeyValues = [[UIDevice currentDevice].identifierForVendor UUIDString];
-        queryExpression.scanIndexForward = @YES;
-        return [[[dynamoDBObjectMapper query:[DDBTableRow class]
-                                  expression:queryExpression]
+        AWSDynamoDBScanExpression *scanExpression = [AWSDynamoDBScanExpression new];
+        scanExpression.exclusiveStartKey = self.lastEvaluatedKey;
+        scanExpression.limit = @20;
+
+        return [[[dynamoDBObjectMapper scan:[DDBTableRow class]
+                                  expression:scanExpression]
                  continueWithExecutor:[BFExecutor mainThreadExecutor] withSuccessBlock:^id(BFTask *task) {
                      if (!self.lastEvaluatedKey) {
                          [self.tableRows removeAllObjects];
@@ -147,12 +163,18 @@
     AWSDynamoDBObjectMapper *dynamoDBObjectMapper = [AWSDynamoDBObjectMapper defaultDynamoDBObjectMapper];
 
     NSMutableArray *tasks = [NSMutableArray array];
-    for (int32_t i = 1; i <= 100; i++) {
-        DDBTableRow *tableRow = [DDBTableRow new];
-        tableRow.rangeKey = [NSString stringWithFormat:@"RangeKey-%03d", i];
-        tableRow.attribute1 = [NSString stringWithFormat:@"Attribute1-%03d", i];
-
-        [tasks addObject:[dynamoDBObjectMapper save:tableRow]];
+    NSArray *gameTitleArray = @[@"Galaxy Invaders",@"Meteor Blasters", @"Starship X", @"Alien Adventure",@"Attack Ships"];
+    for (int32_t i = 0; i < 25; i++) {
+        for (int32_t j = 0 ; j < 2; j++) {
+            DDBTableRow *tableRow = [DDBTableRow new];
+            tableRow.UserId = [NSString stringWithFormat:@"%d",i];
+            
+            tableRow.GameTitle = j==0?gameTitleArray[arc4random_uniform((u_int32_t)gameTitleArray.count)]:@"Comet Quest";
+            tableRow.TopScore = [NSNumber numberWithInt:arc4random_uniform(3000)];
+            tableRow.Wins = [NSNumber numberWithInteger:arc4random_uniform(100)];
+            tableRow.Losses = [NSNumber numberWithInteger:arc4random_uniform(100)];
+            [tasks addObject:[dynamoDBObjectMapper save:tableRow]];
+        }
     }
 
     [[BFTask taskForCompletionOfAllTasks:tasks]
@@ -225,8 +247,8 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
 
     DDBTableRow *item = self.tableRows[indexPath.row];
-    cell.textLabel.text = item.rangeKey;
-    cell.detailTextLabel.text = item.attribute1;
+    cell.textLabel.text = [NSString stringWithFormat:@"ID: %@, Title: %@",item.UserId,item.GameTitle];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"TopScore:%@, Wins:%@, Losses:%@",item.TopScore,item.Wins,item.Losses];
 
     if (indexPath.row == [self.tableRows count] - 1 && !self.doneLoading) {
         [self refreshList:NO];

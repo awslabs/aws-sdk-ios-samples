@@ -7,3 +7,13 @@ This product includes software developed by Amazon Technologies, Inc (http://www
 Licensed under the Apache License Version 2.0
 
 See the License for the specific language governing permissions and limitations under the License.
+
+**********************
+THIRD PARTY COMPONENTS
+**********************
+
+This software includes third party software subject to the following copyrights:
+- ELCImagePickerController - Copyright (c) 2010 ELC Technologies - The MIT License
+- JTSImageViewController - Copyright (c) 2014 Jared Sinclair - MIT license
+
+The licenses for these third party components are included in the License file.

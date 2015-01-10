@@ -1,5 +1,5 @@
 /*
-* Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+* Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
 * You may not use this file except in compliance with the License.
@@ -57,7 +57,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let messageCategory = UIMutableUserNotificationCategory()
         messageCategory.identifier = "MESSAGE_CATEGORY"
         messageCategory.setActions([readAction, deleteAction], forContext: UIUserNotificationActionContext.Minimal)
-        messageCategory.setActions([ignoreAction], forContext: UIUserNotificationActionContext.Default)
+        messageCategory.setActions([readAction, deleteAction, ignoreAction], forContext: UIUserNotificationActionContext.Default)
 
         let types = UIUserNotificationType.Badge | UIUserNotificationType.Sound | UIUserNotificationType.Alert
         let notificationSettings = UIUserNotificationSettings(forTypes: types, categories: NSSet(object: messageCategory))

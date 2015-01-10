@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -22,23 +22,23 @@
 @interface DDBDetailViewController ()
 
 @property (nonatomic, assign) BOOL dataChanged;
-
+@property (nonatomic, strong) NSNumberFormatter *numberFormatter;
 @end
 
 @implementation DDBDetailViewController
 
-- (void)getTableRow:(NSString *)rangeKey {
+- (void)getTableRow {
     AWSDynamoDBObjectMapper *dynamoDBObjectMapper = [AWSDynamoDBObjectMapper defaultDynamoDBObjectMapper];
     [[dynamoDBObjectMapper load:[DDBTableRow class]
-                        hashKey:[[UIDevice currentDevice].identifierForVendor UUIDString]
-                       rangeKey:rangeKey] continueWithExecutor:[BFExecutor mainThreadExecutor] withBlock:^id(BFTask *task) {
+                        hashKey:self.tableRow.UserId
+                       rangeKey:self.tableRow.GameTitle] continueWithExecutor:[BFExecutor mainThreadExecutor] withBlock:^id(BFTask *task) {
         if (!task.error) {
             DDBTableRow *tableRow = task.result;
-
-            self.rangeKeyTextField.text = tableRow.rangeKey;
-            self.attribute1TextField.text = tableRow.attribute1;
-            self.attribute2TextField.text = tableRow.attribute2;
-            self.attribute3TextField.text = tableRow.attribute3;
+            self.hashKeyTextField.text = tableRow.UserId;
+            self.rangeKeyTextField.text = tableRow.GameTitle;
+            self.attribute1TextField.text = tableRow.TopScore.stringValue;
+            self.attribute2TextField.text = tableRow.Wins.stringValue;
+            self.attribute3TextField.text = tableRow.Losses.stringValue;
         } else {
             NSLog(@"Error: [%@]", task.error);
 
@@ -122,10 +122,11 @@
 
 - (IBAction)submit:(id)sender {
     DDBTableRow *tableRow = [DDBTableRow new];
-    tableRow.rangeKey = self.rangeKeyTextField.text;
-    tableRow.attribute1 = self.attribute1TextField.text;
-    tableRow.attribute2 = self.attribute2TextField.text;
-    tableRow.attribute3 = self.attribute3TextField.text;
+    tableRow.UserId = self.hashKeyTextField.text;
+    tableRow.GameTitle = self.rangeKeyTextField.text;
+    tableRow.TopScore = [self.numberFormatter numberFromString:self.attribute1TextField.text];
+    tableRow.Wins = [self.numberFormatter numberFromString:self.attribute2TextField.text];
+    tableRow.Losses = [self.numberFormatter numberFromString:self.attribute3TextField.text];
 
     switch (self.viewType) {
         case DDBDetailViewTypeInsert:
@@ -164,18 +165,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    _numberFormatter = [NSNumberFormatter new];
+    [_numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    
     switch (self.viewType) {
         case DDBDetailViewTypeInsert:
             self.title = @"Insert";
+            self.hashKeyTextField.enabled = YES;
             self.rangeKeyTextField.enabled = YES;
 
             break;
 
         case DDBDetailViewTypeUpdate:
             self.title = @"Update";
+            self.hashKeyTextField.enabled = NO;
             self.rangeKeyTextField.enabled = NO;
-            [self getTableRow:self.tableRow.rangeKey];
+            [self getTableRow];
 
             break;
 

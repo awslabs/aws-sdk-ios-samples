@@ -18,6 +18,7 @@ This sample demonstrates how to insert / update / delete / query items using Dyn
 ###AWS Services Demonstrated:
 
 * [Amazon DynamoDB](http://aws.amazon.com/dynamodb/)
+* [Amazon Cognito Identity](http://aws.amazon.com/cognito/)
 
 ##S3 Transfer Manager Sample ([Objective-C](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/S3TransferManager-Sample/Objective-C/))
 
@@ -26,8 +27,19 @@ This sample demonstrates how to upload / download multiple files simultaneously 
 ###AWS Services Demonstrated:
 
 * [Amazon S3](http://aws.amazon.com/s3/)
+* [Amazon Cognito Identity](http://aws.amazon.com/cognito/)
 
-##SNS Mobile Push and Mobile Analytics Sample ([Swift](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/SNS-MobileAnalytics-Sample/Swift/))
+##S3 Background Transfer Sample ([Swift](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/S3BackgroundTransfer-Sample/Swift/), [Objective-C](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/S3BackgroundTransfer-Sample/Objective-C/))
+
+This sample demonstrates how to use the Amazon S3 PreSigned URL Builder to download / upload files in background.
+
+###AWS Services Demonstrated:
+
+* [Amazon S3](http://aws.amazon.com/s3/)
+* [Amazon Cognito Identity](http://aws.amazon.com/cognito/)
+
+
+##SNS Mobile Push and Mobile Analytics Sample ([Swift](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/SNS-MobileAnalytics-Sample/Swift/), [Objective-C](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/SNS-MobileAnalytics-Sample/Objective-C/))
 
 This sample demonstrates how to set up Amazon SNS Mobile Push and record events using Amazon Mobile Analytics.
 
@@ -35,6 +47,7 @@ This sample demonstrates how to set up Amazon SNS Mobile Push and record events 
 
 * [Amazon SNS Mobile Push](http://aws.amazon.com/sns/)
 * [Amazon Mobile Analytics](http://aws.amazon.com/mobileanalytics/)
+* [Amazon Cognito Identity](http://aws.amazon.com/cognito/)
 
 #Sample Apps for Version 1 SDK
 

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="oKF-81-kv3">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Amazon SNS Mobile Push-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Device Token:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fES-2a-vsC">
+                                <rect key="frame" x="16" y="91" width="124" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Endpoint ARN:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F6F-or-VnU">
+                                <rect key="frame" x="16" y="191" width="124" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="124" id="SU1-A0-Xm4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="N/A" lineBreakMode="characterWrap" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="n53-Fp-Z8P">
+                                <rect key="frame" x="16" y="220" width="568" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="hds-8C-ePe"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="---" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8NZ-E9-04c">
+                                <rect key="frame" x="16" y="559" width="568" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="N/A" lineBreakMode="characterWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="jmh-Fi-lMn">
+                                <rect key="frame" x="16" y="120" width="568" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="wL3-CY-op8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="jmh-Fi-lMn" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" constant="120" id="05n-l8-kme"/>
+                            <constraint firstItem="F6F-or-VnU" firstAttribute="top" secondItem="jmh-Fi-lMn" secondAttribute="bottom" constant="31" id="A9k-4e-wCR"/>
+                            <constraint firstAttribute="bottom" secondItem="8NZ-E9-04c" secondAttribute="bottom" constant="20" id="DJS-As-Cqa"/>
+                            <constraint firstItem="8NZ-E9-04c" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="OPT-da-8kW"/>
+                            <constraint firstItem="jmh-Fi-lMn" firstAttribute="top" secondItem="fES-2a-vsC" secondAttribute="bottom" constant="8" symbolic="YES" id="PoQ-dv-Drj"/>
+                            <constraint firstItem="8NZ-E9-04c" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="Tte-Q5-5ef"/>
+                            <constraint firstItem="n53-Fp-Z8P" firstAttribute="top" secondItem="F6F-or-VnU" secondAttribute="bottom" constant="8" symbolic="YES" id="VJc-vB-2gA"/>
+                            <constraint firstItem="n53-Fp-Z8P" firstAttribute="trailing" secondItem="jmh-Fi-lMn" secondAttribute="trailing" id="iSP-b0-hKq"/>
+                            <constraint firstItem="jmh-Fi-lMn" firstAttribute="leading" secondItem="8NZ-E9-04c" secondAttribute="leading" id="p9k-8r-8WI"/>
+                            <constraint firstItem="F6F-or-VnU" firstAttribute="leading" secondItem="jmh-Fi-lMn" secondAttribute="leading" id="upo-8P-CVC"/>
+                            <constraint firstItem="jmh-Fi-lMn" firstAttribute="leading" secondItem="fES-2a-vsC" secondAttribute="leading" id="vcA-CR-rMV"/>
+                            <constraint firstItem="F6F-or-VnU" firstAttribute="leading" secondItem="n53-Fp-Z8P" secondAttribute="leading" id="xoo-Oz-h1U"/>
+                            <constraint firstItem="F6F-or-VnU" firstAttribute="trailing" secondItem="fES-2a-vsC" secondAttribute="trailing" id="xv9-KK-Nce"/>
+                            <constraint firstItem="jmh-Fi-lMn" firstAttribute="trailing" secondItem="8NZ-E9-04c" secondAttribute="trailing" id="zjF-6M-aEp"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Amazon SNS Mobile Push" id="ADW-KS-Izn"/>
+                    <connections>
+                        <outlet property="deviceToken" destination="jmh-Fi-lMn" id="A8b-23-Uz8"/>
+                        <outlet property="endpointArn" destination="n53-Fp-Z8P" id="xtk-MB-qs5"/>
+                        <outlet property="userAction" destination="8NZ-E9-04c" id="rnH-Wm-1Cf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="952" y="137"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="lbt-99-zq5">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="oKF-81-kv3" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="v9X-yt-uvy">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="DXJ-8a-DqS"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QSu-Sh-XIJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="317" y="137"/>
+        </scene>
+    </scenes>
+</document>

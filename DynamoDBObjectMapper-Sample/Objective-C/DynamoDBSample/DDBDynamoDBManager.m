@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -33,30 +33,71 @@
 
     // Create the test table.
     AWSDynamoDBAttributeDefinition *hashKeyAttributeDefinition = [AWSDynamoDBAttributeDefinition new];
-    hashKeyAttributeDefinition.attributeName = @"hashKey";
+    hashKeyAttributeDefinition.attributeName = @"UserId";
     hashKeyAttributeDefinition.attributeType = AWSDynamoDBScalarAttributeTypeS;
 
     AWSDynamoDBKeySchemaElement *hashKeySchemaElement = [AWSDynamoDBKeySchemaElement new];
-    hashKeySchemaElement.attributeName = @"hashKey";
+    hashKeySchemaElement.attributeName = @"UserId";
     hashKeySchemaElement.keyType = AWSDynamoDBKeyTypeHash;
 
     AWSDynamoDBAttributeDefinition *rangeKeyAttributeDefinition = [AWSDynamoDBAttributeDefinition new];
-    rangeKeyAttributeDefinition.attributeName = @"rangeKey";
+    rangeKeyAttributeDefinition.attributeName = @"GameTitle";
     rangeKeyAttributeDefinition.attributeType = AWSDynamoDBScalarAttributeTypeS;
 
     AWSDynamoDBKeySchemaElement *rangeKeySchemaElement = [AWSDynamoDBKeySchemaElement new];
-    rangeKeySchemaElement.attributeName = @"rangeKey";
+    rangeKeySchemaElement.attributeName = @"GameTitle";
     rangeKeySchemaElement.keyType = AWSDynamoDBKeyTypeRange;
+
+    //Add non-key attributes
+    AWSDynamoDBAttributeDefinition *topScoreAttrDef = [AWSDynamoDBAttributeDefinition new];
+    topScoreAttrDef.attributeName = @"TopScore";
+    topScoreAttrDef.attributeType = AWSDynamoDBScalarAttributeTypeN;
+    
+    AWSDynamoDBAttributeDefinition *winsAttrDef = [AWSDynamoDBAttributeDefinition new];
+    winsAttrDef.attributeName = @"Wins";
+    winsAttrDef.attributeType = AWSDynamoDBScalarAttributeTypeN;
+    
+    AWSDynamoDBAttributeDefinition *lossesAttrDef = [AWSDynamoDBAttributeDefinition new];
+    lossesAttrDef.attributeName = @"Losses";
+    lossesAttrDef.attributeType = AWSDynamoDBScalarAttributeTypeN;
 
     AWSDynamoDBProvisionedThroughput *provisionedThroughput = [AWSDynamoDBProvisionedThroughput new];
     provisionedThroughput.readCapacityUnits = @5;
     provisionedThroughput.writeCapacityUnits = @5;
 
+    //Create Global Secondary Index
+    NSArray *rangeKeyArray = @[@"TopScore",@"Wins",@"Losses"];
+    NSMutableArray *gsiArray = [NSMutableArray new];
+    for (NSString *rangeKey in rangeKeyArray) {
+        AWSDynamoDBGlobalSecondaryIndex *gsi = [AWSDynamoDBGlobalSecondaryIndex new];
+        
+        AWSDynamoDBKeySchemaElement *gsiHashKeySchema = [AWSDynamoDBKeySchemaElement new];
+        gsiHashKeySchema.attributeName = @"GameTitle";
+        gsiHashKeySchema.keyType = AWSDynamoDBKeyTypeHash;
+        
+        AWSDynamoDBKeySchemaElement *gsiRangeKeySchema = [AWSDynamoDBKeySchemaElement new];
+        gsiRangeKeySchema.attributeName = rangeKey;
+        gsiRangeKeySchema.keyType = AWSDynamoDBKeyTypeRange;
+        
+        AWSDynamoDBProjection *gsiProjection = [AWSDynamoDBProjection new];
+        gsiProjection.projectionType = AWSDynamoDBProjectionTypeAll;
+        
+        gsi.keySchema = @[gsiHashKeySchema,gsiRangeKeySchema];
+        gsi.indexName = rangeKey;
+        gsi.projection = gsiProjection;
+        gsi.provisionedThroughput = provisionedThroughput;
+
+        [gsiArray addObject:gsi];
+    }
+    
+
+    //Create TableInput
     AWSDynamoDBCreateTableInput *createTableInput = [AWSDynamoDBCreateTableInput new];
     createTableInput.tableName = AWSSampleDynamoDBTableName;
-    createTableInput.attributeDefinitions = @[hashKeyAttributeDefinition, rangeKeyAttributeDefinition];
+    createTableInput.attributeDefinitions = @[hashKeyAttributeDefinition, rangeKeyAttributeDefinition, topScoreAttrDef, winsAttrDef,lossesAttrDef];
     createTableInput.keySchema = @[hashKeySchemaElement, rangeKeySchemaElement];
     createTableInput.provisionedThroughput = provisionedThroughput;
+    createTableInput.globalSecondaryIndexes = gsiArray;
 
     return [[dynamoDB createTable:createTableInput] continueWithSuccessBlock:^id(BFTask *task) {
         if (task.result) {
@@ -93,15 +134,59 @@
 }
 
 + (NSString *)hashKeyAttribute {
-    return @"hashKey";
+    return @"UserId";
 }
 
 + (NSString *)rangeKeyAttribute {
-    return @"rangeKey";
+    return @"GameTitle";
 }
 
-- (NSString *)hashKey {
-    return [[UIDevice currentDevice].identifierForVendor UUIDString];
+@end
+
+@implementation DDBTableRowTopScore
+
++ (NSString *)dynamoDBTableName {
+    return AWSSampleDynamoDBTableName;
+}
+
++ (NSString *)hashKeyAttribute {
+    return @"GameTitle";
+}
+
++ (NSString *)rangeKeyAttribute {
+    return @"TopScore";
+}
+
+@end
+
+@implementation DDBTableRowWins
+
++ (NSString *)dynamoDBTableName {
+    return AWSSampleDynamoDBTableName;
+}
+
++ (NSString *)hashKeyAttribute {
+    return @"GameTitle";
+}
+
++ (NSString *)rangeKeyAttribute {
+    return @"Wins";
+}
+
+@end
+
+@implementation DDBTableRowLosses
+
++ (NSString *)dynamoDBTableName {
+    return AWSSampleDynamoDBTableName;
+}
+
++ (NSString *)hashKeyAttribute {
+    return @"GameTitle";
+}
+
++ (NSString *)rangeKeyAttribute {
+    return @"Losses";
 }
 
 @end

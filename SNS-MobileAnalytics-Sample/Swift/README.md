@@ -87,7 +87,7 @@ You can set up a notification category in `- application:didFinishLaunchingWithO
         let messageCategory = UIMutableUserNotificationCategory()
         messageCategory.identifier = "MESSAGE_CATEGORY"
         messageCategory.setActions([readAction, deleteAction], forContext: UIUserNotificationActionContext.Minimal)
-        messageCategory.setActions([ignoreAction], forContext: UIUserNotificationActionContext.Default)
+        messageCategory.setActions([readAction, deleteAction, ignoreAction], forContext: UIUserNotificationActionContext.Default)
 
         let types = UIUserNotificationType.Badge | UIUserNotificationType.Sound | UIUserNotificationType.Alert
         let notificationSettings = UIUserNotificationSettings(forTypes: types, categories: NSSet(object: messageCategory))
@@ -196,5 +196,8 @@ You can track user actions by using the **Custom Events** feature of Amazon Mobi
 Now you are ready to push notifications to your device. Once you run the sample app, you can find your device endpoint in your app on the [AWS Management Console](http://aws.amazon.com/console/) under SNS. Select your device and click **Publish**. Select **Use platform specific JSON message dictionaries** option and copy and paste the following message, then click **Publish Message**.
 
     {"APNS":"{\"aps\":{\"alert\":\"MESSAGE\",\"category\":\"MESSAGE_CATEGORY\"} }"}
+or if running in APNS_SANDBOX:
+
+	{"APNS_SANDBOX":"{\"aps\":{\"alert\":\"MESSAGE\",\"category\":\"MESSAGE_CATEGORY\"} }"}
 
 If your app is in the background, you receive an interactive notification. When you select *Read* or *Delete*, it is recorded by Amazon Mobile Analytics. You can see the metrics on the AWS Management Console under Mobile Analytics.
