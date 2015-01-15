@@ -24,7 +24,7 @@
                                                                                                         accountId:AWSAccountID
                                                                                                    identityPoolId:CognitoPoolID
                                                                                                     unauthRoleArn:CognitoRoleUnauth
-                                                                                                      authRoleArn:AWSCognitoAuthRoleArn];
+                                                                                                      authRoleArn:CognitoRoleAuth];
     AWSServiceConfiguration *configuration = [AWSServiceConfiguration configurationWithRegion:AWSRegionUSEast1
                                                                           credentialsProvider:credentialsProvider];
     [AWSServiceManager defaultServiceManager].defaultServiceConfiguration = configuration;

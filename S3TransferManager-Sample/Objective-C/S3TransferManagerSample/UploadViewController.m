@@ -248,7 +248,7 @@
             AWSS3TransferManagerUploadRequest *uploadRequest = [AWSS3TransferManagerUploadRequest new];
             uploadRequest.body = [NSURL fileURLWithPath:filePath];
             uploadRequest.key = fileName;
-            uploadRequest.bucket = AWSS3BucketName;
+            uploadRequest.bucket = S3BucketName;
 
             [self.collection insertObject:uploadRequest atIndex:0];
 

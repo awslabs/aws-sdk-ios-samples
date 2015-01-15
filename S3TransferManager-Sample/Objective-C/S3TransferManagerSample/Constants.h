@@ -16,5 +16,6 @@
 FOUNDATION_EXPORT NSString *const AWSAccountID;
 FOUNDATION_EXPORT NSString *const CognitoPoolID;
 FOUNDATION_EXPORT NSString *const CognitoRoleUnauth;
+FOUNDATION_EXPORT NSString *const CognitoRoleAuth;
 
 FOUNDATION_EXPORT NSString *const S3BucketName;

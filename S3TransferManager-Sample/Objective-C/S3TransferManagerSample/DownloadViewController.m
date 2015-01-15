@@ -86,7 +86,7 @@
     AWSS3 *s3 = [AWSS3 defaultS3];
 
     AWSS3ListObjectsRequest *listObjectsRequest = [AWSS3ListObjectsRequest new];
-    listObjectsRequest.bucket = AWSS3BucketName;
+    listObjectsRequest.bucket = S3BucketName;
     [[s3 listObjects:listObjectsRequest] continueWithBlock:^id(BFTask *task) {
         if (task.error) {
             NSLog(@"listObjects failed: [%@]", task.error);
@@ -100,7 +100,7 @@
                     [self.collection addObject:downloadingFileURL];
                 } else {
                     AWSS3TransferManagerDownloadRequest *downloadRequest = [AWSS3TransferManagerDownloadRequest new];
-                    downloadRequest.bucket = AWSS3BucketName;
+                    downloadRequest.bucket = S3BucketName;
                     downloadRequest.key = s3Object.key;
                     downloadRequest.downloadingFileURL = downloadingFileURL;
                     [self.collection addObject:downloadRequest];
@@ -283,7 +283,7 @@
         JTSImageViewController *imageViewer = [[JTSImageViewController alloc]
                                                initWithImageInfo:imageInfo
                                                mode:JTSImageViewControllerMode_Image
-                                               backgroundStyle:JTSImageViewControllerBackgroundStyle_ScaledDimmedBlurred];
+                                               backgroundStyle:JTSImageViewControllerBackgroundOption_Blurred];
         [imageViewer showFromViewController:self
                                  transition:JTSImageViewControllerTransition_FromOffscreen];
     }
