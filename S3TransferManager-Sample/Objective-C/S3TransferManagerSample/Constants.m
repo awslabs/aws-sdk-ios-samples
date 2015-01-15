@@ -18,5 +18,6 @@
 NSString *const AWSAccountID = @"Your-AccountID";
 NSString *const CognitoPoolID = @"Your-PoolID";
 NSString *const CognitoRoleUnauth = @"Your-RoleUnauth";
+NSString *const CognitoRoleAuth = @"Your-RoleAuth";
 
 NSString *const S3BucketName = @"Your-S3-Bucket-Name";
