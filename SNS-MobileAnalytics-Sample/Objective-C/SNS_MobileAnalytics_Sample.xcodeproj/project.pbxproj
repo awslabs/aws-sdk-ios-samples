@@ -14,6 +14,7 @@
 		BDB1E8C419F9BAFA00E38109 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDB1E8C219F9BAFA00E38109 /* Main.storyboard */; };
 		BDB1E8C619F9BAFA00E38109 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDB1E8C519F9BAFA00E38109 /* Images.xcassets */; };
 		BDB1E8C919F9BAFA00E38109 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BDB1E8C719F9BAFA00E38109 /* LaunchScreen.xib */; };
+		CE0A459F1A79D151006FCCD3 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0A459E1A79D151006FCCD3 /* Constants.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,8 @@
 		BDB1E8C519F9BAFA00E38109 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		BDB1E8C819F9BAFA00E38109 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		C11A878988326E85EBEB6CAC /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		CE0A459D1A79D151006FCCD3 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		CE0A459E1A79D151006FCCD3 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +85,8 @@
 		BDB1E8B719F9BAFA00E38109 /* SNS_MobileAnalytics_Sample */ = {
 			isa = PBXGroup;
 			children = (
+				CE0A459D1A79D151006FCCD3 /* Constants.h */,
+				CE0A459E1A79D151006FCCD3 /* Constants.m */,
 				BDB1E8BC19F9BAFA00E38109 /* AppDelegate.h */,
 				BDB1E8BD19F9BAFA00E38109 /* AppDelegate.m */,
 				BDB1E8BF19F9BAFA00E38109 /* ViewController.h */,
@@ -212,6 +217,7 @@
 				BDB1E8C119F9BAFA00E38109 /* ViewController.m in Sources */,
 				BDB1E8BE19F9BAFA00E38109 /* AppDelegate.m in Sources */,
 				BDB1E8BB19F9BAFA00E38109 /* main.m in Sources */,
+				CE0A459F1A79D151006FCCD3 /* Constants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

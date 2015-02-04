@@ -15,16 +15,12 @@
 
 #import "Constants.h"
 
-#warning To run this sample correctly, you must set an appropriate AWSAccountID and Cognito Identity.
-NSString *const AWSAccountID = @"YourAccountID";
-NSString *const CognitoPoolID = @"YourPoolID";
-NSString *const CognitoRoleAuth = nil;
-NSString *const CognitoRoleUnauth = @"YourRoleUnauth";
-
-#warning To run this sample correctly, you must set an appropriate bucketName and downloadKeyName.
+#warning To run this sample correctly, you must set the following constants.
+AWSRegionType const CognitoRegionType = AWSRegionUnknown; // e.g. AWSRegionUSEast1
+AWSRegionType const DefaultServiceRegionType = AWSRegionUnknown; // e.g. AWSRegionUSEast1
+NSString *const CognitoIdentityPoolId = @"YourCognitoIdentityPoolId";
 NSString *const S3BucketName = @"YourS3BucketName";
 NSString *const S3DownloadKeyName = @"YourDownloadKeyName";
-
 
 NSString *const S3UploadKeyName = @"uploadfileobj.txt";
 NSString *const BackgroundSessionUploadIdentifier = @"com.amazon.example.s3BackgroundTransferObjC.uploadSession";

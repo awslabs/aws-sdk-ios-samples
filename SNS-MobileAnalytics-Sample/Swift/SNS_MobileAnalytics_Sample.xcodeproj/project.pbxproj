@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE0A459C1A79CA7F006FCCD3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0A459B1A79CA7F006FCCD3 /* Constants.swift */; };
 		CEA8CC8819C8EF82008E1336 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA8CC8719C8EF82008E1336 /* AppDelegate.swift */; };
 		CEA8CC8A19C8EF82008E1336 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA8CC8919C8EF82008E1336 /* MainViewController.swift */; };
 		CEA8CC8D19C8EF82008E1336 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEA8CC8B19C8EF82008E1336 /* Main.storyboard */; };
@@ -18,6 +19,7 @@
 /* Begin PBXFileReference section */
 		12194192D17CF426D5F3A18E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		8E60EE722BF678BAA8A35EB1 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		CE0A459B1A79CA7F006FCCD3 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		CEA8CC8219C8EF82008E1336 /* SNS_MobileAnalytics_Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SNS_MobileAnalytics_Sample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEA8CC8619C8EF82008E1336 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CEA8CC8719C8EF82008E1336 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 		CEA8CC8419C8EF82008E1336 /* SNS_MobileAnalytics_Sample */ = {
 			isa = PBXGroup;
 			children = (
+				CE0A459B1A79CA7F006FCCD3 /* Constants.swift */,
 				CEA8CC8719C8EF82008E1336 /* AppDelegate.swift */,
 				CEA8CC8919C8EF82008E1336 /* MainViewController.swift */,
 				CEA8CC8B19C8EF82008E1336 /* Main.storyboard */,
@@ -207,6 +210,7 @@
 			files = (
 				CEA8CC8A19C8EF82008E1336 /* MainViewController.swift in Sources */,
 				CEA8CC8819C8EF82008E1336 /* AppDelegate.swift in Sources */,
+				CE0A459C1A79CA7F006FCCD3 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

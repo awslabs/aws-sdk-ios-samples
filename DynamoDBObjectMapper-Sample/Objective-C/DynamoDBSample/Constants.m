@@ -15,11 +15,8 @@
 
 #import "Constants.h"
 
-// TODO: Updates the following Cognito constants.
-NSString *const AWSAccountID = @"Your-AccountID";
-NSString *const CognitoPoolID = @"Your-PoolID";
-NSString *const CognitoRoleAuth = nil;
-NSString *const CognitoRoleUnauth = @"Your-RoleUnauth";
-
-
+#warning To run this sample correctly, you must set the following constants.
+AWSRegionType const CognitoRegionType = AWSRegionUnknown; // e.g. AWSRegionUSEast1
+AWSRegionType const DefaultServiceRegionType = AWSRegionUnknown; // e.g. AWSRegionUSEast1
+NSString *const CognitoIdentityPoolId = @"YourCognitoIdentityPoolId";
 NSString *const AWSSampleDynamoDBTableName = @"DynamoDB-OM-Sample";

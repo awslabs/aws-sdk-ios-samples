@@ -13,10 +13,12 @@
  * permissions and limitations under the License.
  */
 
-#import "Constants.h"
+#import <Foundation/Foundation.h>
+#import "AWSCore.h"
 
-#warning To run this sample correctly, you must set an appropriate constants.
-AWSRegionType const CognitoRegionType = AWSRegionUnknown; // e.g. AWSRegionUSEast1
-AWSRegionType const DefaultServiceRegionType = AWSRegionUnknown; // e.g. AWSRegionUSEast1
-NSString *const CognitoIdentityPoolId = @"YourCognitoIdentityPoolId";
-NSString *const S3BucketName = @"YourS3BucketName";
+FOUNDATION_EXPORT AWSRegionType const CognitoRegionType;
+FOUNDATION_EXPORT AWSRegionType const DefaultServiceRegionType;
+
+FOUNDATION_EXPORT NSString *const CognitoIdentityPoolId;
+FOUNDATION_EXPORT NSString *const SNSPlatformApplicationArn;
+FOUNDATION_EXPORT NSString *const MobileAnalyticsAppId;

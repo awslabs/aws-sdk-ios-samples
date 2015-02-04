@@ -16,7 +16,8 @@
 import Foundation
 
 //WARNING: To run this sample correctly, you must set the following constants.
-let CognitoRegionType = AWSRegionType.Unknown
-let DefaultServiceRegionType = AWSRegionType.Unknown
+let CognitoRegionType = AWSRegionType.Unknown // e.g. AWSRegionType.USEast1
+let DefaultServiceRegionType = AWSRegionType.Unknown // e.g. AWSRegionType.USEast1
 let CognitoIdentityPoolId = "YourCognitoIdentityPoolId"
-let AWSSampleDynamoDBTableName = "DynamoDB-OM-SwiftSample"
+let SNSPlatformApplicationArn = "YourSNSPlatformApplicationArn"
+let MobileAnalyticsAppId = "YourMobileAnalyticsAppId"

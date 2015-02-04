@@ -15,12 +15,6 @@
 
 import UIKit
 
-let cognitoAccountId = "Your-AccountID"
-let cognitoIdentityPoolId = "Your-PoolID"
-let cognitoUnauthRoleArn = "Your-RoleUnauth"
-let snsPlatformApplicationArn = "Your-Platform-Applicatoin-ARN"
-let mobileAnalyticsAppId = "Your-MobileAnalytics-AppId"
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -67,12 +61,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // Sets up the AWS Mobile SDK for iOS
         let credentialsProvider = AWSCognitoCredentialsProvider.credentialsWithRegionType(
-            AWSRegionType.USEast1,
-            accountId: cognitoAccountId,
-            identityPoolId: cognitoIdentityPoolId,
-            unauthRoleArn: cognitoUnauthRoleArn,
-            authRoleArn: nil)
-        let defaultServiceConfiguration = AWSServiceConfiguration(region: AWSRegionType.USEast1, credentialsProvider: credentialsProvider)
+            CognitoRegionType,
+            identityPoolId: CognitoIdentityPoolId)
+        let defaultServiceConfiguration = AWSServiceConfiguration(
+            region: DefaultServiceRegionType,
+            credentialsProvider: credentialsProvider)
         AWSServiceManager.defaultServiceManager().setDefaultServiceConfiguration(defaultServiceConfiguration)
 
         return true
@@ -89,7 +82,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let sns = AWSSNS.defaultSNS()
         let request = AWSSNSCreatePlatformEndpointInput()
         request.token = deviceTokenString
-        request.platformApplicationArn = snsPlatformApplicationArn
+        request.platformApplicationArn = SNSPlatformApplicationArn
         sns.createPlatformEndpoint(request).continueWithExecutor(BFExecutor.mainThreadExecutor(), withBlock: { (task: BFTask!) -> AnyObject! in
             if task.error != nil {
                 println("Error: \(task.error)")
@@ -113,7 +106,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(application: UIApplication, handleActionWithIdentifier identifier: String?, forRemoteNotification userInfo: [NSObject : AnyObject], completionHandler: () -> Void) {
-        let mobileAnalytics = AWSMobileAnalytics(forAppId: mobileAnalyticsAppId)
+        let mobileAnalytics = AWSMobileAnalytics(forAppId: MobileAnalyticsAppId)
         let eventClient = mobileAnalytics.eventClient
         let pushNotificationEvent = eventClient.createEventWithEventType("PushNotificationEvent")
 

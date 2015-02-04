@@ -15,8 +15,9 @@
 
 #import "Constants.h"
 
-#warning To run this sample correctly, you must set an appropriate constants.
+#warning To run this sample correctly, you must set the following constants.
 AWSRegionType const CognitoRegionType = AWSRegionUnknown; // e.g. AWSRegionUSEast1
 AWSRegionType const DefaultServiceRegionType = AWSRegionUnknown; // e.g. AWSRegionUSEast1
 NSString *const CognitoIdentityPoolId = @"YourCognitoIdentityPoolId";
-NSString *const S3BucketName = @"YourS3BucketName";
+NSString *const SNSPlatformApplicationArn = @"YourSNSPlatformApplicationArn";
+NSString *const MobileAnalyticsAppId = @"YourMobileAnalyticsAppId";

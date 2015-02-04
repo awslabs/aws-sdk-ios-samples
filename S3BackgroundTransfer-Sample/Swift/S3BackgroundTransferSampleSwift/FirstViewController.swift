@@ -34,7 +34,7 @@ class FirstViewController: UIViewController, NSURLSessionDelegate, NSURLSessionT
         }
         
         dispatch_once(&Static.token) {
-            let configuration = NSURLSessionConfiguration.backgroundSessionConfiguration(BackgroundSessionUploadIdentifier)
+            let configuration = NSURLSessionConfiguration.backgroundSessionConfigurationWithIdentifier(BackgroundSessionUploadIdentifier)
             Static.session = NSURLSession(configuration: configuration, delegate: self, delegateQueue: nil)
         }
         

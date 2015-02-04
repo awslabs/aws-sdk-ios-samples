@@ -13,6 +13,7 @@ This sample demonstrates how you would track user engagement for the mobile push
 1. The AWS Mobile SDK for iOS is available through [CocoaPods](http://cocoapods.org). If you have not installed CocoaPods, install CocoaPods by running the command:
 
 		sudo gem install cocoapods
+		pod setup
 
 1. In your project directory, create a text file named **Podfile** and add the following lines:
 
@@ -30,12 +31,12 @@ This sample demonstrates how you would track user engagement for the mobile push
 
 		#import "SNS.h"
 
-1. In the [Amazon Cognito console](https://console.aws.amazon.com/cognito/), use Amazon Cognito to create a new identity pool. Obtain the `AccountID`, `PoolID`, and `RoleUnauth` constants. Make sure the [role](https://console.aws.amazon.com/iam/home?region=us-east-1#roles) has appropriate permissions for Amazon SNS Mobile Push and Amazon Mobile Analytics. Use Amazon Mobile Analytics to create an app, and obtain the `AppId` constant.
+1. In the [Amazon Cognito console](https://console.aws.amazon.com/cognito/), use Amazon Cognito to create a new identity pool. Obtain the `PoolID` constant. Make sure the [role](https://console.aws.amazon.com/iam/home?region=us-east-1#roles) has appropriate permissions for Amazon SNS Mobile Push and Amazon Mobile Analytics. Use Amazon Mobile Analytics to create an app, and obtain the `AppId` constant.
 
-1. Open `AppDelegate.m` and update the following lines with the appropriate constants:
+1. Open `Constants.m` and update the following lines with the appropriate constants:
 
-        NSString *const cognitoAccountId = @"Your-AccountID";
-        NSString *const cognitoIdentityPoolId = @"Your-PoolID";
-        NSString *const cognitoUnauthRoleArn = @"Your-RoleUnauth";
-        NSString *const snsPlatformApplicationArn = @"Your-Platform-Applicatoin-ARN";
-        NSString *const mobileAnalyticsAppId = @"Your-MobileAnalytics-AppId";
+        AWSRegionType const CognitoRegionType = AWSRegionUnknown; // e.g. AWSRegionUSEast1
+        AWSRegionType const DefaultServiceRegionType = AWSRegionUnknown; // e.g. AWSRegionUSEast1
+        NSString *const CognitoIdentityPoolId = @"YourCognitoIdentityPoolId";
+        NSString *const SNSPlatformApplicationArn = @"YourSNSPlatformApplicationArn";
+        NSString *const MobileAnalyticsAppId = @"YourMobileAnalyticsAppId";

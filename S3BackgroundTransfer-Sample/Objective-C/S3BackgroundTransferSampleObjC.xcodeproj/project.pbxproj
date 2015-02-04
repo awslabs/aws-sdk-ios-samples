@@ -20,7 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0030A4CBBF2A457B9ABBE117 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		845F78CD5DA166168BBAB982 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		A2B4E050A28647F0BCAE194C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDCB7AFD19CCB6320089B5AE /* S3BackgroundTransferSampleObjC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = S3BackgroundTransferSampleObjC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDCB7B0119CCB6320089B5AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -37,6 +37,7 @@
 		BDCB7B3119CCBAF30089B5AE /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		BDCB7B3219CCBAF30089B5AE /* TemplateIcon2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TemplateIcon2x.png; sourceTree = "<group>"; };
 		BDCB7B3419CCBB060089B5AE /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		C719624220C66D68D2A28AD6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,8 +65,8 @@
 			children = (
 				BDCB7AFF19CCB6320089B5AE /* S3BackgroundTransferSampleObjC */,
 				BDCB7AFE19CCB6320089B5AE /* Products */,
-				0030A4CBBF2A457B9ABBE117 /* Pods.xcconfig */,
 				6EAB0826B7F643BCA520CD7D /* Frameworks */,
+				D33408708AF58BAFF6AE761B /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -112,6 +113,15 @@
 				BDCB7B0B19CCB6320089B5AE /* SecondViewController.m */,
 			);
 			name = S3BackgroundTransfer;
+			sourceTree = "<group>";
+		};
+		D33408708AF58BAFF6AE761B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				845F78CD5DA166168BBAB982 /* Pods.debug.xcconfig */,
+				C719624220C66D68D2A28AD6 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,7 +221,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -329,9 +339,8 @@
 		};
 		BDCB7B2419CCB6330089B5AE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0030A4CBBF2A457B9ABBE117 /* Pods.xcconfig */;
+			baseConfigurationReference = 845F78CD5DA166168BBAB982 /* Pods.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = S3BackgroundTransferSampleObjC/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -341,9 +350,8 @@
 		};
 		BDCB7B2519CCB6330089B5AE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0030A4CBBF2A457B9ABBE117 /* Pods.xcconfig */;
+			baseConfigurationReference = C719624220C66D68D2A28AD6 /* Pods.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = S3BackgroundTransferSampleObjC/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

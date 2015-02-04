@@ -269,7 +269,7 @@ class DDBMainTableViewController: UITableViewController {
         // Configure the cell...
         if let myTableRows = self.tableRows? {
             let item = myTableRows[indexPath.row]
-            cell.textLabel.text = "ID: \(item.UserId!), Title: \(item.GameTitle!)"
+            cell.textLabel?.text = "ID: \(item.UserId!), Title: \(item.GameTitle!)"
             
             if let myDetailTextLabel = cell.detailTextLabel {
                 myDetailTextLabel.text = "TopScore:\(item.TopScore!), Wins:\(item.Wins!), Losses:\(item.Losses!                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  )"

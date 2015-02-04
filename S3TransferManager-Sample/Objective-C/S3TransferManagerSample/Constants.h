@@ -13,9 +13,10 @@
  * permissions and limitations under the License.
  */
 
-FOUNDATION_EXPORT NSString *const AWSAccountID;
-FOUNDATION_EXPORT NSString *const CognitoPoolID;
-FOUNDATION_EXPORT NSString *const CognitoRoleUnauth;
-FOUNDATION_EXPORT NSString *const CognitoRoleAuth;
+#import <Foundation/Foundation.h>
+#import "AWSCore.h"
 
+FOUNDATION_EXPORT AWSRegionType const CognitoRegionType;
+FOUNDATION_EXPORT AWSRegionType const DefaultServiceRegionType;
+FOUNDATION_EXPORT NSString *const CognitoIdentityPoolId;
 FOUNDATION_EXPORT NSString *const S3BucketName;

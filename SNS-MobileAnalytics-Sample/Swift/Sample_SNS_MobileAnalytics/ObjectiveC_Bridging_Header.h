@@ -13,5 +13,4 @@
  * permissions and limitations under the License.
  */
 
-#import "AWSCore.h"
 #import "SNS.h"

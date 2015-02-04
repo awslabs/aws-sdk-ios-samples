@@ -15,17 +15,12 @@
 
 import Foundation
 
-//WARNING: To run this sample correctly, you must set an appropriate AWSAccountID and Cognito Identity.
-let AWSAccountID: String = "YourAccountID"
-let CognitoPoolID: String = "YourPoolID"
-let CognitoRoleAuth: String? = nil
-let CognitoRoleUnauth: String? = "YourRoleUnauth"
-
-
-//WARNING: To run this sample correctly, you must set an appropriate bucketName and downloadKeyName.
+//WARNING: To run this sample correctly, you must set the following constants.
+let CognitoRegionType = AWSRegionType.Unknown
+let DefaultServiceRegionType = AWSRegionType.Unknown
+let CognitoIdentityPoolId: String = "YourPoolID"
 let S3BucketName: String = "YourS3BucketName"
 let S3DownloadKeyName: String = "YourDownloadKeyName"
-
 
 let S3UploadKeyName: String = "uploadfileswift.txt"
 let BackgroundSessionUploadIdentifier: String = "com.amazon.example.s3BackgroundTransferSwift.uploadSession"

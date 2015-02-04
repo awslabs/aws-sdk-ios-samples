@@ -14,15 +14,14 @@
  */
 
 #import <Foundation/Foundation.h>
+#import "AWSCore.h"
 
-FOUNDATION_EXPORT  NSString *const AWSAccountID;
-FOUNDATION_EXPORT  NSString *const CognitoPoolID;
-FOUNDATION_EXPORT  NSString *const CognitoRoleAuth;
-FOUNDATION_EXPORT  NSString *const CognitoRoleUnauth;
-
-FOUNDATION_EXPORT  NSString *const S3BucketName;
-FOUNDATION_EXPORT  NSString *const S3DownloadKeyName;
+FOUNDATION_EXPORT AWSRegionType const CognitoRegionType;
+FOUNDATION_EXPORT AWSRegionType const DefaultServiceRegionType;
+FOUNDATION_EXPORT NSString *const CognitoIdentityPoolId;
+FOUNDATION_EXPORT NSString *const S3BucketName;
+FOUNDATION_EXPORT NSString *const S3DownloadKeyName;
 
 FOUNDATION_EXPORT NSString *const S3UploadKeyName;
-FOUNDATION_EXPORT  NSString *const BackgroundSessionUploadIdentifier;
-FOUNDATION_EXPORT  NSString *const BackgroundSessionDownloadIdentifier;
+FOUNDATION_EXPORT NSString *const BackgroundSessionUploadIdentifier;
+FOUNDATION_EXPORT NSString *const BackgroundSessionDownloadIdentifier;

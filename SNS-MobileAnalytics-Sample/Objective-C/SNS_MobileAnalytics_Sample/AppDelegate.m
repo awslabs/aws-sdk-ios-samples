@@ -15,16 +15,9 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
+#import "Constants.h"
 
-#import "AWSCore.h"
 #import "SNS.h"
-
-#warning To run this sample correctly, you must set an appropriate AWSAccountID and Cognito Identity.
-NSString *const cognitoAccountId = @"Your-AccountID";
-NSString *const cognitoIdentityPoolId = @"Your-PoolID";
-NSString *const cognitoUnauthRoleArn = @"Your-RoleUnauth";
-NSString *const snsPlatformApplicationArn = @"Your-Platform-Applicatoin-ARN";
-NSString *const mobileAnalyticsAppId = @"Your-MobileAnalytics-AppId";
 
 @interface AppDelegate ()
 
@@ -73,12 +66,10 @@ NSString *const mobileAnalyticsAppId = @"Your-MobileAnalytics-AppId";
     [[UIApplication sharedApplication] registerForRemoteNotifications];
 
     // Sets up the AWS Mobile SDK for iOS
-    AWSCognitoCredentialsProvider *credentialsProvider = [AWSCognitoCredentialsProvider credentialsWithRegionType:AWSRegionUSEast1
-                                                                                                        accountId:cognitoAccountId
-                                                                                                   identityPoolId:cognitoIdentityPoolId
-                                                                                                    unauthRoleArn:cognitoUnauthRoleArn
-                                                                                                      authRoleArn:nil];
-    AWSServiceConfiguration *defaultServiceConfiguration = [AWSServiceConfiguration configurationWithRegion:AWSRegionUSEast1 credentialsProvider:credentialsProvider];
+    AWSCognitoCredentialsProvider *credentialsProvider = [AWSCognitoCredentialsProvider credentialsWithRegionType:CognitoRegionType
+                                                                                                   identityPoolId:CognitoIdentityPoolId];
+    AWSServiceConfiguration *defaultServiceConfiguration = [AWSServiceConfiguration configurationWithRegion:DefaultServiceRegionType
+                                                                                        credentialsProvider:credentialsProvider];
 
     [AWSServiceManager defaultServiceManager].defaultServiceConfiguration = defaultServiceConfiguration;
 
@@ -96,7 +87,7 @@ NSString *const mobileAnalyticsAppId = @"Your-MobileAnalytics-AppId";
     AWSSNS *sns = [AWSSNS defaultSNS];
     AWSSNSCreatePlatformEndpointInput *request = [AWSSNSCreatePlatformEndpointInput new];
     request.token = deviceTokenString;
-    request.platformApplicationArn = snsPlatformApplicationArn;
+    request.platformApplicationArn = SNSPlatformApplicationArn;
     [[sns createPlatformEndpoint:request] continueWithBlock:^id(BFTask *task) {
         if (task.error != nil) {
             NSLog(@"Error: %@",task.error);
@@ -124,7 +115,7 @@ NSString *const mobileAnalyticsAppId = @"Your-MobileAnalytics-AppId";
 }
 
 - (void)application:(UIApplication *)application handleActionWithIdentifier:(NSString *)identifier forRemoteNotification:(NSDictionary *)userInfo completionHandler:(void (^)())completionHandler {
-    AWSMobileAnalytics *mobileAnalytics = [AWSMobileAnalytics mobileAnalyticsForAppId:mobileAnalyticsAppId];
+    AWSMobileAnalytics *mobileAnalytics = [AWSMobileAnalytics mobileAnalyticsForAppId:MobileAnalyticsAppId];
     id<AWSMobileAnalyticsEventClient> eventClient = mobileAnalytics.eventClient;
     id<AWSMobileAnalyticsEvent> pushNotificationEvent = [eventClient createEventWithEventType:@"PushNotificationEvent"];
 

@@ -20,12 +20,9 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    AWSCognitoCredentialsProvider *credentialsProvider = [AWSCognitoCredentialsProvider credentialsWithRegionType:AWSRegionUSEast1
-                                                                                                        accountId:AWSAccountID
-                                                                                                   identityPoolId:CognitoPoolID
-                                                                                                    unauthRoleArn:CognitoRoleUnauth
-                                                                                                      authRoleArn:CognitoRoleAuth];
-    AWSServiceConfiguration *configuration = [AWSServiceConfiguration configurationWithRegion:AWSRegionUSEast1
+    AWSCognitoCredentialsProvider *credentialsProvider = [AWSCognitoCredentialsProvider credentialsWithRegionType:CognitoRegionType
+                                                                                                   identityPoolId:CognitoIdentityPoolId];
+    AWSServiceConfiguration *configuration = [AWSServiceConfiguration configurationWithRegion:DefaultServiceRegionType
                                                                           credentialsProvider:credentialsProvider];
     [AWSServiceManager defaultServiceManager].defaultServiceConfiguration = configuration;
 
