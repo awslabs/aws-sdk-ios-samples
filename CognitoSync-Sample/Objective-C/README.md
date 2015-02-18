@@ -76,10 +76,10 @@ Remove `Podfile.lock`. Then run the following command:
 ###5. Setup Developer Authenticated Identities
 1. Setup the [server side application](https://github.com/awslabs/amazon-cognito-developer-authentication-sample) before setting up client side configuration.
 1. Open the Constant.h file and update the following constants
-	a. Update BYOI_LOGIN to 1.
-	b. Update AppName to the App Name you have setup in the server side application.
-	c. Update Endpoint to the URL of the server side application.
-	d. Update ProviderName to the developer provider name you have set in the [Amazon Cognito Console](https://console.aws.amazon.com/cognito/).
+	1. Update BYOI_LOGIN to 1.
+	2. Update AppName to the App Name you have setup in the server side application.
+	3. Update Endpoint to the URL of the server side application.
+	4. Update ProviderName to the developer provider name you have set in the [Amazon Cognito Console](https://console.aws.amazon.com/cognito/).
 
 ###6. Setup Cognito
 1. In the [Amazon Cognito console](https://console.aws.amazon.com/cognito/), use Amazon Cognito to create a new identity pool. Obtain the `AWS_ACCOUNT_ID`, `COGNITO_POOL_ID`, `COGNITO_ROLE_AUTH`  and `COGNITO_ROLE_UNAUTH` constants. Make sure the [role](https://console.aws.amazon.com/iam/home?region=us-east-1#roles) has full permissions for the bucket you created.
