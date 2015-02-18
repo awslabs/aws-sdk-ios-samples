@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -13,10 +13,37 @@
  * permissions and limitations under the License.
  */
 
-#define AWSAccountID @"Your-AccountID"
-#define CognitoPoolID @"Your-PoolID"
-#define CognitoRoleAuth @"Your-RoleAuth"
-#define CognitoRoleUnauth @"Your-RoleUnauth"
+#import <Foundation/Foundation.h>
+#import "AWSCore.h"
+
+FOUNDATION_EXPORT AWSRegionType const CognitoRegionType;
+FOUNDATION_EXPORT NSString *const CognitoIdentityPoolId;
+
+FOUNDATION_EXPORT NSString *const DeviceTokenKey;
+FOUNDATION_EXPORT NSString *const CognitoDeviceTokenKey;
+FOUNDATION_EXPORT NSString *const CognitoPushNotification;
+
+/**
+ * Enables Developer Authentication Login.
+ * This sample uses the Java-based Cognito Authentication backend
+ */
+#define BYOI_LOGIN                  0
+
+#if BYOI_LOGIN
+
+// This is the default value, if you modified your backend configuration
+// update this value as appropriate
+#define AppName @"awscognitodeveloperauthenticationsample"
+// Update this value to reflect where your backend is deployed
+// !!!!!!!!!!!!!!!!!!!
+// Make sure to enable HTTPS for your end point before deploying your
+// app to production.
+// !!!!!!!!!!!!!!!!!!!
+#define Endpoint @"http://YOUR-AUTH-ENDPOINT"
+// Set to the provider name you configured in the Cognito console.
+#define ProviderName @"PROVIDER_NAME"
+
+#endif
 
 /**
  * Enables FB Login.
@@ -73,10 +100,3 @@
 #define GOOGLE_OPENID_SCOPE         @"openid"
 
 #endif
-
-
-@interface Constants : NSObject
-
-+(UIAlertView *)noImageNameAlert;
-
-@end

@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -27,31 +27,34 @@
     [super viewDidLoad];
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     [self disableUI];
-	
-    [[AmazonClientManager sharedInstance] resumeSessionWithCompletionHandler:^(NSError *error) {
+    
+    [[AmazonClientManager sharedInstance] resumeSessionWithCompletionHandler:^id(BFTask *task) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [self refreshUI];
         });
+        return nil;
     }];
 }
 
 -(IBAction)loginClicked:(id)sender {
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     [self disableUI];
-    [[AmazonClientManager sharedInstance] loginFromView:self.view withCompletionHandler:^(NSError *error) {
+    [[AmazonClientManager sharedInstance] loginFromView:self.view withCompletionHandler:^id(BFTask *task) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [self refreshUI];
         });
+        return nil;
     }];
 }
 
 -(IBAction)logoutClicked:(id)sender {
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     [self disableUI];
-    [[AmazonClientManager sharedInstance] logoutWithCompletionHandler:^(NSError *error) {
+    [[AmazonClientManager sharedInstance] logoutWithCompletionHandler:^id(BFTask *task) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [self refreshUI];
         });
+        return nil;
     }];
 }
 
@@ -66,10 +69,10 @@
     self.browseDataButton.enabled = YES;
     self.loginButton.enabled = YES;
     if ([[AmazonClientManager sharedInstance] isLoggedIn]) {
-        self.loginButton.titleLabel.text = @"Link";
+        [self.loginButton setTitle:@"Link" forState:UIControlStateNormal];
     }
     else {
-        self.loginButton.titleLabel.text = @"Login";
+        [self.loginButton setTitle:@"Login" forState:UIControlStateNormal];
     }
     self.logoutWipeButton.enabled = [[AmazonClientManager sharedInstance] isLoggedIn];
 }

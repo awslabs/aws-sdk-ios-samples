@@ -31,7 +31,7 @@
 			<string>Facebook URL Handler</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>fbAPP_ID</string>
+				<string>fbFB_APP_ID</string>
 			</array>
 		</dict>
 		<dict>

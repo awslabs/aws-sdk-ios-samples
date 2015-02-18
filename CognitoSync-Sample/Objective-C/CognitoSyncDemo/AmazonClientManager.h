@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -14,36 +14,35 @@
  */
 
 #include "Constants.h"
+#include "BFTask.h"
 
 @class AWSCognitoCredentialsProvider;
 @class AWSCognito;
 @class BFTask;
 
-typedef void (^LoginHandler)(NSError *error);
-
 #if GOOGLE_LOGIN
 #if AMZN_LOGIN
 // Amazon and Google
-@interface AmazonClientManager:NSObject<UIActionSheetDelegate,GPPSignInDelegate,AIAuthenticationDelegate> {}
+@interface AmazonClientManager:NSObject<UIAlertViewDelegate,UIActionSheetDelegate,GPPSignInDelegate,AIAuthenticationDelegate> {}
 #else
 // Just Google
-@interface AmazonClientManager:NSObject<UIActionSheetDelegate,GPPSignInDelegate> {}
+@interface AmazonClientManager:NSObject<UIAlertViewDelegate,UIActionSheetDelegate,GPPSignInDelegate> {}
 #endif
 #elif AMZN_LOGIN
 // Just Amazon
-@interface AmazonClientManager:NSObject<UIActionSheetDelegate,AIAuthenticationDelegate> {}
+@interface AmazonClientManager:NSObject<UIAlertViewDelegate,UIActionSheetDelegate,AIAuthenticationDelegate> {}
 #else
 // Neither Amazon nor Google
-@interface AmazonClientManager:NSObject<UIActionSheetDelegate> {}
+@interface AmazonClientManager:NSObject<UIAlertViewDelegate,UIActionSheetDelegate> {}
 #endif
 
 - (BOOL)isLoggedIn;
-- (void)logoutWithCompletionHandler:(LoginHandler)completionHandler;
-- (void)loginFromView:(UIView *)theView withCompletionHandler:(LoginHandler)completionHandler;
+- (void)logoutWithCompletionHandler:(BFContinuationBlock)completionHandler;
+- (void)loginFromView:(UIView *)theView withCompletionHandler:(BFContinuationBlock)completionHandler;
 
 - (BOOL)handleOpenURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation;
 
-- (void)resumeSessionWithCompletionHandler:(LoginHandler)completionHandler;
+- (void)resumeSessionWithCompletionHandler:(BFContinuationBlock)completionHandler;
 
 + (AmazonClientManager *)sharedInstance;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -15,6 +15,7 @@
 
 #import "CognitoDatasetViewController.h"
 #import "Cognito.h"
+#import "Constants.h"
 
 const int AWSCognitoNewRecordView = 1;
 const int AWSCognitoUpdateRecordView = 2;
@@ -23,6 +24,8 @@ const int AWSCognitoUpdateRecordView = 2;
     NSMutableArray *_objects;
     NSString *_selectedRecord;
 }
+@property (weak, nonatomic) IBOutlet UISwitch *subscribeSwitch;
+
 @end
 
 @implementation CognitoDatasetViewController
@@ -37,8 +40,60 @@ const int AWSCognitoUpdateRecordView = 2;
     [super viewDidLoad];
 	
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
-
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [self.subscribeSwitch setOn:[@"Subscribed" isEqualToString:[userDefaults stringForKey:self.dataset.name]] animated:NO];
     [self refreshTapped:nil];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(didReceivePushSync:)
+                                                 name:CognitoPushNotification object:nil];
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [super viewWillDisappear:animated];
+}
+
+- (void)didReceivePushSync:(NSNotification*)notification
+{
+    NSDictionary * data = [(NSDictionary *)[notification object] objectForKey:@"data"];
+    NSString * identityId = [data objectForKey:@"identityId"];
+    NSString * datasetName = [data objectForKey:@"datasetName"];
+    if([self.dataset.name isEqualToString:datasetName] && [self.identityId isEqualToString:identityId]){
+        [self refreshTapped:nil];
+    }
+}
+
+- (IBAction)subscribeClicked:(UISwitch *)sender {
+    if(sender.on){
+        [[self.dataset subscribe] continueWithBlock:^id(BFTask *task) {
+            if(task.error){
+                [self.subscribeSwitch setOn:NO animated:YES];
+                NSLog(@"Unable to subscribe to dataset");
+            }else {
+                NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+                [userDefaults setObject:@"Subscribed" forKey: self.dataset.name];
+                [userDefaults synchronize];
+            }
+            return nil;
+        }];
+    }else{
+        [[self.dataset unsubscribe] continueWithBlock:^id(BFTask *task) {
+            if(task.error){
+                [self.subscribeSwitch setOn:YES animated:YES];
+                NSLog(@"Unable to unsubscribe to dataset");
+            }else {
+                NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+                [userDefaults removeObjectForKey:self.dataset.name];
+                [userDefaults synchronize];
+            }
+            return nil;
+        }];
+    }
 }
 
 - (void)didReceiveMemoryWarning

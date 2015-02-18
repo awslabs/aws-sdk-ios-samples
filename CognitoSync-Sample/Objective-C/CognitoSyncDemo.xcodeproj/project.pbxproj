@@ -1,1263 +1,589 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-	<key>archiveVersion</key>
-	<string>1</string>
-	<key>classes</key>
-	<dict/>
-	<key>objectVersion</key>
-	<string>46</string>
-	<key>objects</key>
-	<dict>
-		<key>1CD3A84C10799B4E6EC8A937</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods.debug.xcconfig</string>
-			<key>path</key>
-			<string>Pods/Target Support Files/Pods/Pods.debug.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>20879EF7BF4D42B8B01AA6A3</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>Copy Pods Resources</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh"
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>2E8C2EA844CD56E56789F74C</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods.release.xcconfig</string>
-			<key>path</key>
-			<string>Pods/Target Support Files/Pods/Pods.release.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>382EC93219511AAC00D555AB</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>AmazonClientManager.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>382EC93319511AAC00D555AB</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>AmazonClientManager.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>382EC93419511AAC00D555AB</key>
-		<dict>
-			<key>fileRef</key>
-			<string>382EC93319511AAC00D555AB</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>382EC93519511B1500D555AB</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>Constants.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>382EC936195120A100D555AB</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>CognitoHomeViewController.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>382EC937195120A100D555AB</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>CognitoHomeViewController.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>382EC938195120A100D555AB</key>
-		<dict>
-			<key>fileRef</key>
-			<string>382EC937195120A100D555AB</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>38B4ADB7194CE9F100609D48</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>CognitoDatasetListViewController.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>38B4ADB8194CE9F100609D48</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>CognitoDatasetListViewController.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>38B4ADB9194CE9F100609D48</key>
-		<dict>
-			<key>fileRef</key>
-			<string>38B4ADB8194CE9F100609D48</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>38CD1255196276F5001FC4E1</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>path</key>
-			<string>LoginWithAmazon.framework</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>38CD1256196276F5001FC4E1</key>
-		<dict>
-			<key>fileRef</key>
-			<string>38CD1255196276F5001FC4E1</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>6A06151213EF401E83414C7D</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>Check Pods Manifest.lock</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
-if [[ $? != 0 ]] ; then
-    cat &lt;&lt; EOM
-error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
-EOM
-    exit 1
-fi
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>88AC08CFC6604FA5A9863653</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>archive.ar</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>libPods.a</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>C4616F61313F183F952913FB</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>1CD3A84C10799B4E6EC8A937</string>
-				<string>2E8C2EA844CD56E56789F74C</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Pods</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D8FD64161842490CB6C59E5A</key>
-		<dict>
-			<key>fileRef</key>
-			<string>88AC08CFC6604FA5A9863653</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>EFFA916C192FB8080059AE57</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>EFFA917E192FB8080059AE57</string>
-				<string>EFFA91A0192FB8090059AE57</string>
-				<string>EFFA9177192FB8080059AE57</string>
-				<string>EFFA9176192FB8080059AE57</string>
-				<string>C4616F61313F183F952913FB</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>EFFA916D192FB8080059AE57</key>
-		<dict>
-			<key>attributes</key>
-			<dict>
-				<key>CLASSPREFIX</key>
-				<string>AZC</string>
-				<key>LastUpgradeCheck</key>
-				<string>0510</string>
-				<key>ORGANIZATIONNAME</key>
-				<string>Behroozi, David</string>
-				<key>TargetAttributes</key>
-				<dict>
-					<key>EFFA9198192FB8080059AE57</key>
-					<dict>
-						<key>TestTargetID</key>
-						<string>EFFA9174192FB8080059AE57</string>
-					</dict>
-				</dict>
-			</dict>
-			<key>buildConfigurationList</key>
-			<string>EFFA9170192FB8080059AE57</string>
-			<key>compatibilityVersion</key>
-			<string>Xcode 3.2</string>
-			<key>developmentRegion</key>
-			<string>English</string>
-			<key>hasScannedForEncodings</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXProject</string>
-			<key>knownRegions</key>
-			<array>
-				<string>en</string>
-				<string>Base</string>
-			</array>
-			<key>mainGroup</key>
-			<string>EFFA916C192FB8080059AE57</string>
-			<key>productRefGroup</key>
-			<string>EFFA9176192FB8080059AE57</string>
-			<key>projectDirPath</key>
-			<string></string>
-			<key>projectReferences</key>
-			<array/>
-			<key>projectRoot</key>
-			<string></string>
-			<key>targets</key>
-			<array>
-				<string>EFFA9174192FB8080059AE57</string>
-				<string>EFFA9198192FB8080059AE57</string>
-			</array>
-		</dict>
-		<key>EFFA9170192FB8080059AE57</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>EFFA91A8192FB8090059AE57</string>
-				<string>EFFA91A9192FB8090059AE57</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>EFFA9171192FB8080059AE57</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>382EC93419511AAC00D555AB</string>
-				<string>382EC938195120A100D555AB</string>
-				<string>EFFA9185192FB8080059AE57</string>
-				<string>EFFA9189192FB8080059AE57</string>
-				<string>EFFA918F192FB8080059AE57</string>
-				<string>38B4ADB9194CE9F100609D48</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>EFFA9172192FB8080059AE57</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>EFFA917B192FB8080059AE57</string>
-				<string>EFFA917D192FB8080059AE57</string>
-				<string>EFFA9179192FB8080059AE57</string>
-				<string>D8FD64161842490CB6C59E5A</string>
-				<string>38CD1256196276F5001FC4E1</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>EFFA9173192FB8080059AE57</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>EFFA9194192FB8080059AE57</string>
-				<string>EFFA9183192FB8080059AE57</string>
-				<string>EFFA918C192FB8080059AE57</string>
-			</array>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>EFFA9174192FB8080059AE57</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>EFFA91AA192FB8090059AE57</string>
-			<key>buildPhases</key>
-			<array>
-				<string>6A06151213EF401E83414C7D</string>
-				<string>EFFA9171192FB8080059AE57</string>
-				<string>EFFA9172192FB8080059AE57</string>
-				<string>EFFA9173192FB8080059AE57</string>
-				<string>20879EF7BF4D42B8B01AA6A3</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>CognitoSyncDemo</string>
-			<key>productName</key>
-			<string>CognitoSyncDemo</string>
-			<key>productReference</key>
-			<string>EFFA9175192FB8080059AE57</string>
-			<key>productType</key>
-			<string>com.apple.product-type.application</string>
-		</dict>
-		<key>EFFA9175192FB8080059AE57</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.application</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>CognitoSyncDemo.app</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>EFFA9176192FB8080059AE57</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>EFFA9175192FB8080059AE57</string>
-				<string>EFFA9199192FB8080059AE57</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Products</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>EFFA9177192FB8080059AE57</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>38CD1255196276F5001FC4E1</string>
-				<string>EFFA9178192FB8080059AE57</string>
-				<string>EFFA917A192FB8080059AE57</string>
-				<string>EFFA917C192FB8080059AE57</string>
-				<string>EFFA919A192FB8080059AE57</string>
-				<string>88AC08CFC6604FA5A9863653</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Frameworks</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>EFFA9178192FB8080059AE57</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>Foundation.framework</string>
-			<key>path</key>
-			<string>System/Library/Frameworks/Foundation.framework</string>
-			<key>sourceTree</key>
-			<string>SDKROOT</string>
-		</dict>
-		<key>EFFA9179192FB8080059AE57</key>
-		<dict>
-			<key>fileRef</key>
-			<string>EFFA9178192FB8080059AE57</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>EFFA917A192FB8080059AE57</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>CoreGraphics.framework</string>
-			<key>path</key>
-			<string>System/Library/Frameworks/CoreGraphics.framework</string>
-			<key>sourceTree</key>
-			<string>SDKROOT</string>
-		</dict>
-		<key>EFFA917B192FB8080059AE57</key>
-		<dict>
-			<key>fileRef</key>
-			<string>EFFA917A192FB8080059AE57</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>EFFA917C192FB8080059AE57</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>UIKit.framework</string>
-			<key>path</key>
-			<string>System/Library/Frameworks/UIKit.framework</string>
-			<key>sourceTree</key>
-			<string>SDKROOT</string>
-		</dict>
-		<key>EFFA917D192FB8080059AE57</key>
-		<dict>
-			<key>fileRef</key>
-			<string>EFFA917C192FB8080059AE57</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>EFFA917E192FB8080059AE57</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>EFFA9187192FB8080059AE57</string>
-				<string>EFFA9188192FB8080059AE57</string>
-				<string>EFFA918A192FB8080059AE57</string>
-				<string>EFFA918D192FB8080059AE57</string>
-				<string>EFFA918E192FB8080059AE57</string>
-				<string>EFFA9193192FB8080059AE57</string>
-				<string>38B4ADB7194CE9F100609D48</string>
-				<string>38B4ADB8194CE9F100609D48</string>
-				<string>382EC93219511AAC00D555AB</string>
-				<string>382EC93319511AAC00D555AB</string>
-				<string>382EC93519511B1500D555AB</string>
-				<string>382EC936195120A100D555AB</string>
-				<string>382EC937195120A100D555AB</string>
-				<string>EFFA917F192FB8080059AE57</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>CognitoSyncDemo</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>EFFA917F192FB8080059AE57</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>EFFA9180192FB8080059AE57</string>
-				<string>EFFA9181192FB8080059AE57</string>
-				<string>EFFA9184192FB8080059AE57</string>
-				<string>EFFA9186192FB8080059AE57</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Supporting Files</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>EFFA9180192FB8080059AE57</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>CognitoSyncDemo-Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>EFFA9181192FB8080059AE57</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>EFFA9182192FB8080059AE57</string>
-			</array>
-			<key>isa</key>
-			<string>PBXVariantGroup</string>
-			<key>name</key>
-			<string>InfoPlist.strings</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>EFFA9182192FB8080059AE57</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.strings</string>
-			<key>name</key>
-			<string>en</string>
-			<key>path</key>
-			<string>en.lproj/InfoPlist.strings</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>EFFA9183192FB8080059AE57</key>
-		<dict>
-			<key>fileRef</key>
-			<string>EFFA9181192FB8080059AE57</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>EFFA9184192FB8080059AE57</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>main.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>EFFA9185192FB8080059AE57</key>
-		<dict>
-			<key>fileRef</key>
-			<string>EFFA9184192FB8080059AE57</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>EFFA9186192FB8080059AE57</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>CognitoSyncDemo-Prefix.pch</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>EFFA9187192FB8080059AE57</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>AZCAppDelegate.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>EFFA9188192FB8080059AE57</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>AZCAppDelegate.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>EFFA9189192FB8080059AE57</key>
-		<dict>
-			<key>fileRef</key>
-			<string>EFFA9188192FB8080059AE57</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>EFFA918A192FB8080059AE57</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>EFFA918B192FB8080059AE57</string>
-			</array>
-			<key>isa</key>
-			<string>PBXVariantGroup</string>
-			<key>name</key>
-			<string>Main.storyboard</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>EFFA918B192FB8080059AE57</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>file.storyboard</string>
-			<key>name</key>
-			<string>Base</string>
-			<key>path</key>
-			<string>Base.lproj/Main.storyboard</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>EFFA918C192FB8080059AE57</key>
-		<dict>
-			<key>fileRef</key>
-			<string>EFFA918A192FB8080059AE57</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>EFFA918D192FB8080059AE57</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>CognitoDatasetViewController.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>EFFA918E192FB8080059AE57</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>CognitoDatasetViewController.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>EFFA918F192FB8080059AE57</key>
-		<dict>
-			<key>fileRef</key>
-			<string>EFFA918E192FB8080059AE57</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>EFFA9193192FB8080059AE57</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>folder.assetcatalog</string>
-			<key>path</key>
-			<string>Images.xcassets</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>EFFA9194192FB8080059AE57</key>
-		<dict>
-			<key>fileRef</key>
-			<string>EFFA9193192FB8080059AE57</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>EFFA9195192FB8080059AE57</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>EFFA91A7192FB8090059AE57</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>EFFA9196192FB8080059AE57</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>EFFA919B192FB8090059AE57</string>
-				<string>EFFA919D192FB8090059AE57</string>
-				<string>EFFA919C192FB8090059AE57</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>EFFA9197192FB8080059AE57</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>EFFA91A5192FB8090059AE57</string>
-			</array>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>EFFA9198192FB8080059AE57</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>EFFA91AD192FB8090059AE57</string>
-			<key>buildPhases</key>
-			<array>
-				<string>EFFA9195192FB8080059AE57</string>
-				<string>EFFA9196192FB8080059AE57</string>
-				<string>EFFA9197192FB8080059AE57</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array>
-				<string>EFFA919F192FB8090059AE57</string>
-			</array>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>CognitoSyncDemoTests</string>
-			<key>productName</key>
-			<string>CognitoSyncDemoTests</string>
-			<key>productReference</key>
-			<string>EFFA9199192FB8080059AE57</string>
-			<key>productType</key>
-			<string>com.apple.product-type.bundle.unit-test</string>
-		</dict>
-		<key>EFFA9199192FB8080059AE57</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.cfbundle</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>CognitoSyncDemoTests.xctest</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>EFFA919A192FB8080059AE57</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>XCTest.framework</string>
-			<key>path</key>
-			<string>Library/Frameworks/XCTest.framework</string>
-			<key>sourceTree</key>
-			<string>DEVELOPER_DIR</string>
-		</dict>
-		<key>EFFA919B192FB8090059AE57</key>
-		<dict>
-			<key>fileRef</key>
-			<string>EFFA919A192FB8080059AE57</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>EFFA919C192FB8090059AE57</key>
-		<dict>
-			<key>fileRef</key>
-			<string>EFFA9178192FB8080059AE57</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>EFFA919D192FB8090059AE57</key>
-		<dict>
-			<key>fileRef</key>
-			<string>EFFA917C192FB8080059AE57</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>EFFA919E192FB8090059AE57</key>
-		<dict>
-			<key>containerPortal</key>
-			<string>EFFA916D192FB8080059AE57</string>
-			<key>isa</key>
-			<string>PBXContainerItemProxy</string>
-			<key>proxyType</key>
-			<string>1</string>
-			<key>remoteGlobalIDString</key>
-			<string>EFFA9174192FB8080059AE57</string>
-			<key>remoteInfo</key>
-			<string>CognitoSyncDemo</string>
-		</dict>
-		<key>EFFA919F192FB8090059AE57</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXTargetDependency</string>
-			<key>target</key>
-			<string>EFFA9174192FB8080059AE57</string>
-			<key>targetProxy</key>
-			<string>EFFA919E192FB8090059AE57</string>
-		</dict>
-		<key>EFFA91A0192FB8090059AE57</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>EFFA91A6192FB8090059AE57</string>
-				<string>EFFA91A1192FB8090059AE57</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>CognitoSyncDemoTests</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>EFFA91A1192FB8090059AE57</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>EFFA91A2192FB8090059AE57</string>
-				<string>EFFA91A3192FB8090059AE57</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Supporting Files</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>EFFA91A2192FB8090059AE57</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>CognitoSyncDemoTests-Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>EFFA91A3192FB8090059AE57</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>EFFA91A4192FB8090059AE57</string>
-			</array>
-			<key>isa</key>
-			<string>PBXVariantGroup</string>
-			<key>name</key>
-			<string>InfoPlist.strings</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>EFFA91A4192FB8090059AE57</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.strings</string>
-			<key>name</key>
-			<string>en</string>
-			<key>path</key>
-			<string>en.lproj/InfoPlist.strings</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>EFFA91A5192FB8090059AE57</key>
-		<dict>
-			<key>fileRef</key>
-			<string>EFFA91A3192FB8090059AE57</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>EFFA91A6192FB8090059AE57</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>CognitoSyncDemoTests.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>EFFA91A7192FB8090059AE57</key>
-		<dict>
-			<key>fileRef</key>
-			<string>EFFA91A6192FB8090059AE57</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>EFFA91A8192FB8090059AE57</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>NO</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_DYNAMIC_NO_PIC</key>
-				<string>NO</string>
-				<key>GCC_OPTIMIZATION_LEVEL</key>
-				<string>0</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
-				<string>NO</string>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES_ERROR</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES_AGGRESSIVE</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>7.1</string>
-				<key>ONLY_ACTIVE_ARCH</key>
-				<string>YES</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>EFFA91A9192FB8090059AE57</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>YES</string>
-				<key>ENABLE_NS_ASSERTIONS</key>
-				<string>NO</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES_ERROR</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES_AGGRESSIVE</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>7.1</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>VALIDATE_PRODUCT</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>EFFA91AA192FB8090059AE57</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>EFFA91AB192FB8090059AE57</string>
-				<string>EFFA91AC192FB8090059AE57</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>EFFA91AB192FB8090059AE57</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>1CD3A84C10799B4E6EC8A937</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
-				<string>AppIcon</string>
-				<key>ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME</key>
-				<string>LaunchImage</string>
-				<key>FRAMEWORK_SEARCH_PATHS</key>
-				<array>
-					<string>$(inherited)</string>
-					<string>$(PROJECT_DIR)</string>
-				</array>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>CognitoSyncDemo/CognitoSyncDemo-Prefix.pch</string>
-				<key>INFOPLIST_FILE</key>
-				<string>CognitoSyncDemo/CognitoSyncDemo-Info.plist</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>WRAPPER_EXTENSION</key>
-				<string>app</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>EFFA91AC192FB8090059AE57</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>2E8C2EA844CD56E56789F74C</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
-				<string>AppIcon</string>
-				<key>ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME</key>
-				<string>LaunchImage</string>
-				<key>FRAMEWORK_SEARCH_PATHS</key>
-				<array>
-					<string>$(inherited)</string>
-					<string>$(PROJECT_DIR)</string>
-				</array>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>CognitoSyncDemo/CognitoSyncDemo-Prefix.pch</string>
-				<key>INFOPLIST_FILE</key>
-				<string>CognitoSyncDemo/CognitoSyncDemo-Info.plist</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>WRAPPER_EXTENSION</key>
-				<string>app</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>EFFA91AD192FB8090059AE57</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>EFFA91AE192FB8090059AE57</string>
-				<string>EFFA91AF192FB8090059AE57</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>EFFA91AE192FB8090059AE57</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>BUNDLE_LOADER</key>
-				<string>$(BUILT_PRODUCTS_DIR)/CognitoSyncDemo.app/CognitoSyncDemo</string>
-				<key>FRAMEWORK_SEARCH_PATHS</key>
-				<array>
-					<string>$(SDKROOT)/Developer/Library/Frameworks</string>
-					<string>$(inherited)</string>
-					<string>$(DEVELOPER_FRAMEWORKS_DIR)</string>
-				</array>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>CognitoSyncDemo/CognitoSyncDemo-Prefix.pch</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>INFOPLIST_FILE</key>
-				<string>CognitoSyncDemoTests/CognitoSyncDemoTests-Info.plist</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>TEST_HOST</key>
-				<string>$(BUNDLE_LOADER)</string>
-				<key>WRAPPER_EXTENSION</key>
-				<string>xctest</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>EFFA91AF192FB8090059AE57</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>BUNDLE_LOADER</key>
-				<string>$(BUILT_PRODUCTS_DIR)/CognitoSyncDemo.app/CognitoSyncDemo</string>
-				<key>FRAMEWORK_SEARCH_PATHS</key>
-				<array>
-					<string>$(SDKROOT)/Developer/Library/Frameworks</string>
-					<string>$(inherited)</string>
-					<string>$(DEVELOPER_FRAMEWORKS_DIR)</string>
-				</array>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>CognitoSyncDemo/CognitoSyncDemo-Prefix.pch</string>
-				<key>INFOPLIST_FILE</key>
-				<string>CognitoSyncDemoTests/CognitoSyncDemoTests-Info.plist</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>TEST_HOST</key>
-				<string>$(BUNDLE_LOADER)</string>
-				<key>WRAPPER_EXTENSION</key>
-				<string>xctest</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-	</dict>
-	<key>rootObject</key>
-	<string>EFFA916D192FB8080059AE57</string>
-</dict>
-</plist>
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		382EC93419511AAC00D555AB /* AmazonClientManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 382EC93319511AAC00D555AB /* AmazonClientManager.m */; };
+		382EC938195120A100D555AB /* CognitoHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 382EC937195120A100D555AB /* CognitoHomeViewController.m */; };
+		38AD047C1A2F754E00D0B994 /* DeveloperAuthenticationClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AD047B1A2F754E00D0B994 /* DeveloperAuthenticationClient.m */; };
+		38B4ADB9194CE9F100609D48 /* CognitoDatasetListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38B4ADB8194CE9F100609D48 /* CognitoDatasetListViewController.m */; };
+		38C380CF1A09ABDD001886BE /* Crypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C380CC1A09ABDD001886BE /* Crypto.m */; };
+		38C380D01A09ABDD001886BE /* DeveloperAuthenticatedIdentityProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C380CE1A09ABDD001886BE /* DeveloperAuthenticatedIdentityProvider.m */; };
+		38CD1256196276F5001FC4E1 /* LoginWithAmazon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38CD1255196276F5001FC4E1 /* LoginWithAmazon.framework */; };
+		CE76800F1A7ACE9D005E3ACE /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = CE76800E1A7ACE9D005E3ACE /* Constants.m */; };
+		D8FD64161842490CB6C59E5A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 88AC08CFC6604FA5A9863653 /* libPods.a */; };
+		EFFA9179192FB8080059AE57 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFFA9178192FB8080059AE57 /* Foundation.framework */; };
+		EFFA917B192FB8080059AE57 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFFA917A192FB8080059AE57 /* CoreGraphics.framework */; };
+		EFFA917D192FB8080059AE57 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFFA917C192FB8080059AE57 /* UIKit.framework */; };
+		EFFA9183192FB8080059AE57 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EFFA9181192FB8080059AE57 /* InfoPlist.strings */; };
+		EFFA9185192FB8080059AE57 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EFFA9184192FB8080059AE57 /* main.m */; };
+		EFFA9189192FB8080059AE57 /* AZCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EFFA9188192FB8080059AE57 /* AZCAppDelegate.m */; };
+		EFFA918C192FB8080059AE57 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFFA918A192FB8080059AE57 /* Main.storyboard */; };
+		EFFA918F192FB8080059AE57 /* CognitoDatasetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFFA918E192FB8080059AE57 /* CognitoDatasetViewController.m */; };
+		EFFA9194192FB8080059AE57 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFFA9193192FB8080059AE57 /* Images.xcassets */; };
+		EFFA919B192FB8090059AE57 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFFA919A192FB8080059AE57 /* XCTest.framework */; };
+		EFFA919C192FB8090059AE57 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFFA9178192FB8080059AE57 /* Foundation.framework */; };
+		EFFA919D192FB8090059AE57 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFFA917C192FB8080059AE57 /* UIKit.framework */; };
+		EFFA91A5192FB8090059AE57 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EFFA91A3192FB8090059AE57 /* InfoPlist.strings */; };
+		EFFA91A7192FB8090059AE57 /* CognitoSyncDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EFFA91A6192FB8090059AE57 /* CognitoSyncDemoTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EFFA919E192FB8090059AE57 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EFFA916D192FB8080059AE57 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EFFA9174192FB8080059AE57;
+			remoteInfo = CognitoSyncDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1CD3A84C10799B4E6EC8A937 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		2E8C2EA844CD56E56789F74C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		382EC93219511AAC00D555AB /* AmazonClientManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmazonClientManager.h; sourceTree = "<group>"; };
+		382EC93319511AAC00D555AB /* AmazonClientManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmazonClientManager.m; sourceTree = "<group>"; };
+		382EC93519511B1500D555AB /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		382EC936195120A100D555AB /* CognitoHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CognitoHomeViewController.h; sourceTree = "<group>"; };
+		382EC937195120A100D555AB /* CognitoHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CognitoHomeViewController.m; sourceTree = "<group>"; };
+		38AD047A1A2F754E00D0B994 /* DeveloperAuthenticationClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeveloperAuthenticationClient.h; sourceTree = "<group>"; };
+		38AD047B1A2F754E00D0B994 /* DeveloperAuthenticationClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeveloperAuthenticationClient.m; sourceTree = "<group>"; };
+		38B4ADB7194CE9F100609D48 /* CognitoDatasetListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CognitoDatasetListViewController.h; sourceTree = "<group>"; };
+		38B4ADB8194CE9F100609D48 /* CognitoDatasetListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CognitoDatasetListViewController.m; sourceTree = "<group>"; };
+		38C380CB1A09ABDD001886BE /* Crypto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Crypto.h; sourceTree = "<group>"; };
+		38C380CC1A09ABDD001886BE /* Crypto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Crypto.m; sourceTree = "<group>"; };
+		38C380CD1A09ABDD001886BE /* DeveloperAuthenticatedIdentityProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeveloperAuthenticatedIdentityProvider.h; sourceTree = "<group>"; };
+		38C380CE1A09ABDD001886BE /* DeveloperAuthenticatedIdentityProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeveloperAuthenticatedIdentityProvider.m; sourceTree = "<group>"; };
+		38CD1255196276F5001FC4E1 /* LoginWithAmazon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = LoginWithAmazon.framework; sourceTree = "<group>"; };
+		88AC08CFC6604FA5A9863653 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE76800E1A7ACE9D005E3ACE /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		EFFA9175192FB8080059AE57 /* CognitoSyncDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CognitoSyncDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFFA9178192FB8080059AE57 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		EFFA917A192FB8080059AE57 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		EFFA917C192FB8080059AE57 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		EFFA9180192FB8080059AE57 /* CognitoSyncDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CognitoSyncDemo-Info.plist"; sourceTree = "<group>"; };
+		EFFA9182192FB8080059AE57 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		EFFA9184192FB8080059AE57 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		EFFA9186192FB8080059AE57 /* CognitoSyncDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CognitoSyncDemo-Prefix.pch"; sourceTree = "<group>"; };
+		EFFA9187192FB8080059AE57 /* AZCAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AZCAppDelegate.h; sourceTree = "<group>"; };
+		EFFA9188192FB8080059AE57 /* AZCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AZCAppDelegate.m; sourceTree = "<group>"; };
+		EFFA918B192FB8080059AE57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EFFA918D192FB8080059AE57 /* CognitoDatasetViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CognitoDatasetViewController.h; sourceTree = "<group>"; };
+		EFFA918E192FB8080059AE57 /* CognitoDatasetViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CognitoDatasetViewController.m; sourceTree = "<group>"; };
+		EFFA9193192FB8080059AE57 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		EFFA9199192FB8080059AE57 /* CognitoSyncDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CognitoSyncDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFFA919A192FB8080059AE57 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		EFFA91A2192FB8090059AE57 /* CognitoSyncDemoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CognitoSyncDemoTests-Info.plist"; sourceTree = "<group>"; };
+		EFFA91A4192FB8090059AE57 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		EFFA91A6192FB8090059AE57 /* CognitoSyncDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CognitoSyncDemoTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EFFA9172192FB8080059AE57 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFFA917B192FB8080059AE57 /* CoreGraphics.framework in Frameworks */,
+				EFFA917D192FB8080059AE57 /* UIKit.framework in Frameworks */,
+				EFFA9179192FB8080059AE57 /* Foundation.framework in Frameworks */,
+				D8FD64161842490CB6C59E5A /* libPods.a in Frameworks */,
+				38CD1256196276F5001FC4E1 /* LoginWithAmazon.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EFFA9196192FB8080059AE57 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFFA919B192FB8090059AE57 /* XCTest.framework in Frameworks */,
+				EFFA919D192FB8090059AE57 /* UIKit.framework in Frameworks */,
+				EFFA919C192FB8090059AE57 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		38C380CA1A09ABDD001886BE /* DeveloperAuthenticated */ = {
+			isa = PBXGroup;
+			children = (
+				38C380CB1A09ABDD001886BE /* Crypto.h */,
+				38C380CC1A09ABDD001886BE /* Crypto.m */,
+				38C380CD1A09ABDD001886BE /* DeveloperAuthenticatedIdentityProvider.h */,
+				38C380CE1A09ABDD001886BE /* DeveloperAuthenticatedIdentityProvider.m */,
+				38AD047A1A2F754E00D0B994 /* DeveloperAuthenticationClient.h */,
+				38AD047B1A2F754E00D0B994 /* DeveloperAuthenticationClient.m */,
+			);
+			path = DeveloperAuthenticated;
+			sourceTree = "<group>";
+		};
+		C4616F61313F183F952913FB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1CD3A84C10799B4E6EC8A937 /* Pods.debug.xcconfig */,
+				2E8C2EA844CD56E56789F74C /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		EFFA916C192FB8080059AE57 = {
+			isa = PBXGroup;
+			children = (
+				EFFA917E192FB8080059AE57 /* CognitoSyncDemo */,
+				EFFA91A0192FB8090059AE57 /* CognitoSyncDemoTests */,
+				EFFA9177192FB8080059AE57 /* Frameworks */,
+				EFFA9176192FB8080059AE57 /* Products */,
+				C4616F61313F183F952913FB /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		EFFA9176192FB8080059AE57 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EFFA9175192FB8080059AE57 /* CognitoSyncDemo.app */,
+				EFFA9199192FB8080059AE57 /* CognitoSyncDemoTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EFFA9177192FB8080059AE57 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				38CD1255196276F5001FC4E1 /* LoginWithAmazon.framework */,
+				EFFA9178192FB8080059AE57 /* Foundation.framework */,
+				EFFA917A192FB8080059AE57 /* CoreGraphics.framework */,
+				EFFA917C192FB8080059AE57 /* UIKit.framework */,
+				EFFA919A192FB8080059AE57 /* XCTest.framework */,
+				88AC08CFC6604FA5A9863653 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EFFA917E192FB8080059AE57 /* CognitoSyncDemo */ = {
+			isa = PBXGroup;
+			children = (
+				382EC93519511B1500D555AB /* Constants.h */,
+				CE76800E1A7ACE9D005E3ACE /* Constants.m */,
+				EFFA9187192FB8080059AE57 /* AZCAppDelegate.h */,
+				EFFA9188192FB8080059AE57 /* AZCAppDelegate.m */,
+				EFFA918A192FB8080059AE57 /* Main.storyboard */,
+				EFFA918D192FB8080059AE57 /* CognitoDatasetViewController.h */,
+				EFFA918E192FB8080059AE57 /* CognitoDatasetViewController.m */,
+				EFFA9193192FB8080059AE57 /* Images.xcassets */,
+				38B4ADB7194CE9F100609D48 /* CognitoDatasetListViewController.h */,
+				38B4ADB8194CE9F100609D48 /* CognitoDatasetListViewController.m */,
+				382EC93219511AAC00D555AB /* AmazonClientManager.h */,
+				382EC93319511AAC00D555AB /* AmazonClientManager.m */,
+				382EC936195120A100D555AB /* CognitoHomeViewController.h */,
+				382EC937195120A100D555AB /* CognitoHomeViewController.m */,
+				38C380CA1A09ABDD001886BE /* DeveloperAuthenticated */,
+				EFFA917F192FB8080059AE57 /* Supporting Files */,
+			);
+			path = CognitoSyncDemo;
+			sourceTree = "<group>";
+		};
+		EFFA917F192FB8080059AE57 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EFFA9180192FB8080059AE57 /* CognitoSyncDemo-Info.plist */,
+				EFFA9181192FB8080059AE57 /* InfoPlist.strings */,
+				EFFA9184192FB8080059AE57 /* main.m */,
+				EFFA9186192FB8080059AE57 /* CognitoSyncDemo-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EFFA91A0192FB8090059AE57 /* CognitoSyncDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				EFFA91A6192FB8090059AE57 /* CognitoSyncDemoTests.m */,
+				EFFA91A1192FB8090059AE57 /* Supporting Files */,
+			);
+			path = CognitoSyncDemoTests;
+			sourceTree = "<group>";
+		};
+		EFFA91A1192FB8090059AE57 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EFFA91A2192FB8090059AE57 /* CognitoSyncDemoTests-Info.plist */,
+				EFFA91A3192FB8090059AE57 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EFFA9174192FB8080059AE57 /* CognitoSyncDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EFFA91AA192FB8090059AE57 /* Build configuration list for PBXNativeTarget "CognitoSyncDemo" */;
+			buildPhases = (
+				6A06151213EF401E83414C7D /* Check Pods Manifest.lock */,
+				EFFA9171192FB8080059AE57 /* Sources */,
+				EFFA9172192FB8080059AE57 /* Frameworks */,
+				EFFA9173192FB8080059AE57 /* Resources */,
+				20879EF7BF4D42B8B01AA6A3 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CognitoSyncDemo;
+			productName = CognitoSyncDemo;
+			productReference = EFFA9175192FB8080059AE57 /* CognitoSyncDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EFFA9198192FB8080059AE57 /* CognitoSyncDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EFFA91AD192FB8090059AE57 /* Build configuration list for PBXNativeTarget "CognitoSyncDemoTests" */;
+			buildPhases = (
+				EFFA9195192FB8080059AE57 /* Sources */,
+				EFFA9196192FB8080059AE57 /* Frameworks */,
+				EFFA9197192FB8080059AE57 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EFFA919F192FB8090059AE57 /* PBXTargetDependency */,
+			);
+			name = CognitoSyncDemoTests;
+			productName = CognitoSyncDemoTests;
+			productReference = EFFA9199192FB8080059AE57 /* CognitoSyncDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EFFA916D192FB8080059AE57 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = AZC;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Behroozi, David";
+				TargetAttributes = {
+					EFFA9198192FB8080059AE57 = {
+						TestTargetID = EFFA9174192FB8080059AE57;
+					};
+				};
+			};
+			buildConfigurationList = EFFA9170192FB8080059AE57 /* Build configuration list for PBXProject "CognitoSyncDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EFFA916C192FB8080059AE57;
+			productRefGroup = EFFA9176192FB8080059AE57 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EFFA9174192FB8080059AE57 /* CognitoSyncDemo */,
+				EFFA9198192FB8080059AE57 /* CognitoSyncDemoTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EFFA9173192FB8080059AE57 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFFA9194192FB8080059AE57 /* Images.xcassets in Resources */,
+				EFFA9183192FB8080059AE57 /* InfoPlist.strings in Resources */,
+				EFFA918C192FB8080059AE57 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EFFA9197192FB8080059AE57 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFFA91A5192FB8090059AE57 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		20879EF7BF4D42B8B01AA6A3 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6A06151213EF401E83414C7D /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EFFA9171192FB8080059AE57 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				38AD047C1A2F754E00D0B994 /* DeveloperAuthenticationClient.m in Sources */,
+				38C380CF1A09ABDD001886BE /* Crypto.m in Sources */,
+				38C380D01A09ABDD001886BE /* DeveloperAuthenticatedIdentityProvider.m in Sources */,
+				382EC93419511AAC00D555AB /* AmazonClientManager.m in Sources */,
+				382EC938195120A100D555AB /* CognitoHomeViewController.m in Sources */,
+				CE76800F1A7ACE9D005E3ACE /* Constants.m in Sources */,
+				EFFA9185192FB8080059AE57 /* main.m in Sources */,
+				EFFA9189192FB8080059AE57 /* AZCAppDelegate.m in Sources */,
+				EFFA918F192FB8080059AE57 /* CognitoDatasetViewController.m in Sources */,
+				38B4ADB9194CE9F100609D48 /* CognitoDatasetListViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EFFA9195192FB8080059AE57 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFFA91A7192FB8090059AE57 /* CognitoSyncDemoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EFFA919F192FB8090059AE57 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EFFA9174192FB8080059AE57 /* CognitoSyncDemo */;
+			targetProxy = EFFA919E192FB8090059AE57 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		EFFA9181192FB8080059AE57 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EFFA9182192FB8080059AE57 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		EFFA918A192FB8080059AE57 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EFFA918B192FB8080059AE57 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		EFFA91A3192FB8090059AE57 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EFFA91A4192FB8090059AE57 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EFFA91A8192FB8090059AE57 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		EFFA91A9192FB8090059AE57 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EFFA91AB192FB8090059AE57 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1CD3A84C10799B4E6EC8A937 /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CognitoSyncDemo/CognitoSyncDemo-Prefix.pch";
+				INFOPLIST_FILE = "CognitoSyncDemo/CognitoSyncDemo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		EFFA91AC192FB8090059AE57 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2E8C2EA844CD56E56789F74C /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CognitoSyncDemo/CognitoSyncDemo-Prefix.pch";
+				INFOPLIST_FILE = "CognitoSyncDemo/CognitoSyncDemo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		EFFA91AE192FB8090059AE57 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CognitoSyncDemo.app/CognitoSyncDemo";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CognitoSyncDemo/CognitoSyncDemo-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "CognitoSyncDemoTests/CognitoSyncDemoTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		EFFA91AF192FB8090059AE57 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CognitoSyncDemo.app/CognitoSyncDemo";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CognitoSyncDemo/CognitoSyncDemo-Prefix.pch";
+				INFOPLIST_FILE = "CognitoSyncDemoTests/CognitoSyncDemoTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EFFA9170192FB8080059AE57 /* Build configuration list for PBXProject "CognitoSyncDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EFFA91A8192FB8090059AE57 /* Debug */,
+				EFFA91A9192FB8090059AE57 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EFFA91AA192FB8090059AE57 /* Build configuration list for PBXNativeTarget "CognitoSyncDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EFFA91AB192FB8090059AE57 /* Debug */,
+				EFFA91AC192FB8090059AE57 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EFFA91AD192FB8090059AE57 /* Build configuration list for PBXNativeTarget "CognitoSyncDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EFFA91AE192FB8090059AE57 /* Debug */,
+				EFFA91AF192FB8090059AE57 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EFFA916D192FB8080059AE57 /* Project object */;
+}

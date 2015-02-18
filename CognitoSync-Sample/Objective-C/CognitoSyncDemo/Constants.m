@@ -13,29 +13,14 @@
  * permissions and limitations under the License.
  */
 
-#import <XCTest/XCTest.h>
+#import "Constants.h"
 
-@interface CognitoSyncDemoTests : XCTestCase
+#warning To run this sample correctly, you must set the following constants.
+AWSRegionType const CognitoRegionType = AWSRegionUnknown; // e.g. AWSRegionUSEast1
+NSString *const CognitoIdentityPoolId = @"YourCognitoIdentityPoolId";
 
-@end
+NSString *const DeviceTokenKey = @"DeviceToken";
+NSString *const CognitoDeviceTokenKey = @"CognitoDeviceToken";
+NSString *const CognitoPushNotification = @"CognitoPushNotification";
 
-@implementation CognitoSyncDemoTests
 
-- (void)setUp
-{
-    [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
-}
-
-- (void)tearDown
-{
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-    [super tearDown];
-}
-
-- (void)testExample
-{
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
-}
-
-@end
