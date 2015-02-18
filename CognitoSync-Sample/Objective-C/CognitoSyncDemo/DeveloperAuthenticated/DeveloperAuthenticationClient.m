@@ -120,7 +120,12 @@ NSString *const EncryptionKeyKey = @"authkey";
         // Save our key/uid to the keychain
         self.keychain[UidKey] = self.uid;
         self.keychain[EncryptionKeyKey] = self.key;
-        [self.keychain synchronize];
+        
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+        if ([UICKeyChainStore instancesRespondToSelector:@selector(synchronize)])
+            [self.keychain synchronize];
+#pragma clang diagnostic pop
         
         return [BFTask taskWithResult:nil];
     }];
@@ -132,7 +137,11 @@ NSString *const EncryptionKeyKey = @"authkey";
     self.keychain[EncryptionKeyKey] = nil;
     self.uid = nil;
     self.keychain[UidKey] = nil;
-    [self.keychain synchronize];
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+    if ([UICKeyChainStore instancesRespondToSelector:@selector(synchronize)])
+        [self.keychain synchronize];
+#pragma clang diagnostic pop
 }
 
 // call gettoken and set our values from returned result

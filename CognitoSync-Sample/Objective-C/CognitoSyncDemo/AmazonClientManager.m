@@ -340,7 +340,11 @@
             }
             else {
                 self.keychain[BYOI_PROVIDER] = username;
-                [self.keychain synchronize];
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+                if ([UICKeyChainStore instancesRespondToSelector:@selector(synchronize)])
+                    [self.keychain synchronize];
+#pragma clang diagnostic pop
                 [self completeLogin:@{ProviderName: username}];
             }
             return nil;
@@ -390,7 +394,11 @@
         return;
 
     self.keychain[FB_PROVIDER] = @"YES";
-    [self.keychain synchronize];
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+    if ([UICKeyChainStore instancesRespondToSelector:@selector(synchronize)])
+        [self.keychain synchronize];
+#pragma clang diagnostic pop
 
     // set active session
     FBSession.activeSession = self.session;
@@ -429,7 +437,11 @@
     [self.session closeAndClearTokenInformation];
     self.session = nil;
     self.keychain[FB_PROVIDER] = nil;
-    [self.keychain synchronize];
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+    if ([UICKeyChainStore instancesRespondToSelector:@selector(synchronize)])
+        [self.keychain synchronize];
+#pragma clang diagnostic pop
 }
 #endif
 
@@ -446,7 +458,11 @@
 {
     [AIMobileLib clearAuthorizationState:self];
     self.keychain[AMZN_PROVIDER] = nil;
-    [self.keychain synchronize];
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+    if ([UICKeyChainStore instancesRespondToSelector:@selector(synchronize)])
+        [self.keychain synchronize];
+#pragma clang diagnostic pop
 }
 
 - (void)requestDidSucceed:(APIResult*) apiResult {
@@ -458,7 +474,11 @@
         NSLog(@"%@", token);
 
         self.keychain[AMZN_PROVIDER] = @"YES";
-        [self.keychain synchronize];
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+        if ([UICKeyChainStore instancesRespondToSelector:@selector(synchronize)])
+            [self.keychain synchronize];
+#pragma clang diagnostic pop
         [self completeLogin:@{@"www.amazon.com": token}];
     }
 }
