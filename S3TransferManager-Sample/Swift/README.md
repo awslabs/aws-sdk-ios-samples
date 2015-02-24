@@ -26,13 +26,13 @@ This sample demonstrates the Amazon S3 TransferManager found in the AWS Mobile S
 
 1. In the [Amazon Cognito console](https://console.aws.amazon.com/cognito/), use Amazon Cognito to create a new identity pool. Obtain the `PoolID` constant. Make sure the [role](https://console.aws.amazon.com/iam/home?region=us-east-1#roles) has full permissions for the bucket you created.
 
-1. Open `S3TransferManagerSample.xcworkspace`.
+1. Open `S3TransferManagerSampleSwift.xcworkspace`.
 
-1. Open `Constants.m` and update the following lines with the appropriate constants:
+1. Open `Constants.swift` and update the following lines with the appropriate constants:
 
-        AWSRegionType const CognitoRegionType = AWSRegionUnknown; // e.g. AWSRegionUSEast1
-        AWSRegionType const DefaultServiceRegionType = AWSRegionUnknown; // e.g. AWSRegionUSEast1
-        NSString *const CognitoIdentityPoolId = @"YourCognitoIdentityPoolId";
-        NSString *const S3BucketName = @"YourS3BucketName";
+        let CognitoRegionType = AWSRegionType.Unknown  // e.g. AWSRegionType.USEast1
+        let DefaultServiceRegionType = AWSRegionType.Unknown // e.g. AWSRegionType.USEast1
+        let CognitoIdentityPoolId = "YourCognitoIdentityPoolId"
+        let S3BucketName = "YourS3BucketName"
 
 1. Build and run the sample app.

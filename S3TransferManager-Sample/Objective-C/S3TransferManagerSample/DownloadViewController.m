@@ -33,10 +33,12 @@
     [self listObjects:self];
 
     NSError *error = nil;
-    [[NSFileManager defaultManager] createDirectoryAtPath:[NSTemporaryDirectory() stringByAppendingPathComponent:@"download"]
-                              withIntermediateDirectories:YES
-                                               attributes:nil
-                                                    error:&error];
+    if (![[NSFileManager defaultManager] createDirectoryAtPath:[NSTemporaryDirectory() stringByAppendingPathComponent:@"download"]
+                                   withIntermediateDirectories:YES
+                                                    attributes:nil
+                                                         error:&error]) {
+        NSLog(@"Creating 'download' directory failed. Error: [%@]", error);
+    }
 }
 
 #pragma mark - User action methods

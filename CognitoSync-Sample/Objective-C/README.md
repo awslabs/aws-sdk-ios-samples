@@ -4,7 +4,7 @@ This sample demonstrates how to create unique identities for users of your app u
 
 ## Requirements
 
-* Xcode 5 and later
+* Xcode 6 and later
 * iOS 7 and later
 
 ## Using the Sample

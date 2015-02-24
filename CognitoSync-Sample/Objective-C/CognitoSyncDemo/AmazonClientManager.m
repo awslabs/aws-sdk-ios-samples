@@ -102,26 +102,25 @@
 #if BYOI_LOGIN
     id<AWSCognitoIdentityProvider> identityProvider = [[DeveloperAuthenticatedIdentityProvider alloc] initWithRegionType:CognitoRegionType
                                                                                                               identityId:nil
-                                                                                                                         identityPoolId:CognitoIdentityPoolId
+                                                                                                          identityPoolId:CognitoIdentityPoolId
                                                                                                                   logins:logins
                                                                                                             providerName:ProviderName
                                                                                                               authClient:self.devAuthClient];
 #else
     id<AWSCognitoIdentityProvider> identityProvider = [[AWSEnhancedCognitoIdentityProvider alloc] initWithRegionType:CognitoRegionType
-                                                                                                       identityId:nil
-                                                                                                   identityPoolId:CognitoIdentityPoolId
-                                                                                                           logins:logins];
+                                                                                                          identityId:nil
+                                                                                                      identityPoolId:CognitoIdentityPoolId
+                                                                                                              logins:logins];
 #endif
 
+    self.credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:CognitoRegionType
+                                                                        identityProvider:identityProvider
+                                                                           unauthRoleArn:nil
+                                                                             authRoleArn:nil];
 
-    self.credentialsProvider = [AWSCognitoCredentialsProvider credentialsWithRegionType:CognitoRegionType
-                                                                       identityProvider:identityProvider
-                                                                          unauthRoleArn:nil
-                                                                            authRoleArn:nil];
-
-    AWSServiceConfiguration *configuration = [AWSServiceConfiguration configurationWithRegion:CognitoRegionType
-                                                                          credentialsProvider:self.credentialsProvider];
-    [AWSServiceManager defaultServiceManager].defaultServiceConfiguration = configuration;
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:CognitoRegionType
+                                                                         credentialsProvider:self.credentialsProvider];
+    AWSServiceManager.defaultServiceManager.defaultServiceConfiguration = configuration;
     return [self.credentialsProvider getIdentityId];
 }
 
@@ -340,11 +339,6 @@
             }
             else {
                 self.keychain[BYOI_PROVIDER] = username;
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-                if ([UICKeyChainStore instancesRespondToSelector:@selector(synchronize)])
-                    [self.keychain synchronize];
-#pragma clang diagnostic pop
                 [self completeLogin:@{ProviderName: username}];
             }
             return nil;
@@ -394,11 +388,6 @@
         return;
 
     self.keychain[FB_PROVIDER] = @"YES";
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-    if ([UICKeyChainStore instancesRespondToSelector:@selector(synchronize)])
-        [self.keychain synchronize];
-#pragma clang diagnostic pop
 
     // set active session
     FBSession.activeSession = self.session;
@@ -437,11 +426,6 @@
     [self.session closeAndClearTokenInformation];
     self.session = nil;
     self.keychain[FB_PROVIDER] = nil;
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-    if ([UICKeyChainStore instancesRespondToSelector:@selector(synchronize)])
-        [self.keychain synchronize];
-#pragma clang diagnostic pop
 }
 #endif
 
@@ -458,11 +442,6 @@
 {
     [AIMobileLib clearAuthorizationState:self];
     self.keychain[AMZN_PROVIDER] = nil;
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-    if ([UICKeyChainStore instancesRespondToSelector:@selector(synchronize)])
-        [self.keychain synchronize];
-#pragma clang diagnostic pop
 }
 
 - (void)requestDidSucceed:(APIResult*) apiResult {
@@ -474,11 +453,6 @@
         NSLog(@"%@", token);
 
         self.keychain[AMZN_PROVIDER] = @"YES";
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-        if ([UICKeyChainStore instancesRespondToSelector:@selector(synchronize)])
-            [self.keychain synchronize];
-#pragma clang diagnostic pop
         [self completeLogin:@{@"www.amazon.com": token}];
     }
 }
@@ -514,7 +488,6 @@
     [signIn disconnect];
     self.auth = nil;
     self.keychain[GOOGLE_PROVIDER] = nil;
-    [self.keychain synchronize];
 }
 
 - (void)reloadGSession
@@ -543,7 +516,6 @@
     NSString *idToken = [self.auth.parameters objectForKey:@"id_token"];
 
     self.keychain[GOOGLE_PROVIDER] = @"YES";
-    [self.keychain synchronize];
     [self completeLogin:@{@"accounts.google.com": idToken}];
 }
 #endif

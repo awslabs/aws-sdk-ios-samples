@@ -14,9 +14,9 @@
 		BDCB7B0C19CCB6320089B5AE /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDCB7B0B19CCB6320089B5AE /* SecondViewController.m */; };
 		BDCB7B0F19CCB6320089B5AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDCB7B0D19CCB6320089B5AE /* Main.storyboard */; };
 		BDCB7B1119CCB6330089B5AE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDCB7B1019CCB6330089B5AE /* Images.xcassets */; };
-		BDCB7B1419CCB6330089B5AE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BDCB7B1219CCB6330089B5AE /* LaunchScreen.xib */; };
 		BDCB7B3319CCBAF30089B5AE /* TemplateIcon2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BDCB7B3219CCBAF30089B5AE /* TemplateIcon2x.png */; };
 		BDCB7B3519CCBB060089B5AE /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = BDCB7B3419CCBB060089B5AE /* Constants.m */; };
+		CE5445651A96C8180082FD39 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE5445641A96C8180082FD39 /* Default-568h@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,11 +33,11 @@
 		BDCB7B0B19CCB6320089B5AE /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		BDCB7B0E19CCB6320089B5AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BDCB7B1019CCB6330089B5AE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		BDCB7B1319CCB6330089B5AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		BDCB7B3119CCBAF30089B5AE /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		BDCB7B3219CCBAF30089B5AE /* TemplateIcon2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TemplateIcon2x.png; sourceTree = "<group>"; };
 		BDCB7B3419CCBB060089B5AE /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		C719624220C66D68D2A28AD6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		CE5445641A96C8180082FD39 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,7 +86,6 @@
 				BDCB7B2C19CCB9790089B5AE /* S3BackgroundTransfer */,
 				BDCB7B0D19CCB6320089B5AE /* Main.storyboard */,
 				BDCB7B1019CCB6330089B5AE /* Images.xcassets */,
-				BDCB7B1219CCB6330089B5AE /* LaunchScreen.xib */,
 				BDCB7B0019CCB6320089B5AE /* Supporting Files */,
 				BDCB7B3219CCBAF30089B5AE /* TemplateIcon2x.png */,
 			);
@@ -96,6 +95,7 @@
 		BDCB7B0019CCB6320089B5AE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CE5445641A96C8180082FD39 /* Default-568h@2x.png */,
 				BDCB7B0119CCB6320089B5AE /* Info.plist */,
 				BDCB7B0219CCB6320089B5AE /* main.m */,
 			);
@@ -186,7 +186,7 @@
 			files = (
 				BDCB7B3319CCBAF30089B5AE /* TemplateIcon2x.png in Resources */,
 				BDCB7B0F19CCB6320089B5AE /* Main.storyboard in Resources */,
-				BDCB7B1419CCB6330089B5AE /* LaunchScreen.xib in Resources */,
+				CE5445651A96C8180082FD39 /* Default-568h@2x.png in Resources */,
 				BDCB7B1119CCB6330089B5AE /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -248,14 +248,6 @@
 				BDCB7B0E19CCB6320089B5AE /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		BDCB7B1219CCB6330089B5AE /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BDCB7B1319CCB6330089B5AE /* Base */,
-			);
-			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

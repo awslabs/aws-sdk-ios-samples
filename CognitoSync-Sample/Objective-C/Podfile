@@ -1,5 +1,5 @@
 source 'https://github.com/CocoaPods/Specs.git'
 
-pod 'AWSCognitoSync'
+pod 'AWSCognitoSync', '~> 1.1.0'
 pod 'Facebook-iOS-SDK'
 #pod 'google-plus-ios-sdk'

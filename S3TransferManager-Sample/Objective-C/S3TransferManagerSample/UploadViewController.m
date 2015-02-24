@@ -31,10 +31,12 @@
     self.collection = [NSMutableArray new];
 
     NSError *error = nil;
-    [[NSFileManager defaultManager] createDirectoryAtPath:[NSTemporaryDirectory() stringByAppendingPathComponent:@"upload"]
-                              withIntermediateDirectories:YES
-                                               attributes:nil
-                                                    error:&error];
+    if (![[NSFileManager defaultManager] createDirectoryAtPath:[NSTemporaryDirectory() stringByAppendingPathComponent:@"upload"]
+                                   withIntermediateDirectories:YES
+                                                    attributes:nil
+                                                         error:&error]) {
+        NSLog(@"reating 'upload' directory failed: [%@]", error);
+    }
 }
 
 #pragma mark - User action methods
@@ -45,21 +47,21 @@
                                                                       preferredStyle:UIAlertControllerStyleActionSheet];
 
     __weak UploadViewController *weakSelf = self;
-    UIAlertAction *refreshAction = [UIAlertAction actionWithTitle:@"Select Pictures"
-                                                            style:UIAlertActionStyleDefault
-                                                          handler:^(UIAlertAction *action) {
-                                                              UploadViewController *strongSelf = weakSelf;
-                                                              [strongSelf selectPictures:self];
-                                                          }];
-    [alertController addAction:refreshAction];
+    UIAlertAction *selectPictureAction = [UIAlertAction actionWithTitle:@"Select Pictures"
+                                                                  style:UIAlertActionStyleDefault
+                                                                handler:^(UIAlertAction *action) {
+                                                                    UploadViewController *strongSelf = weakSelf;
+                                                                    [strongSelf selectPictures];
+                                                                }];
+    [alertController addAction:selectPictureAction];
 
-    UIAlertAction *cancelAllDownloadsAction = [UIAlertAction actionWithTitle:@"Cancel All Uploads"
-                                                                       style:UIAlertActionStyleDefault
-                                                                     handler:^(UIAlertAction *action) {
-                                                                         UploadViewController *strongSelf = weakSelf;
-                                                                         [strongSelf cancelAllDownloads:self];
-                                                                     }];
-    [alertController addAction:cancelAllDownloadsAction];
+    UIAlertAction *cancelAllUploadsAction = [UIAlertAction actionWithTitle:@"Cancel All Uploads"
+                                                                     style:UIAlertActionStyleDefault
+                                                                   handler:^(UIAlertAction *action) {
+                                                                       UploadViewController *strongSelf = weakSelf;
+                                                                       [strongSelf cancelAllDownloads:self];
+                                                                   }];
+    [alertController addAction:cancelAllUploadsAction];
 
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel"
                                                            style:UIAlertActionStyleCancel
@@ -71,12 +73,14 @@
                      completion:nil];
 }
 
-- (void)selectPictures:(id)sender {
-    ELCImagePickerController *elcPicker = [ELCImagePickerController new];
-    elcPicker.maximumImagesCount = 20;
-    elcPicker.imagePickerDelegate = self;
+- (void)selectPictures {
+    ELCImagePickerController *imagePickerController = [ELCImagePickerController new];
+    imagePickerController.maximumImagesCount = 20;
+    imagePickerController.imagePickerDelegate = self;
 
-    [self presentViewController:elcPicker animated:YES completion:nil];
+    [self presentViewController:imagePickerController
+                       animated:YES
+                     completion:nil];
 }
 
 - (void)upload:(AWSS3TransferManagerUploadRequest *)uploadRequest {
@@ -119,7 +123,7 @@
                 [strongSelf.collectionView reloadItemsAtIndexPaths:@[indexPath]];
             });
         }
-        
+
         return nil;
     }];
 }
@@ -221,9 +225,9 @@
             case AWSS3TransferManagerRequestStatePaused:
                 [self upload:uploadRequest];
                 [self.collectionView reloadItemsAtIndexPaths:@[indexPath]];
-                
+
                 break;
-                
+
             default:
                 break;
         }
@@ -255,7 +259,7 @@
             [self upload:uploadRequest];
         }
     }
-
+    
     [self.collectionView reloadData];
 }
 

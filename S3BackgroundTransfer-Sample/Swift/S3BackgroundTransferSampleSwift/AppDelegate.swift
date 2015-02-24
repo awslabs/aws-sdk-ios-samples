@@ -36,15 +36,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
-        let credentialProvider = AWSCognitoCredentialsProvider.credentialsWithRegionType(
-            CognitoRegionType,
+        let credentialProvider = AWSCognitoCredentialsProvider(
+            regionType: CognitoRegionType,
             identityPoolId: CognitoIdentityPoolId)
         let configuration = AWSServiceConfiguration(
             region: DefaultServiceRegionType,
             credentialsProvider: credentialProvider)
 
-        AWSServiceManager.defaultServiceManager().setDefaultServiceConfiguration(configuration)
+        AWSServiceManager.defaultServiceManager().defaultServiceConfiguration = configuration
 
         return true
     }

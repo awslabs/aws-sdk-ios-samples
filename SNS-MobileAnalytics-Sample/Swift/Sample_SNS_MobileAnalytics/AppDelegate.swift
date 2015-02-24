@@ -60,13 +60,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.sharedApplication().registerUserNotificationSettings(notificationSettings)
 
         // Sets up the AWS Mobile SDK for iOS
-        let credentialsProvider = AWSCognitoCredentialsProvider.credentialsWithRegionType(
-            CognitoRegionType,
+        let credentialsProvider = AWSCognitoCredentialsProvider(
+            regionType: CognitoRegionType,
             identityPoolId: CognitoIdentityPoolId)
         let defaultServiceConfiguration = AWSServiceConfiguration(
             region: DefaultServiceRegionType,
             credentialsProvider: credentialsProvider)
-        AWSServiceManager.defaultServiceManager().setDefaultServiceConfiguration(defaultServiceConfiguration)
+        AWSServiceManager.defaultServiceManager().defaultServiceConfiguration = defaultServiceConfiguration
 
         return true
     }

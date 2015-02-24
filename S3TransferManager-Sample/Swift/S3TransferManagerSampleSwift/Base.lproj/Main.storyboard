@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <scenes>
+        <!--Upload Pictures-->
+        <scene sceneID="hNz-n2-bh7">
+            <objects>
+                <viewController id="9pv-A4-QxB" customClass="UploadViewController" customModule="S3TransferManagerSampleSwift" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ia1-K6-d13"/>
+                        <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="572-FG-ioe">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <inset key="scrollIndicatorInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="60"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="bjk-hM-6Gc">
+                                    <size key="itemSize" width="100" height="100"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="20" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="UploadCollectionViewCell" id="hay-4n-rZ1" customClass="UploadCollectionViewCell" customModule="S3TransferManagerSampleSwift" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="84" width="100" height="100"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Hl2-TM-s5s">
+                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                                </imageView>
+                                                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="5lM-FZ-HDS">
+                                                    <rect key="frame" x="0.0" y="98" width="100" height="2"/>
+                                                </progressView>
+                                                <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Uploaded" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hyf-L9-X2g">
+                                                    <rect key="frame" x="0.0" y="35" width="100" height="30"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="5lM-FZ-HDS" firstAttribute="leading" secondItem="Hl2-TM-s5s" secondAttribute="leading" id="76V-Pr-pGJ"/>
+                                            <constraint firstItem="5lM-FZ-HDS" firstAttribute="bottom" secondItem="Hl2-TM-s5s" secondAttribute="bottom" id="F7k-NI-IbZ"/>
+                                            <constraint firstAttribute="trailing" secondItem="Hl2-TM-s5s" secondAttribute="trailing" id="Fdj-gL-skT"/>
+                                            <constraint firstItem="Hyf-L9-X2g" firstAttribute="leading" secondItem="5lM-FZ-HDS" secondAttribute="leading" id="K8Y-7L-J4H"/>
+                                            <constraint firstItem="Hl2-TM-s5s" firstAttribute="trailing" secondItem="Hyf-L9-X2g" secondAttribute="trailing" id="Ose-eW-Bxw"/>
+                                            <constraint firstItem="5lM-FZ-HDS" firstAttribute="top" secondItem="Hyf-L9-X2g" secondAttribute="bottom" constant="33" id="Sr7-cF-ql0"/>
+                                            <constraint firstAttribute="bottom" secondItem="Hl2-TM-s5s" secondAttribute="bottom" id="UNg-sF-3b4"/>
+                                            <constraint firstItem="Hyf-L9-X2g" firstAttribute="centerY" secondItem="Hl2-TM-s5s" secondAttribute="centerY" id="WqM-pe-Kbi"/>
+                                            <constraint firstItem="Hyf-L9-X2g" firstAttribute="leading" secondItem="hay-4n-rZ1" secondAttribute="leading" id="fhW-og-bVq"/>
+                                            <constraint firstItem="Hyf-L9-X2g" firstAttribute="trailing" secondItem="5lM-FZ-HDS" secondAttribute="trailing" id="kBO-dp-ef3"/>
+                                            <constraint firstItem="Hl2-TM-s5s" firstAttribute="top" secondItem="hay-4n-rZ1" secondAttribute="top" id="omB-0Q-CkO"/>
+                                        </constraints>
+                                        <size key="customSize" width="100" height="100"/>
+                                        <connections>
+                                            <outlet property="imageView" destination="Hl2-TM-s5s" id="ElQ-1U-pGm"/>
+                                            <outlet property="label" destination="Hyf-L9-X2g" id="Ci0-Tz-fGq"/>
+                                            <outlet property="progressView" destination="5lM-FZ-HDS" id="5nF-bj-rCj"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="9pv-A4-QxB" id="Z3e-Kd-r9s"/>
+                                    <outlet property="delegate" destination="9pv-A4-QxB" id="iFU-Cc-vS9"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="572-FG-ioe" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="top" id="7Bn-T2-y8x"/>
+                            <constraint firstAttribute="bottom" secondItem="572-FG-ioe" secondAttribute="bottom" id="Rcj-FA-4LJ"/>
+                            <constraint firstAttribute="trailing" secondItem="572-FG-ioe" secondAttribute="trailing" id="axs-2F-ZHK"/>
+                            <constraint firstItem="572-FG-ioe" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="dBY-iD-glZ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Upload Pictures" id="m3u-bL-mdU">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="hbX-7x-JgJ">
+                            <connections>
+                                <action selector="showAlertController:" destination="9pv-A4-QxB" id="KTU-Zg-khz"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="collectionView" destination="572-FG-ioe" id="JqG-e7-wy7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1562" y="-320"/>
+        </scene>
+        <!--Download Pictures-->
+        <scene sceneID="wg7-f3-ORb">
+            <objects>
+                <viewController id="8rJ-Kc-sve" customClass="DownloadViewController" customModule="S3TransferManagerSampleSwift" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="L7p-HK-0SC"/>
+                        <viewControllerLayoutGuide type="bottom" id="Djb-ko-YwX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="GXE-b1-oGR">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <inset key="scrollIndicatorInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="60"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="O7i-6U-Gq7">
+                                    <size key="itemSize" width="100" height="100"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="20" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DownloadCollectionViewCell" id="CvV-jf-dHG" customClass="DownloadCollectionViewCell" customModule="S3TransferManagerSampleSwift" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="84" width="100" height="100"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VkF-TV-OXx">
+                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                                </imageView>
+                                                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="619-8v-lcj">
+                                                    <rect key="frame" x="0.0" y="98" width="100" height="2"/>
+                                                </progressView>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Download" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tp2-p6-Y4A">
+                                                    <rect key="frame" x="0.0" y="35" width="100" height="30"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <color key="backgroundColor" red="0.18036684780000001" green="0.18036684780000001" blue="0.18036684780000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="VkF-TV-OXx" firstAttribute="bottom" secondItem="619-8v-lcj" secondAttribute="bottom" id="04b-ed-g1g"/>
+                                            <constraint firstItem="619-8v-lcj" firstAttribute="trailing" secondItem="VkF-TV-OXx" secondAttribute="trailing" id="3er-IG-xcP"/>
+                                            <constraint firstItem="Tp2-p6-Y4A" firstAttribute="trailing" secondItem="619-8v-lcj" secondAttribute="trailing" id="AQc-Hd-2JK"/>
+                                            <constraint firstItem="619-8v-lcj" firstAttribute="leading" secondItem="VkF-TV-OXx" secondAttribute="leading" id="E0v-be-pi2"/>
+                                            <constraint firstItem="VkF-TV-OXx" firstAttribute="top" secondItem="CvV-jf-dHG" secondAttribute="top" id="MUW-Df-Qtp"/>
+                                            <constraint firstAttribute="trailing" secondItem="VkF-TV-OXx" secondAttribute="trailing" id="O0Y-P8-HR2"/>
+                                            <constraint firstItem="Tp2-p6-Y4A" firstAttribute="centerY" secondItem="VkF-TV-OXx" secondAttribute="centerY" id="RkI-Fy-igI"/>
+                                            <constraint firstItem="Tp2-p6-Y4A" firstAttribute="leading" secondItem="619-8v-lcj" secondAttribute="leading" id="Zh9-p3-QSs"/>
+                                            <constraint firstAttribute="bottom" secondItem="VkF-TV-OXx" secondAttribute="bottom" id="dbC-br-wEa"/>
+                                            <constraint firstItem="619-8v-lcj" firstAttribute="leading" secondItem="CvV-jf-dHG" secondAttribute="leading" id="gZA-mw-SLc"/>
+                                            <constraint firstItem="619-8v-lcj" firstAttribute="top" secondItem="Tp2-p6-Y4A" secondAttribute="bottom" constant="33" id="vhg-yg-IWv"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="imageView" destination="VkF-TV-OXx" id="vDs-fi-0Kl"/>
+                                            <outlet property="label" destination="Tp2-p6-Y4A" id="Ou1-dj-yiT"/>
+                                            <outlet property="progressView" destination="619-8v-lcj" id="byA-LJ-vJs"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="8rJ-Kc-sve" id="43R-mg-Hae"/>
+                                    <outlet property="delegate" destination="8rJ-Kc-sve" id="2PW-jJ-Jjp"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="GXE-b1-oGR" firstAttribute="top" secondItem="QS5-Rx-YEW" secondAttribute="top" id="Mz9-RT-XZq"/>
+                            <constraint firstAttribute="bottom" secondItem="GXE-b1-oGR" secondAttribute="bottom" id="ewx-wD-PY5"/>
+                            <constraint firstAttribute="trailing" secondItem="GXE-b1-oGR" secondAttribute="trailing" id="eyB-7D-z7K"/>
+                            <constraint firstItem="GXE-b1-oGR" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" id="wSf-LN-QCK"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Download Pictures" id="zGC-l3-5Iy">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="vH5-RW-3Yl">
+                            <connections>
+                                <action selector="showAlertController:" destination="8rJ-Kc-sve" id="ipM-92-sdK"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="collectionView" destination="GXE-b1-oGR" id="u9I-s2-eMV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1562" y="360"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="yl2-sM-qoP">
+            <objects>
+                <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
+                        <rect key="frame" x="0.0" y="975" width="768" height="49"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="n86-nz-aeV" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
+                        <segue destination="Fi9-8f-4tL" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="0.0" y="0.0"/>
+        </scene>
+        <!--Upload-->
+        <scene sceneID="qQi-eX-Lzc">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="n86-nz-aeV" userLabel="Upload" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Upload" image="first" id="acW-dT-cKf" userLabel="Upload"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="fYT-D9-CZ7">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="9pv-A4-QxB" kind="relationship" relationship="rootViewController" id="D0A-h7-pfb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nFq-Hc-ixu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="750" y="-320"/>
+        </scene>
+        <!--Download-->
+        <scene sceneID="9Ox-an-ENH">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Fi9-8f-4tL" userLabel="Download" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Download" image="second" id="cPa-gy-q4n" userLabel="Download"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="PPd-Vl-t19">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="rootViewController" id="vHK-hp-42v"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DK9-G0-2oh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="750" y="360"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="first" width="30" height="30"/>
+        <image name="second" width="30" height="30"/>
+    </resources>
+</document>

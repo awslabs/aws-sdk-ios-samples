@@ -66,12 +66,12 @@
     [[UIApplication sharedApplication] registerForRemoteNotifications];
 
     // Sets up the AWS Mobile SDK for iOS
-    AWSCognitoCredentialsProvider *credentialsProvider = [AWSCognitoCredentialsProvider credentialsWithRegionType:CognitoRegionType
-                                                                                                   identityPoolId:CognitoIdentityPoolId];
-    AWSServiceConfiguration *defaultServiceConfiguration = [AWSServiceConfiguration configurationWithRegion:DefaultServiceRegionType
-                                                                                        credentialsProvider:credentialsProvider];
+    AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:CognitoRegionType
+                                                                                                    identityPoolId:CognitoIdentityPoolId];
+    AWSServiceConfiguration *defaultServiceConfiguration = [[AWSServiceConfiguration alloc] initWithRegion:DefaultServiceRegionType
+                                                                                       credentialsProvider:credentialsProvider];
 
-    [AWSServiceManager defaultServiceManager].defaultServiceConfiguration = defaultServiceConfiguration;
+    AWSServiceManager.defaultServiceManager.defaultServiceConfiguration = defaultServiceConfiguration;
 
     return YES;
 }
@@ -136,7 +136,7 @@
     [self.window.rootViewController.childViewControllers.firstObject performSelectorOnMainThread:@selector(displayUserAction:)
                                                                                       withObject:action
                                                                                    waitUntilDone:NO];
-
+    
     completionHandler();
 }
 

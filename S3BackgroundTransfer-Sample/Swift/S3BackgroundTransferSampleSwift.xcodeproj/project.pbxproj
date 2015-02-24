@@ -13,8 +13,8 @@
 		BDCC7EC519DE50AB008B2510 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCC7EC419DE50AB008B2510 /* SecondViewController.swift */; };
 		BDCC7EC819DE50AB008B2510 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDCC7EC619DE50AB008B2510 /* Main.storyboard */; };
 		BDCC7ECA19DE50AB008B2510 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDCC7EC919DE50AB008B2510 /* Images.xcassets */; };
-		BDCC7ECD19DE50AB008B2510 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BDCC7ECB19DE50AB008B2510 /* LaunchScreen.xib */; };
 		BDCC7EE619DE5F09008B2510 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCC7EE519DE5F09008B2510 /* Constants.swift */; };
+		CE5445631A96C64A0082FD39 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE5445621A96C64A0082FD39 /* Default-568h@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,9 +27,9 @@
 		BDCC7EC419DE50AB008B2510 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		BDCC7EC719DE50AB008B2510 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BDCC7EC919DE50AB008B2510 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		BDCC7ECC19DE50AB008B2510 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		BDCC7EE219DE58C3008B2510 /* ObjectiveC_Bridging_Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjectiveC_Bridging_Header.h; sourceTree = "<group>"; };
 		BDCC7EE519DE5F09008B2510 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		CE5445621A96C64A0082FD39 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		CEA719FA44804EAA925582B0 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -81,7 +81,6 @@
 				BDCC7EC419DE50AB008B2510 /* SecondViewController.swift */,
 				BDCC7EC619DE50AB008B2510 /* Main.storyboard */,
 				BDCC7EC919DE50AB008B2510 /* Images.xcassets */,
-				BDCC7ECB19DE50AB008B2510 /* LaunchScreen.xib */,
 				BDCC7EBE19DE50AB008B2510 /* Supporting Files */,
 				BDCC7EE219DE58C3008B2510 /* ObjectiveC_Bridging_Header.h */,
 			);
@@ -91,6 +90,7 @@
 		BDCC7EBE19DE50AB008B2510 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CE5445621A96C64A0082FD39 /* Default-568h@2x.png */,
 				BDCC7EBF19DE50AB008B2510 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -164,7 +164,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BDCC7EC819DE50AB008B2510 /* Main.storyboard in Resources */,
-				BDCC7ECD19DE50AB008B2510 /* LaunchScreen.xib in Resources */,
+				CE5445631A96C64A0082FD39 /* Default-568h@2x.png in Resources */,
 				BDCC7ECA19DE50AB008B2510 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -225,14 +225,6 @@
 				BDCC7EC719DE50AB008B2510 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		BDCC7ECB19DE50AB008B2510 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BDCC7ECC19DE50AB008B2510 /* Base */,
-			);
-			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
