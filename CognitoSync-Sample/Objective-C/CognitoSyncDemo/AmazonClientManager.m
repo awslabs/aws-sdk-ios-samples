@@ -13,14 +13,14 @@
  * permissions and limitations under the License.
  */
 
-#import "AWSCore.h"
+#import <AWSCore/AWSCore.h>
 #import "AmazonClientManager.h"
 #import "AWSCredentialsProvider.h"
 #import "AWSLogging.h"
 #import "Constants.h"
 #import "BFTask.h"
 #import "UICKeyChainStore.h"
-#import "Cognito.h"
+#import <AWSCognito/AWSCognito.h>
 #import "DeveloperAuthenticatedIdentityProvider.h"
 #import "DeveloperAuthenticationClient.h"
 #import "Constants.h"

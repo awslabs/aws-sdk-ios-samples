@@ -4,7 +4,7 @@ This sample demonstrates how you would track user engagement for the mobile push
 
 ##Requirements
 
-* Xcode 6 and later
+* Xcode 5 and later
 * iOS 7 and later
 * Before moving forward, follow [Getting Started with Apple Push Notification Service](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-apns.html) and [Using Amazon SNS Mobile Push](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send.html) and configure Amazon SNS Mobile Push properly.
 
@@ -19,7 +19,7 @@ This sample demonstrates how you would track user engagement for the mobile push
 
         source 'https://github.com/CocoaPods/Specs.git'
         
-        pod "AWSiOSSDKv2"
+        pod 'AWSSNS'
         
 1. Then run the following command:
 	
@@ -30,8 +30,7 @@ This sample demonstrates how you would track user engagement for the mobile push
 1. Create an Objective-C bridging header file.
 1. Import the service headers in the bridging header.
 
-		#import "AWSCore.h"
-		#import "SNS.h"
+		#import <AWSSNS/AWSSNS.h>
 
 1. Point **SWIFT_OBJC_BRIDGING_HEADER** to the bridging header by going to **Your Target** => **Build Settings** => **SWIFT_OBJC_BRIDGING_HEADER**.
 
@@ -47,16 +46,13 @@ This sample demonstrates how you would track user engagement for the mobile push
 
 1. Create a default service configuration by adding the following code snippet in the `@optional func application(_ application: UIApplication!, didFinishLaunchingWithOptions launchOptions: NSDictionary!) -> Bool` application delegate method.
 
-        let credentialsProvider = AWSCognitoCredentialsProvider.credentialsWithRegionType(
-            AWSRegionType.USEast1,
-            accountId: cognitoAccountId,
-            identityPoolId: cognitoIdentityPoolId,
-            unauthRoleArn: cognitoUnauthRoleArn,
-            authRoleArn: cognitoAuthRoleArn)
+        let credentialsProvider = AWSCognitoCredentialsProvider(
+            regionType: CognitoRegionType,
+            identityPoolId: CognitoIdentityPoolId)
         let defaultServiceConfiguration = AWSServiceConfiguration(
-            region: AWSRegionType.USEast1,
+            region: DefaultServiceRegionType,
             credentialsProvider: credentialsProvider)
-        AWSServiceManager.defaultServiceManager().setDefaultServiceConfiguration(defaultServiceConfiguration)
+        AWSServiceManager.defaultServiceManager().defaultServiceConfiguration = defaultServiceConfiguration
 
 ##Set up interactive push notifications
 
@@ -110,14 +106,13 @@ You can set up the Cognito credentials provider in `- application:didFinishLaunc
         ...
         
         // Sets up the AWS Mobile SDK for iOS
-        let credentialsProvider = AWSCognitoCredentialsProvider.credentialsWithRegionType(
-            AWSRegionType.USEast1,
-            accountId: "YOUR-ACCOUNT-ID",
-            identityPoolId: "YOUR-IDENTITY-POOL-ID",
-            unauthRoleArn: "YOUR-UNAUTH-ROLE-ARN",
-            authRoleArn: "YOUR-AUTH-ROLE-ARN")
-        let defaultServiceConfiguration = AWSServiceConfiguration(region: AWSRegionType.USEast1, credentialsProvider: credentialsProvider)
-        AWSServiceManager.defaultServiceManager().setDefaultServiceConfiguration(defaultServiceConfiguration)
+        let credentialsProvider = AWSCognitoCredentialsProvider(
+            regionType: CognitoRegionType,
+            identityPoolId: CognitoIdentityPoolId)
+        let defaultServiceConfiguration = AWSServiceConfiguration(
+            region: DefaultServiceRegionType,
+            credentialsProvider: credentialsProvider)
+        AWSServiceManager.defaultServiceManager().defaultServiceConfiguration = defaultServiceConfiguration
 
         return true
     }

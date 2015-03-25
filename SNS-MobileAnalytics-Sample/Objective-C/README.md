@@ -4,7 +4,7 @@ This sample demonstrates how you would track user engagement for the mobile push
 
 ##Requirements
 
-* Xcode 6 and later
+* Xcode 5 and later
 * iOS 7 and later
 * Before moving forward, follow [Getting Started with Apple Push Notification Service](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-apns.html) and [Using Amazon SNS Mobile Push](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send.html) and configure Amazon SNS Mobile Push properly.
 
@@ -19,7 +19,7 @@ This sample demonstrates how you would track user engagement for the mobile push
 
         source 'https://github.com/CocoaPods/Specs.git'
         
-        pod "AWSiOSSDKv2"
+        pod 'AWSSNS'
         
 1. Then run the following command:
 	
@@ -29,7 +29,7 @@ This sample demonstrates how you would track user engagement for the mobile push
 
 1. Import the service headers in the bridging header in `AppDelegate.m`.
 
-		#import "SNS.h"
+		#import <AWSSNS/AWSSNS.h>
 
 1. In the [Amazon Cognito console](https://console.aws.amazon.com/cognito/), use Amazon Cognito to create a new identity pool. Obtain the `PoolID` constant. Make sure the [role](https://console.aws.amazon.com/iam/home?region=us-east-1#roles) has appropriate permissions for Amazon SNS Mobile Push and Amazon Mobile Analytics. Use Amazon Mobile Analytics to create an app, and obtain the `AppId` constant.
 

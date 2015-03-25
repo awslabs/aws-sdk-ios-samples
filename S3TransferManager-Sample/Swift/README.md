@@ -4,7 +4,7 @@ This sample demonstrates the Amazon S3 TransferManager found in the AWS Mobile S
 
 ## Requirements
 
-* Xcode 6 and later
+* Xcode 5 and later
 * iOS 7 and later
 
 ## Using the Sample
@@ -16,7 +16,7 @@ This sample demonstrates the Amazon S3 TransferManager found in the AWS Mobile S
 
 1. To install the AWS Mobile SDK for iOS, simply add the following line to your **Podfile**:
 
-		pod "AWSiOSSDKv2"
+		pod 'AWSS3'
 
 	Then run the following command:
 	

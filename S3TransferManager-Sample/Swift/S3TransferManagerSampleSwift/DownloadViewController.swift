@@ -197,7 +197,6 @@ class DownloadViewController: UIViewController, UICollectionViewDelegate, UIColl
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     if totalBytesExpectedToWrite > 0 {
                         cell.progressView.progress = Float(Double(totalBytesWritten) / Double(totalBytesExpectedToWrite));
-                        println("\(cell.progressView.progress)")
                     }
                 })
             }

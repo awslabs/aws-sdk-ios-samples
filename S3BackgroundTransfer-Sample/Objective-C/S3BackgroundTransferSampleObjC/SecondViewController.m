@@ -15,7 +15,7 @@
 
 #import "SecondViewController.h"
 #import "AppDelegate.h"
-#import "S3.h"
+#import <AWSS3/AWSS3.h>
 #import "Constants.h"
 
 @interface SecondViewController ()

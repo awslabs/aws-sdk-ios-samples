@@ -14,7 +14,7 @@
  */
 
 #import "FirstViewController.h"
-#import "S3.h"
+#import <AWSS3/AWSS3.h>
 #import "Constants.h"
 #import "AppDelegate.h"
 

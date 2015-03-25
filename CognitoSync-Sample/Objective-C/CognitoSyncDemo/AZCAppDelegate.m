@@ -17,7 +17,7 @@
 #import "AmazonClientManager.h"
 #import "Constants.h"
 #import "AWSCognito.h"
-#import "AWSCore.h"
+#import <AWSCore/AWSCore.h>
 
 @implementation AZCAppDelegate
 
@@ -45,7 +45,7 @@
 #endif
     }
     
-    [AWSLogger defaultLogger].logLevel = AWSLogLevelVerbose;
+    [AWSLogger defaultLogger].logLevel = AWSLogLevelDebug;
     return YES;
 }
 

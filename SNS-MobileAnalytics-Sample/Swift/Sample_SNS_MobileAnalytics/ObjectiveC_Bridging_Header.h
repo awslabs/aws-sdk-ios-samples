@@ -13,4 +13,4 @@
  * permissions and limitations under the License.
  */
 
-#import "SNS.h"
+#import <AWSSNS/AWSSNS.h>

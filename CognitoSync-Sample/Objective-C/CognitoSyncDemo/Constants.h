@@ -14,7 +14,7 @@
  */
 
 #import <Foundation/Foundation.h>
-#import "AWSCore.h"
+#import <AWSCore/AWSCore.h>
 
 FOUNDATION_EXPORT AWSRegionType const CognitoRegionType;
 FOUNDATION_EXPORT NSString *const CognitoIdentityPoolId;

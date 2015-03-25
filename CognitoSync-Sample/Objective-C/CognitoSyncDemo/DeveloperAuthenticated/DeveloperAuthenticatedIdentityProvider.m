@@ -14,8 +14,7 @@
  */
 
 #import "Crypto.h"
-#import "AWSCore.h"
-#import "AWSIdentityProvider.h"
+#import <AWSCore/AWSCore.h>
 #import "DeveloperAuthenticatedIdentityProvider.h"
 #import "DeveloperAuthenticationClient.h"
 

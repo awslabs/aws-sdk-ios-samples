@@ -14,7 +14,7 @@
  */
 
 #import "AppDelegate.h"
-#import "AWSCore.h"
+#import <AWSCore/AWSCore.h>
 #import "Constants.h"
 
 @implementation AppDelegate

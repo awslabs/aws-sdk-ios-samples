@@ -14,7 +14,7 @@
  */
 
 #import "CognitoDatasetViewController.h"
-#import "Cognito.h"
+#import <AWSCognito/AWSCognito.h>
 #import "Constants.h"
 
 const int AWSCognitoNewRecordView = 1;

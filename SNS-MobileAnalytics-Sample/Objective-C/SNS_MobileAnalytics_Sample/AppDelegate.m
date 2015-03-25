@@ -17,7 +17,7 @@
 #import "ViewController.h"
 #import "Constants.h"
 
-#import "SNS.h"
+#import <AWSSNS/AWSSNS.h>
 
 @interface AppDelegate ()
 

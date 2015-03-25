@@ -15,7 +15,7 @@
 
 #import "CognitoDatasetListViewController.h"
 #import "CognitoDatasetViewController.h"
-#import "Cognito.h"
+#import <AWSCognito/AWSCognito.h>
 #import "AWSLogging.h"
 
 @interface CognitoDatasetListViewController () {

@@ -15,7 +15,7 @@
 
 #import "DeveloperAuthenticationClient.h"
 #import "Crypto.h"
-#import "AWSCore.h"
+#import <AWSCore/AWSCore.h>
 #import "UICKeychainStore.h"
 
 NSString *const ProviderPlaceHolder = @"foobar.com";

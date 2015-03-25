@@ -16,7 +16,7 @@ This sample demonstrates how to use `AWSS3PreSignedURLBuilder` to download / upl
 
 1. To install the AWS Mobile SDK for iOS, simply add the following line to your **Podfile**:
 
-		pod "AWSiOSSDKv2"
+		pod 'AWSS3'
 
 	Then run the following command:
 	
