@@ -59,6 +59,8 @@
 	<string>1.0</string>
 	<key>FacebookAppID</key>
 	<string>FB_APP_ID</string>
+	<key>FacebookDisplayName</key>
+	<string>CHANGE ME: MY FB APP</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIMainStoryboardFile</key>

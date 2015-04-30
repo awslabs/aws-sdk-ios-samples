@@ -25,15 +25,27 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     [self disableUI];
     
-    [[AmazonClientManager sharedInstance] resumeSessionWithCompletionHandler:^id(BFTask *task) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self refreshUI];
-        });
-        return nil;
-    }];
+    if ([[AmazonClientManager sharedInstance] isConfigured]) {
+        
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+        
+        
+        [[AmazonClientManager sharedInstance] resumeSessionWithCompletionHandler:^id(BFTask *task) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self refreshUI];
+            });
+            return nil;
+        }];
+    }
+    else {
+        [[[UIAlertView alloc] initWithTitle:@"Missing Configuration"
+                                    message:@"Please check Constants.m and set appropriate values."
+                                   delegate:nil
+                          cancelButtonTitle:@"OK"
+                          otherButtonTitles:nil] show];
+    }
 }
 
 -(IBAction)loginClicked:(id)sender {

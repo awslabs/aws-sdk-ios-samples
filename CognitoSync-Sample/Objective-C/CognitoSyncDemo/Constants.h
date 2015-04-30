@@ -22,52 +22,31 @@ FOUNDATION_EXPORT NSString *const CognitoIdentityPoolId;
 FOUNDATION_EXPORT NSString *const DeviceTokenKey;
 FOUNDATION_EXPORT NSString *const CognitoDeviceTokenKey;
 FOUNDATION_EXPORT NSString *const CognitoPushNotification;
+FOUNDATION_EXPORT NSString *const GoogleClientScope;
+FOUNDATION_EXPORT NSString *const GoogleOIDCScope;
+FOUNDATION_EXPORT NSString *const GoogleClientID;
+FOUNDATION_EXPORT NSString *const DeveloperAuthAppName;
+FOUNDATION_EXPORT NSString *const DeveloperAuthEndpoint;
+FOUNDATION_EXPORT NSString *const DeveloperAuthProviderName;
 
-/**
- * Enables Developer Authentication Login.
- * This sample uses the Java-based Cognito Authentication backend
- */
-#define BYOI_LOGIN                  0
-
-#if BYOI_LOGIN
-
-// This is the default value, if you modified your backend configuration
-// update this value as appropriate
-#define AppName @"awscognitodeveloperauthenticationsample"
-// Update this value to reflect where your backend is deployed
-// !!!!!!!!!!!!!!!!!!!
-// Make sure to enable HTTPS for your end point before deploying your
-// app to production.
-// !!!!!!!!!!!!!!!!!!!
-#define Endpoint @"http://YOUR-AUTH-ENDPOINT"
-// Set to the provider name you configured in the Cognito console.
-#define ProviderName @"PROVIDER_NAME"
-
+#if __has_include(<FBSDKCoreKit/FBSDKCoreKit.h>) && __has_include(<FBSDKLoginKit/FBSDKLoginKit.h>)
+#define FB_LOGIN 1
+#else
+#define FB_LOGIN 0
 #endif
-
-/**
- * Enables FB Login.
- * Login with Facebook also requires the following things to be set
- *
- * FacebookAppID in App plist file
- * The appropriate URL handler in project (should match FacebookAppID)
- */
-#define FB_LOGIN                    1
 
 #if FB_LOGIN
 
-#import <FacebookSDK/FacebookSDK.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
 
 #endif
 
-/**
- * Enables Amazon
- * Login with Amazon also requires the following things to be set
- *
- * APIKey in App plist file
- * The appropriate URL handler in project (of style amzn-BUNDLE_ID)
- */
-#define AMZN_LOGIN                  1
+#if __has_include(<LoginWithAmazon/LoginWithAmazon.h>)
+#define AMZN_LOGIN 1
+#else
+#define AMZN_LOGIN 0
+#endif
 
 #if AMZN_LOGIN
 
@@ -75,28 +54,28 @@ FOUNDATION_EXPORT NSString *const CognitoPushNotification;
 
 #endif
 
-/**
- * Enables Google+
- * Google+ login also requires the following things to be set
- *
- * The appropriate URL handler in project (Should be the same as BUNDLE_ID)
- */
-#define GOOGLE_LOGIN                0
+#if __has_include(<GooglePlus/GooglePlus.h>) && __has_include(<GoogleOpenSource/GoogleOpenSource.h>)
+#define GOOGLE_LOGIN 1
+#else
+#define GOOGLE_LOGIN 0
+#endif
 
 #if GOOGLE_LOGIN
 
 #import <GooglePlus/GooglePlus.h>
 #import <GoogleOpenSource/GoogleOpenSource.h>
 
-/**
- * Client ID retrieved from Google API console
- */
-#define GOOGLE_CLIENT_ID            @""
+#endif
 
-/**
- * Client scope that will be used with Google+
- */
-#define GOOGLE_CLIENT_SCOPE         @"https://www.googleapis.com/auth/userinfo.profile"
-#define GOOGLE_OPENID_SCOPE         @"openid"
+#if __has_include(<TwitterKit/TwitterKit.h>) && __has_include(<Fabric/Fabric.h>)
+#define TWITTER_LOGIN 1
+#else 
+#define TWITTER_LOGIN 0
+#endif
+
+#if TWITTER_LOGIN
+
+#import <Fabric/Fabric.h>
+#import <TwitterKit/TwitterKit.h>
 
 #endif

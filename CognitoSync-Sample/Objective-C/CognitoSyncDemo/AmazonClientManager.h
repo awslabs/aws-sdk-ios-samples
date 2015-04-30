@@ -36,11 +36,12 @@
 @interface AmazonClientManager:NSObject<UIAlertViewDelegate,UIActionSheetDelegate> {}
 #endif
 
+- (BOOL)isConfigured;
 - (BOOL)isLoggedIn;
 - (void)logoutWithCompletionHandler:(BFContinuationBlock)completionHandler;
 - (void)loginFromView:(UIView *)theView withCompletionHandler:(BFContinuationBlock)completionHandler;
 
-- (BOOL)handleOpenURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation;
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation;
 
 - (void)resumeSessionWithCompletionHandler:(BFContinuationBlock)completionHandler;
 

@@ -26,7 +26,7 @@
   sourceApplication:(NSString *)sourceApplication
          annotation:(id)annotation
 {
-    return [[AmazonClientManager sharedInstance] handleOpenURL:url sourceApplication:sourceApplication annotation:annotation];
+    return [[AmazonClientManager sharedInstance] application:application openURL:url sourceApplication:sourceApplication annotation:annotation];
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -38,12 +38,19 @@
     if ([application respondsToSelector:@selector(registerUserNotificationSettings:)]) {
         [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert categories:nil]];
     } else {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
         [application registerForRemoteNotificationTypes:(UIRemoteNotificationTypeAlert)];
+#pragma clang diagnostic pop
     }
 #else
     [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert];
 #endif
     }
+
+#if TWITTER_LOGIN
+    [Fabric with:@[TwitterKit]];
+#endif
     
     [AWSLogger defaultLogger].logLevel = AWSLogLevelDebug;
     return YES;
