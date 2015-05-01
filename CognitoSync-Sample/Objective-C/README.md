@@ -18,7 +18,8 @@ This sample demonstrates how to create unique identities for users of your app u
 1. To install the AWS Mobile SDK for iOS, simply add the following line to your **Podfile**:
 
 		pod 'AWSCognito'
-		pod 'Facebook-iOS-SDK' 
+		pod 'FBSDKCoreKit'
+		pod 'FBSDKLoginKit'
 
 	Then run the following command:
 	
