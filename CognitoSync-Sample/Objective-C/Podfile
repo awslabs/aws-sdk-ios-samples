@@ -1,5 +1,5 @@
 source 'https://github.com/CocoaPods/Specs.git'
 
 pod 'AWSCognito', '~> 2.1.0'
-pod 'Facebook-iOS-SDK', '~> 3.0'
+pod 'Facebook-iOS-SDK', '~> 4.0'
 #pod 'google-plus-ios-sdk'
