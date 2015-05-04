@@ -14,8 +14,8 @@
 		38C380CF1A09ABDD001886BE /* Crypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C380CC1A09ABDD001886BE /* Crypto.m */; };
 		38C380D01A09ABDD001886BE /* DeveloperAuthenticatedIdentityProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C380CE1A09ABDD001886BE /* DeveloperAuthenticatedIdentityProvider.m */; };
 		38CD1256196276F5001FC4E1 /* LoginWithAmazon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38CD1255196276F5001FC4E1 /* LoginWithAmazon.framework */; };
+		AFD73486E384F017F0F8AC51 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 69BFC43D39FEC93C454EBB8F /* libPods.a */; };
 		CE76800F1A7ACE9D005E3ACE /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = CE76800E1A7ACE9D005E3ACE /* Constants.m */; };
-		D4AAB4D3417C3BECECC6802B /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC839009B5A76743A55DA033 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		EFFA9179192FB8080059AE57 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFFA9178192FB8080059AE57 /* Foundation.framework */; };
 		EFFA917B192FB8080059AE57 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFFA917A192FB8080059AE57 /* CoreGraphics.framework */; };
 		EFFA917D192FB8080059AE57 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFFA917C192FB8080059AE57 /* UIKit.framework */; };
@@ -59,6 +59,7 @@
 		38C380CD1A09ABDD001886BE /* DeveloperAuthenticatedIdentityProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeveloperAuthenticatedIdentityProvider.h; sourceTree = "<group>"; };
 		38C380CE1A09ABDD001886BE /* DeveloperAuthenticatedIdentityProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeveloperAuthenticatedIdentityProvider.m; sourceTree = "<group>"; };
 		38CD1255196276F5001FC4E1 /* LoginWithAmazon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = LoginWithAmazon.framework; sourceTree = "<group>"; };
+		69BFC43D39FEC93C454EBB8F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE76800E1A7ACE9D005E3ACE /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		EFFA9175192FB8080059AE57 /* CognitoSyncDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CognitoSyncDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFFA9178192FB8080059AE57 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -79,7 +80,6 @@
 		EFFA91A2192FB8090059AE57 /* CognitoSyncDemoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CognitoSyncDemoTests-Info.plist"; sourceTree = "<group>"; };
 		EFFA91A4192FB8090059AE57 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		EFFA91A6192FB8090059AE57 /* CognitoSyncDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CognitoSyncDemoTests.m; sourceTree = "<group>"; };
-		FC839009B5A76743A55DA033 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,7 +91,7 @@
 				EFFA917D192FB8080059AE57 /* UIKit.framework in Frameworks */,
 				EFFA9179192FB8080059AE57 /* Foundation.framework in Frameworks */,
 				38CD1256196276F5001FC4E1 /* LoginWithAmazon.framework in Frameworks */,
-				D4AAB4D3417C3BECECC6802B /* Pods.framework in Frameworks */,
+				AFD73486E384F017F0F8AC51 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,7 +158,7 @@
 				EFFA917A192FB8080059AE57 /* CoreGraphics.framework */,
 				EFFA917C192FB8080059AE57 /* UIKit.framework */,
 				EFFA919A192FB8080059AE57 /* XCTest.framework */,
-				FC839009B5A76743A55DA033 /* Pods.framework */,
+				69BFC43D39FEC93C454EBB8F /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -227,7 +227,6 @@
 				EFFA9172192FB8080059AE57 /* Frameworks */,
 				EFFA9173192FB8080059AE57 /* Resources */,
 				20879EF7BF4D42B8B01AA6A3 /* Copy Pods Resources */,
-				31760DD974F286471CB7B5D6 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -325,21 +324,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		31760DD974F286471CB7B5D6 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		6A06151213EF401E83414C7D /* Check Pods Manifest.lock */ = {
