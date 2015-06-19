@@ -29,7 +29,7 @@ class MainViewController: UIViewController {
         if action == nil {
             userAction?.text = "---"
         } else {
-            userAction?.text = "The user selected [" + action! + "]"
+            userAction?.text = "The user selected [" + (action! as String) + "]"
         }
     }
 }

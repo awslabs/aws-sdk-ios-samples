@@ -94,7 +94,7 @@ class DDBDynamoDBManger : NSObject {
         createTableInput.attributeDefinitions = [hashKeyAttributeDefinition, rangeKeyAttributeDefinition, topScoreAttrDef, winsAttrDef,lossesAttrDef]
         createTableInput.keySchema = [hashKeySchemaElement, rangeKeySchemaElement]
         createTableInput.provisionedThroughput = provisionedThroughput
-        createTableInput.globalSecondaryIndexes = gsiArray
+        createTableInput.globalSecondaryIndexes = gsiArray as [AnyObject]
 
         return dynamoDB.createTable(createTableInput).continueWithSuccessBlock({ (var task:BFTask!) -> AnyObject! in
             if ((task.result) != nil) {
@@ -106,7 +106,7 @@ class DDBDynamoDBManger : NSObject {
                 
                 for var i = 0; i < 16; i++ {
                     task = task.continueWithSuccessBlock({ (task:BFTask!) -> AnyObject! in
-                        let describeTableOutput:AWSDynamoDBDescribeTableOutput = task.result as AWSDynamoDBDescribeTableOutput
+                        let describeTableOutput:AWSDynamoDBDescribeTableOutput = task.result as! AWSDynamoDBDescribeTableOutput
                         let tableStatus = describeTableOutput.table.tableStatus
                         if tableStatus == AWSDynamoDBTableStatus.Active {
                             return task

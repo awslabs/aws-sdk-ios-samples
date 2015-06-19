@@ -70,7 +70,7 @@ const int AWSCognitoUpdateRecordView = 2;
 
 - (IBAction)subscribeClicked:(UISwitch *)sender {
     if(sender.on){
-        [[self.dataset subscribe] continueWithBlock:^id(BFTask *task) {
+        [[self.dataset subscribe] continueWithBlock:^id(AWSTask *task) {
             if(task.error){
                 [self.subscribeSwitch setOn:NO animated:YES];
                 NSLog(@"Unable to subscribe to dataset");
@@ -82,7 +82,7 @@ const int AWSCognitoUpdateRecordView = 2;
             return nil;
         }];
     }else{
-        [[self.dataset unsubscribe] continueWithBlock:^id(BFTask *task) {
+        [[self.dataset unsubscribe] continueWithBlock:^id(AWSTask *task) {
             if(task.error){
                 [self.subscribeSwitch setOn:YES animated:YES];
                 NSLog(@"Unable to unsubscribe to dataset");
@@ -125,7 +125,7 @@ const int AWSCognitoUpdateRecordView = 2;
 
 - (IBAction)refreshTapped:(id)sender {
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-    [[self.dataset synchronize] continueWithBlock:^id(BFTask *task) {
+    [[self.dataset synchronize] continueWithBlock:^id(AWSTask *task) {
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         [self getRecords];
         dispatch_async(dispatch_get_main_queue(), ^{

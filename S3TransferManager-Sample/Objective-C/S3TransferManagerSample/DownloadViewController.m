@@ -89,7 +89,7 @@
 
     AWSS3ListObjectsRequest *listObjectsRequest = [AWSS3ListObjectsRequest new];
     listObjectsRequest.bucket = S3BucketName;
-    [[s3 listObjects:listObjectsRequest] continueWithBlock:^id(BFTask *task) {
+    [[s3 listObjects:listObjectsRequest] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             NSLog(@"listObjects failed: [%@]", task.error);
         } else {
@@ -123,7 +123,7 @@
         case AWSS3TransferManagerRequestStatePaused:
         {
             AWSS3TransferManager *transferManager = [AWSS3TransferManager defaultS3TransferManager];
-            [[transferManager download:downloadRequest] continueWithBlock:^id(BFTask *task) {
+            [[transferManager download:downloadRequest] continueWithBlock:^id(AWSTask *task) {
                 if ([task.error.domain isEqualToString:AWSS3TransferManagerErrorDomain]
                     && task.error.code == AWSS3TransferManagerErrorPaused) {
                     NSLog(@"Download paused.");
@@ -171,7 +171,7 @@
             AWSS3TransferManagerDownloadRequest *downloadRequest = obj;
             if (downloadRequest.state == AWSS3TransferManagerRequestStateRunning
                 || downloadRequest.state == AWSS3TransferManagerRequestStatePaused) {
-                [[downloadRequest cancel] continueWithBlock:^id(BFTask *task) {
+                [[downloadRequest cancel] continueWithBlock:^id(AWSTask *task) {
                     if (task.error) {
                         NSLog(@"The cancel request failed: [%@]", task.error);
                     }
@@ -252,7 +252,7 @@
 
             case AWSS3TransferManagerRequestStateRunning:
             {
-                [[downloadRequest pause] continueWithBlock:^id(BFTask *task) {
+                [[downloadRequest pause] continueWithBlock:^id(AWSTask *task) {
                     if (task.error) {
                         NSLog(@"The pause request failed: [%@]", task.error);
                     } else {

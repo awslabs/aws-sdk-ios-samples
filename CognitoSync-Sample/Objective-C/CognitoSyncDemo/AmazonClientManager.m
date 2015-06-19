@@ -14,16 +14,12 @@
  */
 
 #import <AWSCore/AWSCore.h>
-#import "AmazonClientManager.h"
-#import "AWSCredentialsProvider.h"
-#import "AWSLogging.h"
-#import "Constants.h"
-#import "BFTask.h"
-#import "UICKeyChainStore.h"
 #import <AWSCognito/AWSCognito.h>
+#import <UICKeyChainStore/UICKeyChainStore.h>
+#import "AmazonClientManager.h"
+#import "Constants.h"
 #import "DeveloperAuthenticatedIdentityProvider.h"
 #import "DeveloperAuthenticationClient.h"
-#import "Constants.h"
 
 #define FB_PROVIDER             @"Facebook"
 #define GOOGLE_PROVIDER         @"Google"
@@ -35,7 +31,7 @@
 @interface AmazonClientManager()
 
 @property (nonatomic, strong) AWSCognitoCredentialsProvider *credentialsProvider;
-@property (atomic, copy) BFContinuationBlock completionHandler;
+@property (atomic, copy) AWSContinuationBlock completionHandler;
 @property (nonatomic, strong) UICKeyChainStore *keychain;
 @property (nonatomic, strong) DeveloperAuthenticationClient *devAuthClient;
 
@@ -114,7 +110,7 @@
             [self isLoggedInWithBYOI] || [self isLoggedInWithTwitter] || [self isLoggedInWithDigits]);
 }
 
-- (BFTask *)initializeClients:(NSDictionary *)logins {
+- (AWSTask *)initializeClients:(NSDictionary *)logins {
     NSLog(@"initializing clients...");
     [AWSLogger defaultLogger].logLevel = AWSLogLevelVerbose;
 
@@ -144,7 +140,7 @@
     [self.credentialsProvider clearKeychain];
 }
 
-- (void)logoutWithCompletionHandler:(BFContinuationBlock)completionHandler
+- (void)logoutWithCompletionHandler:(AWSContinuationBlock)completionHandler
 {
 #if FB_LOGIN
     if ([self isLoggedInWithFacebook]) {
@@ -172,11 +168,11 @@
     [self.devAuthClient logout];
 
     [self wipeAll];
-    [[BFTask taskWithResult:nil] continueWithBlock:completionHandler];
+    [[AWSTask taskWithResult:nil] continueWithBlock:completionHandler];
 }
 
 
-- (void)loginFromView:(UIView *)theView withCompletionHandler:(BFContinuationBlock)completionHandler
+- (void)loginFromView:(UIView *)theView withCompletionHandler:(AWSContinuationBlock)completionHandler
 {
     self.completionHandler = completionHandler;
     [[AmazonClientManager loginSheet] showInView:theView];
@@ -213,7 +209,7 @@
     return NO;
 }
 
-- (void)resumeSessionWithCompletionHandler:(BFContinuationBlock)completionHandler
+- (void)resumeSessionWithCompletionHandler:(AWSContinuationBlock)completionHandler
 {
     self.completionHandler = completionHandler;
 
@@ -249,7 +245,7 @@
 }
 
 -(void)completeLogin:(NSDictionary *)logins {
-    BFTask *task;
+    AWSTask *task;
     if (self.credentialsProvider == nil) {
         task = [self initializeClients:logins];
     }
@@ -261,14 +257,14 @@
         task = [self.credentialsProvider refresh];
     }
 
-    [[task continueWithBlock:^id(BFTask *task) {
+    [[task continueWithBlock:^id(AWSTask *task) {
         if(!task.error){
             //if we have a new device token register it
             __block NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
             __block NSData *currentDeviceToken = [userDefaults objectForKey:DeviceTokenKey];
             __block NSString *currentDeviceTokenString = (currentDeviceToken == nil)? nil : [currentDeviceToken base64EncodedStringWithOptions:0];
             if(currentDeviceToken != nil && ![currentDeviceTokenString isEqualToString:[userDefaults stringForKey:CognitoDeviceTokenKey]]){
-                [[[AWSCognito defaultCognito] registerDevice:currentDeviceToken] continueWithBlock:^id(BFTask *task) {
+                [[[AWSCognito defaultCognito] registerDevice:currentDeviceToken] continueWithBlock:^id(AWSTask *task) {
                     if(!task.error){
                         [userDefaults setObject:currentDeviceTokenString forKey:CognitoDeviceTokenKey];
                         [userDefaults synchronize];
@@ -304,7 +300,7 @@
     NSString *buttonTitle = [actionSheet buttonTitleAtIndex:buttonIndex];
 
     if ([buttonTitle isEqualToString:@"Cancel"]) {
-        [[BFTask taskWithResult:nil] continueWithBlock:self.completionHandler];
+        [[AWSTask taskWithResult:nil] continueWithBlock:self.completionHandler];
         return;
     }
     else if ([buttonTitle isEqualToString:BYOI_PROVIDER]) {
@@ -335,7 +331,7 @@
 #endif
     else {
         [[AmazonClientManager errorAlert:@"Provider not implemented"] show];
-        [[BFTask taskWithResult:nil] continueWithBlock:self.completionHandler];
+        [[AWSTask taskWithResult:nil] continueWithBlock:self.completionHandler];
     }
 }
 
@@ -361,13 +357,13 @@
     }
 
     if (username && password) {
-        [[self.devAuthClient login:username password:password] continueWithExecutor:[BFExecutor mainThreadExecutor] withBlock:^id(BFTask *task) {
+        [[self.devAuthClient login:username password:password] continueWithExecutor:[AWSExecutor mainThreadExecutor] withBlock:^id(AWSTask *task) {
             if (task.cancelled) {
                 [[AmazonClientManager errorAlert:@"Login canceled."] show];
             }
             else if (task.error) {
                 [[AmazonClientManager errorAlert:@"Login failed. Check your username and password."] show];
-                [[BFTask taskWithError:task.error] continueWithBlock:self.completionHandler];
+                [[AWSTask taskWithError:task.error] continueWithBlock:self.completionHandler];
             }
             else {
                 self.keychain[BYOI_PROVIDER] = username;
@@ -377,7 +373,7 @@
         }];
     }
     else {
-        [[BFTask taskWithResult:nil] continueWithBlock:self.completionHandler];
+        [[AWSTask taskWithResult:nil] continueWithBlock:self.completionHandler];
     }
 }
 
@@ -461,7 +457,7 @@
 - (void)requestDidFail:(APIError*) errorResponse {
     [[AmazonClientManager errorAlert:[NSString stringWithFormat:@"Error logging in with Amazon: %@", errorResponse.error.message]] show];
 
-    [[BFTask taskWithResult:nil] continueWithBlock:self.completionHandler];
+    [[AWSTask taskWithResult:nil] continueWithBlock:self.completionHandler];
 }
 
 #endif

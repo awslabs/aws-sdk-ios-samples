@@ -14,12 +14,12 @@
  */
 
 #import "DDBDynamoDBManager.h"
-#import "DynamoDB.h"
+#import <AWSDynamoDB/AWSDynamoDB.h>
 #import "Constants.h"
 
 @implementation DDBDynamoDBManager
 
-+ (BFTask *)describeTable {
++ (AWSTask *)describeTable {
     AWSDynamoDB *dynamoDB = [AWSDynamoDB defaultDynamoDB];
 
     // See if the test table exists.
@@ -28,7 +28,7 @@
     return [dynamoDB describeTable:describeTableInput];
 }
 
-+ (BFTask *)createTable {
++ (AWSTask *)createTable {
     AWSDynamoDB *dynamoDB = [AWSDynamoDB defaultDynamoDB];
 
     // Create the test table.
@@ -99,7 +99,7 @@
     createTableInput.provisionedThroughput = provisionedThroughput;
     createTableInput.globalSecondaryIndexes = gsiArray;
 
-    return [[dynamoDB createTable:createTableInput] continueWithSuccessBlock:^id(BFTask *task) {
+    return [[dynamoDB createTable:createTableInput] continueWithSuccessBlock:^id(AWSTask *task) {
         if (task.result) {
             // Wait for up to 4 minutes until the table becomes ACTIVE.
 
@@ -108,7 +108,7 @@
             task = [dynamoDB describeTable:describeTableInput];
 
             for(int32_t i = 0; i < 16; i++) {
-                task = [task continueWithSuccessBlock:^id(BFTask *task) {
+                task = [task continueWithSuccessBlock:^id(AWSTask *task) {
                     AWSDynamoDBDescribeTableOutput *describeTableOutput = task.result;
                     AWSDynamoDBTableStatus tableStatus = describeTableOutput.table.tableStatus;
                     if (tableStatus == AWSDynamoDBTableStatusActive) {

@@ -13,4 +13,5 @@
  * permissions and limitations under the License.
  */
 
+#import <AWSMobileAnalytics/AWSMobileAnalytics.h>
 #import <AWSSNS/AWSSNS.h>

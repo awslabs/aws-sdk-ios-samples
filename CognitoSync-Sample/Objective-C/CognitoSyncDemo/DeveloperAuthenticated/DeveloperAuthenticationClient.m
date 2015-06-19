@@ -16,7 +16,7 @@
 #import "DeveloperAuthenticationClient.h"
 #import "Crypto.h"
 #import <AWSCore/AWSCore.h>
-#import "UICKeychainStore.h"
+#import <UICKeychainStore/UICKeychainStore.h>
 
 NSString *const ProviderPlaceHolder = @"foobar.com";
 NSString *const LoginURI = @"%@/login?uid=%@&username=%@&timestamp=%@&signature=%@";
@@ -75,11 +75,11 @@ NSString *const EncryptionKeyKey = @"authkey";
 }
 
 // login and get a decryption key to be used for subsequent calls
-- (BFTask *)login:(NSString *)username password:(NSString *)password {
+- (AWSTask *)login:(NSString *)username password:(NSString *)password {
     
     // If the key is already set, the login already succeeeded
     if (self.key) {
-        return [BFTask taskWithResult:self.key];
+        return [AWSTask taskWithResult:self.key];
     }
     
     if (self.uid == nil) {
@@ -87,11 +87,11 @@ NSString *const EncryptionKeyKey = @"authkey";
         self.uid = [Crypto generateRandomString];
     }
     
-    return [[BFTask taskWithResult:nil] continueWithBlock:^id(BFTask *task) {
+    return [[AWSTask taskWithResult:nil] continueWithBlock:^id(AWSTask *task) {
         NSURL *request = [NSURL URLWithString:[self buildLoginRequestUrl:username password:password]];
         NSData *rawResponse = [NSData dataWithContentsOfURL:request];
         if (!rawResponse) {
-            return [BFTask taskWithError:[NSError errorWithDomain:DeveloperAuthenticationClientDomain
+            return [AWSTask taskWithError:[NSError errorWithDomain:DeveloperAuthenticationClientDomain
                                                              code:DeveloperAuthenticationClientLoginError
                                                          userInfo:nil]];
         }
@@ -101,7 +101,7 @@ NSString *const EncryptionKeyKey = @"authkey";
         NSString *key = [[self computeDecryptionKey:username password:password] substringToIndex:32];
         NSData *body = [Crypto decrypt:response key:key];
         if (!body) {
-            return [BFTask taskWithError:[NSError errorWithDomain:DeveloperAuthenticationClientDomain
+            return [AWSTask taskWithError:[NSError errorWithDomain:DeveloperAuthenticationClientDomain
                                                              code:DeveloperAuthenticationClientDecryptError
                                                          userInfo:nil]];
         }
@@ -111,7 +111,7 @@ NSString *const EncryptionKeyKey = @"authkey";
         NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:body options:kNilOptions error:nil];
         self.key = [jsonDict objectForKey:@"key"];
         if (!self.key) {
-            return [BFTask taskWithError:[NSError errorWithDomain:DeveloperAuthenticationClientDomain
+            return [AWSTask taskWithError:[NSError errorWithDomain:DeveloperAuthenticationClientDomain
                                                              code:DeveloperAuthenticationClientUnknownError
                                                          userInfo:nil]];
         }
@@ -121,7 +121,7 @@ NSString *const EncryptionKeyKey = @"authkey";
         self.keychain[UidKey] = self.uid;
         self.keychain[EncryptionKeyKey] = self.key;
         
-        return [BFTask taskWithResult:nil];
+        return [AWSTask taskWithResult:nil];
     }];
     
 }
@@ -134,20 +134,20 @@ NSString *const EncryptionKeyKey = @"authkey";
 }
 
 // call gettoken and set our values from returned result
-- (BFTask *)getToken:(NSString *)identityId logins:(NSDictionary *)logins {
+- (AWSTask *)getToken:(NSString *)identityId logins:(NSDictionary *)logins {
     
     // make sure we've authenticated
     if (![self isAuthenticated]) {
-        return [BFTask taskWithError:[NSError errorWithDomain:DeveloperAuthenticationClientDomain
+        return [AWSTask taskWithError:[NSError errorWithDomain:DeveloperAuthenticationClientDomain
                                                          code:DeveloperAuthenticationClientLoginError
                                                      userInfo:nil]];
     }
     
-    return [[BFTask taskWithResult:nil] continueWithBlock:^id(BFTask *task) {
+    return [[AWSTask taskWithResult:nil] continueWithBlock:^id(AWSTask *task) {
         NSURL *request = [NSURL URLWithString:[self buildGetTokenRequestUrl:identityId logins:logins]];
         NSData *rawResponse = [NSData dataWithContentsOfURL:request];
         if (!rawResponse) {
-            return [BFTask taskWithError:[NSError errorWithDomain:DeveloperAuthenticationClientDomain
+            return [AWSTask taskWithError:[NSError errorWithDomain:DeveloperAuthenticationClientDomain
                                                              code:DeveloperAuthenticationClientLoginError
                                                          userInfo:nil]];
         }
@@ -155,7 +155,7 @@ NSString *const EncryptionKeyKey = @"authkey";
         NSString *response = [[NSString alloc] initWithData:rawResponse encoding:NSUTF8StringEncoding];
         NSData *body = [Crypto decrypt:response key:self.key];
         if (!body) {
-            return [BFTask taskWithError:[NSError errorWithDomain:DeveloperAuthenticationClientDomain
+            return [AWSTask taskWithError:[NSError errorWithDomain:DeveloperAuthenticationClientDomain
                                                              code:DeveloperAuthenticationClientDecryptError
                                                          userInfo:nil]];
         }
@@ -171,12 +171,12 @@ NSString *const EncryptionKeyKey = @"authkey";
         authResponse.identityId = [jsonDict objectForKey:@"identityId"];
         authResponse.identityPoolId = [jsonDict objectForKey:@"identityPoolId"];
         if (!(authResponse.token || authResponse.identityId || authResponse.identityPoolId)) {
-            return [BFTask taskWithError:[NSError errorWithDomain:DeveloperAuthenticationClientDomain
+            return [AWSTask taskWithError:[NSError errorWithDomain:DeveloperAuthenticationClientDomain
                                                              code:DeveloperAuthenticationClientUnknownError
                                                          userInfo:nil]];
         }
         
-        return [BFTask taskWithResult:authResponse];
+        return [AWSTask taskWithResult:authResponse];
     }];
 }
 

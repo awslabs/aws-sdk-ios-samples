@@ -85,13 +85,13 @@ class FirstViewController: UIViewController, NSURLSessionDelegate, NSURLSessionT
         getPreSignedURLRequest.contentType = fileContentTypeStr
         
         
-        AWSS3PreSignedURLBuilder.defaultS3PreSignedURLBuilder().getPreSignedURL(getPreSignedURLRequest) .continueWithBlock { (task:BFTask!) -> (AnyObject!) in
+        AWSS3PreSignedURLBuilder.defaultS3PreSignedURLBuilder().getPreSignedURL(getPreSignedURLRequest) .continueWithBlock { (task:AWSTask!) -> (AnyObject!) in
             
             if (task.error != nil) {
                 NSLog("Error: %@", task.error)
             } else {
                 
-                let presignedURL = task.result as NSURL!
+                let presignedURL = task.result as! NSURL!
                 if (presignedURL != nil) {
                     NSLog("upload presignedURL is: \n%@", presignedURL)
                     
@@ -149,7 +149,7 @@ class FirstViewController: UIViewController, NSURLSessionDelegate, NSURLSessionT
     
     func URLSessionDidFinishEventsForBackgroundURLSession(session: NSURLSession) {
         
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         if ((appDelegate.backgroundUploadSessionCompletionHandler) != nil) {
             let completionHandler:() = appDelegate.backgroundUploadSessionCompletionHandler!;
             appDelegate.backgroundUploadSessionCompletionHandler = nil

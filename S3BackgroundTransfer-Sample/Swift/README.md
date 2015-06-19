@@ -4,7 +4,7 @@ This sample demonstrates how to use `AWSS3PreSignedURLBuilder` to download / upl
 
 ## Requirements
 
-* Xcode 6 and later
+* Xcode 6.3 and later
 * iOS 7 and later
 
 ## Using the Sample

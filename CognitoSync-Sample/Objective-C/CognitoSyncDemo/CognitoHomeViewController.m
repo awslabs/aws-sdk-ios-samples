@@ -15,7 +15,7 @@
 
 #import "CognitoHomeViewController.h"
 #import "AmazonClientManager.h"
-#import "BFTask.h"
+#import <AWSCore/AWSTask.h>
 
 @implementation CognitoHomeViewController
 
@@ -32,7 +32,7 @@
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
         
         
-        [[AmazonClientManager sharedInstance] resumeSessionWithCompletionHandler:^id(BFTask *task) {
+        [[AmazonClientManager sharedInstance] resumeSessionWithCompletionHandler:^id(AWSTask *task) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self refreshUI];
             });
@@ -51,7 +51,7 @@
 -(IBAction)loginClicked:(id)sender {
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     [self disableUI];
-    [[AmazonClientManager sharedInstance] loginFromView:self.view withCompletionHandler:^id(BFTask *task) {
+    [[AmazonClientManager sharedInstance] loginFromView:self.view withCompletionHandler:^id(AWSTask *task) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [self refreshUI];
         });
@@ -62,7 +62,7 @@
 -(IBAction)logoutClicked:(id)sender {
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     [self disableUI];
-    [[AmazonClientManager sharedInstance] logoutWithCompletionHandler:^id(BFTask *task) {
+    [[AmazonClientManager sharedInstance] logoutWithCompletionHandler:^id(AWSTask *task) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [self refreshUI];
         });

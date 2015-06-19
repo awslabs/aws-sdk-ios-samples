@@ -13,12 +13,11 @@
  * permissions and limitations under the License.
  */
 
-#include "Constants.h"
-#include "BFTask.h"
+#import "Constants.h"
 
 @class AWSCognitoCredentialsProvider;
 @class AWSCognito;
-@class BFTask;
+@class AWSTask;
 
 #if GOOGLE_LOGIN
 #if AMZN_LOGIN
@@ -38,12 +37,12 @@
 
 - (BOOL)isConfigured;
 - (BOOL)isLoggedIn;
-- (void)logoutWithCompletionHandler:(BFContinuationBlock)completionHandler;
-- (void)loginFromView:(UIView *)theView withCompletionHandler:(BFContinuationBlock)completionHandler;
+- (void)logoutWithCompletionHandler:(AWSContinuationBlock)completionHandler;
+- (void)loginFromView:(UIView *)theView withCompletionHandler:(AWSContinuationBlock)completionHandler;
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation;
 
-- (void)resumeSessionWithCompletionHandler:(BFContinuationBlock)completionHandler;
+- (void)resumeSessionWithCompletionHandler:(AWSContinuationBlock)completionHandler;
 
 + (AmazonClientManager *)sharedInstance;
 

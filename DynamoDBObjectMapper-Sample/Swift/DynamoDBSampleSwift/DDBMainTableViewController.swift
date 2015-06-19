@@ -19,17 +19,17 @@ class DDBMainTableViewController: UITableViewController {
 
     var tableRows:Array<DDBTableRow>?
     var lock:NSLock?
-    var lastEvaluatedKey:NSDictionary?
+    var lastEvaluatedKey:[NSObject : AnyObject]!
     var  doneLoading = false
     
     var needsToRefresh = false
     
     @IBAction func unwindToMainTableViewControllerFromSearchViewController(unwindSegue:UIStoryboardSegue) {
-        let searchVC = unwindSegue.sourceViewController as DDBSearchViewController
+        let searchVC = unwindSegue.sourceViewController as! DDBSearchViewController
         self.tableRows?.removeAll(keepCapacity: true)
         
         if searchVC.pagniatedOutput != nil{
-            for item in searchVC.pagniatedOutput!.items as [DDBTableRow] {
+            for item in searchVC.pagniatedOutput!.items as! [DDBTableRow] {
                 self.tableRows?.append(item)
             }
         }
@@ -103,8 +103,8 @@ class DDBMainTableViewController: UITableViewController {
                 }
                 
                 if task.result != nil {
-                    let paginatedOutput = task.result as AWSDynamoDBPaginatedOutput
-                    for item in paginatedOutput.items as [DDBTableRow] {
+                    let paginatedOutput = task.result as! AWSDynamoDBPaginatedOutput
+                    for item in paginatedOutput.items as! [DDBTableRow] {
                         self.tableRows?.append(item)
                     }
                     
@@ -173,7 +173,7 @@ class DDBMainTableViewController: UITableViewController {
             }
         }
         
-        BFTask(forCompletionOfAllTasks: tasks) .continueWithExecutor(BFExecutor.mainThreadExecutor(), withBlock: { (task:BFTask!) -> AnyObject! in
+        BFTask(forCompletionOfAllTasks: tasks as [AnyObject]) .continueWithExecutor(BFExecutor.mainThreadExecutor(), withBlock: { (task:BFTask!) -> AnyObject! in
             if ((task.error) != nil) {
                 println("Error: \(task.error)")
             }
@@ -264,10 +264,10 @@ class DDBMainTableViewController: UITableViewController {
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! UITableViewCell
 
         // Configure the cell...
-        if let myTableRows = self.tableRows? {
+        if let myTableRows = self.tableRows {
             let item = myTableRows[indexPath.row]
             cell.textLabel?.text = "ID: \(item.UserId!), Title: \(item.GameTitle!)"
             
@@ -297,7 +297,7 @@ class DDBMainTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             // Delete the row from the data source
-            if var myTableRows = self.tableRows? {
+            if var myTableRows = self.tableRows {
                 let item = myTableRows[indexPath.row]
                 self.deleteTableRow(item)
                 myTableRows.removeAtIndex(indexPath.row)
@@ -326,12 +326,12 @@ class DDBMainTableViewController: UITableViewController {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
         if segue.identifier == "DDBSeguePushDetailViewController" {
-            let detailViewController = segue.destinationViewController as DDBDetailViewController
+            let detailViewController = segue.destinationViewController as! DDBDetailViewController
             if sender != nil {
                 if (sender!.isKindOfClass(UIAlertController)) {
                     detailViewController.viewType = .Insert
                 } else if (sender!.isKindOfClass(UITableViewCell)) {
-                    let cell = sender as UITableViewCell
+                    let cell = sender as! UITableViewCell
                     detailViewController.viewType = .Update
                     
                     let indexPath = self.tableView.indexPathForCell(cell)

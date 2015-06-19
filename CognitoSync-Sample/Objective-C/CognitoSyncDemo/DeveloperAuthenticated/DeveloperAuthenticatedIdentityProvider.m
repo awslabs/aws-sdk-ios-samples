@@ -48,10 +48,10 @@
 }
 
 
-- (BFTask *)getIdentityId {
+- (AWSTask *)getIdentityId {
     // already cached the identity id, return it
     if (self.identityId) {
-        return [BFTask taskWithResult:nil];
+        return [AWSTask taskWithResult:nil];
     }
     // not authenticated with our developer provider
     else if (![self authenticatedWithProvider]) {
@@ -59,26 +59,26 @@
     }
     // authenticated with our developer provider, use refresh logic to get id/token pair
     else {
-        return [[BFTask taskWithResult:nil] continueWithBlock:^id(BFTask *task) {
+        return [[AWSTask taskWithResult:nil] continueWithBlock:^id(AWSTask *task) {
             if (!self.identityId) {
                 return [self refresh];
             }
-            return [BFTask taskWithResult:self.identityId];
+            return [AWSTask taskWithResult:self.identityId];
         }];
     }
 }
 
-- (BFTask *)refresh {
+- (AWSTask *)refresh {
     if (![self authenticatedWithProvider]) {
         // We're using the simplified flow, so just return identity id
         return [super getIdentityId];
     }
     else {
-        return [[self.client getToken:self.identityId logins:self.logins] continueWithSuccessBlock:^id(BFTask *task) {
+        return [[self.client getToken:self.identityId logins:self.logins] continueWithSuccessBlock:^id(AWSTask *task) {
             if (task.result) {
                 DeveloperAuthenticationResponse *response = task.result;
                 if (![self.identityPoolId isEqualToString:response.identityPoolId]) {
-                    return [BFTask taskWithError:[NSError errorWithDomain:DeveloperAuthenticationClientDomain
+                    return [AWSTask taskWithError:[NSError errorWithDomain:DeveloperAuthenticationClientDomain
                                                                      code:DeveloperAuthenticationClientInvalidConfig
                                                                  userInfo:nil]];
                 }
@@ -87,7 +87,7 @@
                 self.identityId = response.identityId;
                 self.token = response.token;
             }
-            return [BFTask taskWithResult:self.identityId];
+            return [AWSTask taskWithResult:self.identityId];
         }];
     }
 }

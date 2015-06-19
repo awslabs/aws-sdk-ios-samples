@@ -66,13 +66,13 @@ class SecondViewController: UIViewController,NSURLSessionDelegate, NSURLSessionT
         getPreSignedURLRequest.expires = NSDate(timeIntervalSinceNow: 3600)
         
         
-        AWSS3PreSignedURLBuilder.defaultS3PreSignedURLBuilder().getPreSignedURL(getPreSignedURLRequest) .continueWithBlock { (task:BFTask!) -> (AnyObject!) in
+        AWSS3PreSignedURLBuilder.defaultS3PreSignedURLBuilder().getPreSignedURL(getPreSignedURLRequest) .continueWithBlock { (task:AWSTask!) -> (AnyObject!) in
             
             if (task.error != nil) {
                 NSLog("Error: %@", task.error)
             } else {
                 
-                let presignedURL = task.result as NSURL!
+                let presignedURL = task.result as! NSURL!
                 if (presignedURL != nil) {
                     NSLog("download presignedURL is: \n%@", presignedURL)
                     
@@ -147,7 +147,7 @@ class SecondViewController: UIViewController,NSURLSessionDelegate, NSURLSessionT
     
     func URLSessionDidFinishEventsForBackgroundURLSession(session: NSURLSession) {
         
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         if ((appDelegate.backgroundDownloadSessionCompletionHandler) != nil) {
             let completionHandler:() = appDelegate.backgroundDownloadSessionCompletionHandler!;
             appDelegate.backgroundDownloadSessionCompletionHandler = nil

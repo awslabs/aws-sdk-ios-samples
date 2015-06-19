@@ -190,7 +190,7 @@ class DownloadViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
 
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("DownloadCollectionViewCell", forIndexPath: indexPath) as DownloadCollectionViewCell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("DownloadCollectionViewCell", forIndexPath: indexPath) as! DownloadCollectionViewCell
 
         if let downloadRequest = self.downloadRequests[indexPath.row] {
             downloadRequest.downloadProgress = { (bytesWritten, totalBytesWritten, totalBytesExpectedToWrite) -> Void in

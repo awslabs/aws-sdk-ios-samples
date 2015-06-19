@@ -86,7 +86,7 @@
     NSString *fileContentTypeStr = @"text/plain";
     getPreSignedURLRequest.contentType = fileContentTypeStr;
     
-    [[[AWSS3PreSignedURLBuilder defaultS3PreSignedURLBuilder] getPreSignedURL:getPreSignedURLRequest] continueWithBlock:^id(BFTask *task) {
+    [[[AWSS3PreSignedURLBuilder defaultS3PreSignedURLBuilder] getPreSignedURL:getPreSignedURLRequest] continueWithBlock:^id(AWSTask *task) {
         
         if (task.error) {
             NSLog(@"Error: %@",task.error);

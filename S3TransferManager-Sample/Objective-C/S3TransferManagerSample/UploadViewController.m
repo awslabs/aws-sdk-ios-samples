@@ -87,7 +87,7 @@
     AWSS3TransferManager *transferManager = [AWSS3TransferManager defaultS3TransferManager];
 
     __weak UploadViewController *weakSelf = self;
-    [[transferManager upload:uploadRequest] continueWithBlock:^id(BFTask *task) {
+    [[transferManager upload:uploadRequest] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             if ([task.error.domain isEqualToString:AWSS3TransferManagerErrorDomain]) {
                 switch (task.error.code) {
@@ -132,7 +132,7 @@
     [self.collection enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         if ([obj isKindOfClass:[AWSS3TransferManagerUploadRequest class]]) {
             AWSS3TransferManagerUploadRequest *uploadRequest = obj;
-            [[uploadRequest cancel] continueWithBlock:^id(BFTask *task) {
+            [[uploadRequest cancel] continueWithBlock:^id(AWSTask *task) {
                 if (task.error) {
                     NSLog(@"The cancel request failed: [%@]", task.error);
                 }
@@ -214,7 +214,7 @@
         AWSS3TransferManagerUploadRequest *uploadRequest = object;
         switch (uploadRequest.state) {
             case AWSS3TransferManagerRequestStateRunning:
-                [[uploadRequest pause] continueWithBlock:^id(BFTask *task) {
+                [[uploadRequest pause] continueWithBlock:^id(AWSTask *task) {
                     if (task.error) {
                         NSLog(@"The pause request failed: [%@]", task.error);
                     }

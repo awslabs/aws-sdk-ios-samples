@@ -15,7 +15,7 @@
 
 #import "DDBMainViewController.h"
 
-#import "DynamoDB.h"
+#import <AWSDynamoDB/AWSDynamoDB.h>
 #import "DDBDetailViewController.h"
 #import "DDBDynamoDBManager.h"
 #import "DDBSearchViewController.h"
@@ -49,7 +49,7 @@
 - (void)setupTable {
     // See if the test table exists.
     [[DDBDynamoDBManager describeTable]
-     continueWithExecutor:[BFExecutor mainThreadExecutor] withBlock:^id(BFTask *task) {
+     continueWithExecutor:[AWSExecutor mainThreadExecutor] withBlock:^id(AWSTask *task) {
          // If the test table doesn't exist, create one.
          if ([task.error.domain isEqualToString:AWSDynamoDBErrorDomain]
              && task.error.code == AWSDynamoDBErrorResourceNotFound) {
@@ -57,7 +57,7 @@
                                        sender:self];
 
              return [[DDBDynamoDBManager createTable]
-                     continueWithExecutor:[BFExecutor mainThreadExecutor] withBlock:^id(BFTask *task) {
+                     continueWithExecutor:[AWSExecutor mainThreadExecutor] withBlock:^id(AWSTask *task) {
                          // Handle errors.
                          if (task.error) {
                              NSLog(@"Error: [%@]", task.error);
@@ -84,7 +84,7 @@
      }];
 }
 
-- (BFTask *)refreshList:(BOOL)startFromBeginning {
+- (AWSTask *)refreshList:(BOOL)startFromBeginning {
     if ([self.lock tryLock]) {
         if (startFromBeginning) {
             self.lastEvaluatedKey = nil;
@@ -100,7 +100,7 @@
 
         return [[[dynamoDBObjectMapper scan:[DDBTableRow class]
                                   expression:scanExpression]
-                 continueWithExecutor:[BFExecutor mainThreadExecutor] withSuccessBlock:^id(BFTask *task) {
+                 continueWithExecutor:[AWSExecutor mainThreadExecutor] withSuccessBlock:^id(AWSTask *task) {
                      if (!self.lastEvaluatedKey) {
                          [self.tableRows removeAllObjects];
                      }
@@ -119,7 +119,7 @@
                      [self.tableView reloadData];
 
                      return nil;
-                 }] continueWithExecutor:[BFExecutor mainThreadExecutor] withBlock:^id(BFTask *task) {
+                 }] continueWithExecutor:[AWSExecutor mainThreadExecutor] withBlock:^id(AWSTask *task) {
                      if (task.error) {
                          NSLog(@"Error: [%@]", task.error);
                      }
@@ -138,7 +138,7 @@
 
     AWSDynamoDBObjectMapper *dynamoDBObjectMapper = [AWSDynamoDBObjectMapper defaultDynamoDBObjectMapper];
     [[dynamoDBObjectMapper remove:row]
-     continueWithExecutor:[BFExecutor mainThreadExecutor] withBlock:^id(BFTask *task) {
+     continueWithExecutor:[AWSExecutor mainThreadExecutor] withBlock:^id(AWSTask *task) {
          [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 
          if (task.error) {
@@ -177,8 +177,8 @@
         }
     }
 
-    [[BFTask taskForCompletionOfAllTasks:tasks]
-     continueWithExecutor:[BFExecutor mainThreadExecutor] withBlock:^id(BFTask *task) {
+    [[AWSTask taskForCompletionOfAllTasks:tasks]
+     continueWithExecutor:[AWSExecutor mainThreadExecutor] withBlock:^id(AWSTask *task) {
          if (task.error) {
              NSLog(@"Error: [%@]", task.error);
          }

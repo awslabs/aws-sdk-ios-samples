@@ -25,7 +25,7 @@ typedef NS_ENUM(NSInteger, DeveloperAuthenticationClientErrorType) {
     DeveloperAuthenticationClientUnknownError,
 };
 
-@class BFTask;
+@class AWSTask;
 
 @interface DeveloperAuthenticationResponse : NSObject
 
@@ -44,8 +44,8 @@ typedef NS_ENUM(NSInteger, DeveloperAuthenticationClientErrorType) {
 - (instancetype)initWithAppname:(NSString *)appname endpoint:(NSString *)endpoint;
 
 - (BOOL)isAuthenticated;
-- (BFTask *)getToken:identityId logins:(NSDictionary *)logins;
-- (BFTask *)login:(NSString *)username password:(NSString *)password;
+- (AWSTask *)getToken:identityId logins:(NSDictionary *)logins;
+- (AWSTask *)login:(NSString *)username password:(NSString *)password;
 - (void)logout;
 
 @end

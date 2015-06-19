@@ -15,7 +15,7 @@
 
 #import "DDBDetailViewController.h"
 
-#import "DynamoDB.h"
+#import <AWSDynamoDB/AWSDynamoDB.h>
 #import "DDBDynamoDBManager.h"
 #import "DDBMainViewController.h"
 
@@ -31,7 +31,7 @@
     AWSDynamoDBObjectMapper *dynamoDBObjectMapper = [AWSDynamoDBObjectMapper defaultDynamoDBObjectMapper];
     [[dynamoDBObjectMapper load:[DDBTableRow class]
                         hashKey:self.tableRow.UserId
-                       rangeKey:self.tableRow.GameTitle] continueWithExecutor:[BFExecutor mainThreadExecutor] withBlock:^id(BFTask *task) {
+                       rangeKey:self.tableRow.GameTitle] continueWithExecutor:[AWSExecutor mainThreadExecutor] withBlock:^id(AWSTask *task) {
         if (!task.error) {
             DDBTableRow *tableRow = task.result;
             self.hashKeyTextField.text = tableRow.UserId;
@@ -57,7 +57,7 @@
 - (void)insertTableRow:(DDBTableRow *)tableRow {
     AWSDynamoDBObjectMapper *dynamoDBObjectMapper = [AWSDynamoDBObjectMapper defaultDynamoDBObjectMapper];
     [[dynamoDBObjectMapper save:tableRow]
-     continueWithExecutor:[BFExecutor mainThreadExecutor] withBlock:^id(BFTask *task) {
+     continueWithExecutor:[AWSExecutor mainThreadExecutor] withBlock:^id(AWSTask *task) {
          if (!task.error) {
              UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Succeeded"
                                                              message:@"Successfully inserted the data into the table."
@@ -90,7 +90,7 @@
 - (void)updateTableRow:(DDBTableRow *)tableRow {
     AWSDynamoDBObjectMapper *dynamoDBObjectMapper = [AWSDynamoDBObjectMapper defaultDynamoDBObjectMapper];
     [[dynamoDBObjectMapper save:tableRow]
-     continueWithExecutor:[BFExecutor mainThreadExecutor] withBlock:^id(BFTask *task) {
+     continueWithExecutor:[AWSExecutor mainThreadExecutor] withBlock:^id(AWSTask *task) {
          if (!task.error) {
              UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Succeeded"
                                                              message:@"Successfully updated the data in the table."

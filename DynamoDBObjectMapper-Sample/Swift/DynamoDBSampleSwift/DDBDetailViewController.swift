@@ -40,7 +40,7 @@ class DDBDetailViewController: UIViewController {
         dynamoDBObjectMapper .load(DDBTableRow.self, hashKey: tableRow?.UserId, rangeKey: tableRow?.GameTitle) .continueWithExecutor(BFExecutor.mainThreadExecutor(), withBlock: { (task:BFTask!) -> AnyObject! in
             if (task.error == nil) {
                 if (task.result != nil) {
-                    let tableRow = task.result as DDBTableRow
+                    let tableRow = task.result as! DDBTableRow
                     self.hashKeyTextField.text = tableRow.UserId
                     self.rangeKeyTextField.text = tableRow.GameTitle
                     self.attribute1TextField.text = tableRow.TopScore?.stringValue
@@ -133,7 +133,7 @@ class DDBDetailViewController: UIViewController {
         
         switch self.viewType {
         case DDBDetailViewType.Insert:
-            if (self.rangeKeyTextField.text.utf16Count > 0) {
+            if (count(self.rangeKeyTextField.text.utf16) > 0) {
                 self.insertTableRow(tableRow)
             } else {
                 let alertController = UIAlertController(title: "Error: Invalid Input", message: "Range Key Value cannot be empty.", preferredStyle: UIAlertControllerStyle.Alert)
@@ -143,7 +143,7 @@ class DDBDetailViewController: UIViewController {
                 self.presentViewController(alertController, animated: true, completion: nil)
             }
         case DDBDetailViewType.Update:
-            if (self.rangeKeyTextField.text.utf16Count > 0) {
+            if (count(self.rangeKeyTextField.text.utf16) > 0) {
                 self.updateTableRow(tableRow)
             } else {
                 let alertController = UIAlertController(title: "Error: Invalid Input", message: "Range Key Value cannot be empty.", preferredStyle: UIAlertControllerStyle.Alert)
@@ -189,7 +189,7 @@ class DDBDetailViewController: UIViewController {
         
         if (self.dataChanged) {
             let c = self.navigationController?.viewControllers.count
-            let mainTableViewController = self.navigationController?.viewControllers [c! - 1] as DDBMainTableViewController
+            let mainTableViewController = self.navigationController?.viewControllers [c! - 1] as! DDBMainTableViewController
             mainTableViewController.needsToRefresh = true
         }
     }

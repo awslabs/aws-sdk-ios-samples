@@ -54,7 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         messageCategory.setActions([readAction, deleteAction, ignoreAction], forContext: UIUserNotificationActionContext.Default)
 
         let types = UIUserNotificationType.Badge | UIUserNotificationType.Sound | UIUserNotificationType.Alert
-        let notificationSettings = UIUserNotificationSettings(forTypes: types, categories: NSSet(object: messageCategory))
+        let notificationSettings = UIUserNotificationSettings(forTypes: types, categories: NSSet(object: messageCategory) as Set<NSObject>)
 
         UIApplication.sharedApplication().registerForRemoteNotifications()
         UIApplication.sharedApplication().registerUserNotificationSettings(notificationSettings)
@@ -83,11 +83,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let request = AWSSNSCreatePlatformEndpointInput()
         request.token = deviceTokenString
         request.platformApplicationArn = SNSPlatformApplicationArn
-        sns.createPlatformEndpoint(request).continueWithExecutor(BFExecutor.mainThreadExecutor(), withBlock: { (task: BFTask!) -> AnyObject! in
+        sns.createPlatformEndpoint(request).continueWithExecutor(AWSExecutor.mainThreadExecutor(), withBlock: { (task: AWSTask!) -> AnyObject! in
             if task.error != nil {
                 println("Error: \(task.error)")
             } else {
-                let createEndpointResponse = task.result as AWSSNSCreateEndpointResponse
+                let createEndpointResponse = task.result as! AWSSNSCreateEndpointResponse
                 println("endpointArn: \(createEndpointResponse.endpointArn)")
                 NSUserDefaults.standardUserDefaults().setObject(createEndpointResponse.endpointArn, forKey: "endpointArn")
                 self.mainViewController()?.displayDeviceInfo()
@@ -132,7 +132,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func mainViewController() -> MainViewController? {
         let rootViewController = self.window!.rootViewController
         if rootViewController?.childViewControllers.first is MainViewController {
-            return rootViewController?.childViewControllers.first as MainViewController?
+            return rootViewController?.childViewControllers.first as! MainViewController?
         }
         
         return nil

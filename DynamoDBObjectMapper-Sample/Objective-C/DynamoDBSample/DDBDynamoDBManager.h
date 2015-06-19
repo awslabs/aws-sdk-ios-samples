@@ -14,15 +14,15 @@
  */
 
 #import <Foundation/Foundation.h>
-#import "DynamoDB.h"
+#import <AWSDynamoDB/AWSDynamoDB.h>
 
 @class DDBTableRow;
-@class BFTask;
+@class AWSTask;
 
 @interface DDBDynamoDBManager : NSObject
 
-+ (BFTask *)describeTable;
-+ (BFTask *)createTable;
++ (AWSTask *)describeTable;
++ (AWSTask *)createTable;
 
 @end
 

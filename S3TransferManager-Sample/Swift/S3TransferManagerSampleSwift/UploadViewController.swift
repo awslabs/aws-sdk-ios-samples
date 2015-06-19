@@ -144,7 +144,7 @@ class UploadViewController: UIViewController, UICollectionViewDelegate, UICollec
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(
             "UploadCollectionViewCell",
-            forIndexPath: indexPath) as UploadCollectionViewCell
+            forIndexPath: indexPath) as! UploadCollectionViewCell
 
         if let uploadRequest = self.uploadRequests[indexPath.row] {
             switch uploadRequest.state {

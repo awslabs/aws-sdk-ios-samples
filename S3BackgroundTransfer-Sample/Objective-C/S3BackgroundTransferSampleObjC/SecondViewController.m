@@ -64,7 +64,7 @@
     getPreSignedURLRequest.HTTPMethod = AWSHTTPMethodGET;
     getPreSignedURLRequest.expires = [NSDate dateWithTimeIntervalSinceNow:3600];
     
-    [[[AWSS3PreSignedURLBuilder defaultS3PreSignedURLBuilder] getPreSignedURL:getPreSignedURLRequest] continueWithBlock:^id(BFTask *task) {
+    [[[AWSS3PreSignedURLBuilder defaultS3PreSignedURLBuilder] getPreSignedURL:getPreSignedURLRequest] continueWithBlock:^id(AWSTask *task) {
         
         if (task.error) {
             NSLog(@"Error: %@",task.error);

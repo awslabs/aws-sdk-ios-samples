@@ -17,6 +17,7 @@
 #import "ViewController.h"
 #import "Constants.h"
 
+#import <AWSMobileAnalytics/AWSMobileAnalytics.h>
 #import <AWSSNS/AWSSNS.h>
 
 @interface AppDelegate ()
@@ -88,7 +89,7 @@
     AWSSNSCreatePlatformEndpointInput *request = [AWSSNSCreatePlatformEndpointInput new];
     request.token = deviceTokenString;
     request.platformApplicationArn = SNSPlatformApplicationArn;
-    [[sns createPlatformEndpoint:request] continueWithBlock:^id(BFTask *task) {
+    [[sns createPlatformEndpoint:request] continueWithBlock:^id(AWSTask *task) {
         if (task.error != nil) {
             NSLog(@"Error: %@",task.error);
         } else {

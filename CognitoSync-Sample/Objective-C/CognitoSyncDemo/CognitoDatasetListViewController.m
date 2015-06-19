@@ -57,9 +57,9 @@
         [tasks addObject:[dataset synchronize]];
     }
     
-    [[[BFTask taskForCompletionOfAllTasks:tasks] continueWithBlock:^id(BFTask *task) {
+    [[[AWSTask taskForCompletionOfAllTasks:tasks] continueWithBlock:^id(AWSTask *task) {
         return [[AWSCognito defaultCognito] refreshDatasetMetadata];
-    }] continueWithBlock:^id(BFTask *task) {
+    }] continueWithBlock:^id(AWSTask *task) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
             if (task.error) {

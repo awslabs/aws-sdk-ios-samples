@@ -60,7 +60,7 @@
     queryExpression.hashKeyValues = [self.pickerData objectAtIndex:[self.gameTitlePickerView selectedRowInComponent:0]];
     queryExpression.scanIndexForward = self.orderSegControl.selectedSegmentIndex==0?@YES:@NO;
     queryExpression.indexName = [self.sortSegControl titleForSegmentAtIndex:self.sortSegControl.selectedSegmentIndex]; //using indexTable for query
-    [[dynamoDBObjectMapper query:queryClass expression:queryExpression] continueWithBlock:^id(BFTask *task) {
+    [[dynamoDBObjectMapper query:queryClass expression:queryExpression] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             NSLog(@"Error: [%@]", task.error);
             
