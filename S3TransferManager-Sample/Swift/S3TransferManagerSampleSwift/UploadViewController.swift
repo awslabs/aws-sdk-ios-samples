@@ -52,7 +52,7 @@ class UploadViewController: UIViewController, UICollectionViewDelegate, UICollec
         let cancelAllUploadsAction = UIAlertAction(
             title: "Cancel All Uploads",
             style: .Default) { (action) -> Void in
-                //self.cancelAllUploads()
+                self.cancelAllUploads()
         }
         alertController.addAction(cancelAllUploadsAction)
 
@@ -121,7 +121,7 @@ class UploadViewController: UIViewController, UICollectionViewDelegate, UICollec
         }
     }
 
-    func cancelAllDownloads() {
+    func cancelAllUploads() {
         for (index, uploadRequest) in enumerate(self.uploadRequests) {
             if let uploadRequest = uploadRequest {
                 uploadRequest.cancel().continueWithBlock({ (task) -> AnyObject! in
