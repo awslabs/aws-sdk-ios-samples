@@ -19,6 +19,7 @@
 @interface DDBSearchViewController ()
 
 @property (nonatomic, strong) NSArray *pickerData;
+@property (nonatomic, strong) NSArray *rangeKeyArray;
 @end
 
 @implementation DDBSearchViewController
@@ -26,7 +27,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    _pickerData = @[@"Comet Quest",@"Galaxy Invaders",@"Meteor Blasters", @"Starship X", @"Alien Adventure",@"Attack Ships"];
+    self.pickerData = @[@"Comet Quest",@"Galaxy Invaders",@"Meteor Blasters", @"Starship X", @"Alien Adventure",@"Attack Ships"];
+    self.rangeKeyArray = @[@"TopScore",@"Wins",@"Losses"];
+    for (int i=0;i<[self.rangeKeyArray count];i++) {
+        [self.sortSegControl setTitle:self.rangeKeyArray[i] forSegmentAtIndex:i];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -36,21 +41,6 @@
 
 - (IBAction)searchBtnPressed:(id)sender {
     
-    Class queryClass = nil;
-    
-    switch (self.sortSegControl.selectedSegmentIndex) {
-        case 0:
-            queryClass = [DDBTableRowTopScore class];
-            break;
-        case 1:
-            queryClass = [DDBTableRowWins class];
-            break;
-        case 2:
-            queryClass = [DDBTableRowLosses class];
-            break;
-        default:
-            break;
-    }
     
     AWSDynamoDBObjectMapper *dynamoDBObjectMapper = [AWSDynamoDBObjectMapper defaultDynamoDBObjectMapper];
     
@@ -60,7 +50,15 @@
     queryExpression.hashKeyValues = [self.pickerData objectAtIndex:[self.gameTitlePickerView selectedRowInComponent:0]];
     queryExpression.scanIndexForward = self.orderSegControl.selectedSegmentIndex==0?@YES:@NO;
     queryExpression.indexName = [self.sortSegControl titleForSegmentAtIndex:self.sortSegControl.selectedSegmentIndex]; //using indexTable for query
-    [[dynamoDBObjectMapper query:queryClass expression:queryExpression] continueWithBlock:^id(AWSTask *task) {
+    
+    queryExpression.hashKeyAttribute = @"GameTitle";
+
+    //example expression: @"TopScore <= 5000" or @"Wins >= 10"
+    queryExpression.rangeKeyConditionExpression = [NSString stringWithFormat:@"%@ > :rangeval",[self.rangeKeyArray objectAtIndex:self.sortSegControl.selectedSegmentIndex]];
+    
+    queryExpression.expressionAttributeValues = @{@":rangeval":[NSNumber numberWithDouble:self.rangeStepper.value]};
+    
+    [[dynamoDBObjectMapper query:[DDBTableRow class] expression:queryExpression] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             NSLog(@"Error: [%@]", task.error);
             
@@ -80,6 +78,10 @@
         
         return nil;
     }];
+}
+
+- (IBAction)rangeStepperChanged:(UIStepper *)sender {
+    self.rangeConditionLabel.text = [NSString stringWithFormat:@"Larger than %.f",sender.value];
 }
 
 #pragma mark - UIPickerViewDataSource Delegate Methods

@@ -141,52 +141,10 @@
     return @"GameTitle";
 }
 
-@end
-
-@implementation DDBTableRowTopScore
-
-+ (NSString *)dynamoDBTableName {
-    return AWSSampleDynamoDBTableName;
-}
-
-+ (NSString *)hashKeyAttribute {
-    return @"GameTitle";
-}
-
-+ (NSString *)rangeKeyAttribute {
-    return @"TopScore";
++ (NSArray *)ignoreAttributes {
+    return @[@"internalName",@"internalState"];
 }
 
 @end
 
-@implementation DDBTableRowWins
 
-+ (NSString *)dynamoDBTableName {
-    return AWSSampleDynamoDBTableName;
-}
-
-+ (NSString *)hashKeyAttribute {
-    return @"GameTitle";
-}
-
-+ (NSString *)rangeKeyAttribute {
-    return @"Wins";
-}
-
-@end
-
-@implementation DDBTableRowLosses
-
-+ (NSString *)dynamoDBTableName {
-    return AWSSampleDynamoDBTableName;
-}
-
-+ (NSString *)hashKeyAttribute {
-    return @"GameTitle";
-}
-
-+ (NSString *)rangeKeyAttribute {
-    return @"Losses";
-}
-
-@end

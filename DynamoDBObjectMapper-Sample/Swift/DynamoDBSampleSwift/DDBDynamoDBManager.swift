@@ -16,7 +16,7 @@
 import Foundation
 
 class DDBDynamoDBManger : NSObject {
-    class func describeTable() -> BFTask {
+    class func describeTable() -> AWSTask {
         let dynamoDB = AWSDynamoDB.defaultDynamoDB()
         
         // See if the test table exists.
@@ -25,7 +25,7 @@ class DDBDynamoDBManger : NSObject {
         return dynamoDB.describeTable(describeTableInput)
     }
     
-    class func createTable() -> BFTask {
+    class func createTable() -> AWSTask {
         let dynamoDB = AWSDynamoDB.defaultDynamoDB()
         
         //Create the test table
@@ -96,7 +96,7 @@ class DDBDynamoDBManger : NSObject {
         createTableInput.provisionedThroughput = provisionedThroughput
         createTableInput.globalSecondaryIndexes = gsiArray as [AnyObject]
 
-        return dynamoDB.createTable(createTableInput).continueWithSuccessBlock({ (var task:BFTask!) -> AnyObject! in
+        return dynamoDB.createTable(createTableInput).continueWithSuccessBlock({ (var task:AWSTask!) -> AnyObject! in
             if ((task.result) != nil) {
                 // Wait for up to 4 minutes until the table becomes ACTIVE.
                 
@@ -105,7 +105,7 @@ class DDBDynamoDBManger : NSObject {
                 task = dynamoDB.describeTable(describeTableInput)
                 
                 for var i = 0; i < 16; i++ {
-                    task = task.continueWithSuccessBlock({ (task:BFTask!) -> AnyObject! in
+                    task = task.continueWithSuccessBlock({ (task:AWSTask!) -> AnyObject! in
                         let describeTableOutput:AWSDynamoDBDescribeTableOutput = task.result as! AWSDynamoDBDescribeTableOutput
                         let tableStatus = describeTableOutput.table.tableStatus
                         if tableStatus == AWSDynamoDBTableStatus.Active {
@@ -124,13 +124,17 @@ class DDBDynamoDBManger : NSObject {
     }
 }
 
-class DDBTableRow :AWSDynamoDBModel ,AWSDynamoDBModeling  {
+class DDBTableRow :AWSDynamoDBObjectModel ,AWSDynamoDBModeling  {
     
     var UserId:String?
     var GameTitle:String?
     var TopScore:NSNumber?
     var Wins:NSNumber?
     var Losses:NSNumber?
+    
+    //should be ignored according to ignoreAttributes
+    var internalName:String?
+    var internalState:NSNumber?
     
     class func dynamoDBTableName() -> String! {
         return AWSSampleDynamoDBTableName
@@ -144,6 +148,10 @@ class DDBTableRow :AWSDynamoDBModel ,AWSDynamoDBModeling  {
         return "GameTitle"
     }
     
+    class func ignoreAttributes() -> Array<AnyObject>! {
+        return ["internalName","internalState"]
+    }
+    
     //MARK: NSObjectProtocol hack
     override func isEqual(object: AnyObject?) -> Bool {
         return super.isEqual(object)
@@ -154,53 +162,3 @@ class DDBTableRow :AWSDynamoDBModel ,AWSDynamoDBModeling  {
     }
 }
 
-class DDBTableRowTopScore :DDBTableRow ,AWSDynamoDBModeling  {
-    
-    
-    override class func dynamoDBTableName() -> String! {
-        return AWSSampleDynamoDBTableName
-    }
-    
-    override class func hashKeyAttribute() -> String! {
-        return "GameTitle"
-    }
-    
-    override class func rangeKeyAttribute() -> String! {
-        return "TopScore"
-    }
-    
-
-}
-
-class DDBTableRowWins :DDBTableRow ,AWSDynamoDBModeling  {
-    
- 
-    
-    override class func dynamoDBTableName() -> String! {
-        return AWSSampleDynamoDBTableName
-    }
-    
-    override class func hashKeyAttribute() -> String! {
-        return "GameTitle"
-    }
-    
-    override class func rangeKeyAttribute() -> String! {
-        return "Wins"
-    }
-}
-
-class DDBTableRowLosses :DDBTableRow ,AWSDynamoDBModeling  {
-    
-    override class func dynamoDBTableName() -> String! {
-        return AWSSampleDynamoDBTableName
-    }
-    
-    override class func hashKeyAttribute() -> String! {
-        return "GameTitle"
-    }
-    
-    override class func rangeKeyAttribute() -> String! {
-        return "Losses"
-    }
-    
-}

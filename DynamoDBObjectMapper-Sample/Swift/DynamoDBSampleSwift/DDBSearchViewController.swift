@@ -20,15 +20,22 @@ class DDBSearchViewController: UIViewController,UIPickerViewDataSource,UIPickerV
     @IBOutlet weak var gameTitlePickerView: UIPickerView!
     @IBOutlet weak var sortSegControl: UISegmentedControl!
     @IBOutlet weak var orderSegControl: UISegmentedControl!
+    @IBOutlet weak var rangeStepper: UIStepper!
+    @IBOutlet weak var rangeConditionLabel: UILabel!
     
     var pagniatedOutput: AWSDynamoDBPaginatedOutput?
     var pickerData:Array<String>!
+    var rangeKeyArray:Array<String>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         pickerData = ["Comet Quest","Galaxy Invaders","Meteor Blasters", "Starship X", "Alien Adventure","Attack Ships"]
+        rangeKeyArray = ["TopScore","Wins","Losses"]
+        for var i=0;i<self.rangeKeyArray.count;i++ {
+            self.sortSegControl.setTitle(self.rangeKeyArray[i], forSegmentAtIndex: i)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,17 +44,6 @@ class DDBSearchViewController: UIViewController,UIPickerViewDataSource,UIPickerV
     }
     
     @IBAction func searchBtnPressed(sender: UIButton) {
-        var queryClass:AnyClass!
-        switch self.sortSegControl.selectedSegmentIndex {
-        case 0:
-            queryClass = DDBTableRowTopScore.self
-        case 1:
-            queryClass = DDBTableRowWins.self
-        case 2:
-            queryClass = DDBTableRowLosses.self
-        default:
-            queryClass = DDBTableRow.self
-        }
         
         let dynamoDBObjectMapper = AWSDynamoDBObjectMapper.defaultDynamoDBObjectMapper()
         
@@ -58,7 +54,14 @@ class DDBSearchViewController: UIViewController,UIPickerViewDataSource,UIPickerV
         queryExpression.scanIndexForward = self.orderSegControl.selectedSegmentIndex==0 ? true : false;
         queryExpression.indexName = self.sortSegControl.titleForSegmentAtIndex(self.sortSegControl.selectedSegmentIndex)
         
-        dynamoDBObjectMapper .query(queryClass, expression: queryExpression) .continueWithExecutor(BFExecutor.mainThreadExecutor(), withBlock: { (task:BFTask!) -> AnyObject! in
+        queryExpression.hashKeyAttribute = "GameTitle";
+        
+        //example expression: @"TopScore <= 5000" or @"Wins >= 10"
+        queryExpression.rangeKeyConditionExpression = "\(self.rangeKeyArray[self.sortSegControl.selectedSegmentIndex]) > :rangeval"
+        
+        queryExpression.expressionAttributeValues = [":rangeval":self.rangeStepper.value];
+        
+        dynamoDBObjectMapper .query(DDBTableRow.self, expression: queryExpression) .continueWithExecutor(AWSExecutor.mainThreadExecutor(), withBlock: { (task:AWSTask!) -> AnyObject! in
             if (task.error != nil) {
                 println("Error: \(task.error)")
                 
@@ -76,6 +79,10 @@ class DDBSearchViewController: UIViewController,UIPickerViewDataSource,UIPickerV
             return nil
         })
 
+    }
+    
+    @IBAction func rangeStepperChanged(sender: UIStepper) {
+        self.rangeConditionLabel.text = "Larger than \(sender.value)"
     }
 
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {

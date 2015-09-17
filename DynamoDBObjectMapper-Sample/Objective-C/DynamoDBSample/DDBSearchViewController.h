@@ -21,8 +21,11 @@
 @property (weak, nonatomic) IBOutlet UIPickerView *gameTitlePickerView;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *sortSegControl;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *orderSegControl;
+@property (weak, nonatomic) IBOutlet UIStepper *rangeStepper;
+@property (weak, nonatomic) IBOutlet UILabel *rangeConditionLabel;
 
 @property (strong, nonatomic) AWSDynamoDBPaginatedOutput *paginatedOutput;
 - (IBAction)searchBtnPressed:(id)sender;
+- (IBAction)rangeStepperChanged:(UIStepper *)sender;
 
 @end

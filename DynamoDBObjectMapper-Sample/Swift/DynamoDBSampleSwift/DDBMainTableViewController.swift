@@ -43,7 +43,7 @@ class DDBMainTableViewController: UITableViewController {
     
     func setupTable() {
         //See if the test table exists.
-        DDBDynamoDBManger.describeTable().continueWithExecutor(BFExecutor.mainThreadExecutor(), withBlock: { (task:BFTask!) -> AnyObject! in
+        DDBDynamoDBManger.describeTable().continueWithExecutor(AWSExecutor.mainThreadExecutor(), withBlock: { (task:AWSTask!) -> AnyObject! in
        
 
    
@@ -52,7 +52,7 @@ class DDBMainTableViewController: UITableViewController {
                 
                 self.performSegueWithIdentifier("DDBLoadingViewSegue", sender: self)
                 
-                return DDBDynamoDBManger.createTable() .continueWithExecutor(BFExecutor.mainThreadExecutor(), withBlock: { (task:BFTask!) -> AnyObject! in
+                return DDBDynamoDBManger.createTable() .continueWithExecutor(AWSExecutor.mainThreadExecutor(), withBlock: { (task:AWSTask!) -> AnyObject! in
                     //Handle erros.
                     if ((task.error) != nil) {
                         println("Error: \(task.error)")
@@ -96,7 +96,7 @@ class DDBMainTableViewController: UITableViewController {
             let queryExpression = AWSDynamoDBScanExpression()
             queryExpression.exclusiveStartKey = self.lastEvaluatedKey
             queryExpression.limit = 20;
-            dynamoDBObjectMapper.scan(DDBTableRow.self, expression: queryExpression).continueWithExecutor(BFExecutor.mainThreadExecutor(), withBlock: { (task:BFTask!) -> AnyObject! in
+            dynamoDBObjectMapper.scan(DDBTableRow.self, expression: queryExpression).continueWithExecutor(AWSExecutor.mainThreadExecutor(), withBlock: { (task:AWSTask!) -> AnyObject! in
         
                 if self.lastEvaluatedKey == nil {
                     self.tableRows?.removeAll(keepCapacity: true)
@@ -129,7 +129,7 @@ class DDBMainTableViewController: UITableViewController {
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
         
         let dynamoDBObjectMapper = AWSDynamoDBObjectMapper.defaultDynamoDBObjectMapper()
-        dynamoDBObjectMapper.remove(row).continueWithExecutor(BFExecutor.mainThreadExecutor(), withBlock: { (task:BFTask!) -> AnyObject! in
+        dynamoDBObjectMapper.remove(row).continueWithExecutor(AWSExecutor.mainThreadExecutor(), withBlock: { (task:AWSTask!) -> AnyObject! in
 
             UIApplication.sharedApplication().networkActivityIndicatorVisible = false
             
@@ -169,11 +169,16 @@ class DDBMainTableViewController: UITableViewController {
                 tableRow.TopScore = Int(arc4random_uniform(3000))
                 tableRow.Wins = Int(arc4random_uniform(100))
                 tableRow.Losses = Int(arc4random_uniform(100))
+                
+                //Those two properties won't be saved to DynamoDB since it has been defined in ignoredAttributes
+                tableRow.internalName = "internal attributes(should not be saved to dynamoDB)"
+                tableRow.internalState = i;
+                
                 tasks.addObject(dynamoDBObjectMapper.save(tableRow))
             }
         }
         
-        BFTask(forCompletionOfAllTasks: tasks as [AnyObject]) .continueWithExecutor(BFExecutor.mainThreadExecutor(), withBlock: { (task:BFTask!) -> AnyObject! in
+        AWSTask(forCompletionOfAllTasks: tasks as [AnyObject]) .continueWithExecutor(AWSExecutor.mainThreadExecutor(), withBlock: { (task:AWSTask!) -> AnyObject! in
             if ((task.error) != nil) {
                 println("Error: \(task.error)")
             }

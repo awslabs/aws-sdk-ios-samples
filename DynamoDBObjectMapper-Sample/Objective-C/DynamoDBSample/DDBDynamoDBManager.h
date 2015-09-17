@@ -26,7 +26,7 @@
 
 @end
 
-@interface DDBTableRow : AWSDynamoDBModel <AWSDynamoDBModeling>
+@interface DDBTableRow : AWSDynamoDBObjectModel <AWSDynamoDBModeling>
 
 @property (nonatomic, strong) NSString *UserId;
 @property (nonatomic, strong) NSString *GameTitle;
@@ -34,34 +34,7 @@
 @property (nonatomic, strong) NSNumber *Wins;
 @property (nonatomic, strong) NSNumber *Losses;
 
-@end
-
-@interface DDBTableRowTopScore : AWSDynamoDBModel <AWSDynamoDBModeling>
-
-@property (nonatomic, strong) NSString *UserId;
-@property (nonatomic, strong) NSString *GameTitle;
-@property (nonatomic, strong) NSNumber *TopScore;
-@property (nonatomic, strong) NSNumber *Wins;
-@property (nonatomic, strong) NSNumber *Losses;
-
-@end
-
-@interface DDBTableRowWins : AWSDynamoDBModel <AWSDynamoDBModeling>
-
-@property (nonatomic, strong) NSString *UserId;
-@property (nonatomic, strong) NSString *GameTitle;
-@property (nonatomic, strong) NSNumber *TopScore;
-@property (nonatomic, strong) NSNumber *Wins;
-@property (nonatomic, strong) NSNumber *Losses;
-
-@end
-
-@interface DDBTableRowLosses : AWSDynamoDBModel <AWSDynamoDBModeling>
-
-@property (nonatomic, strong) NSString *UserId;
-@property (nonatomic, strong) NSString *GameTitle;
-@property (nonatomic, strong) NSNumber *TopScore;
-@property (nonatomic, strong) NSNumber *Wins;
-@property (nonatomic, strong) NSNumber *Losses;
-
+//Those properties should be ignored according to ignoreAttributes
+@property (nonatomic, strong) NSString *internalName;
+@property (nonatomic, strong) NSNumber *internalState;
 @end

@@ -173,6 +173,11 @@
             tableRow.TopScore = [NSNumber numberWithInt:arc4random_uniform(3000)];
             tableRow.Wins = [NSNumber numberWithInteger:arc4random_uniform(100)];
             tableRow.Losses = [NSNumber numberWithInteger:arc4random_uniform(100)];
+            
+            //Those two properties won't be saved to DynamoDB since it has been defined in ignoredAttributes
+            tableRow.internalName =[NSString stringWithFormat:@"internal attributes(should not be saved to dynamoDB)"];
+            tableRow.internalState = [NSNumber numberWithInt:i];
+            
             [tasks addObject:[dynamoDBObjectMapper save:tableRow]];
         }
     }
