@@ -16,7 +16,7 @@
 import UIKit
 
 class DDBDetailViewController: UIViewController {
-
+    
     enum DDBDetailViewType {
         case Unknown
         case Insert
@@ -36,7 +36,7 @@ class DDBDetailViewController: UIViewController {
     
     func getTableRow() {
         let dynamoDBObjectMapper = AWSDynamoDBObjectMapper.defaultDynamoDBObjectMapper()
-
+        
         dynamoDBObjectMapper .load(DDBTableRow.self, hashKey: tableRow?.UserId, rangeKey: tableRow?.GameTitle) .continueWithExecutor(AWSExecutor.mainThreadExecutor(), withBlock: { (task:AWSTask!) -> AnyObject! in
             if (task.error == nil) {
                 if (task.result != nil) {
@@ -48,9 +48,9 @@ class DDBDetailViewController: UIViewController {
                     self.attribute3TextField.text = tableRow.Losses?.stringValue
                 }
             } else {
-                println("Error: \(task.error)")
+                print("Error: \(task.error)")
                 let alertController = UIAlertController(title: "Failed to get item from table.", message: task.error.description, preferredStyle: UIAlertControllerStyle.Alert)
-                let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: { (action:UIAlertAction!) -> Void in
+                let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: { (action:UIAlertAction) -> Void in
                 })
                 alertController.addAction(okAction)
                 self.presentViewController(alertController, animated: true, completion: nil)
@@ -66,7 +66,7 @@ class DDBDetailViewController: UIViewController {
         dynamoDBObjectMapper.save(tableRow) .continueWithExecutor(AWSExecutor.mainThreadExecutor(), withBlock: { (task:AWSTask!) -> AnyObject! in
             if (task.error == nil) {
                 let alertController = UIAlertController(title: "Succeeded", message: "Successfully inserted the data into the table.", preferredStyle: UIAlertControllerStyle.Alert)
-                let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: { (action:UIAlertAction!) -> Void in
+                let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: { (action:UIAlertAction) -> Void in
                 })
                 alertController.addAction(okAction)
                 self.presentViewController(alertController, animated: true, completion: nil)
@@ -77,12 +77,12 @@ class DDBDetailViewController: UIViewController {
                 self.attribute3TextField.text = nil
                 
                 self.dataChanged = true
-
+                
             } else {
-                println("Error: \(task.error)")
+                print("Error: \(task.error)")
                 
                 let alertController = UIAlertController(title: "Failed to insert the data into the table.", message: task.error.description, preferredStyle: UIAlertControllerStyle.Alert)
-                let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: { (action:UIAlertAction!) -> Void in
+                let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: { (action:UIAlertAction) -> Void in
                 })
                 alertController.addAction(okAction)
                 self.presentViewController(alertController, animated: true, completion: nil)
@@ -98,7 +98,7 @@ class DDBDetailViewController: UIViewController {
         dynamoDBObjectMapper .save(tableRow) .continueWithExecutor(AWSExecutor.mainThreadExecutor(), withBlock: { (task:AWSTask!) -> AnyObject! in
             if (task.error == nil) {
                 let alertController = UIAlertController(title: "Succeeded", message: "Successfully updated the data into the table.", preferredStyle: UIAlertControllerStyle.Alert)
-                let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: { (action:UIAlertAction!) -> Void in
+                let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: { (action:UIAlertAction) -> Void in
                 })
                 alertController.addAction(okAction)
                 self.presentViewController(alertController, animated: true, completion: nil)
@@ -110,10 +110,10 @@ class DDBDetailViewController: UIViewController {
                 
                 self.dataChanged = true
             } else {
-                println("Error: \(task.error)")
+                print("Error: \(task.error)")
                 
                 let alertController = UIAlertController(title: "Failed to update the data into the table.", message: task.error.description, preferredStyle: UIAlertControllerStyle.Alert)
-                let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: { (action:UIAlertAction!) -> Void in
+                let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: { (action:UIAlertAction) -> Void in
                 })
                 alertController.addAction(okAction)
                 self.presentViewController(alertController, animated: true, completion: nil)
@@ -127,40 +127,46 @@ class DDBDetailViewController: UIViewController {
         let tableRow = DDBTableRow()
         tableRow.UserId = self.hashKeyTextField.text
         tableRow.GameTitle = self.rangeKeyTextField.text
-        tableRow.TopScore = self.attribute1TextField.text.toInt()
-        tableRow.Wins = self.attribute2TextField.text.toInt()
-        tableRow.Losses = self.attribute3TextField.text.toInt()
+        if let topScore = Int(self.attribute1TextField.text!){
+            tableRow.TopScore = topScore
+        }
+        if let wins = Int(self.attribute2TextField.text!){
+            tableRow.Wins = wins
+        }
+        if let losses = Int(self.attribute3TextField.text!){
+            tableRow.Losses = losses
+        }
         
         switch self.viewType {
         case DDBDetailViewType.Insert:
-            if (count(self.rangeKeyTextField.text.utf16) > 0) {
+            if (self.rangeKeyTextField.text!.utf16.count > 0) {
                 self.insertTableRow(tableRow)
             } else {
                 let alertController = UIAlertController(title: "Error: Invalid Input", message: "Range Key Value cannot be empty.", preferredStyle: UIAlertControllerStyle.Alert)
-                let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: { (action:UIAlertAction!) -> Void in
+                let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: { (action:UIAlertAction) -> Void in
                 })
                 alertController.addAction(okAction)
                 self.presentViewController(alertController, animated: true, completion: nil)
             }
         case DDBDetailViewType.Update:
-            if (count(self.rangeKeyTextField.text.utf16) > 0) {
+            if (self.rangeKeyTextField.text!.utf16.count > 0) {
                 self.updateTableRow(tableRow)
             } else {
                 let alertController = UIAlertController(title: "Error: Invalid Input", message: "Range Key Value cannot be empty.", preferredStyle: UIAlertControllerStyle.Alert)
-                let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: { (action:UIAlertAction!) -> Void in
+                let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: { (action:UIAlertAction) -> Void in
                 })
                 alertController.addAction(okAction)
                 self.presentViewController(alertController, animated: true, completion: nil)
             }
         default:
-            println("ERROR: Invalid viewType!")
+            print("ERROR: Invalid viewType!")
         }
-
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         switch self.viewType {
         case DDBDetailViewType.Insert:
@@ -173,12 +179,12 @@ class DDBDetailViewController: UIViewController {
             self.hashKeyTextField.enabled = false
             self.rangeKeyTextField.enabled = false
             self.getTableRow()
-
+            
         default:
-            println("ERROR: Invalid viewType!")
+            print("ERROR: Invalid viewType!")
         }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -193,5 +199,5 @@ class DDBDetailViewController: UIViewController {
             mainTableViewController.needsToRefresh = true
         }
     }
-
+    
 }

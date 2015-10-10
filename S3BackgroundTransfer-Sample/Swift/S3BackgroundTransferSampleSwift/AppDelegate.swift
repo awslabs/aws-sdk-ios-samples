@@ -17,24 +17,20 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     var window: UIWindow?
     var backgroundDownloadSessionCompletionHandler: ()?
-    var backgroundUploadSessionCompletionHandler: ()?
-
+    
     func application(application: UIApplication, handleEventsForBackgroundURLSession identifier: String, completionHandler: () -> Void) {
-
-        NSLog("[%@ %@]", reflect(self).summary, __FUNCTION__)
+        
+        NSLog("[%@ %@]", NSStringFromClass(self.dynamicType), __FUNCTION__)
         /*
         Store the completion handler.
         */
-        if identifier == BackgroundSessionUploadIdentifier {
-            self.backgroundUploadSessionCompletionHandler = completionHandler()
-        } else if identifier == BackgroundSessionDownloadIdentifier {
-            self.backgroundDownloadSessionCompletionHandler = completionHandler()
-        }
+        AWSS3TransferUtility.interceptApplication(application, handleEventsForBackgroundURLSession: identifier, completionHandler: completionHandler)
+        
     }
-
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         let credentialProvider = AWSCognitoCredentialsProvider(
             regionType: CognitoRegionType,
@@ -42,9 +38,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let configuration = AWSServiceConfiguration(
             region: DefaultServiceRegionType,
             credentialsProvider: credentialProvider)
-
+        
         AWSServiceManager.defaultServiceManager().defaultServiceConfiguration = configuration
-
+        
         return true
     }
 }

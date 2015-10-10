@@ -95,7 +95,7 @@ class DDBDynamoDBManger : NSObject {
         createTableInput.keySchema = [hashKeySchemaElement, rangeKeySchemaElement]
         createTableInput.provisionedThroughput = provisionedThroughput
         createTableInput.globalSecondaryIndexes = gsiArray as [AnyObject]
-
+        
         return dynamoDB.createTable(createTableInput).continueWithSuccessBlock({ (var task:AWSTask!) -> AnyObject! in
             if ((task.result) != nil) {
                 // Wait for up to 4 minutes until the table becomes ACTIVE.
@@ -120,7 +120,7 @@ class DDBDynamoDBManger : NSObject {
             
             return task
         })
-
+        
     }
 }
 
@@ -128,9 +128,11 @@ class DDBTableRow :AWSDynamoDBObjectModel ,AWSDynamoDBModeling  {
     
     var UserId:String?
     var GameTitle:String?
-    var TopScore:NSNumber?
-    var Wins:NSNumber?
-    var Losses:NSNumber?
+    
+    //set the default values of scores, wins and losses to 0
+    var TopScore:NSNumber? = 0
+    var Wins:NSNumber? = 0
+    var Losses:NSNumber? = 0
     
     //should be ignored according to ignoreAttributes
     var internalName:String?

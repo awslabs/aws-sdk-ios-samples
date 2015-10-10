@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		17480E031BC833D10022B2CF /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17480E021BC833D10022B2CF /* Launch Screen.storyboard */; settings = {ASSET_TAGS = (); }; };
 		7B8FC786DBAC479BB7C5476C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEA719FA44804EAA925582B0 /* libPods.a */; };
 		BDCC7EC119DE50AB008B2510 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCC7EC019DE50AB008B2510 /* AppDelegate.swift */; };
 		BDCC7EC319DE50AB008B2510 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCC7EC219DE50AB008B2510 /* FirstViewController.swift */; };
@@ -14,11 +15,11 @@
 		BDCC7EC819DE50AB008B2510 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDCC7EC619DE50AB008B2510 /* Main.storyboard */; };
 		BDCC7ECA19DE50AB008B2510 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDCC7EC919DE50AB008B2510 /* Images.xcassets */; };
 		BDCC7EE619DE5F09008B2510 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCC7EE519DE5F09008B2510 /* Constants.swift */; };
-		CE5445631A96C64A0082FD39 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE5445621A96C64A0082FD39 /* Default-568h@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		17324510F844CFCA52567EFB /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		17480E021BC833D10022B2CF /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		249182B875FFD644D3950992 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		BDCC7EBB19DE50AB008B2510 /* S3BackgroundTransferSampleSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = S3BackgroundTransferSampleSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDCC7EBF19DE50AB008B2510 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -29,7 +30,6 @@
 		BDCC7EC919DE50AB008B2510 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		BDCC7EE219DE58C3008B2510 /* ObjectiveC_Bridging_Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjectiveC_Bridging_Header.h; sourceTree = "<group>"; };
 		BDCC7EE519DE5F09008B2510 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		CE5445621A96C64A0082FD39 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		CEA719FA44804EAA925582B0 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -83,6 +83,7 @@
 				BDCC7EC919DE50AB008B2510 /* Images.xcassets */,
 				BDCC7EBE19DE50AB008B2510 /* Supporting Files */,
 				BDCC7EE219DE58C3008B2510 /* ObjectiveC_Bridging_Header.h */,
+				17480E021BC833D10022B2CF /* Launch Screen.storyboard */,
 			);
 			path = S3BackgroundTransferSampleSwift;
 			sourceTree = "<group>";
@@ -90,7 +91,6 @@
 		BDCC7EBE19DE50AB008B2510 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				CE5445621A96C64A0082FD39 /* Default-568h@2x.png */,
 				BDCC7EBF19DE50AB008B2510 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -132,7 +132,9 @@
 		BDCC7EB319DE50AB008B2510 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0600;
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = Amazon;
 				TargetAttributes = {
 					BDCC7EBA19DE50AB008B2510 = {
@@ -164,7 +166,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BDCC7EC819DE50AB008B2510 /* Main.storyboard in Resources */,
-				CE5445631A96C64A0082FD39 /* Default-568h@2x.png in Resources */,
+				17480E031BC833D10022B2CF /* Launch Screen.storyboard in Resources */,
 				BDCC7ECA19DE50AB008B2510 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -250,6 +252,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -315,6 +318,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = S3BackgroundTransferSampleSwift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.amazonaws.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = S3BackgroundTransferSampleSwift/ObjectiveC_Bridging_Header.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -329,6 +333,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = S3BackgroundTransferSampleSwift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.amazonaws.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = S3BackgroundTransferSampleSwift/ObjectiveC_Bridging_Header.h;
 			};

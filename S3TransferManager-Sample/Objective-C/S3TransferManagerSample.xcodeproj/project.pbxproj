@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		17480D621BC72A0F0022B2CF /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17480D611BC72A0F0022B2CF /* Launch Screen.storyboard */; settings = {ASSET_TAGS = (); }; };
 		7785CD7961D047ECAFCDE3AD /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 718C9A7FAF4641C6A7C2A348 /* libPods.a */; };
 		CEB54EA31A129D1A008D5A36 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB54EA21A129D1A008D5A36 /* Constants.m */; };
 		CEBF2BA819B66276004029EA /* DownloadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBF2BA719B66276004029EA /* DownloadViewController.m */; };
@@ -24,6 +25,7 @@
 
 /* Begin PBXFileReference section */
 		0348537B1F9777477CED3210 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		17480D611BC72A0F0022B2CF /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		718C9A7FAF4641C6A7C2A348 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1FCC0304AF1223E762F645C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		CEB54EA21A129D1A008D5A36 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				CEBF2BA719B66276004029EA /* DownloadViewController.m */,
 				CEED1F1A19AE798A00515299 /* Images.xcassets */,
 				CEED1F0919AE798A00515299 /* Supporting Files */,
+				17480D611BC72A0F0022B2CF /* Launch Screen.storyboard */,
 			);
 			path = S3TransferManagerSample;
 			sourceTree = "<group>";
@@ -159,7 +162,7 @@
 		CEED1EF719AE798A00515299 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Amazon Web Services";
 				TargetAttributes = {
 					CEED1EFE19AE798A00515299 = {
@@ -192,6 +195,7 @@
 			files = (
 				CEED1F1B19AE798A00515299 /* Images.xcassets in Resources */,
 				CEED1F0D19AE798A00515299 /* InfoPlist.strings in Resources */,
+				17480D621BC72A0F0022B2CF /* Launch Screen.storyboard in Resources */,
 				CEED1F1619AE798A00515299 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -284,6 +288,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -347,6 +352,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "S3TransferManagerSample/S3TransferManagerSample-Prefix.pch";
 				INFOPLIST_FILE = "S3TransferManagerSample/S3TransferManagerSample-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.amazonaws.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
@@ -364,6 +370,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "S3TransferManagerSample/S3TransferManagerSample-Prefix.pch";
 				INFOPLIST_FILE = "S3TransferManagerSample/S3TransferManagerSample-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.amazonaws.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;

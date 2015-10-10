@@ -59,7 +59,7 @@
                                                                      style:UIAlertActionStyleDefault
                                                                    handler:^(UIAlertAction *action) {
                                                                        UploadViewController *strongSelf = weakSelf;
-                                                                       [strongSelf cancelAllDownloads:self];
+                                                                       [strongSelf cancelAllUploads:self];
                                                                    }];
     [alertController addAction:cancelAllUploadsAction];
 
@@ -128,7 +128,7 @@
     }];
 }
 
-- (void)cancelAllDownloads:(id)sender {
+- (void)cancelAllUploads:(id)sender {
     [self.collection enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         if ([obj isKindOfClass:[AWSS3TransferManagerUploadRequest class]]) {
             AWSS3TransferManagerUploadRequest *uploadRequest = obj;

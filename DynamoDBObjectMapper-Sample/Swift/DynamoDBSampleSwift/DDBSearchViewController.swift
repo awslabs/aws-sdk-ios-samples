@@ -16,7 +16,7 @@
 import UIKit
 
 class DDBSearchViewController: UIViewController,UIPickerViewDataSource,UIPickerViewDelegate {
-
+    
     @IBOutlet weak var gameTitlePickerView: UIPickerView!
     @IBOutlet weak var sortSegControl: UISegmentedControl!
     @IBOutlet weak var orderSegControl: UISegmentedControl!
@@ -29,7 +29,7 @@ class DDBSearchViewController: UIViewController,UIPickerViewDataSource,UIPickerV
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         pickerData = ["Comet Quest","Galaxy Invaders","Meteor Blasters", "Starship X", "Alien Adventure","Attack Ships"]
         rangeKeyArray = ["TopScore","Wins","Losses"]
@@ -37,7 +37,7 @@ class DDBSearchViewController: UIViewController,UIPickerViewDataSource,UIPickerV
             self.sortSegControl.setTitle(self.rangeKeyArray[i], forSegmentAtIndex: i)
         }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -63,10 +63,10 @@ class DDBSearchViewController: UIViewController,UIPickerViewDataSource,UIPickerV
         
         dynamoDBObjectMapper .query(DDBTableRow.self, expression: queryExpression) .continueWithExecutor(AWSExecutor.mainThreadExecutor(), withBlock: { (task:AWSTask!) -> AnyObject! in
             if (task.error != nil) {
-                println("Error: \(task.error)")
+                print("Error: \(task.error)")
                 
                 let alertController = UIAlertController(title: "Failed to query a test table.", message: task.error.description, preferredStyle: UIAlertControllerStyle.Alert)
-                let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: { (action:UIAlertAction!) -> Void in
+                let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: { (action:UIAlertAction) -> Void in
                 })
                 alertController.addAction(okAction)
                 self.presentViewController(alertController, animated: true, completion: nil)
@@ -78,13 +78,13 @@ class DDBSearchViewController: UIViewController,UIPickerViewDataSource,UIPickerV
             }
             return nil
         })
-
+        
     }
     
     @IBAction func rangeStepperChanged(sender: UIStepper) {
         self.rangeConditionLabel.text = "Larger than \(sender.value)"
     }
-
+    
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -93,8 +93,8 @@ class DDBSearchViewController: UIViewController,UIPickerViewDataSource,UIPickerV
         return self.pickerData.count
     }
     
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return self.pickerData[row]
     }
-
+    
 }

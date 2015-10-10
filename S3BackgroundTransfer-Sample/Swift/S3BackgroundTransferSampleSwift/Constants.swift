@@ -16,12 +16,9 @@
 import Foundation
 
 //WARNING: To run this sample correctly, you must set the following constants.
-let CognitoRegionType = AWSRegionType.Unknown
-let DefaultServiceRegionType = AWSRegionType.Unknown
+let CognitoRegionType = AWSRegionType.Unknown // E.g. AWSRegionType.USEast1
+let DefaultServiceRegionType = AWSRegionType.Unknown // E.g. AWSRegionType.USEast1
 let CognitoIdentityPoolId: String = "YourPoolID"
 let S3BucketName: String = "YourS3BucketName"
-let S3DownloadKeyName: String = "YourDownloadKeyName"
-
+let S3DownloadKeyName: String = "YourDownloadKeyName" // an image in the specified S3 Bucket
 let S3UploadKeyName: String = "uploadfileswift.txt"
-let BackgroundSessionUploadIdentifier: String = "com.amazon.example.s3BackgroundTransferSwift.uploadSession"
-let BackgroundSessionDownloadIdentifier: String = "com.amazon.example.s3BackgroundTransferSwift.downloadSession"

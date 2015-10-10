@@ -15,46 +15,29 @@
 
 import UIKit
 
-class FirstViewController: UIViewController, NSURLSessionDelegate, NSURLSessionTaskDelegate, NSURLSessionDataDelegate{
-
+class FirstViewController: UIViewController{
+    
     @IBOutlet var progressView: UIProgressView!
     @IBOutlet var statusLabel: UILabel!
     
-    var session: NSURLSession?
-    var uploadTask: NSURLSessionUploadTask?
     var uploadFileURL: NSURL?
+    var completionHandler: AWSS3TransferUtilityUploadCompletionHandlerBlock?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        struct Static {
-            static var session: NSURLSession?
-            static var token: dispatch_once_t = 0
-        }
-        
-        dispatch_once(&Static.token) {
-            let configuration = NSURLSessionConfiguration.backgroundSessionConfigurationWithIdentifier(BackgroundSessionUploadIdentifier)
-            Static.session = NSURLSession(configuration: configuration, delegate: self, delegateQueue: nil)
-        }
-        
-        self.session = Static.session;
-        
-        self.progressView.progress = 0;
+        self.progressView.progress = 0.0;
         self.statusLabel.text = "Ready"
-
+        
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     @IBAction func start(sender: UIButton) {
-        
-        if (self.uploadTask != nil) {
-            return;
-        }
         
         //Create a test file in the temporary directory
         self.uploadFileURL = NSURL.fileURLWithPath(NSTemporaryDirectory() + S3UploadKeyName)
@@ -65,99 +48,68 @@ class FirstViewController: UIViewController, NSURLSessionDelegate, NSURLSessionT
         
         var error: NSError? = nil
         if NSFileManager.defaultManager().fileExistsAtPath(self.uploadFileURL!.path!) {
-            NSFileManager.defaultManager().removeItemAtPath(self.uploadFileURL!.path!, error: &error)
+            do {
+                try NSFileManager.defaultManager().removeItemAtPath(self.uploadFileURL!.path!)
+            } catch let error1 as NSError {
+                error = error1
+            }
         }
         
-        dataString.writeToURL(self.uploadFileURL!, atomically: true, encoding: NSUTF8StringEncoding, error: &error)
+        do {
+            try dataString.writeToURL(self.uploadFileURL!, atomically: true, encoding: NSUTF8StringEncoding)
+        } catch let error1 as NSError {
+            error = error1
+        }
         
         if (error) != nil {
             NSLog("Error: %@",error!);
         }
         
-        let getPreSignedURLRequest = AWSS3GetPreSignedURLRequest()
-        getPreSignedURLRequest.bucket = S3BucketName
-        getPreSignedURLRequest.key = S3UploadKeyName
-        getPreSignedURLRequest.HTTPMethod = AWSHTTPMethod.PUT
-        getPreSignedURLRequest.expires = NSDate(timeIntervalSinceNow: 3600)
+        let expression = AWSS3TransferUtilityUploadExpression()
+        expression.uploadProgress = {(task: AWSS3TransferUtilityTask, bytesSent: Int64, totalBytesSent: Int64, totalBytesExpectedToSend: Int64) in
+            dispatch_async(dispatch_get_main_queue(), {
+                let progress = Float(totalBytesSent) / Float(totalBytesExpectedToSend)
+                self.progressView.progress = progress
+                self.statusLabel.text = "Uploading..."
+                NSLog("Progress is: %f",progress)
+            })
+        }
         
-        //Important: must set contentType for PUT request
-        let fileContentTypeStr = "text/plain"
-        getPreSignedURLRequest.contentType = fileContentTypeStr
-        
-        
-        AWSS3PreSignedURLBuilder.defaultS3PreSignedURLBuilder().getPreSignedURL(getPreSignedURLRequest) .continueWithBlock { (task:AWSTask!) -> (AnyObject!) in
-            
-            if (task.error != nil) {
-                NSLog("Error: %@", task.error)
-            } else {
-                
-                let presignedURL = task.result as! NSURL!
-                if (presignedURL != nil) {
-                    NSLog("upload presignedURL is: \n%@", presignedURL)
-                    
-                    var request = NSMutableURLRequest(URL: presignedURL)
-                    request.cachePolicy = NSURLRequestCachePolicy.ReloadIgnoringLocalCacheData
-                    request.HTTPMethod = "PUT"
-                    
-                    //contentType in the URLRequest must be the same as the one in getPresignedURLRequest
-                    request .setValue(fileContentTypeStr, forHTTPHeaderField: "Content-Type")
-                    
-                    self.uploadTask = self.session?.uploadTaskWithRequest(request, fromFile: self.uploadFileURL!)
-                    self.uploadTask?.resume()
-                    
+        self.completionHandler = { (task, error) -> Void in
+            dispatch_async(dispatch_get_main_queue(), {
+                if ((error) != nil){
+                    NSLog("Failed with error")
+                    NSLog("Error: %@",error!);
+                    self.statusLabel.text = "Failed"
                 }
+                else if(self.progressView.progress != 1.0) {
+                    self.statusLabel.text = "Failed"
+                    NSLog("Error: Failed - Likely due to invalid region / filename")
+                }
+                else{
+                    self.statusLabel.text = "Success"
+                }
+            })
+        }
+        
+        let transferUtility = AWSS3TransferUtility.defaultS3TransferUtility()
+        
+        transferUtility?.uploadFile(self.uploadFileURL!, bucket: S3BucketName, key: S3UploadKeyName, contentType: "text/plain", expression: expression, completionHander: completionHandler).continueWithBlock { (task) -> AnyObject! in
+            if let error = task.error {
+                NSLog("Error: %@",error.localizedDescription);
+                self.statusLabel.text = "Failed"
             }
-            return nil;
+            if let exception = task.exception {
+                NSLog("Exception: %@",exception.description);
+                self.statusLabel.text = "Failed"
+            }
+            if let _ = task.result {
+                self.statusLabel.text = "Generating Upload File"
+                NSLog("Upload Starting!")
+                // Do something with uploadTask.
+            }
             
+            return nil;
         }
     }
-    
-    func URLSession(session: NSURLSession, task: NSURLSessionTask, didSendBodyData bytesSent: Int64, totalBytesSent: Int64, totalBytesExpectedToSend: Int64) {
-        
-        let progress = Float(totalBytesSent) / Float(totalBytesExpectedToSend)
-        
-        NSLog("UploadTask progress: %lf", progress)
-        
-        dispatch_async(dispatch_get_main_queue()) {
-            self.progressView.progress = progress
-            self.statusLabel.text = "Uploading..."
-        }
-        
-    }
-    
-    func URLSession(session: NSURLSession, task: NSURLSessionTask, didCompleteWithError error: NSError?) {
-        
-        if (error == nil) {
-            dispatch_async(dispatch_get_main_queue()) {
-                self.statusLabel.text = "Upload Successfully"
-            }
-            NSLog("S3 UploadTask: %@ completed successfully", task);
-        } else {
-            dispatch_async(dispatch_get_main_queue()) {
-                self.statusLabel.text = "Upload Failed"
-            }
-            NSLog("S3 UploadTask: %@ completed with error: %@", task, error!.localizedDescription);
-        }
-        
-        dispatch_async(dispatch_get_main_queue()) {
-            self.progressView.progress = Float(task.countOfBytesSent) / Float(task.countOfBytesExpectedToSend)
-        }
-        
-        self.uploadTask = nil
-        
-    }
-    
-    func URLSessionDidFinishEventsForBackgroundURLSession(session: NSURLSession) {
-        
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        if ((appDelegate.backgroundUploadSessionCompletionHandler) != nil) {
-            let completionHandler:() = appDelegate.backgroundUploadSessionCompletionHandler!;
-            appDelegate.backgroundUploadSessionCompletionHandler = nil
-            completionHandler
-        }
-        
-        NSLog("Completion Handler has been invoked, background upload task has finished.");
-    }
-
 }
-

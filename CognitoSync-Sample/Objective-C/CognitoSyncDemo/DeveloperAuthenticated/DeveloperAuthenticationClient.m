@@ -16,7 +16,7 @@
 #import "DeveloperAuthenticationClient.h"
 #import "Crypto.h"
 #import <AWSCore/AWSCore.h>
-#import <UICKeychainStore/UICKeychainStore.h>
+#import <UICKeyChainStore/UICKeyChainStore.h>
 
 NSString *const ProviderPlaceHolder = @"foobar.com";
 NSString *const LoginURI = @"%@/login?uid=%@&username=%@&timestamp=%@&signature=%@";

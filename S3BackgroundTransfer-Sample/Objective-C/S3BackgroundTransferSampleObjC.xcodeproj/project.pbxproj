@@ -16,7 +16,6 @@
 		BDCB7B1119CCB6330089B5AE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDCB7B1019CCB6330089B5AE /* Images.xcassets */; };
 		BDCB7B3319CCBAF30089B5AE /* TemplateIcon2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BDCB7B3219CCBAF30089B5AE /* TemplateIcon2x.png */; };
 		BDCB7B3519CCBB060089B5AE /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = BDCB7B3419CCBB060089B5AE /* Constants.m */; };
-		CE5445651A96C8180082FD39 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE5445641A96C8180082FD39 /* Default-568h@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,7 +36,6 @@
 		BDCB7B3219CCBAF30089B5AE /* TemplateIcon2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TemplateIcon2x.png; sourceTree = "<group>"; };
 		BDCB7B3419CCBB060089B5AE /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		C719624220C66D68D2A28AD6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		CE5445641A96C8180082FD39 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +93,6 @@
 		BDCB7B0019CCB6320089B5AE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				CE5445641A96C8180082FD39 /* Default-568h@2x.png */,
 				BDCB7B0119CCB6320089B5AE /* Info.plist */,
 				BDCB7B0219CCB6320089B5AE /* main.m */,
 			);
@@ -152,7 +149,7 @@
 		BDCB7AF519CCB6320089B5AE /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0600;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = Amazon;
 				TargetAttributes = {
 					BDCB7AFC19CCB6320089B5AE = {
@@ -186,7 +183,6 @@
 			files = (
 				BDCB7B3319CCBAF30089B5AE /* TemplateIcon2x.png in Resources */,
 				BDCB7B0F19CCB6320089B5AE /* Main.storyboard in Resources */,
-				CE5445651A96C8180082FD39 /* Default-568h@2x.png in Resources */,
 				BDCB7B1119CCB6330089B5AE /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -273,6 +269,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -287,7 +284,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -322,7 +319,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -333,9 +330,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 845F78CD5DA166168BBAB982 /* Pods.debug.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = S3BackgroundTransferSampleObjC/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.amazonaws.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -344,9 +343,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C719624220C66D68D2A28AD6 /* Pods.release.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = S3BackgroundTransferSampleObjC/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.amazonaws.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

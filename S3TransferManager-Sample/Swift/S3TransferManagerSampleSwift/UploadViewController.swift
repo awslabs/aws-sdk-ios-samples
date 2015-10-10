@@ -17,68 +17,70 @@ import UIKit
 import AssetsLibrary
 
 class UploadViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, ELCImagePickerControllerDelegate {
-
+    
     @IBOutlet weak var collectionView: UICollectionView!
-
+    
     var uploadRequests = Array<AWSS3TransferManagerUploadRequest?>()
     var uploadFileURLs = Array<NSURL?>()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        var error = NSErrorPointer()
-        if !NSFileManager.defaultManager().createDirectoryAtPath(
-            NSTemporaryDirectory().stringByAppendingPathComponent("upload"),
-            withIntermediateDirectories: true,
-            attributes: nil,
-            error: error) {
-                println("Creating 'upload' directory failed. Error: \(error)")
+        
+        let error = NSErrorPointer()
+        do {
+            try NSFileManager.defaultManager().createDirectoryAtURL(
+                NSURL(fileURLWithPath: NSTemporaryDirectory()).URLByAppendingPathComponent("upload"),
+                withIntermediateDirectories: true,
+                attributes: nil)
+        } catch let error1 as NSError {
+            error.memory = error1
+            print("Creating 'upload' directory failed. Error: \(error)")
         }
     }
-
+    
     @IBAction func showAlertController(barButtonItem: UIBarButtonItem) {
         let alertController = UIAlertController(
             title: "Available Actions",
             message: "Choose your action.",
             preferredStyle: .ActionSheet)
-
+        
         let selectPictureAction = UIAlertAction(
             title: "Select Pictures",
             style: .Default) { (action) -> Void in
                 self.selectPictures()
         }
         alertController.addAction(selectPictureAction)
-
+        
         let cancelAllUploadsAction = UIAlertAction(
             title: "Cancel All Uploads",
             style: .Default) { (action) -> Void in
                 self.cancelAllUploads()
         }
         alertController.addAction(cancelAllUploadsAction)
-
+        
         let cancelAction = UIAlertAction(
             title: "Cancel",
             style: .Cancel) { (action) -> Void in }
         alertController.addAction(cancelAction)
-
+        
         self.presentViewController(
             alertController,
             animated: true) { () -> Void in }
     }
-
+    
     func selectPictures() {
         let imagePickerController = ELCImagePickerController()
         imagePickerController.maximumImagesCount = 20
         imagePickerController.imagePickerDelegate = self
-
+        
         self.presentViewController(
             imagePickerController,
             animated: true) { () -> Void in }
     }
-
+    
     func upload(uploadRequest: AWSS3TransferManagerUploadRequest) {
         let transferManager = AWSS3TransferManager.defaultS3TransferManager()
-
+        
         transferManager.upload(uploadRequest).continueWithBlock { (task) -> AnyObject! in
             if let error = task.error {
                 if error.domain == AWSS3TransferManagerErrorDomain as String {
@@ -89,29 +91,29 @@ class UploadViewController: UIViewController, UICollectionViewDelegate, UICollec
                                 self.collectionView.reloadData()
                             })
                             break;
-
+                            
                         default:
-                            println("upload() failed: [\(error)]")
+                            print("upload() failed: [\(error)]")
                             break;
                         }
                     } else {
-                        println("upload() failed: [\(error)]")
+                        print("upload() failed: [\(error)]")
                     }
                 } else {
-                    println("upload() failed: [\(error)]")
+                    print("upload() failed: [\(error)]")
                 }
             }
-
+            
             if let exception = task.exception {
-                println("upload() failed: [\(exception)]")
+                print("upload() failed: [\(exception)]")
             }
-
+            
             if task.result != nil {
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     if let index = self.indexOfUploadRequest(self.uploadRequests, uploadRequest: uploadRequest) {
                         self.uploadRequests[index] = nil
                         self.uploadFileURLs[index] = uploadRequest.body
-
+                        
                         let indexPath = NSIndexPath(forRow: index, inSection: 0)
                         self.collectionView.reloadItemsAtIndexPaths([indexPath])
                     }
@@ -120,32 +122,32 @@ class UploadViewController: UIViewController, UICollectionViewDelegate, UICollec
             return nil
         }
     }
-
+    
     func cancelAllUploads() {
-        for (index, uploadRequest) in enumerate(self.uploadRequests) {
+        for (_, uploadRequest) in self.uploadRequests.enumerate() {
             if let uploadRequest = uploadRequest {
                 uploadRequest.cancel().continueWithBlock({ (task) -> AnyObject! in
                     if let error = task.error {
-                        println("cancel() failed: [\(error)]")
+                        print("cancel() failed: [\(error)]")
                     }
                     if let exception = task.exception {
-                        println("cancel() failed: [\(exception)]")
+                        print("cancel() failed: [\(exception)]")
                     }
                     return nil
                 })
             }
         }
     }
-
+    
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.uploadRequests.count
     }
-
+    
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(
             "UploadCollectionViewCell",
             forIndexPath: indexPath) as! UploadCollectionViewCell
-
+        
         if let uploadRequest = self.uploadRequests[indexPath.row] {
             switch uploadRequest.state {
             case .Running:
@@ -153,7 +155,7 @@ class UploadViewController: UIViewController, UICollectionViewDelegate, UICollec
                     cell.imageView.image = UIImage(data: data)
                     cell.label.hidden = true
                 }
-
+                
                 uploadRequest.uploadProgress = { (bytesSent, totalBytesSent, totalBytesExpectedToSend) -> Void in
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
                         if totalBytesExpectedToSend > 0 {
@@ -161,28 +163,28 @@ class UploadViewController: UIViewController, UICollectionViewDelegate, UICollec
                         }
                     })
                 }
-
+                
                 break;
-
+                
             case .Canceling:
                 cell.imageView.image = nil
                 cell.label.hidden = false
                 cell.label.text = "Cancelled"
                 break;
-
+                
             case .Paused:
                 cell.imageView.image = nil
                 cell.label.hidden = false
                 cell.label.text = "Paused"
                 break;
-
+                
             default:
                 cell.imageView.image = nil
                 cell.label.hidden = true
                 break;
             }
         }
-
+        
         if let downloadFileURL = self.uploadFileURLs[indexPath.row] {
             if let data = NSData(contentsOfURL: downloadFileURL) {
                 cell.imageView.image = UIImage(data: data)
@@ -191,60 +193,61 @@ class UploadViewController: UIViewController, UICollectionViewDelegate, UICollec
                 cell.progressView.progress = 1.0
             }
         }
-
+        
         return cell
     }
-
+    
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         collectionView.deselectItemAtIndexPath(indexPath, animated: true)
-
+        
         if let uploadRequest = self.uploadRequests[indexPath.row] {
             switch uploadRequest.state {
             case .Running:
                 uploadRequest.pause().continueWithBlock({ (task) -> AnyObject! in
                     if let error = task.error {
-                        println("pause() failed: [\(error)]")
+                        print("pause() failed: [\(error)]")
                     }
                     if let exception = task.exception {
-                        println("pause() failed: [\(exception)]")
+                        print("pause() failed: [\(exception)]")
                     }
-
+                    
                     return nil
                 })
                 break
-
+                
             case .Paused:
                 self.upload(uploadRequest)
                 collectionView.reloadItemsAtIndexPaths([indexPath])
                 break
-
+                
             default:
                 break
             }
         }
     }
-
+    
     func elcImagePickerController(picker: ELCImagePickerController!, didFinishPickingMediaWithInfo info: [AnyObject]!) {
         self.dismissViewControllerAnimated(true, completion: nil)
-
-        for (index, imageDictionary) in enumerate(info) {
+        
+        for (_, imageDictionary) in info.enumerate() {
             if let imageDictionary = imageDictionary as? Dictionary<String, AnyObject> {
                 if let mediaType = imageDictionary[UIImagePickerControllerMediaType] as? String {
                     if mediaType == ALAssetTypePhoto {
                         if let image = imageDictionary[UIImagePickerControllerOriginalImage] as? UIImage {
                             let fileName = NSProcessInfo.processInfo().globallyUniqueString.stringByAppendingString(".png")
-                            let filePath = NSTemporaryDirectory().stringByAppendingPathComponent("upload").stringByAppendingPathComponent(fileName)
+                            let fileURL = NSURL(fileURLWithPath: NSTemporaryDirectory()).URLByAppendingPathComponent("upload").URLByAppendingPathComponent(fileName)
+                            let filePath = fileURL.path!
                             let imageData = UIImagePNGRepresentation(image)
-                            imageData.writeToFile(filePath, atomically: true)
-
+                            imageData!.writeToFile(filePath, atomically: true)
+                            
                             let uploadRequest = AWSS3TransferManagerUploadRequest()
-                            uploadRequest.body = NSURL(fileURLWithPath: filePath)
+                            uploadRequest.body = fileURL
                             uploadRequest.key = fileName
                             uploadRequest.bucket = S3BucketName
-
+                            
                             self.uploadRequests.append(uploadRequest)
                             self.uploadFileURLs.append(nil)
-
+                            
                             self.upload(uploadRequest)
                         }
                     }
@@ -253,13 +256,13 @@ class UploadViewController: UIViewController, UICollectionViewDelegate, UICollec
         }
         self.collectionView.reloadData()
     }
-
+    
     func elcImagePickerControllerDidCancel(picker: ELCImagePickerController!) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
-
+    
     func indexOfUploadRequest(array: Array<AWSS3TransferManagerUploadRequest?>, uploadRequest: AWSS3TransferManagerUploadRequest?) -> Int? {
-        for (index, object) in enumerate(array) {
+        for (index, object) in array.enumerate() {
             if object == uploadRequest {
                 return index
             }

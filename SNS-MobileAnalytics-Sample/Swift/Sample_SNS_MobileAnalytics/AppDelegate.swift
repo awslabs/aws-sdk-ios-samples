@@ -53,8 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         messageCategory.setActions([readAction, deleteAction], forContext: UIUserNotificationActionContext.Minimal)
         messageCategory.setActions([readAction, deleteAction, ignoreAction], forContext: UIUserNotificationActionContext.Default)
 
-        let types = UIUserNotificationType.Badge | UIUserNotificationType.Sound | UIUserNotificationType.Alert
-        let notificationSettings = UIUserNotificationSettings(forTypes: types, categories: NSSet(object: messageCategory) as Set<NSObject>)
+        let notificationSettings = UIUserNotificationSettings(forTypes: [UIUserNotificationType.Badge, UIUserNotificationType.Sound, UIUserNotificationType.Alert], categories: (NSSet(array: [messageCategory])) as? Set<UIUserNotificationCategory>)
 
         UIApplication.sharedApplication().registerForRemoteNotifications()
         UIApplication.sharedApplication().registerUserNotificationSettings(notificationSettings)
@@ -75,7 +74,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let deviceTokenString = "\(deviceToken)"
             .stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString:"<>"))
             .stringByReplacingOccurrencesOfString(" ", withString: "")
-        println("deviceTokenString: \(deviceTokenString)")
+        print("deviceTokenString: \(deviceTokenString)")
         NSUserDefaults.standardUserDefaults().setObject(deviceTokenString, forKey: "deviceToken")
         mainViewController()?.displayDeviceInfo()
 
@@ -85,10 +84,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         request.platformApplicationArn = SNSPlatformApplicationArn
         sns.createPlatformEndpoint(request).continueWithExecutor(AWSExecutor.mainThreadExecutor(), withBlock: { (task: AWSTask!) -> AnyObject! in
             if task.error != nil {
-                println("Error: \(task.error)")
+                print("Error: \(task.error)")
             } else {
                 let createEndpointResponse = task.result as! AWSSNSCreateEndpointResponse
-                println("endpointArn: \(createEndpointResponse.endpointArn)")
+                print("endpointArn: \(createEndpointResponse.endpointArn)")
                 NSUserDefaults.standardUserDefaults().setObject(createEndpointResponse.endpointArn, forKey: "endpointArn")
                 self.mainViewController()?.displayDeviceInfo()
             }
@@ -98,11 +97,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
-        println("Failed to register with error: \(error)")
+        print("Failed to register with error: \(error)")
     }
 
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
-        println("userInfo: \(userInfo)")
+        print("userInfo: \(userInfo)")
     }
 
     func application(application: UIApplication, handleActionWithIdentifier identifier: String?, forRemoteNotification userInfo: [NSObject : AnyObject], completionHandler: () -> Void) {
@@ -113,10 +112,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var action = "Undefined"
         if identifier == "READ_IDENTIFIER" {
             action = "Read"
-            println("User selected 'Read'")
+            print("User selected 'Read'")
         } else if identifier == "DELETE_IDENTIFIER" {
             action = "Deleted"
-            println("User selected 'Delete'")
+            print("User selected 'Delete'")
         } else {
             action = "Undefined"
         }
@@ -138,4 +137,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return nil
     }
 }
-

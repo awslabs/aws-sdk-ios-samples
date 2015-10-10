@@ -553,7 +553,7 @@
 - (void)finishedWithAuth: (GTMOAuth2Authentication *)auth
                    error: (NSError *) error
 {
-    if (self.auth == nil) {
+    if (self.googleAuth == nil) {
         self.googleAuth = auth;
 
         if (error != nil) {
