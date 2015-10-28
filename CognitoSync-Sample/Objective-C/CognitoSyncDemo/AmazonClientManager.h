@@ -40,6 +40,7 @@
 - (void)logoutWithCompletionHandler:(AWSContinuationBlock)completionHandler;
 - (void)loginFromView:(UIView *)theView withCompletionHandler:(AWSContinuationBlock)completionHandler;
 
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(nullable NSDictionary *)launchOptions;
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation;
 
 - (void)resumeSessionWithCompletionHandler:(AWSContinuationBlock)completionHandler;

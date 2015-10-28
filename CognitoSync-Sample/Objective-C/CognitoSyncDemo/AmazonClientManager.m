@@ -178,6 +178,16 @@
     [[AmazonClientManager loginSheet] showInView:theView];
 }
 
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(nullable NSDictionary *)launchOptions {
+    
+#if FB_LOGIN
+    return [[FBSDKApplicationDelegate sharedInstance] application:application
+                                    didFinishLaunchingWithOptions:launchOptions];
+#else
+    return YES;
+#endif
+}
+
 - (BOOL)application:(UIApplication *)application
             openURL:(NSURL *)url
   sourceApplication:(NSString *)sourceApplication

@@ -53,7 +53,7 @@
 #endif
     
     [AWSLogger defaultLogger].logLevel = AWSLogLevelDebug;
-    return YES;
+    return [[AmazonClientManager sharedInstance] application:application didFinishLaunchingWithOptions:launchOptions];
 }
 
 - (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings

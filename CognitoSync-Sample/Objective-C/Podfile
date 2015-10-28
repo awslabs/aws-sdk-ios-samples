@@ -2,5 +2,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 
 pod 'AWSCognito', '~> 2.2.0'
 pod 'UICKeyChainStore', '~> 2.0.0'
-pod 'Facebook-iOS-SDK', '~> 4.0'
+pod 'FBSDKLoginKit', '~> 4.6.0'
+pod 'FBSDKCoreKit', '~> 4.6.0'
+pod 'FBSDKShareKit', '~> 4.6.0'
 #pod 'google-plus-ios-sdk'
