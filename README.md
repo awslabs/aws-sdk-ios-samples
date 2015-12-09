@@ -49,6 +49,24 @@ This sample demonstrates how to set up Amazon SNS Mobile Push and record events 
 * [Amazon Mobile Analytics](http://aws.amazon.com/mobileanalytics/)
 * [Amazon Cognito Identity](http://aws.amazon.com/cognito/)
 
+###IoT Sample ([Swift](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/IoT-Sample/Swift/))
+
+This sample demonstrates how to publish and subscribe to data using AWS IoT.
+
+####AWS Services Demonstrated:
+
+* [Amazon AWS IoT](http://aws.amazon.com/iot/)
+* [Amazon Cognito Identity](http://aws.amazon.com/cognito/)
+
+###IoT Temperature Control Sample ([Swift](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/IoTTemperatureControl-Sample/Swift/))
+
+This sample demonstrates accessing device shadows using Cognito authentication; it works in conjunction with the Temperature Control Example Program in the [AWS IoT JavaScript SDK for Embedded Devices](https://github.com/aws/aws-iot-device-sdk-js).
+
+####AWS Services Demonstrated:
+
+* [Amazon AWS IoT](http://aws.amazon.com/iot/)
+* [Amazon Cognito Identity](http://aws.amazon.com/cognito/)
+
 ###Sample Apps for Version 1 SDK
 
 Version 1 of the AWS Mobile SDK for iOS is deprecated as of September 29, 2014. If you are building new apps, we recommend you use Version 2.

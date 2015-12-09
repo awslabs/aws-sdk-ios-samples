@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <scenes>
+        <!--Connection-->
+        <scene sceneID="hNz-n2-bh7">
+            <objects>
+                <viewController id="9pv-A4-QxB" customClass="ConnectionViewController" customModule="IoTSampleSwift" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ia1-K6-d13"/>
+                        <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="6Hr-Gc-Jct">
+                                <rect key="frame" x="36" y="191" width="560" height="351"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="QCQ-ze-Hae">
+                                        <rect key="frame" x="0.0" y="0.0" width="560" height="30"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DYB-6h-fuP">
+                                                <rect key="frame" x="0.0" y="0.0" width="560" height="30"/>
+                                                <state key="normal" title="Connect"/>
+                                                <connections>
+                                                    <action selector="connectButtonPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="AJv-12-N0h"/>
+                                                </connections>
+                                            </button>
+                                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="JlF-VM-7bv">
+                                                <rect key="frame" x="0.0" y="30" width="560" height="0.0"/>
+                                            </activityIndicatorView>
+                                        </subviews>
+                                    </stackView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="XBk-XW-Dn3">
+                                        <rect key="frame" x="0.0" y="30" width="560" height="321"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="XBk-XW-Dn3" secondAttribute="trailing" id="9d9-PB-c82"/>
+                                    <constraint firstItem="XBk-XW-Dn3" firstAttribute="top" secondItem="QCQ-ze-Hae" secondAttribute="bottom" id="Hy7-K8-MMG"/>
+                                    <constraint firstItem="QCQ-ze-Hae" firstAttribute="top" secondItem="6Hr-Gc-Jct" secondAttribute="top" id="I5Y-Op-Af0"/>
+                                    <constraint firstItem="XBk-XW-Dn3" firstAttribute="leading" secondItem="6Hr-Gc-Jct" secondAttribute="leading" id="JeC-eT-M8d"/>
+                                    <constraint firstItem="QCQ-ze-Hae" firstAttribute="leading" secondItem="6Hr-Gc-Jct" secondAttribute="leading" id="RcW-mk-ntF"/>
+                                    <constraint firstAttribute="trailing" secondItem="QCQ-ze-Hae" secondAttribute="trailing" id="VXx-uq-QkY"/>
+                                    <constraint firstItem="XBk-XW-Dn3" firstAttribute="top" secondItem="QCQ-ze-Hae" secondAttribute="bottom" id="mpH-fL-quN"/>
+                                    <constraint firstAttribute="bottom" secondItem="XBk-XW-Dn3" secondAttribute="bottom" id="wVW-kC-sY9"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="6Hr-Gc-Jct" secondAttribute="bottom" id="IpM-aR-JGE"/>
+                            <constraint firstItem="6Hr-Gc-Jct" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" multiplier="10" id="LZ9-Wd-a83"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="6Hr-Gc-Jct" secondAttribute="trailing" id="M8M-QX-OPF"/>
+                            <constraint firstItem="6Hr-Gc-Jct" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" id="zQw-18-PNk"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Connection" image="first" id="acW-dT-cKf"/>
+                    <connections>
+                        <outlet property="activityIndicatorView" destination="JlF-VM-7bv" id="c3T-l1-0GR"/>
+                        <outlet property="logTextView" destination="XBk-XW-Dn3" id="GH9-fT-odf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="750" y="-320"/>
+        </scene>
+        <!--Publish-->
+        <scene sceneID="wg7-f3-ORb">
+            <objects>
+                <viewController id="8rJ-Kc-sve" customClass="PublishViewController" customModule="IoTSampleSwift" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="L7p-HK-0SC"/>
+                        <viewControllerLayoutGuide type="bottom" id="Djb-ko-YwX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="bGP-dm-c7e" userLabel="Root Stack View">
+                                <rect key="frame" x="-48" y="250" width="560" height="531"/>
+                                <subviews>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="25" minValue="1" maxValue="50" translatesAutoresizingMaskIntoConstraints="NO" id="poC-3V-APO">
+                                        <rect key="frame" x="-2" y="0.0" width="564" height="532"/>
+                                        <connections>
+                                            <action selector="sliderValueChanged:" destination="8rJ-Kc-sve" eventType="valueChanged" id="LDZ-Hv-J5a"/>
+                                        </connections>
+                                    </slider>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="bGP-dm-c7e" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" id="9Eg-GI-sUb"/>
+                            <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="bGP-dm-c7e" secondAttribute="bottom" id="Xfj-uX-1ZB"/>
+                            <constraint firstItem="bGP-dm-c7e" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" id="hYf-Pk-eYQ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="bGP-dm-c7e" secondAttribute="trailing" id="wcq-OE-SoF"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Publish" image="second" id="cPa-gy-q4n"/>
+                    <connections>
+                        <outlet property="publishSlider" destination="poC-3V-APO" id="pmQ-hC-grP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="750" y="360"/>
+        </scene>
+        <!--Subscribe-->
+        <scene sceneID="tzc-bh-gie">
+            <objects>
+                <viewController id="Fip-3n-O2U" customClass="SubscribeViewController" customModule="IoTSampleSwift" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="421-SF-Sxa"/>
+                        <viewControllerLayoutGuide type="bottom" id="c8O-zB-Exg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dJy-XQ-rDN">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="X3U-bH-5Y1" userLabel="Root Stack View">
+                                <rect key="frame" x="20" y="195" width="560" height="531"/>
+                                <subviews>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="25" minValue="1" maxValue="50" translatesAutoresizingMaskIntoConstraints="NO" id="Erq-rS-X05">
+                                        <rect key="frame" x="-2" y="0.0" width="564" height="532"/>
+                                    </slider>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="c8O-zB-Exg" firstAttribute="top" secondItem="X3U-bH-5Y1" secondAttribute="bottom" id="PAa-n5-4Ib"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="X3U-bH-5Y1" secondAttribute="trailing" id="hd0-Tj-sfV"/>
+                            <constraint firstItem="X3U-bH-5Y1" firstAttribute="top" secondItem="421-SF-Sxa" secondAttribute="bottom" id="lr7-A3-xnG"/>
+                            <constraint firstItem="X3U-bH-5Y1" firstAttribute="leading" secondItem="dJy-XQ-rDN" secondAttribute="leadingMargin" id="mfd-fb-e1D"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Subscribe" image="first" id="a8T-Ue-CXC"/>
+                    <connections>
+                        <outlet property="subscribeSlider" destination="Erq-rS-X05" id="Ir4-JE-tDr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ic9-qs-F16" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="750" y="1150"/>
+        </scene>
+        <!--IoT Sample Tab Bar Controller-->
+        <scene sceneID="yl2-sM-qoP">
+            <objects>
+                <tabBarController id="49e-Tb-3d3" customClass="IoTSampleTabBarController" customModule="IoTSampleSwift" customModuleProvider="target" sceneMemberID="viewController">
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
+                        <rect key="frame" x="0.0" y="975" width="768" height="49"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
+                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
+                        <segue destination="Fip-3n-O2U" kind="relationship" relationship="viewControllers" id="am5-y4-nwS"/>
+                        <segue destination="rj6-NQ-FJh" kind="relationship" relationship="viewControllers" id="QgX-2Z-Trj"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="0.0" y="0.0"/>
+        </scene>
+        <!--Configuration-->
+        <scene sceneID="VOk-Uk-Q6n">
+            <objects>
+                <viewController id="rj6-NQ-FJh" customClass="ConfigurationViewController" customModule="IoTSampleSwift" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ESM-u5-PI2"/>
+                        <viewControllerLayoutGuide type="bottom" id="snK-xi-sFC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vQc-Yd-vxJ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="mp4-ov-D4J" userLabel="Root Stack View">
+                                <rect key="frame" x="178" y="267" width="560" height="65"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vls-SY-0Zs">
+                                        <rect key="frame" x="0.0" y="0.0" width="560" height="30"/>
+                                        <state key="normal" title="Delete Certificate"/>
+                                        <connections>
+                                            <action selector="deleteCertificateButtonPressed:" destination="rj6-NQ-FJh" eventType="touchUpInside" id="mC8-eZ-Sr1"/>
+                                        </connections>
+                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="7EU-T1-Cc4" userLabel="Topic Name Stack View">
+                                        <rect key="frame" x="0.0" y="35" width="560" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Topic" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vas-sz-Fja">
+                                                <rect key="frame" x="0.0" y="0.0" width="42" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="slider-topic" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CD8-8M-bFB">
+                                                <rect key="frame" x="47" y="0.0" width="513" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="7EU-T1-Cc4" secondAttribute="trailing" id="Nnn-Xh-VkA"/>
+                                    <constraint firstItem="7EU-T1-Cc4" firstAttribute="leading" secondItem="mp4-ov-D4J" secondAttribute="leading" id="VPG-6w-SY0"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="mp4-ov-D4J" firstAttribute="top" secondItem="ESM-u5-PI2" secondAttribute="bottom" multiplier="10" id="JRM-vi-amd"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="mp4-ov-D4J" secondAttribute="trailing" id="YcO-uo-iTT"/>
+                            <constraint firstItem="mp4-ov-D4J" firstAttribute="leading" secondItem="vQc-Yd-vxJ" secondAttribute="leadingMargin" id="zRC-Qf-dJz"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Configuration" image="second" selectedImage="second" id="BcE-JK-Ytg"/>
+                    <connections>
+                        <outlet property="deleteCertificateButton" destination="vls-SY-0Zs" id="LlO-el-Doe"/>
+                        <outlet property="topicTextField" destination="CD8-8M-bFB" id="8QM-PF-QFK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BmK-vy-r30" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-44" y="867"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="first" width="30" height="30"/>
+        <image name="second" width="30" height="30"/>
+    </resources>
+</document>
