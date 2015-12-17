@@ -4,8 +4,8 @@ This sample demonstrates the Amazon S3 TransferManager found in the AWS Mobile S
 
 ## Requirements
 
-* Xcode 6 and later
-* iOS 7 and later
+* Xcode 7 and later
+* iOS 8 and later
 
 ## Using the Sample
 

@@ -4,8 +4,8 @@ This sample demonstrates how you would track user engagement for the mobile push
 
 ##Requirements
 
-* Xcode 6 and later
-* iOS 7 and later
+* Xcode 7 and later
+* iOS 8 and later
 * Before moving forward, follow [Getting Started with Apple Push Notification Service](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-apns.html) and [Using Amazon SNS Mobile Push](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send.html) and configure Amazon SNS Mobile Push properly.
 
 ##Setting up CocoaPods
