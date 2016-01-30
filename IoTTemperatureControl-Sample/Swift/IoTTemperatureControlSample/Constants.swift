@@ -16,6 +16,9 @@
 import Foundation
 import AWSCore
 
+//
 //WARNING: To run this sample correctly, you must set the following constants.
+//
 let AwsRegion = AWSRegionType.Unknown // e.g. AWSRegionType.USEast1
-let CognitoIdentityPoolId = "YourCognitoIdentityPoolId"
+let IamAccessKeyId = "YourIAMAccessKeyId"
+let IamSecretAccessKey = "YourIAMSecretAccessKey"

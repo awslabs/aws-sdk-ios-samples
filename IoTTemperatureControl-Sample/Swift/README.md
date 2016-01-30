@@ -1,6 +1,6 @@
 # The Amazon IoT Temperature Control Sample
 
-This sample demonstrates use of the AWS IoT APIs to interact with device shadows.  It works in conjunction with the Temperature Control Example Program in the [AWS IoT JavaScript SDK for Embedded Devices](https://github.com/aws/aws-iot-device-sdk-js).
+This sample demonstrates use of the AWS IoT MQTT device shadow APIs over a WebSocket.  It works in conjunction with the Temperature Control Example Program in the [AWS IoT JavaScript SDK for Embedded Devices](https://github.com/aws/aws-iot-device-sdk-js).
 
 ## Requirements
 
@@ -22,7 +22,7 @@ This sample demonstrates use of the AWS IoT APIs to interact with device shadows
 	
 		pod install
 
-1. In the [Amazon Cognito console](https://console.aws.amazon.com/cognito/), use Amazon Cognito to create a new identity pool. Obtain the `PoolID` constant. Make sure the [role](https://console.aws.amazon.com/iam/home?region=us-east-1#roles) has full permissions to access the AWS IoT APIs, as shown in this example:
+1. In the [Amazon IAM console](https://console.aws.amazon.com/iam/), use Amazon IAM to create a new user. Obtain the `Access Key ID` and `Secret Access Key` constants. Make sure the [policy](https://console.aws.amazon.com/iam/home?region=us-east-1#roles) attached to the user has full permissions to access the AWS IoT APIs, as shown in this example:
 
 ```sh
 {
@@ -44,9 +44,12 @@ This sample demonstrates use of the AWS IoT APIs to interact with device shadows
 1. Open `Constants.swift` and update the following lines with the appropriate constants:
 
 ```c
-let AwsRegion = AWSRegionType.Unknown
-let CognitoIdentityPoolId = "YourCognitoIdentityPoolId"
+let AwsRegion = AWSRegionType.Unknown // e.g. AWSRegionType.USEast1
+let IamAccessKeyId = "YourIAMAccessKeyId"
+let IamSecretAccessKey = "YourIAMSecretAccessKey"
 ```
+
+Note that the use of hard-coded IAM user credentials is not recommended for production applications.
 
 1. Install the [AWS IoT JavaScript SDK for Embedded Devices](https://github.com/aws/aws-iot-device-sdk-js).
 

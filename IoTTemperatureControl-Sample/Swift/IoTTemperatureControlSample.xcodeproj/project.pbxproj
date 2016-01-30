@@ -13,7 +13,7 @@
 		A625DEC61C0F753C00DB1463 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A625DEC41C0F753C00DB1463 /* Main.storyboard */; };
 		A625DEC81C0F753C00DB1463 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A625DEC71C0F753C00DB1463 /* Assets.xcassets */; };
 		A625DECB1C0F753C00DB1463 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A625DEC91C0F753C00DB1463 /* LaunchScreen.storyboard */; };
-		A6A007D01C0F9F3E00073985 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A007CF1C0F9F3E00073985 /* Constants.swift */; settings = {ASSET_TAGS = (); }; };
+		A6A007D01C0F9F3E00073985 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A007CF1C0F9F3E00073985 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -338,8 +338,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = IoTTemperatureControlSample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "Amazon-Web-Services.IoTTemperatureControlSample";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INSTALL_OBJC_HEADER = NO;
 			};
 			name = Debug;
 		};
@@ -350,8 +352,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = IoTTemperatureControlSample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "Amazon-Web-Services.IoTTemperatureControlSample";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INSTALL_OBJC_HEADER = NO;
 			};
 			name = Release;
 		};

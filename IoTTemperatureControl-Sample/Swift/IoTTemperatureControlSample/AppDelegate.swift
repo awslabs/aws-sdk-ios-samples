@@ -24,9 +24,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         //
-        // Set up Cognito
+        // Use IAM Credentials
         //
-        let credentialsProvider = AWSCognitoCredentialsProvider(regionType: AwsRegion, identityPoolId: CognitoIdentityPoolId)
+        let credentialsProvider = AWSStaticCredentialsProvider(accessKey: IamAccessKeyId, secretKey: IamSecretAccessKey)
         let configuration = AWSServiceConfiguration(region: AwsRegion, credentialsProvider: credentialsProvider)
         AWSServiceManager.defaultServiceManager().defaultServiceConfiguration = configuration
 

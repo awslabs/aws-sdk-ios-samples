@@ -118,38 +118,49 @@ class ConnectionViewController: UIViewController, UITextViewDelegate {
                 let csrDictionary = [ "commonName":CertificateSigningRequestCommonName, "countryName":CertificateSigningRequestCountryName, "organizationName":CertificateSigningRequestOrganizationName, "organizationalUnitName":CertificateSigningRequestOrganizationalUnitName ]
 
                 self.iotManager.createKeysAndCertificateFromCsr(csrDictionary, callback: {  (response ) -> Void in
-                    defaults.setObject(response.certificateId, forKey:"certificateId")
-                    defaults.setObject(response.certificateArn, forKey:"certificateArn")
-                    certificateId = response.certificateId
-                    print("response: [\(response)]")
-                    let uuid = NSUUID().UUIDString;
+                    if (response != nil)
+                    {
+                        defaults.setObject(response.certificateId, forKey:"certificateId")
+                        defaults.setObject(response.certificateArn, forKey:"certificateArn")
+                        certificateId = response.certificateId
+                        print("response: [\(response)]")
+                        let uuid = NSUUID().UUIDString;
 
-                    let attachPrincipalPolicyRequest = AWSIoTAttachPrincipalPolicyRequest()
-                    attachPrincipalPolicyRequest.policyName = PolicyName
-                    attachPrincipalPolicyRequest.principal = response.certificateArn
-                    //
-                    // Attach the policy to the certificate
-                    //
-                    self.iot.attachPrincipalPolicy(attachPrincipalPolicyRequest).continueWithBlock { (task) -> AnyObject? in
-                        if let error = task.error {
-                            print("failed: [\(error)]")
-                        }
-                        if let exception = task.exception {
-                            print("failed: [\(exception)]")
-                        }
-                        print("result: [\(task.result)]")
+                        let attachPrincipalPolicyRequest = AWSIoTAttachPrincipalPolicyRequest()
+                        attachPrincipalPolicyRequest.policyName = PolicyName
+                        attachPrincipalPolicyRequest.principal = response.certificateArn
                         //
-                        // Connect to the AWS IoT platform
+                        // Attach the policy to the certificate
                         //
-                        if (task.exception == nil && task.error == nil)
-                        {
-                            let delayTime = dispatch_time( DISPATCH_TIME_NOW, Int64(2*Double(NSEC_PER_SEC)))
-                            dispatch_after( delayTime, dispatch_get_main_queue()) {
-                                self.logTextView.text = "Using certificate: \(certificateId!)"
-                                self.iotDataManager.connectWithClientId( uuid, cleanSession:true, certificateId:certificateId,statusCallback: mqttEventCallback)
+                        self.iot.attachPrincipalPolicy(attachPrincipalPolicyRequest).continueWithBlock { (task) -> AnyObject? in
+                            if let error = task.error {
+                                print("failed: [\(error)]")
                             }
+                            if let exception = task.exception {
+                                print("failed: [\(exception)]")
+                            }
+                            print("result: [\(task.result)]")
+                            //
+                            // Connect to the AWS IoT platform
+                            //
+                            if (task.exception == nil && task.error == nil)
+                            {
+                                let delayTime = dispatch_time( DISPATCH_TIME_NOW, Int64(2*Double(NSEC_PER_SEC)))
+                                dispatch_after( delayTime, dispatch_get_main_queue()) {
+                                    self.logTextView.text = "Using certificate: \(certificateId!)"
+                                    self.iotDataManager.connectWithClientId( uuid, cleanSession:true, certificateId:certificateId, statusCallback: mqttEventCallback)
+                                }
+                            }
+                            return nil
                         }
-                        return nil
+                    }
+                    else
+                    {
+                        dispatch_async( dispatch_get_main_queue()) {
+                            sender.enabled = true
+                            self.activityIndicatorView.stopAnimating()
+                            self.logTextView.text = "Unable to create keys and/or certificate, check values in Constants.swift"
+                        }
                     }
                 } )
             }

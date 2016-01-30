@@ -37,46 +37,16 @@ class ViewController: UIViewController {
     var currentRunningState: String="stopped";
     var currentlyEnabled: Bool = true;
     var currentSetpoint: Int = 68;
-    weak var pollingTimer: NSTimer?;
+    var currentSetpointStepValue: Double!;
+    var statusThingOperationInProgress:  Bool = false;
+    var controlThingOperationInProgress: Bool = false;
+    weak var setupTimer: NSTimer?;
+
+    var iotDataManager: AWSIoTDataManager!;
     
     func updateThingShadow( thingName: String, jsonData: JSON )
     {
-        let updateThingShadowRequest = AWSIoTDataUpdateThingShadowRequest()
-        updateThingShadowRequest.thingName = thingName
-        do {
-            let tmpVal = try jsonData.rawData()
-
-            let IoTData = AWSIoTData.defaultIoTData()
-            
-            updateThingShadowRequest.payload = tmpVal
-            IoTData.updateThingShadow(updateThingShadowRequest).continueWithBlock { (task) -> AnyObject? in
-                if let error = task.error {
-                    print("failed: [\(error)]")
-                }
-                if let exception = task.exception {
-                    print("failed: [\(exception)]")
-                }
-                if (task.error == nil && task.exception == nil) {
-                    // let result = task.result!
-                    // let json = JSON(data: result.payload as NSData!)
-                    //
-                    // The latest state of the device shadow is in 'json'
-                    //
-                }
-                //
-                // Re-enable polling
-                //
-                dispatch_async( dispatch_get_main_queue()) {
-                    if (self.pollingTimer == nil) {
-                        self.pollingTimer = NSTimer.scheduledTimerWithTimeInterval( 0.5, target: self, selector: "getThingStates", userInfo: nil, repeats: true )
-                    }
-                }
-                return nil
-            }
-        }
-        catch {
-            print("couldn't convert to raw")
-        }
+        self.iotDataManager.publishString( jsonData.rawString(), onTopic: "$aws/things/\(thingName)/shadow/update");
     }
 
     @IBAction func statusSwitchChanged(sender: UISwitch) {
@@ -84,13 +54,16 @@ class ViewController: UIViewController {
         // Initialize the control JSON object
         //
         let controlJson = JSON(["state": ["desired": [ "setPoint": currentSetpoint, "enabled": sender.on]]])
-        //
-        // Disable polling while waiting on a response from updating the thing shadow
-        //
-        if (self.pollingTimer != nil) {
-            self.pollingTimer?.invalidate();
+
+        if (!controlThingOperationInProgress)
+        {
+            updateThingShadow( controlThingName, jsonData: controlJson )
+            controlThingOperationInProgress = true
         }
-        updateThingShadow( controlThingName, jsonData: controlJson )
+        else
+        {
+            sender.on = !sender.on;    // cancel the operation
+        }
     }
     
     @IBAction func setpointStepperTapped(sender: UIStepper) {
@@ -98,83 +71,168 @@ class ViewController: UIViewController {
         // Initialize the control JSON object
         //
         let controlJson = JSON(["state": ["desired": [ "setPoint": Int(sender.value), "enabled": currentlyEnabled]]])
-        //
-        // Disable polling while waiting on a response from updating the thing shadow
-        //
-        if (self.pollingTimer != nil) {
-            self.pollingTimer?.invalidate();
+
+        if (!controlThingOperationInProgress)
+        {
+            currentSetpoint = Int(setpointStepper.value)
+            setpointLabel.text = String(currentSetpoint)
+            updateThingShadow( controlThingName, jsonData: controlJson )
+            controlThingOperationInProgress = true
         }
-        currentSetpoint = Int(setpointStepper.value)
-        setpointLabel.text = String(currentSetpoint)
-        updateThingShadow( controlThingName, jsonData: controlJson )
+        else
+        {
+            sender.value = currentSetpointStepValue;    // cancel the operation
+        }
     }
     
-    func getThingState( thingName: String, completion: (String, JSON) -> Void )
+    func getThingState( thingName: String )
     {
-        let IoTData = AWSIoTData.defaultIoTData()
-
-        let getThingShadowRequest = AWSIoTDataGetThingShadowRequest()
-        getThingShadowRequest.thingName = thingName
-        IoTData.getThingShadow(getThingShadowRequest).continueWithBlock { (task) -> AnyObject? in
-            if let error = task.error {
-                print("failed: [\(error)]")
-            }
-            if let exception = task.exception {
-                print("failed: [\(exception)]")
-            }
-            if (task.error == nil && task.exception == nil) {
-                dispatch_async( dispatch_get_main_queue()) {
-                    let result = task.result!
-                    let json = JSON(data: result.payload as NSData!)
-                    completion( thingName, json )
-                }
-            }
-            return nil
-        }
+        self.iotDataManager.publishString( "{ }", onTopic: "$aws/things/\(thingName)/shadow/get");
     }
-    func statusThingShadowCallback( thingName: String, json: JSON ) -> Void {
-//        print("\(thingName): \(json)")
-        if let tmpIntTemp = json["state"]["desired"]["intTemp"].int {
-            interiorTemperature = tmpIntTemp
+    
+    func updateStatus( interiorTemperature: Int?, exteriorTemperature: Int?, state: String? )
+    {
+        if let interiorTemperature = interiorTemperature {
             interiorLabel.text = String(interiorTemperature)
         }
-        if let tmpExtTemp = json["state"]["desired"]["extTemp"].int {
-            exteriorTemperature = tmpExtTemp
+        if let exteriorTemperature = exteriorTemperature {
             exteriorLabel.text = String(exteriorTemperature)
         }
-        if let tmpState = json["state"]["desired"]["curState"].string {
-            currentRunningState = tmpState
+        if let state = state {
+            currentRunningState = state
             switch(currentRunningState)
             {
-                case "stopped":
-                    interiorLabel.textColor = UIColor(red:0.0, green: 0.0, blue: 0.0, alpha: 1.0)
-                case "heating":
-                    interiorLabel.textColor = UIColor(red:1.0, green: 0.0, blue: 0.0, alpha: 1.0)
-                case "cooling":
-                    interiorLabel.textColor = UIColor(red:0.0, green: 0.0, blue: 1.0, alpha: 1.0)
-                default:
-                    interiorLabel.textColor = UIColor(red:0.0, green: 0.0, blue: 0.0, alpha: 1.0)
+            case "stopped":
+                interiorLabel.textColor = UIColor(red:0.0, green: 0.0, blue: 0.0, alpha: 1.0)
+            case "heating":
+                interiorLabel.textColor = UIColor(red:1.0, green: 0.0, blue: 0.0, alpha: 1.0)
+            case "cooling":
+                interiorLabel.textColor = UIColor(red:0.0, green: 0.0, blue: 1.0, alpha: 1.0)
+            default:
+                interiorLabel.textColor = UIColor(red:0.0, green: 0.0, blue: 0.0, alpha: 1.0)
             }
         }
     }
-    func controlThingShadowCallback( thingName: String, json: JSON ) -> Void {
-//        print("\(thingName): \(json)")
-        if let tmpSetpoint = json["state"]["desired"]["setPoint"].int {
-            currentSetpoint = tmpSetpoint
-            setpointStepper.value=Double(currentSetpoint)
-            setpointLabel.text = String(currentSetpoint)
+    
+    func updateControl( setPoint: Int?, enabled: Bool? )
+    {
+        if let setPoint = setPoint {
+            setpointStepper.value=Double(setPoint)
+            setpointLabel.text = String(setPoint)
+            currentSetpointStepValue = setpointStepper.value;
         }
-        if let tmpEnabled = json["state"]["desired"]["enabled"].bool {
-            currentlyEnabled = tmpEnabled
-            statusSwitch.on = currentlyEnabled
+        if let enabled = enabled {
+            statusSwitch.on = enabled
         }
     }
+    func thingShadowDeltaCallback( thingName: String, json: JSON, payloadString: String ) -> Void {
+        if (thingName == controlThingName)
+        {
+            updateControl( json["state"]["setPoint"].int,
+                enabled: json["state"]["enabled"].bool );
+        }
+        else   // thingName == statusThingName
+        {
+            updateStatus( json["state"]["intTemp"].int,
+                exteriorTemperature: json["state"]["extTemp"].int,
+                state: json["state"]["curState"].string );
+        }
+    }
+    func thingShadowAcceptedCallback( thingName: String, json: JSON, payloadString: String ) -> Void {
+        if (thingName == controlThingName)
+        {
+            updateControl( json["state"]["desired"]["setPoint"].int,
+                enabled: json["state"]["desired"]["enabled"].bool );
+            controlThingOperationInProgress = false;
+        }
+        else   // thingName == statusThingName
+        {
+            updateStatus( json["state"]["desired"]["intTemp"].int,
+                exteriorTemperature: json["state"]["desired"]["extTemp"].int,
+                state: json["state"]["desired"]["curState"].string );
+            statusThingOperationInProgress = false;
+        }
+    }
+    func thingShadowRejectedCallback( thingName: String, json: JSON, payloadString: String ) -> Void {
+        if (thingName == controlThingName)
+        {
+            controlThingOperationInProgress = false;
+        }
+        else   // thingName == statusThingName
+        {
+            statusThingOperationInProgress = false;
+        }
+        print("operation rejected on: \(thingName)")
+    }
     func getThingStates() {
-        getThingState(statusThingName, completion: statusThingShadowCallback)
-        getThingState(controlThingName, completion: controlThingShadowCallback)
+        getThingState(statusThingName)
+        getThingState(controlThingName)
+    }
+    func dispatchSpecialTopic(thingName: String, payload: NSData, callback: ( String, JSON, String ) -> Void) {
+        let stringValue = NSString(data: payload, encoding: NSUTF8StringEncoding)!
+        
+        print("received: \(stringValue)")
+        let json = JSON(data: payload as NSData!)
+        
+        dispatch_async(dispatch_get_main_queue()) {
+            callback( thingName, json, stringValue as String );
+        }
+    }
+    func subscribeSpecialTopics() {
+        let things = [String]( arrayLiteral: statusThingName, controlThingName );
+
+        for thing in things
+        {
+            self.iotDataManager.subscribeToTopic("$aws/things/\(thing)/shadow/update/accepted", qos: 0, messageCallback: {
+                (payload) ->Void in
+                self.dispatchSpecialTopic( thing, payload: payload, callback: self.thingShadowAcceptedCallback );
+            })
+            self.iotDataManager.subscribeToTopic("$aws/things/\(thing)/shadow/update/rejected", qos: 0, messageCallback: {
+                (payload) ->Void in
+                self.dispatchSpecialTopic( thing, payload: payload, callback: self.thingShadowRejectedCallback );
+            })
+            self.iotDataManager.subscribeToTopic("$aws/things/\(thing)/shadow/get/accepted", qos: 0, messageCallback: {
+                (payload) ->Void in
+                self.dispatchSpecialTopic( thing, payload: payload, callback: self.thingShadowAcceptedCallback );
+            })
+            self.iotDataManager.subscribeToTopic("$aws/things/\(thing)/shadow/get/rejected", qos: 0, messageCallback: {
+                (payload) ->Void in
+                self.dispatchSpecialTopic( thing, payload: payload, callback: self.thingShadowRejectedCallback );
+            })
+        }
+     }
+    func mqttEventCallback( status: AWSIoTMQTTStatus )
+    {
+        dispatch_async( dispatch_get_main_queue()) {
+            print("connection status = \(status.rawValue)")
+            switch(status)
+            {
+            case .Connecting:
+                print( "Connecting..." )
+                
+            case .Connected:
+                print( "Connected" )
+                
+            case .Disconnected:
+                print( "Disconnected" )
+                
+            case .ConnectionRefused:
+                print( "Connection Refused" )
+                
+            case .ConnectionError:
+                print( "Connection Error" )
+                
+            case .ProtocolError:
+                print( "Protocol Error" )
+                
+            default:
+                print("unknown state: \(status.rawValue)")
+            }
+        }
     }
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         //
         // Initialize the setpoint stepper
@@ -183,6 +241,7 @@ class ViewController: UIViewController {
         setpointStepper.maximumValue=90
         setpointStepper.minimumValue=50
         setpointStepper.value=70
+        currentSetpointStepValue = setpointStepper.value
         //
         // Initialize the temperature and setpoint labels
         //
@@ -193,15 +252,30 @@ class ViewController: UIViewController {
         // Initialize the status switch
         //
         statusSwitch.on=true
+        
+        //
+        // Connect via WebSocket
+        //
 
-        pollingTimer = NSTimer.scheduledTimerWithTimeInterval( 0.5, target: self, selector: "getThingStates", userInfo: nil, repeats: true )
+        iotDataManager = AWSIoTDataManager.defaultIoTDataManager()
+        
+        self.iotDataManager.connectUsingWebSocketWithClientId( NSUUID().UUIDString, cleanSession:true, statusCallback: mqttEventCallback)
+        
+        //
+        // Wait a few seconds and then subscribe to the special thing shadow topics.
+        //
+        
+        setupTimer = NSTimer.scheduledTimerWithTimeInterval( 2.0, target: self, selector: "subscribeSpecialTopics", userInfo: nil, repeats: false )
+        
+        //
+        // A half second after subscribing to all the special topics, retrieve the current thing states.
+        //
+        NSTimer.scheduledTimerWithTimeInterval( 4.5, target: self, selector: "getThingStates", userInfo: nil, repeats: false )
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
 }
 
