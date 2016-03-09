@@ -1,6 +1,9 @@
 source 'https://github.com/CocoaPods/Specs.git'
 
 platform :ios, '8.0'
-pod 'AWSS3', '~> 2.3.0'
-pod 'ELCImagePickerController'
-pod 'JTSImageViewController'
+
+target :S3TransferManagerSampleSwift do
+  pod 'AWSS3', '~> 2.3.0'
+  pod 'ELCImagePickerController'
+  pod 'JTSImageViewController'
+end

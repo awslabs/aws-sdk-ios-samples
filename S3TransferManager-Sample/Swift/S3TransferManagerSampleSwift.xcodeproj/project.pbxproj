@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C6F216CFA1FE880DF3241033 /* libPods-S3TransferManagerSampleSwift.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F6B612366A9C07A4CD083B7E /* libPods-S3TransferManagerSampleSwift.a */; };
 		CE12F7081A8BF77900587899 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12F7071A8BF77900587899 /* Constants.swift */; };
 		CEF5A6471A76CDEF005FD191 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF5A6461A76CDEF005FD191 /* AppDelegate.swift */; };
 		CEF5A6491A76CDEF005FD191 /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF5A6481A76CDEF005FD191 /* UploadViewController.swift */; };
@@ -14,13 +15,11 @@
 		CEF5A64E1A76CDEF005FD191 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF5A64C1A76CDEF005FD191 /* Main.storyboard */; };
 		CEF5A6501A76CDEF005FD191 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEF5A64F1A76CDEF005FD191 /* Images.xcassets */; };
 		CEF5A6531A76CDEF005FD191 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEF5A6511A76CDEF005FD191 /* LaunchScreen.xib */; };
-		EDC1540BB5CC705DACC4EC92 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A3245CB63316922C1C68B69 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		104CBC0107C04B2F50565B56 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		43BD8A57F0D30F87F5BB6134 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		8A3245CB63316922C1C68B69 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		7D9F3C3600B235AB2EB31325 /* Pods-S3TransferManagerSampleSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-S3TransferManagerSampleSwift.release.xcconfig"; path = "Pods/Target Support Files/Pods-S3TransferManagerSampleSwift/Pods-S3TransferManagerSampleSwift.release.xcconfig"; sourceTree = "<group>"; };
+		92FD9EAC8CBA198F281A5CAE /* Pods-S3TransferManagerSampleSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-S3TransferManagerSampleSwift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-S3TransferManagerSampleSwift/Pods-S3TransferManagerSampleSwift.debug.xcconfig"; sourceTree = "<group>"; };
 		CE12F7071A8BF77900587899 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		CE6E2E4D1A8AEFE200E6536A /* ObjectiveC-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ObjectiveC-Bridging-Header.h"; sourceTree = "<group>"; };
 		CEF5A6411A76CDEE005FD191 /* S3TransferManagerSampleSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = S3TransferManagerSampleSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -31,6 +30,7 @@
 		CEF5A64D1A76CDEF005FD191 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CEF5A64F1A76CDEF005FD191 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CEF5A6521A76CDEF005FD191 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		F6B612366A9C07A4CD083B7E /* libPods-S3TransferManagerSampleSwift.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-S3TransferManagerSampleSwift.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,7 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EDC1540BB5CC705DACC4EC92 /* libPods.a in Frameworks */,
+				C6F216CFA1FE880DF3241033 /* libPods-S3TransferManagerSampleSwift.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -48,8 +48,8 @@
 		9FBD186E6C4A600AA2F44EAD /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				43BD8A57F0D30F87F5BB6134 /* Pods.debug.xcconfig */,
-				104CBC0107C04B2F50565B56 /* Pods.release.xcconfig */,
+				92FD9EAC8CBA198F281A5CAE /* Pods-S3TransferManagerSampleSwift.debug.xcconfig */,
+				7D9F3C3600B235AB2EB31325 /* Pods-S3TransferManagerSampleSwift.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -57,7 +57,7 @@
 		AEEE0E39E825DE36373D91E1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8A3245CB63316922C1C68B69 /* libPods.a */,
+				F6B612366A9C07A4CD083B7E /* libPods-S3TransferManagerSampleSwift.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -111,11 +111,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CEF5A6621A76CDEF005FD191 /* Build configuration list for PBXNativeTarget "S3TransferManagerSampleSwift" */;
 			buildPhases = (
-				E72C0EB7B341E57B050170A3 /* Check Pods Manifest.lock */,
+				E72C0EB7B341E57B050170A3 /* 📦 Check Pods Manifest.lock */,
 				CEF5A63D1A76CDEE005FD191 /* Sources */,
 				CEF5A63E1A76CDEE005FD191 /* Frameworks */,
 				CEF5A63F1A76CDEE005FD191 /* Resources */,
-				1E1FA00ABABFB69413D0F0D9 /* Copy Pods Resources */,
+				1E1FA00ABABFB69413D0F0D9 /* 📦 Copy Pods Resources */,
+				FD3962B112FE87EC2574DEE4 /* 📦 Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -174,34 +175,49 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1E1FA00ABABFB69413D0F0D9 /* Copy Pods Resources */ = {
+		1E1FA00ABABFB69413D0F0D9 /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "📦 Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-S3TransferManagerSampleSwift/Pods-S3TransferManagerSampleSwift-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E72C0EB7B341E57B050170A3 /* Check Pods Manifest.lock */ = {
+		E72C0EB7B341E57B050170A3 /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "📦 Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FD3962B112FE87EC2574DEE4 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-S3TransferManagerSampleSwift/Pods-S3TransferManagerSampleSwift-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -320,7 +336,7 @@
 		};
 		CEF5A6631A76CDEF005FD191 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 43BD8A57F0D30F87F5BB6134 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 92FD9EAC8CBA198F281A5CAE /* Pods-S3TransferManagerSampleSwift.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -335,7 +351,7 @@
 		};
 		CEF5A6641A76CDEF005FD191 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 104CBC0107C04B2F50565B56 /* Pods.release.xcconfig */;
+			baseConfigurationReference = 7D9F3C3600B235AB2EB31325 /* Pods-S3TransferManagerSampleSwift.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
