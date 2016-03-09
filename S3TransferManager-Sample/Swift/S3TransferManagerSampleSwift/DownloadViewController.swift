@@ -92,9 +92,13 @@ class DownloadViewController: UIViewController, UICollectionViewDelegate, UIColl
                 print("listObjects failed: [\(exception)]")
             }
             if let listObjectsOutput = task.result as? AWSS3ListObjectsOutput {
-                if let contents = listObjectsOutput.contents as? [AWSS3Object] {
+                if let contents = listObjectsOutput.contents as [AWSS3Object]? {
                     for s3Object in contents {
-                        let downloadingFileURL = NSURL(fileURLWithPath: NSTemporaryDirectory()).URLByAppendingPathComponent("download").URLByAppendingPathComponent(s3Object.key)
+                        guard let key = s3Object.key else {
+                            continue
+                        }
+
+                        let downloadingFileURL = NSURL(fileURLWithPath: NSTemporaryDirectory()).URLByAppendingPathComponent("download").URLByAppendingPathComponent(key)
                         let downloadingFilePath = downloadingFileURL.path!
                         
                         if NSFileManager.defaultManager().fileExistsAtPath(downloadingFilePath) {
