@@ -94,7 +94,7 @@ class FirstViewController: UIViewController{
         
         let transferUtility = AWSS3TransferUtility.defaultS3TransferUtility()
         
-        transferUtility?.uploadFile(self.uploadFileURL!, bucket: S3BucketName, key: S3UploadKeyName, contentType: "text/plain", expression: expression, completionHander: completionHandler).continueWithBlock { (task) -> AnyObject! in
+        transferUtility.uploadFile(self.uploadFileURL!, bucket: S3BucketName, key: S3UploadKeyName, contentType: "text/plain", expression: expression, completionHander: completionHandler).continueWithBlock { (task) -> AnyObject! in
             if let error = task.error {
                 NSLog("Error: %@",error.localizedDescription);
                 self.statusLabel.text = "Failed"

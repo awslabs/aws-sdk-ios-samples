@@ -70,7 +70,7 @@ class SecondViewController: UIViewController{
         
         let transferUtility = AWSS3TransferUtility.defaultS3TransferUtility()
         
-        transferUtility?.downloadToURL(NSURL(), bucket: S3BucketName, key: S3DownloadKeyName, expression: expression, completionHander: completionHandler).continueWithBlock { (task) -> AnyObject! in
+        transferUtility.downloadToURL(NSURL(), bucket: S3BucketName, key: S3DownloadKeyName, expression: expression, completionHander: completionHandler).continueWithBlock { (task) -> AnyObject! in
             if let error = task.error {
                 NSLog("Error: %@",error.localizedDescription);
                 self.statusLabel.text = "Failed"
