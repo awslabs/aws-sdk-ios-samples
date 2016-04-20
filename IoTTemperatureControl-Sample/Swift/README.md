@@ -22,38 +22,20 @@ This sample demonstrates use of the AWS IoT MQTT device shadow APIs over a WebSo
 	
 		pod install
 
-1. In the [Amazon IAM console](https://console.aws.amazon.com/iam/), use Amazon IAM to create a new user. Obtain the `Access Key ID` and `Secret Access Key` constants. Make sure the [policy](https://console.aws.amazon.com/iam/home?region=us-east-1#roles) attached to the user has full permissions to access the AWS IoT APIs, as shown in this example:
-
-```sh
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Effect": "Allow",
-            "Action": [
-                "iot:*"
-            ],
-            "Resource": "*"
-       }
-    ]
-}
-```
+1. In the [Amazon Cognito console](https://console.aws.amazon.com/cognito/), use Amazon Cognito to create a new identity pool. Obtain the `PoolID` constant.  Make sure that the policy attached to the [unauthenticated role](https://console.aws.amazon.com/iam/home?#roles) has permissions to access the required AWS IoT APIs.  More information about AWS IAM roles and policies can be found [here](http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage.html).
 
 1. Open `IoTTemperatureControlSample.xcworkspace`.
 
 1. Open `Constants.swift` and update the following lines with the appropriate constants:
 
-```c
-let AwsRegion = AWSRegionType.Unknown // e.g. AWSRegionType.USEast1
-let IamAccessKeyId = "YourIAMAccessKeyId"
-let IamSecretAccessKey = "YourIAMSecretAccessKey"
-```
-
-Note that the use of hard-coded IAM user credentials is not recommended for production applications.
+	```c
+	let AwsRegion = AWSRegionType.Unknown // e.g. AWSRegionType.USEast1
+	let CognitoIdentityPoolId = "YourCognitoIdentityPoolId"
+	```
 
 1. Install the [AWS IoT JavaScript SDK for Embedded Devices](https://github.com/aws/aws-iot-device-sdk-js).
 
-1. Follow the instructions in the AWS IoT JavaScript SDK for Embedded Devices to install depenedencies for the temperature-control example application.
+1. Follow the instructions in the AWS IoT JavaScript SDK for Embedded Devices to install dependencies for the temperature-control example application.
 
 1. Start the AWS IoT JavaScript SDK for Embedded Devices temperature-control example application using '--test-mode=2' to simulate a temperature control device.
 

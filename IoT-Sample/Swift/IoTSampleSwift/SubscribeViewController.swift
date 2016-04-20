@@ -30,7 +30,7 @@ class SubscribeViewController: UIViewController {
         let iotDataManager = AWSIoTDataManager.defaultIoTDataManager()
         let tabBarViewController = tabBarController as! IoTSampleTabBarController
 
-        iotDataManager.subscribeToTopic(tabBarViewController.topic, qos: 0, messageCallback: {
+        iotDataManager.subscribeToTopic(tabBarViewController.topic, qoS: .MessageDeliveryAttemptedAtMostOnce, messageCallback: {
             (payload) ->Void in
             let stringValue = NSString(data: payload, encoding: NSUTF8StringEncoding)!
 

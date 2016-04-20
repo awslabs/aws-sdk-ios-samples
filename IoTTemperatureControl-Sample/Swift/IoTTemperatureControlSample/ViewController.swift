@@ -46,7 +46,7 @@ class ViewController: UIViewController {
     
     func updateThingShadow( thingName: String, jsonData: JSON )
     {
-        self.iotDataManager.publishString( jsonData.rawString(), onTopic: "$aws/things/\(thingName)/shadow/update");
+        self.iotDataManager.publishString( jsonData.rawString(), onTopic: "$aws/things/\(thingName)/shadow/update", qoS:.MessageDeliveryAttemptedAtMostOnce);
     }
 
     @IBAction func statusSwitchChanged(sender: UISwitch) {
@@ -87,7 +87,7 @@ class ViewController: UIViewController {
     
     func getThingState( thingName: String )
     {
-        self.iotDataManager.publishString( "{ }", onTopic: "$aws/things/\(thingName)/shadow/get");
+        self.iotDataManager.publishString( "{ }", onTopic: "$aws/things/\(thingName)/shadow/get", qoS:.MessageDeliveryAttemptedAtMostOnce);
     }
     
     func updateStatus( interiorTemperature: Int?, exteriorTemperature: Int?, state: String? )
@@ -183,19 +183,19 @@ class ViewController: UIViewController {
 
         for thing in things
         {
-            self.iotDataManager.subscribeToTopic("$aws/things/\(thing)/shadow/update/accepted", qos: 0, messageCallback: {
+            self.iotDataManager.subscribeToTopic("$aws/things/\(thing)/shadow/update/accepted", qoS: .MessageDeliveryAttemptedAtMostOnce, messageCallback: {
                 (payload) ->Void in
                 self.dispatchSpecialTopic( thing, payload: payload, callback: self.thingShadowAcceptedCallback );
             })
-            self.iotDataManager.subscribeToTopic("$aws/things/\(thing)/shadow/update/rejected", qos: 0, messageCallback: {
+            self.iotDataManager.subscribeToTopic("$aws/things/\(thing)/shadow/update/rejected", qoS: .MessageDeliveryAttemptedAtMostOnce, messageCallback: {
                 (payload) ->Void in
                 self.dispatchSpecialTopic( thing, payload: payload, callback: self.thingShadowRejectedCallback );
             })
-            self.iotDataManager.subscribeToTopic("$aws/things/\(thing)/shadow/get/accepted", qos: 0, messageCallback: {
+            self.iotDataManager.subscribeToTopic("$aws/things/\(thing)/shadow/get/accepted", qoS: .MessageDeliveryAttemptedAtMostOnce, messageCallback: {
                 (payload) ->Void in
                 self.dispatchSpecialTopic( thing, payload: payload, callback: self.thingShadowAcceptedCallback );
             })
-            self.iotDataManager.subscribeToTopic("$aws/things/\(thing)/shadow/get/rejected", qos: 0, messageCallback: {
+            self.iotDataManager.subscribeToTopic("$aws/things/\(thing)/shadow/get/rejected", qoS: .MessageDeliveryAttemptedAtMostOnce, messageCallback: {
                 (payload) ->Void in
                 self.dispatchSpecialTopic( thing, payload: payload, callback: self.thingShadowRejectedCallback );
             })
@@ -254,23 +254,50 @@ class ViewController: UIViewController {
         statusSwitch.on=true
         
         //
-        // Connect via WebSocket
+        // Init IOT
         //
-
         iotDataManager = AWSIoTDataManager.defaultIoTDataManager()
         
+        #if DEMONSTRATE_LAST_WILL_AND_TESTAMENT
+        //
+        // Set a Last Will and Testament message in the MQTT configuration; other
+        // clients can subscribe to this topic, and if this client disconnects from
+        // from AWS IoT unexpectedly, they will receive the message defined here.
+        // Note that this is optional; your application may not need to specify a
+        // Last Will and Testament.
+        //
+        // To enable this code, add '-DDEMONSTRATE_LAST_WILL_AND_TESTAMENT' to
+        // your project build flags in:
+        //
+        //    Build Settings -> Swift Compiler - Custom Flags -> Other Swift Flags
+        //
+        // IMPORTANT NOTE FOR SWIFT PROGRAMS: When specifying the Last Will and Testament
+        // message in Swift, make sure to use the NSString data type; this object must
+        // support the dataUsingEncoding selector, which is not available in Swift's
+        // native String type.
+        //
+        let lwtTopic: NSString = "temperature-control-last-will-and-testament"
+        let lwtMessage: NSString = "disconnected"
+        self.iotDataManager.mqttConfiguration.lastWillAndTestament.topic = lwtTopic as String
+        self.iotDataManager.mqttConfiguration.lastWillAndTestament.message = lwtMessage as String
+        self.iotDataManager.mqttConfiguration.lastWillAndTestament.qos = .AtMostOnce
+        #endif
+
+        //
+        // Connect via WebSocket
+        //
         self.iotDataManager.connectUsingWebSocketWithClientId( NSUUID().UUIDString, cleanSession:true, statusCallback: mqttEventCallback)
-        
+            
         //
         // Wait a few seconds and then subscribe to the special thing shadow topics.
         //
         
-        setupTimer = NSTimer.scheduledTimerWithTimeInterval( 2.0, target: self, selector: "subscribeSpecialTopics", userInfo: nil, repeats: false )
+        setupTimer = NSTimer.scheduledTimerWithTimeInterval( 2.5, target: self, selector: #selector(ViewController.subscribeSpecialTopics), userInfo: nil, repeats: false )
         
         //
-        // A half second after subscribing to all the special topics, retrieve the current thing states.
+        // Two seconds after subscribing to all the special topics, retrieve the current thing states.
         //
-        NSTimer.scheduledTimerWithTimeInterval( 4.5, target: self, selector: "getThingStates", userInfo: nil, repeats: false )
+        NSTimer.scheduledTimerWithTimeInterval( 4.5, target: self, selector: #selector(ViewController.getThingStates), userInfo: nil, repeats: false )
     }
 
     override func didReceiveMemoryWarning() {

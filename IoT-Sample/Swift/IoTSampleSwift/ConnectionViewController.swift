@@ -109,60 +109,98 @@ class ConnectionViewController: UIViewController, UITextViewDelegate {
             if (certificateId == nil)
             {
                 dispatch_async( dispatch_get_main_queue()) {
-                    self.logTextView.text = "No certificate available, creating one..."
+                    self.logTextView.text = "No identity available, searching bundle..."
                 }
-                print ("no certificate found")
                 //
-                // Now create and store the certificate ID in NSUserDefaults
+                // No certificate ID has been stored in the user defaults; check to see if any .p12 files
+                // exist in the bundle.
                 //
-                let csrDictionary = [ "commonName":CertificateSigningRequestCommonName, "countryName":CertificateSigningRequestCountryName, "organizationName":CertificateSigningRequestOrganizationName, "organizationalUnitName":CertificateSigningRequestOrganizationalUnitName ]
-
-                self.iotManager.createKeysAndCertificateFromCsr(csrDictionary, callback: {  (response ) -> Void in
-                    if (response != nil)
-                    {
-                        defaults.setObject(response.certificateId, forKey:"certificateId")
-                        defaults.setObject(response.certificateArn, forKey:"certificateArn")
-                        certificateId = response.certificateId
-                        print("response: [\(response)]")
-                        let uuid = NSUUID().UUIDString;
-
-                        let attachPrincipalPolicyRequest = AWSIoTAttachPrincipalPolicyRequest()
-                        attachPrincipalPolicyRequest.policyName = PolicyName
-                        attachPrincipalPolicyRequest.principal = response.certificateArn
-                        //
-                        // Attach the policy to the certificate
-                        //
-                        self.iot.attachPrincipalPolicy(attachPrincipalPolicyRequest).continueWithBlock { (task) -> AnyObject? in
-                            if let error = task.error {
-                                print("failed: [\(error)]")
-                            }
-                            if let exception = task.exception {
-                                print("failed: [\(exception)]")
-                            }
-                            print("result: [\(task.result)]")
-                            //
-                            // Connect to the AWS IoT platform
-                            //
-                            if (task.exception == nil && task.error == nil)
-                            {
-                                let delayTime = dispatch_time( DISPATCH_TIME_NOW, Int64(2*Double(NSEC_PER_SEC)))
-                                dispatch_after( delayTime, dispatch_get_main_queue()) {
-                                    self.logTextView.text = "Using certificate: \(certificateId!)"
-                                    self.iotDataManager.connectWithClientId( uuid, cleanSession:true, certificateId:certificateId, statusCallback: mqttEventCallback)
-                                }
-                            }
-                            return nil
-                        }
-                    }
-                    else
-                    {
+                let myBundle = NSBundle.mainBundle()
+                let myImages = myBundle.pathsForResourcesOfType("p12" as String, inDirectory:nil)
+                let uuid = NSUUID().UUIDString;
+                
+                if (myImages.count > 0) {
+                    //
+                    // At least one PKCS12 file exists in the bundle.  Attempt to load the first one
+                    // into the keychain (the others are ignored), and set the certificate ID in the
+                    // user defaults as the filename.  If the PKCS12 file requires a passphrase,
+                    // you'll need to provide that here; this code is written to expect that the
+                    // PKCS12 file will not have a passphrase.
+                    //
+                    if let data = NSData(contentsOfFile:myImages[0]) {
                         dispatch_async( dispatch_get_main_queue()) {
-                            sender.enabled = true
-                            self.activityIndicatorView.stopAnimating()
-                            self.logTextView.text = "Unable to create keys and/or certificate, check values in Constants.swift"
+                            self.logTextView.text = "found identity \(myImages[0]), importing..."
+                        }
+                        if AWSIoTManager.importIdentityFromPKCS12Data( data, passPhrase:"", certificateId:myImages[0]) {
+                            //
+                            // Set the certificate ID and ARN values to indicate that we have imported
+                            // our identity from the PKCS12 file in the bundle.
+                            //
+                            defaults.setObject(myImages[0], forKey:"certificateId")
+                            defaults.setObject("from-bundle", forKey:"certificateArn")
+                            dispatch_async( dispatch_get_main_queue()) {
+                                self.logTextView.text = "Using certificate: \(myImages[0]))"
+                                self.iotDataManager.connectWithClientId( uuid, cleanSession:true, certificateId:myImages[0], statusCallback: mqttEventCallback)
+                            }
                         }
                     }
-                } )
+                }
+                certificateId = defaults.stringForKey( "certificateId")
+                if (certificateId == nil) {
+                    dispatch_async( dispatch_get_main_queue()) {
+                        self.logTextView.text = "No identity found in bundle, creating one..."
+                    }
+                    //
+                    // Now create and store the certificate ID in NSUserDefaults
+                    //
+                    let csrDictionary = [ "commonName":CertificateSigningRequestCommonName, "countryName":CertificateSigningRequestCountryName, "organizationName":CertificateSigningRequestOrganizationName, "organizationalUnitName":CertificateSigningRequestOrganizationalUnitName ]
+
+                    self.iotManager.createKeysAndCertificateFromCsr(csrDictionary, callback: {  (response ) -> Void in
+                        if (response != nil)
+                        {
+                            defaults.setObject(response.certificateId, forKey:"certificateId")
+                            defaults.setObject(response.certificateArn, forKey:"certificateArn")
+                            certificateId = response.certificateId
+                            print("response: [\(response)]")
+
+                            let attachPrincipalPolicyRequest = AWSIoTAttachPrincipalPolicyRequest()
+                            attachPrincipalPolicyRequest.policyName = PolicyName
+                            attachPrincipalPolicyRequest.principal = response.certificateArn
+                            //
+                            // Attach the policy to the certificate
+                            //
+                            self.iot.attachPrincipalPolicy(attachPrincipalPolicyRequest).continueWithBlock { (task) -> AnyObject? in
+                                if let error = task.error {
+                                    print("failed: [\(error)]")
+                                }
+                                if let exception = task.exception {
+                                    print("failed: [\(exception)]")
+                                }
+                                print("result: [\(task.result)]")
+                                //
+                                // Connect to the AWS IoT platform
+                                //
+                                if (task.exception == nil && task.error == nil)
+                                {
+                                    let delayTime = dispatch_time( DISPATCH_TIME_NOW, Int64(2*Double(NSEC_PER_SEC)))
+                                    dispatch_after( delayTime, dispatch_get_main_queue()) {
+                                        self.logTextView.text = "Using certificate: \(certificateId!)"
+                                        self.iotDataManager.connectWithClientId( uuid, cleanSession:true, certificateId:certificateId, statusCallback: mqttEventCallback)
+                                    }
+                                }
+                                return nil
+                            }
+                        }
+                        else
+                        {
+                            dispatch_async( dispatch_get_main_queue()) {
+                                sender.enabled = true
+                                self.activityIndicatorView.stopAnimating()
+                                self.logTextView.text = "Unable to create keys and/or certificate, check values in Constants.swift"
+                            }
+                        }
+                    } )
+                }
             }
             else
             {

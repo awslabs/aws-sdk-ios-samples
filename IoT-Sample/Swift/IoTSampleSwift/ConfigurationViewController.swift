@@ -26,10 +26,10 @@ class ConfigurationViewController: UIViewController, UITextFieldDelegate {
         actionController.addAction( cancelAction )
 
         let okAction: UIAlertAction = UIAlertAction( title: "Delete", style: .Default) { action -> Void in
-            print( "deleting certificate...")
+            print( "deleting identity...")
 
             //
-            // To delete the certificate:
+            // To delete an identity created via the API:
             //
             //  1) Set the certificate's status to 'inactive'
             //  2) Detach the policy from the certificate
@@ -37,10 +37,16 @@ class ConfigurationViewController: UIViewController, UITextFieldDelegate {
             //  4) Remove the keys and certificate from the keychain
             //  5) Delete user defaults
             //
+            // To delete an identity created via a PKCS12 file in the bundle:
+            //
+            //  1) Remove the keys and certificate from the keychain
+            //  2) Delete user defaults
+            //
             let defaults = NSUserDefaults.standardUserDefaults()
             let certificateId = defaults.stringForKey( "certificateId")
-
-            if (certificateId != nil)
+            let certificateArn = defaults.stringForKey( "certificateArn")
+            
+            if certificateArn != "from-bundle" && certificateId != nil
             {
                 let iot = AWSIoT.defaultIoT()
 
@@ -121,6 +127,24 @@ class ConfigurationViewController: UIViewController, UITextFieldDelegate {
                     return nil
                 }
 
+            }
+            else if certificateArn == "from-bundle"
+            {
+                //
+                // Delete the keys and certificate from the keychain.
+                //
+                if (AWSIoTManager.deleteCertificate() != true)
+                {
+                    print("error deleting certificate")
+                }
+                else
+                {
+                    defaults.removeObjectForKey("certificateId")
+                    defaults.removeObjectForKey("certificateArn")
+                    dispatch_async( dispatch_get_main_queue() ) {
+                        self.tabBarController?.selectedIndex = 0
+                    }
+                }
             }
             else
             {
