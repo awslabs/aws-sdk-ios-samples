@@ -64,7 +64,7 @@ class DDBDynamoDBManger : NSObject {
         
         //Create Global Secondary Index
         let rangeKeyArray = ["TopScore","Wins","Losses"]
-        let gsiArray = NSMutableArray()
+        var gsiArray = [AnyObject]()
         
         for rangeKey in rangeKeyArray {
             let gsi = AWSDynamoDBGlobalSecondaryIndex()
@@ -85,7 +85,7 @@ class DDBDynamoDBManger : NSObject {
             gsi.projection = gsiProjection;
             gsi.provisionedThroughput = provisionedThroughput;
             
-            gsiArray .addObject(gsi)
+            gsiArray.append(gsi)
         }
         
         //Create TableInput
@@ -94,7 +94,7 @@ class DDBDynamoDBManger : NSObject {
         createTableInput.attributeDefinitions = [hashKeyAttributeDefinition, rangeKeyAttributeDefinition, topScoreAttrDef, winsAttrDef,lossesAttrDef]
         createTableInput.keySchema = [hashKeySchemaElement, rangeKeySchemaElement]
         createTableInput.provisionedThroughput = provisionedThroughput
-        createTableInput.globalSecondaryIndexes = gsiArray as [AnyObject]
+        createTableInput.globalSecondaryIndexes = gsiArray as? [AWSDynamoDBGlobalSecondaryIndex]
         
         return dynamoDB.createTable(createTableInput).continueWithSuccessBlock({ (var task:AWSTask!) -> AnyObject! in
             if ((task.result) != nil) {
@@ -107,7 +107,7 @@ class DDBDynamoDBManger : NSObject {
                 for var i = 0; i < 16; i++ {
                     task = task.continueWithSuccessBlock({ (task:AWSTask!) -> AnyObject! in
                         let describeTableOutput:AWSDynamoDBDescribeTableOutput = task.result as! AWSDynamoDBDescribeTableOutput
-                        let tableStatus = describeTableOutput.table.tableStatus
+                        let tableStatus = describeTableOutput.table!.tableStatus
                         if tableStatus == AWSDynamoDBTableStatus.Active {
                             return task
                         }
