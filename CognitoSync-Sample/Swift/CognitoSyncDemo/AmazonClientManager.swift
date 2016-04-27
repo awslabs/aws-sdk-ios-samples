@@ -253,6 +253,7 @@ class AmazonClientManager : NSObject, GPPSignInDelegate, AIAuthenticationDelegat
         }
         self.fbLoginManager?.logOut()
         self.keyChain[FB_PROVIDER] = nil
+        self.fbLoginManager = nil
     }
     
     func completeFBLogin() {
