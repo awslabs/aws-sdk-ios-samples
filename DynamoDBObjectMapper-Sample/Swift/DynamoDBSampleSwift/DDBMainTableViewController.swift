@@ -98,28 +98,37 @@ class DDBMainTableViewController: UITableViewController {
             queryExpression.limit = 20;
             dynamoDBObjectMapper.scan(DDBTableRow.self, expression: queryExpression).continueWithExecutor(AWSExecutor.mainThreadExecutor(), withBlock: { (task:AWSTask!) -> AnyObject! in
                 
+                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
                 if self.lastEvaluatedKey == nil {
                     self.tableRows?.removeAll(keepCapacity: true)
                 }
                 
-                if task.result != nil {
-                    let paginatedOutput = task.result as! AWSDynamoDBPaginatedOutput
-                    for item in paginatedOutput.items as! [DDBTableRow] {
-                        self.tableRows?.append(item)
-                    }
-                    
-                    self.lastEvaluatedKey = paginatedOutput.lastEvaluatedKey
-                    if paginatedOutput.lastEvaluatedKey == nil {
-                        self.doneLoading = true
-                    }
+                guard task.error == nil else {
+                    print("Error: \(task.error)")
+                    return nil
                 }
                 
-                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+                guard task.exception == nil else {
+                    print("Exception: \(task.exception)")
+                    return nil
+                }
+                
+                guard let paginatedOutput = task.result as? AWSDynamoDBPaginatedOutput, items = paginatedOutput.items as? [DDBTableRow] else {
+                    return nil
+                }
+                
+                
+                for item in items {
+                    self.tableRows?.append(item)
+                }
+
+                self.lastEvaluatedKey = paginatedOutput.lastEvaluatedKey
+                if paginatedOutput.lastEvaluatedKey == nil {
+                    self.doneLoading = true
+                }
+                
                 self.tableView.reloadData()
                 
-                if ((task.error) != nil) {
-                    print("Error: \(task.error)")
-                }
                 return nil
             })
         }
