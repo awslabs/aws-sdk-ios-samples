@@ -20,47 +20,6 @@
 AWSRegionType const CognitoRegionType = AWSRegionUnknown; // e.g. AWSRegionUSEast1
 NSString *const CognitoIdentityPoolId = @"YourCognitoIdentityPoolId";
 
-#pragma mark - OPTIONAL: Enable FB Login
-/**
- * OPTIONAL: Enable FB Login
- *
- * To enable FB Login
- * 1. Add FB SDK to your project
- * 2. Add FacebookAppID in App plist file
- * 3. Add the appropriate URL handler in project (should match FacebookAppID)
- */
-
-#pragma mark - OPTIONAL: Enable Login with Amazon
-/**
- * OPTIONAL: Enable Login with Amazon
- *
- * To enable Login with Amazon
- * 1. Add Login with Amazon SDK to your project
- * 2. Add APIKey in App plist file
- * 3. Add the appropriate URL handler in project (of style amzn-BUNDLE_ID)
- */
-
-#pragma mark - OPTIONAL: Enable Google Login
-/**
- * OPTIONAL: Enable Google Login
- *
- * To enable Google Login
- * 1. Add Google SDK to your project
- * 2. Add the client ID generated in the Google console below
- * 3. Add the appropriate URL handler in project (Should be the same as BUNDLE_ID)
- */
-NSString *const GoogleClientID = @"GoogleClientID";
-
-#pragma mark - OPTIONAL: Enable Twitter/Digits Login
-/**
- * OPTIONAL: Enable Twitter/Digits Login
- * 
- * To enable Twitter Login
- * 1. Add Fabric/TwitterKit to your project
- * 2. Add your API keys and Consumer secret
- *    If using Fabric, the Fabric App will walk you through this
- */
-
 #pragma mark - OPTIONAL: Enable Developer Authentication Login
 /**
  * OPTIONAL: Enable Developer Authentication Login
@@ -78,9 +37,9 @@ NSString *const DeveloperAuthAppName = @"awscognitodeveloperauthenticationsample
 // Make sure to enable HTTPS for your end point before deploying your
 // app to production.
 // !!!!!!!!!!!!!!!!!!!
-NSString *const DeveloperAuthEndpoint = @"http://YOUR-AUTH-ENDPOINT";
+NSString *const DeveloperAuthEndpoint = @"http://YourEndpoint/";
 // Set to the provider name you configured in the Cognito console.
-NSString *const DeveloperAuthProviderName = @"PROVIDER_NAME";
+NSString *const DeveloperAuthProviderName = @"YourAuthProviderName";
 
 
 /*******************************************
@@ -89,5 +48,3 @@ NSString *const DeveloperAuthProviderName = @"PROVIDER_NAME";
 NSString *const DeviceTokenKey = @"DeviceToken";
 NSString *const CognitoDeviceTokenKey = @"CognitoDeviceToken";
 NSString *const CognitoPushNotification = @"CognitoPushNotification";
-NSString *const GoogleClientScope = @"https://www.googleapis.com/auth/userinfo.profile";
-NSString *const GoogleOIDCScope = @"openid";

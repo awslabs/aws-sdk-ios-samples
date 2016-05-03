@@ -13,9 +13,6 @@
  * permissions and limitations under the License.
  */
 
-
-#import <GooglePlus/GooglePlus.h>
-#import <GoogleOpenSource/GoogleOpenSource.h>
+#import <AWSCore/AWSCore.h>
 #import "DeveloperAuthenticatedIdentityProvider.h"
 #import "DeveloperAuthenticationClient.h"
-#import <LoginWithAmazon/LoginWithAmazon.h>

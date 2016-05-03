@@ -16,6 +16,7 @@
 #import "DeveloperAuthenticationClient.h"
 #import "Crypto.h"
 #import <AWSCore/AWSCore.h>
+#import <UICKeyChainStore/UICKeyChainStore.h>
 
 NSString *const ProviderPlaceHolder = @"foobar.com";
 NSString *const LoginURI = @"%@/login?uid=%@&username=%@&timestamp=%@&signature=%@";
@@ -36,9 +37,6 @@ NSString *const EncryptionKeyKey = @"authkey";
 @end
 
 @interface DeveloperAuthenticationClient()
-@property (nonatomic, strong) NSString *identityPoolId;
-@property (nonatomic, strong) NSString *identityId;
-@property (nonatomic, strong) NSString *token;
 
 // used for internal encryption
 @property (nonatomic, strong) NSString *uid;
@@ -75,7 +73,6 @@ NSString *const EncryptionKeyKey = @"authkey";
 
 // login and get a decryption key to be used for subsequent calls
 - (AWSTask *)login:(NSString *)username password:(NSString *)password {
-    
     // If the key is already set, the login already succeeeded
     if (self.key) {
         return [AWSTask taskWithResult:self.key];

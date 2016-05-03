@@ -14,7 +14,6 @@
  */
 
 #import <Foundation/Foundation.h>
-#import <UICKeyChainStore/UICKeyChainStore.h>
 
 FOUNDATION_EXPORT NSString *const LoginURI;
 FOUNDATION_EXPORT NSString *const GetTokenURI;

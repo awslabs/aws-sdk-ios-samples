@@ -21,37 +21,25 @@
 
 @implementation AZCAppDelegate
 
-- (BOOL)application:(UIApplication *)application
-            openURL:(NSURL *)url
-  sourceApplication:(NSString *)sourceApplication
-         annotation:(id)annotation
-{
-    return [[AmazonClientManager sharedInstance] application:application openURL:url sourceApplication:sourceApplication annotation:annotation];
-}
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
     // Register if we haven't already
     if(![AWSCognito cognitoDeviceId]){
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= 80000
-    if ([application respondsToSelector:@selector(registerUserNotificationSettings:)]) {
-        [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert categories:nil]];
-    } else {
+        if ([application respondsToSelector:@selector(registerUserNotificationSettings:)]) {
+            [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert categories:nil]];
+        } else {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
-        [application registerForRemoteNotificationTypes:(UIRemoteNotificationTypeAlert)];
+            [application registerForRemoteNotificationTypes:(UIRemoteNotificationTypeAlert)];
 #pragma clang diagnostic pop
-    }
+        }
 #else
-    [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert];
+        [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert];
 #endif
     }
 
-#if TWITTER_LOGIN
-    [Fabric with:@[TwitterKit]];
-#endif
-    
     [AWSLogger defaultLogger].logLevel = AWSLogLevelDebug;
     return [[AmazonClientManager sharedInstance] application:application didFinishLaunchingWithOptions:launchOptions];
 }
@@ -70,9 +58,9 @@
 
 
 - (void)application:(UIApplication *)app didFailToRegisterForRemoteNotificationsWithError:(NSError *)err {
-    
+
     NSLog(@"Error in registering for remote notifications. Error: %@", err);
-    
+
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo

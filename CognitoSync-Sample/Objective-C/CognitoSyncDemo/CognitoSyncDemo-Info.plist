@@ -22,47 +22,17 @@
 	<string>1.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
-	<key>CFBundleURLTypes</key>
-	<array>
-		<dict>
-			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
-			<key>CFBundleURLName</key>
-			<string>Facebook URL Handler</string>
-			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>fbFB_APP_ID</string>
-			</array>
-		</dict>
-		<dict>
-			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
-			<key>CFBundleURLName</key>
-			<string>Amazon URL Handler</string>
-			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>amzn-com.amazon.aws.CognitoSyncDemo</string>
-			</array>
-		</dict>
-		<dict>
-			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
-			<key>CFBundleURLName</key>
-			<string>Google URL Handler</string>
-			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>com.amazon.aws.CognitoSyncDemo</string>
-			</array>
-		</dict>
-	</array>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
-	<key>FacebookAppID</key>
-	<string>FB_APP_ID</string>
-	<key>FacebookDisplayName</key>
-	<string>CHANGE ME: MY FB APP</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
+	<key>UILaunchStoryboardName</key>
+	<string>Launch Screen</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>

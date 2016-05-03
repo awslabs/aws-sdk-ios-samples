@@ -19,29 +19,14 @@
 @class AWSCognito;
 @class AWSTask;
 
-#if GOOGLE_LOGIN
-#if AMZN_LOGIN
-// Amazon and Google
-@interface AmazonClientManager:NSObject<UIAlertViewDelegate,UIActionSheetDelegate,GPPSignInDelegate,AIAuthenticationDelegate> {}
-#else
-// Just Google
-@interface AmazonClientManager:NSObject<UIAlertViewDelegate,UIActionSheetDelegate,GPPSignInDelegate> {}
-#endif
-#elif AMZN_LOGIN
-// Just Amazon
-@interface AmazonClientManager:NSObject<UIAlertViewDelegate,UIActionSheetDelegate,AIAuthenticationDelegate> {}
-#else
-// Neither Amazon nor Google
 @interface AmazonClientManager:NSObject<UIAlertViewDelegate,UIActionSheetDelegate> {}
-#endif
 
 - (BOOL)isConfigured;
 - (BOOL)isLoggedIn;
 - (void)logoutWithCompletionHandler:(AWSContinuationBlock)completionHandler;
 - (void)loginFromView:(UIView *)theView withCompletionHandler:(AWSContinuationBlock)completionHandler;
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(nullable NSDictionary *)launchOptions;
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation;
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions;
 
 - (void)resumeSessionWithCompletionHandler:(AWSContinuationBlock)completionHandler;
 

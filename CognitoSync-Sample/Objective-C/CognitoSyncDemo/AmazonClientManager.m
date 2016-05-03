@@ -21,27 +21,12 @@
 #import "DeveloperAuthenticatedIdentityProvider.h"
 #import "DeveloperAuthenticationClient.h"
 
-#define FB_PROVIDER             @"Facebook"
-#define GOOGLE_PROVIDER         @"Google"
-#define AMZN_PROVIDER           @"Amazon"
-#define TWITTER_PROVIDER        @"Twitter"
-#define DIGITS_PROVIDER         @"Digits"
-#define BYOI_PROVIDER           @"DeveloperAuth"
-
 @interface AmazonClientManager()
 
 @property (nonatomic, strong) AWSCognitoCredentialsProvider *credentialsProvider;
 @property (atomic, copy) AWSContinuationBlock completionHandler;
 @property (nonatomic, strong) UICKeyChainStore *keychain;
 @property (nonatomic, strong) DeveloperAuthenticationClient *devAuthClient;
-
-#if GOOGLE_LOGIN
-@property (strong, nonatomic) GTMOAuth2Authentication *googleAuth;
-#endif
-
-#if FB_LOGIN
-@property (strong, nonatomic) FBSDKLoginManager *facebookLogin;
-#endif 
 
 @end
 
@@ -63,68 +48,28 @@
     return !([CognitoIdentityPoolId isEqualToString:@"YourCognitoIdentityPoolId"] || CognitoRegionType == AWSRegionUnknown);
 }
 
-- (BOOL)isLoggedInWithFacebook {
-    BOOL loggedIn = NO;
-#if FB_LOGIN
-    loggedIn = [FBSDKAccessToken currentAccessToken] != nil;
-#endif
-    return self.keychain[FB_PROVIDER] != nil && loggedIn;
-}
-
-- (BOOL)isLoggedInWithGoogle {
-    BOOL loggedIn = NO;
-#if GOOGLE_LOGIN
-    loggedIn = self.googleAuth != nil;
-#endif
-    return self.keychain[GOOGLE_PROVIDER] != nil && loggedIn;
-}
-
-- (BOOL)isLoggedInWithAmazon {
-    return self.keychain[AMZN_PROVIDER] != nil;
-}
-
 - (BOOL)isLoggedInWithBYOI {
     return self.keychain[BYOI_PROVIDER] != nil && [self.devAuthClient isAuthenticated];
 }
 
-- (BOOL)isLoggedInWithTwitter {
-    BOOL loggedIn = NO;
-#if TWITTER_LOGIN
-    loggedIn = [Twitter sharedInstance].session != nil;
-#endif
-    return self.keychain[TWITTER_PROVIDER] != nil && loggedIn;
+- (BOOL)isLoggedIn {
+    return [self isLoggedInWithBYOI];
 }
 
-- (BOOL)isLoggedInWithDigits {
-    BOOL loggedIn = NO;
-#if TWITTER_LOGIN
-    loggedIn = [Digits sharedInstance].session != nil;
-#endif
-    return self.keychain[DIGITS_PROVIDER] != nil && loggedIn;
-}
-
-
-- (BOOL)isLoggedIn
-{
-    return ( [self isLoggedInWithFacebook] || [self isLoggedInWithGoogle] || [self isLoggedInWithAmazon] ||
-            [self isLoggedInWithBYOI] || [self isLoggedInWithTwitter] || [self isLoggedInWithDigits]);
-}
-
-- (AWSTask *)initializeClients:(NSDictionary *)logins {
+- (AWSTask *)initializeClients {
     NSLog(@"initializing clients...");
     [AWSLogger defaultLogger].logLevel = AWSLogLevelVerbose;
 
-    id<AWSCognitoIdentityProvider> identityProvider = [[DeveloperAuthenticatedIdentityProvider alloc] initWithRegionType:CognitoRegionType
-                                                                                                              identityId:nil
-                                                                                                          identityPoolId:CognitoIdentityPoolId
-                                                                                                                  logins:logins
-                                                                                                            providerName:DeveloperAuthProviderName
-                                                                                                              authClient:self.devAuthClient];
+    DeveloperAuthenticatedIdentityProvider *identityProviderManager = [[DeveloperAuthenticatedIdentityProvider alloc] initWithRegionType:CognitoRegionType
+                                                                                                                          identityPoolId:CognitoIdentityPoolId
+                                                                                                                            providerName:DeveloperAuthProviderName
+                                                                                                                              authClient:self.devAuthClient
+                                                                                                                 identityProviderManager:nil];
 
     self.credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:CognitoRegionType
-                                                                        identityProvider:identityProvider
                                                                            unauthRoleArn:nil
-                                                                             authRoleArn:nil];
+                                                                             authRoleArn:nil
+                                                                        identityProvider:identityProviderManager];
 
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:CognitoRegionType
                                                                          credentialsProvider:self.credentialsProvider];
@@ -132,39 +77,13 @@
     return [self.credentialsProvider getIdentityId];
 }
 
-- (void)wipeAll
-{
-    self.credentialsProvider.logins = nil;
-
+- (void)wipeAll {
     [[AWSCognito defaultCognito] wipe];
     [self.credentialsProvider clearKeychain];
 }
 
 - (void)logoutWithCompletionHandler:(AWSContinuationBlock)completionHandler
 {
-#if FB_LOGIN
-    if ([self isLoggedInWithFacebook]) {
-        [self FBLogout];
-    }
-#endif
-#if AMZN_LOGIN
-    if ([self isLoggedInWithAmazon]) {
-        [self AMZNLogout];
-    }
-#endif
-#if GOOGLE_LOGIN
-    if ([self isLoggedInWithGoogle]) {
-        [self GoogleLogout];
-    }
-#endif
-#if TWITTER_LOGIN
-    if ([self isLoggedInWithTwitter]) {
-        [self TwitterLogout];
-    }
-    if ([self isLoggedInWithDigits]) {
-        [self DigitsLogout];
-    }
-#endif
     [self.devAuthClient logout];
 
     [self wipeAll];
@@ -179,44 +98,7 @@
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(nullable NSDictionary *)launchOptions {
-    
-#if FB_LOGIN
-    return [[FBSDKApplicationDelegate sharedInstance] application:application
-                                    didFinishLaunchingWithOptions:launchOptions];
-#else
     return YES;
-#endif
-}
-
-- (BOOL)application:(UIApplication *)application
-            openURL:(NSURL *)url
-  sourceApplication:(NSString *)sourceApplication
-         annotation:(id)annotation
-{
-#if FB_LOGIN
-    // attempt to extract a FB token from the url
-    if ([[FBSDKApplicationDelegate sharedInstance] application:application
-                                                       openURL:url
-                                             sourceApplication:sourceApplication
-                                                    annotation:annotation]) {
-        return YES;
-    }
-#endif
-#if AMZN_LOGIN
-    // Handle Login with Amazon redirect
-    if ([AIMobileLib handleOpenURL:url sourceApplication:sourceApplication]) {
-        return YES;
-    }
-#endif
-#if GOOGLE_LOGIN
-    // Handle Google+ sign-in button URL.
-    if ([GPPURLHandler handleURL:url
-               sourceApplication:sourceApplication
-                      annotation:annotation]) {
-        return YES;
-    }
-#endif
-    return NO;
 }
 
 - (void)resumeSessionWithCompletionHandler:(AWSContinuationBlock)completionHandler
@@ -226,45 +108,20 @@
     if (self.keychain[BYOI_PROVIDER]) {
         [self reloadBYOISession];
     }
-#if FB_LOGIN
-    if (self.keychain[FB_PROVIDER]) {
-        [self reloadFBSession];
-    }
-#endif
-#if AMZN_LOGIN
-    if (self.keychain[AMZN_PROVIDER]) {
-        [self AMZNLogin];
-    }
-#endif
-#if GOOGLE_LOGIN
-    if (self.keychain[GOOGLE_PROVIDER]) {
-        [self reloadGSession];
-    }
-#endif
-#if TWITTER_LOGIN
-    if (self.keychain[TWITTER_PROVIDER]) {
-        [self TwitterLogin];
-    }
-    if (self.keychain[DIGITS_PROVIDER]) {
-        [self DigitsLogin];
-    }
-#endif
     if (self.credentialsProvider == nil) {
-        [self completeLogin:nil];
+        [self completeLogin];
     }
 }
 
--(void)completeLogin:(NSDictionary *)logins {
+-(void)completeLogin {
     AWSTask *task;
     if (self.credentialsProvider == nil) {
-        task = [self initializeClients:logins];
+        task = [self initializeClients];
     }
     else {
-        NSMutableDictionary *merge = [NSMutableDictionary dictionaryWithDictionary:self.credentialsProvider.logins];
-        [merge addEntriesFromDictionary:logins];
-        self.credentialsProvider.logins = merge;
         // Force a refresh of credentials to see if we need to merge
-        task = [self.credentialsProvider refresh];
+        [self.credentialsProvider invalidateCachedTemporaryCredentials];
+        task = [self.credentialsProvider getIdentityId];
     }
 
     [[task continueWithBlock:^id(AWSTask *task) {
@@ -295,7 +152,7 @@
                                        delegate:[AmazonClientManager sharedInstance]
                               cancelButtonTitle:@"Cancel"
                          destructiveButtonTitle:nil
-                              otherButtonTitles:FB_PROVIDER, GOOGLE_PROVIDER, AMZN_PROVIDER, TWITTER_PROVIDER, DIGITS_PROVIDER, BYOI_PROVIDER, nil];
+                              otherButtonTitles:BYOI_PROVIDER, nil];
 }
 
 + (UIAlertView *)errorAlert:(NSString *)message
@@ -316,29 +173,6 @@
     else if ([buttonTitle isEqualToString:BYOI_PROVIDER]) {
         [self BYOILogin];
     }
-#if FB_LOGIN
-    else if ([buttonTitle isEqualToString:FB_PROVIDER]) {
-        [self FBLogin];
-    }
-#endif
-#if AMZN_LOGIN
-    else if ([buttonTitle isEqualToString:AMZN_PROVIDER]) {
-        [self AMZNLogin];
-    }
-#endif
-#if GOOGLE_LOGIN
-    else if ([buttonTitle isEqualToString:GOOGLE_PROVIDER]) {
-        [self GoogleLogin];
-    }
-#endif
-#if TWITTER_LOGIN
-    else if ([buttonTitle isEqualToString:TWITTER_PROVIDER]) {
-        [self TwitterLogin];
-    }
-    else if ([buttonTitle isEqualToString:DIGITS_PROVIDER]) {
-        [self DigitsLogin];
-    }
-#endif
     else {
         [[AmazonClientManager errorAlert:@"Provider not implemented"] show];
         [[AWSTask taskWithResult:nil] continueWithBlock:self.completionHandler];
@@ -347,7 +181,7 @@
 
 #pragma mark - BYOI
 - (void)reloadBYOISession {
-    [self completeLogin:@{DeveloperAuthProviderName: self.keychain[BYOI_PROVIDER]}];
+    [self completeLogin];
 }
 
 - (void)BYOILogin
@@ -377,7 +211,7 @@
             }
             else {
                 self.keychain[BYOI_PROVIDER] = username;
-                [self completeLogin:@{DeveloperAuthProviderName: username}];
+                [self completeLogin];
             }
             return nil;
         }];
@@ -386,202 +220,5 @@
         [[AWSTask taskWithResult:nil] continueWithBlock:self.completionHandler];
     }
 }
-
-#if FB_LOGIN
-#pragma mark - Facebook
-
-- (void)reloadFBSession
-{
-    if ([FBSDKAccessToken currentAccessToken]) {
-        [self CompleteFBLogin];
-    }
-}
-
-
-- (void)CompleteFBLogin
-{
-    self.keychain[FB_PROVIDER] = @"YES";
-    [self completeLogin:@{@"graph.facebook.com": [FBSDKAccessToken currentAccessToken].tokenString}];
-
-}
-
-- (void)FBLogin
-{
-    if ([FBSDKAccessToken currentAccessToken]) {
-        [self CompleteFBLogin];
-        return;
-    }
-
-    if (!self.facebookLogin)
-        self.facebookLogin = [FBSDKLoginManager new];
-    
-    [self.facebookLogin logInWithReadPermissions:nil handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
-        if (error) {
-            [[AmazonClientManager errorAlert:[NSString stringWithFormat:@"Error logging in with FB: %@", error.localizedDescription]] show];
-        } else if (result.isCancelled) {
-            // Login canceled, do nothing
-        } else {
-            [self CompleteFBLogin];
-        }
-    }];
-}
-
-- (void)FBLogout
-{
-    if (!self.facebookLogin)
-        self.facebookLogin = [FBSDKLoginManager new];
-    
-    [self.facebookLogin logOut];
-    self.keychain[FB_PROVIDER] = nil;
-}
-#endif
-
-#if AMZN_LOGIN
-#pragma mark - Login With Amazon
-
-
-- (void)AMZNLogin
-{
-    [AIMobileLib authorizeUserForScopes:[NSArray arrayWithObject:@"profile"] delegate:self];
-}
-
-- (void)AMZNLogout
-{
-    [AIMobileLib clearAuthorizationState:self];
-    self.keychain[AMZN_PROVIDER] = nil;
-}
-
-- (void)requestDidSucceed:(APIResult*) apiResult {
-    if (apiResult.api == kAPIAuthorizeUser) {
-        [AIMobileLib getAccessTokenForScopes:[NSArray arrayWithObject:@"profile"] withOverrideParams:nil delegate:self];
-    }
-    else if (apiResult.api == kAPIGetAccessToken) {
-        NSString *token = (NSString *)apiResult.result;
-        NSLog(@"%@", token);
-
-        self.keychain[AMZN_PROVIDER] = @"YES";
-        [self completeLogin:@{@"www.amazon.com": token}];
-    }
-}
-
-- (void)requestDidFail:(APIError*) errorResponse {
-    [[AmazonClientManager errorAlert:[NSString stringWithFormat:@"Error logging in with Amazon: %@", errorResponse.error.message]] show];
-
-    [[AWSTask taskWithResult:nil] continueWithBlock:self.completionHandler];
-}
-
-#endif
-
-#if TWITTER_LOGIN
-
-#pragma mark - Twitter/Digits
-- (void)TwitterLogin
-{
-    [[Twitter sharedInstance] logInWithCompletion:^
-     (TWTRSession *session, NSError *error) {
-         if (session) {
-             NSLog(@"signed in as %@", [session userName]);
-             [self CompleteTwitterLogin];
-         } else {
-             NSLog(@"error: %@", [error localizedDescription]);
-         }
-     }];
-}
-
-- (void)CompleteTwitterLogin
-{
-    self.keychain[TWITTER_PROVIDER] = @"YES";
-    [self completeLogin:@{@"api.twitter.com":[self loginForTwitterSession:[Twitter sharedInstance].session]}];
-}
-
-- (void)TwitterLogout
-{
-    [[Twitter sharedInstance] logOut];
-    self.keychain[TWITTER_PROVIDER] = nil;
-}
-
-- (void)DigitsLogin
-{
-    [[Digits sharedInstance] authenticateWithCompletion:^
-     (DGTSession* session, NSError *error) {
-         if (session) {
-             NSLog(@"signed in as %@", [session phoneNumber]);
-             [self CompleteDigitsLogin];
-         }
-     }];
-}
-
-- (void)CompleteDigitsLogin
-{
-    self.keychain[DIGITS_PROVIDER] = @"YES";
-    [self completeLogin:@{@"www.digits.com":[self loginForTwitterSession:[Digits sharedInstance].session]}];
-}
-
-- (void)DigitsLogout
-{
-    [[Digits sharedInstance] logOut];
-    self.keychain[DIGITS_PROVIDER] = nil;
-}
-
-- (NSString *)loginForTwitterSession:(id<TWTRAuthSession>) session {
-    return [NSString stringWithFormat:@"%@;%@", session.authToken, session.authTokenSecret];
-}
-
-#endif
-     
-#if GOOGLE_LOGIN
-#pragma mark - Google
-- (GPPSignIn *)getGPlusLogin
-{
-    GPPSignIn *signIn = [GPPSignIn sharedInstance];
-    signIn.delegate = self;
-    signIn.clientID = GoogleClientID;
-    signIn.scopes = [NSArray arrayWithObjects:GoogleClientScope, GoogleOIDCScope, nil];
-    return signIn;
-}
-
-- (void)GoogleLogin
-{
-    GPPSignIn *signIn = [self getGPlusLogin];
-    [signIn authenticate];
-}
-
-- (void)GoogleLogout
-{
-    GPPSignIn *signIn = [self getGPlusLogin];
-    [signIn disconnect];
-    self.googleAuth = nil;
-    self.keychain[GOOGLE_PROVIDER] = nil;
-}
-
-- (void)reloadGSession
-{
-    GPPSignIn *signIn = [self getGPlusLogin];
-    [signIn trySilentAuthentication];
-}
-
-- (void)finishedWithAuth: (GTMOAuth2Authentication *)auth
-                   error: (NSError *) error
-{
-    if (self.googleAuth == nil) {
-        self.googleAuth = auth;
-
-        if (error != nil) {
-            [[AmazonClientManager errorAlert:[NSString stringWithFormat:@"Error logging in with Google: %@", error.description]] show];
-        }
-        else {
-            [self CompleteGLogin];
-        }
-    }
-}
-
--(void)CompleteGLogin
-{
-    NSString *idToken = [self.googleAuth.parameters objectForKey:@"id_token"];
-
-    self.keychain[GOOGLE_PROVIDER] = @"YES";
-    [self completeLogin:@{@"accounts.google.com": idToken}];
-}
-#endif
 
 @end

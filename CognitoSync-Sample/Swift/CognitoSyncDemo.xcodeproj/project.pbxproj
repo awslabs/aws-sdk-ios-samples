@@ -29,7 +29,6 @@
 		32DD04431BA0F8E800B98D7E /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32DD04421BA0F8E800B98D7E /* MediaPlayer.framework */; };
 		32DD04451BA0F8F500B98D7E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32DD04441BA0F8F500B98D7E /* SystemConfiguration.framework */; };
 		32DD04471BA0F8FE00B98D7E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32DD04461BA0F8FE00B98D7E /* UIKit.framework */; };
-		32DD044A1BA2082A00B98D7E /* LoginWithAmazon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32DD04491BA2082A00B98D7E /* LoginWithAmazon.framework */; };
 		32DD044E1BA276FC00B98D7E /* CognitoDatasetListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DD044D1BA276FC00B98D7E /* CognitoDatasetListViewController.swift */; };
 		32DD04501BA28DE300B98D7E /* CognitoDatasetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DD044F1BA28DE300B98D7E /* CognitoDatasetViewController.swift */; };
 		C8F9ADDAE9A3E1BEF332A4C1 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 325499AFA70550C8C4C4822A /* Pods.framework */; };
@@ -77,7 +76,6 @@
 		32DD04421BA0F8E800B98D7E /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		32DD04441BA0F8F500B98D7E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		32DD04461BA0F8FE00B98D7E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		32DD04491BA2082A00B98D7E /* LoginWithAmazon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = LoginWithAmazon.framework; sourceTree = "<group>"; };
 		32DD044D1BA276FC00B98D7E /* CognitoDatasetListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CognitoDatasetListViewController.swift; sourceTree = "<group>"; };
 		32DD044F1BA28DE300B98D7E /* CognitoDatasetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CognitoDatasetViewController.swift; sourceTree = "<group>"; };
 		4A6B94838A4BC9042C05EFCF /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -96,7 +94,6 @@
 				32DD043F1BA0F8D600B98D7E /* CoreGraphics.framework in Frameworks */,
 				32DD043D1BA0F8A400B98D7E /* CoreMotion.framework in Frameworks */,
 				32DD043B1BA0F89B00B98D7E /* CoreLocation.framework in Frameworks */,
-				32DD044A1BA2082A00B98D7E /* LoginWithAmazon.framework in Frameworks */,
 				32DD04391BA0F89100B98D7E /* Foundation.framework in Frameworks */,
 				32DD04371BA0F88500B98D7E /* AssetsLibrary.framework in Frameworks */,
 				32DD04351BA0F87500B98D7E /* AddressBook.framework in Frameworks */,
@@ -204,7 +201,6 @@
 		72C346D1A9F1744F5FE54AE4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				32DD04491BA2082A00B98D7E /* LoginWithAmazon.framework */,
 				32DD04461BA0F8FE00B98D7E /* UIKit.framework */,
 				32DD04441BA0F8F500B98D7E /* SystemConfiguration.framework */,
 				32DD04421BA0F8E800B98D7E /* MediaPlayer.framework */,
@@ -234,7 +230,6 @@
 				32DD03F71B9F890000B98D7E /* Resources */,
 				DC761FB4998AEE85BABD472F /* Embed Pods Frameworks */,
 				6F15FEFEFA54822FB50FA601 /* Copy Pods Resources */,
-				32DD04481BA1F82B00B98D7E /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -323,19 +318,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		32DD04481BA1F82B00B98D7E /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Fabric/Fabric.framework/run\" 447bc42e7fc3ecfd9f954eb0c05f575c4547a1f3 db437d522b5c6d8a585d3d1b76620ed9b042f33f9a909d9d9d2443870ed5b6ef";
-		};
 		6F15FEFEFA54822FB50FA601 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -543,8 +525,6 @@
 					"-framework",
 					"\"AssetsLibrary\"",
 					"-framework",
-					"\"Bolts\"",
-					"-framework",
 					"\"CoreGraphics\"",
 					"-framework",
 					"\"CoreLocation\"",
@@ -553,15 +533,7 @@
 					"-framework",
 					"\"CoreText\"",
 					"-framework",
-					"\"FBSDKCoreKit\"",
-					"-framework",
-					"\"FBSDKLoginKit\"",
-					"-framework",
 					"\"Foundation\"",
-					"-framework",
-					"\"GoogleOpenSource\"",
-					"-framework",
-					"\"GooglePlus\"",
 					"-framework",
 					"\"MediaPlayer\"",
 					"-framework",

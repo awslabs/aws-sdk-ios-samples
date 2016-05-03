@@ -14,84 +14,69 @@
  */
 
 #import "Crypto.h"
-#import <AWSCore/AWSCore.h>
+#import <UICKeyChainStore/UICKeyChainStore.h>
+
+#import "Constants.h"
 #import "DeveloperAuthenticatedIdentityProvider.h"
 #import "DeveloperAuthenticationClient.h"
 
-
-
 @interface DeveloperAuthenticatedIdentityProvider()
+
 @property (strong, atomic) DeveloperAuthenticationClient *client;
 @property (strong, atomic) NSString *providerName;
-@property (strong, atomic) NSString *token;
+@property (nonatomic, strong) UICKeyChainStore *keychain;
+
 @end
 
 @implementation DeveloperAuthenticatedIdentityProvider
-@synthesize providerName=_providerName;
-@synthesize token=_token;
 
 - (instancetype)initWithRegionType:(AWSRegionType)regionType
-                        identityId:(NSString *)identityId
                     identityPoolId:(NSString *)identityPoolId
-                            logins:(NSDictionary *)logins
                       providerName:(NSString *)providerName
-                        authClient:(DeveloperAuthenticationClient *)client {
-    if (self = [super initWithRegionType:regionType identityId:identityId accountId:nil identityPoolId:identityPoolId logins:logins]) {
-        self.client = client;
-        self.providerName = providerName;
+                        authClient:(DeveloperAuthenticationClient *)client
+           identityProviderManager:(id<AWSIdentityProviderManager>)identityProviderManager {
+    if (self = [super initWithRegionType:regionType
+                          identityPoolId:identityPoolId
+                         useEnhancedFlow:YES
+                 identityProviderManager:identityProviderManager]) {
+        _client = client;
+        _providerName = providerName;
+        _keychain = [UICKeyChainStore keyChainStoreWithService:[NSString stringWithFormat:@"%@.AmazonClientManager", [NSBundle mainBundle].bundleIdentifier]];
     }
     return self;
 }
 
-- (BOOL)authenticatedWithProvider {
-    return [self.logins objectForKey:self.providerName] != nil;
-}
-
-
-- (AWSTask *)getIdentityId {
-    // already cached the identity id, return it
-    if (self.identityId) {
-        return [AWSTask taskWithResult:nil];
-    }
-    // not authenticated with our developer provider
-    else if (![self authenticatedWithProvider]) {
-        return [super getIdentityId];
-    }
-    // authenticated with our developer provider, use refresh logic to get id/token pair
-    else {
-        return [[AWSTask taskWithResult:nil] continueWithBlock:^id(AWSTask *task) {
-            if (!self.identityId) {
-                return [self refresh];
-            }
-            return [AWSTask taskWithResult:self.identityId];
-        }];
-    }
-}
-
-- (AWSTask *)refresh {
-    if (![self authenticatedWithProvider]) {
-        // We're using the simplified flow, so just return identity id
-        return [super getIdentityId];
-    }
-    else {
-        return [[self.client getToken:self.identityId logins:self.logins] continueWithSuccessBlock:^id(AWSTask *task) {
+- (AWSTask<NSString *> *)token {
+    if ([self.client isAuthenticated]) {
+        // If the token lasts longer than the AWS temporary credentials,
+        // this section should be updated to cache the token and return it if it's still valid.
+        return [[self.client getToken:self.identityId logins:@{DeveloperAuthProviderName: self.keychain[BYOI_PROVIDER]}] continueWithSuccessBlock:^id _Nullable(AWSTask * _Nonnull task) {
             if (task.result) {
                 DeveloperAuthenticationResponse *response = task.result;
-                if (![self.identityPoolId isEqualToString:response.identityPoolId]) {
-                    return [AWSTask taskWithError:[NSError errorWithDomain:DeveloperAuthenticationClientDomain
-                                                                     code:DeveloperAuthenticationClientInvalidConfig
-                                                                 userInfo:nil]];
-                }
-                
-                // potential for identity change here
-                self.identityId = response.identityId;
-                self.token = response.token;
+                return response.token;
+            } else {
+                return task;
             }
-            return [AWSTask taskWithResult:self.identityId];
         }];
+    } else {
+        return [AWSTask taskWithResult:nil];
     }
 }
 
+- (AWSTask<NSString *> *)getIdentityId {
+    if ([self.client isAuthenticated]) {
+        return [[self.client getToken:self.identityId logins:@{DeveloperAuthProviderName: self.keychain[BYOI_PROVIDER]}] continueWithSuccessBlock:^id _Nullable(AWSTask * _Nonnull task) {
+            if (task.result) {
+                DeveloperAuthenticationResponse *response = task.result;
+                self.identityId = response.identityId;
+                return response.identityId;
+            } else {
+                return task;
+            }
+        }];
+    } else {
+        return [super getIdentityId];
+    }
+}
 
-            
 @end
