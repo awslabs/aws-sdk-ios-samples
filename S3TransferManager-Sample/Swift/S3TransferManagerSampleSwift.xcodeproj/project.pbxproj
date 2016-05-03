@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		95D6F0BF20B991C1E3C46611 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CF0874858E92FFAA685AD83 /* Pods.framework */; };
 		CE12F7081A8BF77900587899 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12F7071A8BF77900587899 /* Constants.swift */; };
 		CEF5A6471A76CDEF005FD191 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF5A6461A76CDEF005FD191 /* AppDelegate.swift */; };
 		CEF5A6491A76CDEF005FD191 /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF5A6481A76CDEF005FD191 /* UploadViewController.swift */; };
@@ -14,15 +15,13 @@
 		CEF5A64E1A76CDEF005FD191 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF5A64C1A76CDEF005FD191 /* Main.storyboard */; };
 		CEF5A6501A76CDEF005FD191 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEF5A64F1A76CDEF005FD191 /* Images.xcassets */; };
 		CEF5A6531A76CDEF005FD191 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEF5A6511A76CDEF005FD191 /* LaunchScreen.xib */; };
-		EDC1540BB5CC705DACC4EC92 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A3245CB63316922C1C68B69 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		104CBC0107C04B2F50565B56 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		1CF0874858E92FFAA685AD83 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		43BD8A57F0D30F87F5BB6134 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		8A3245CB63316922C1C68B69 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE12F7071A8BF77900587899 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		CE6E2E4D1A8AEFE200E6536A /* ObjectiveC-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ObjectiveC-Bridging-Header.h"; sourceTree = "<group>"; };
 		CEF5A6411A76CDEE005FD191 /* S3TransferManagerSampleSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = S3TransferManagerSampleSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEF5A6451A76CDEF005FD191 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CEF5A6461A76CDEF005FD191 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -38,7 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EDC1540BB5CC705DACC4EC92 /* libPods.a in Frameworks */,
+				95D6F0BF20B991C1E3C46611 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -57,7 +56,7 @@
 		AEEE0E39E825DE36373D91E1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8A3245CB63316922C1C68B69 /* libPods.a */,
+				1CF0874858E92FFAA685AD83 /* Pods.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -98,7 +97,6 @@
 		CEF5A6441A76CDEF005FD191 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				CE6E2E4D1A8AEFE200E6536A /* ObjectiveC-Bridging-Header.h */,
 				CEF5A6451A76CDEF005FD191 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -116,6 +114,7 @@
 				CEF5A63E1A76CDEE005FD191 /* Frameworks */,
 				CEF5A63F1A76CDEE005FD191 /* Resources */,
 				1E1FA00ABABFB69413D0F0D9 /* Copy Pods Resources */,
+				DACB24B78D8AFB71F8BCE5B7 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -187,6 +186,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DACB24B78D8AFB71F8BCE5B7 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E72C0EB7B341E57B050170A3 /* Check Pods Manifest.lock */ = {
@@ -328,7 +342,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.amazonaws.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "S3TransferManagerSampleSwift/ObjectiveC-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -343,7 +357,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.amazonaws.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "S3TransferManagerSampleSwift/ObjectiveC-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Release;
 		};

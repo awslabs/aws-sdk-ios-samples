@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@
 
 @property (nonatomic, strong) NSArray *pickerData;
 @property (nonatomic, strong) NSArray *rangeKeyArray;
+
 @end
 
 @implementation DDBSearchViewController
@@ -40,28 +41,26 @@
 }
 
 - (IBAction)searchBtnPressed:(id)sender {
-    
-    
     AWSDynamoDBObjectMapper *dynamoDBObjectMapper = [AWSDynamoDBObjectMapper defaultDynamoDBObjectMapper];
-    
+
     //Query using gsi index table
     //What is the top score ever recorded for the game Meteor Blasters?
     AWSDynamoDBQueryExpression *queryExpression = [AWSDynamoDBQueryExpression new];
-    queryExpression.hashKeyValues = [self.pickerData objectAtIndex:[self.gameTitlePickerView selectedRowInComponent:0]];
-    queryExpression.scanIndexForward = self.orderSegControl.selectedSegmentIndex==0?@YES:@NO;
+    queryExpression.scanIndexForward = self.orderSegControl.selectedSegmentIndex == 0 ? @YES : @NO;
     queryExpression.indexName = [self.sortSegControl titleForSegmentAtIndex:self.sortSegControl.selectedSegmentIndex]; //using indexTable for query
-    
-    queryExpression.hashKeyAttribute = @"GameTitle";
 
-    //example expression: @"TopScore <= 5000" or @"Wins >= 10"
-    queryExpression.rangeKeyConditionExpression = [NSString stringWithFormat:@"%@ > :rangeval",[self.rangeKeyArray objectAtIndex:self.sortSegControl.selectedSegmentIndex]];
-    
-    queryExpression.expressionAttributeValues = @{@":rangeval":[NSNumber numberWithDouble:self.rangeStepper.value]};
-    
+    queryExpression.keyConditionExpression = [NSString stringWithFormat:@"GameTitle = :gameTitle AND %@ > :rangeval",
+                                              [self.rangeKeyArray objectAtIndex:self.sortSegControl.selectedSegmentIndex]];
+
+    queryExpression.expressionAttributeValues = @{
+                                                  @":gameTitle" : [self.pickerData objectAtIndex:[self.gameTitlePickerView selectedRowInComponent:0]],
+                                                  @":rangeval" : [NSNumber numberWithDouble:self.rangeStepper.value]
+                                                  };
+
     [[dynamoDBObjectMapper query:[DDBTableRow class] expression:queryExpression] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             NSLog(@"Error: [%@]", task.error);
-            
+
             dispatch_async(dispatch_get_main_queue(), ^{
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
                                                                 message:@"Failed to query a test table."
@@ -70,12 +69,12 @@
                                                       otherButtonTitles:nil];
                 [alert show];
             });
-                          
+
         } else {
             self.paginatedOutput = task.result;
-             [self performSegueWithIdentifier:@"unwindToMainSegue" sender:self];
+            [self performSegueWithIdentifier:@"unwindToMainSegue" sender:self];
         }
-        
+
         return nil;
     }];
 }

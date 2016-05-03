@@ -62,5 +62,39 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>AWS</key>
+	<dict>
+		<key>CredentialsProvider</key>
+		<dict>
+			<key>CognitoIdentity</key>
+			<dict>
+				<key>Default</key>
+				<dict>
+					<key>PoolId</key>
+					<string>YourCognitoIdentityPoolId</string>
+					<key>Region</key>
+					<string>YourCognitoIdentityRegion</string>
+				</dict>
+			</dict>
+		</dict>
+		<key>SNS</key>
+		<dict>
+			<key>Default</key>
+			<dict>
+				<key>Region</key>
+				<string>YourSNSRegion</string>
+			</dict>
+		</dict>
+		<key>MobileAnalytics</key>
+		<dict>
+			<key>Default</key>
+			<dict>
+				<key>Region</key>
+				<string>YourMobileAnalyticsRegion</string>
+				<key>AppId</key>
+				<string>YourMobileAnalyticsAppId</string>
+			</dict>
+		</dict>
+	</dict>
 </dict>
 </plist>

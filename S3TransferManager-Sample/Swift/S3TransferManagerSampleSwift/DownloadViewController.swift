@@ -1,5 +1,5 @@
 /*
-* Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+* Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
 * You may not use this file except in compliance with the License.
@@ -14,6 +14,8 @@
 */
 
 import UIKit
+import AWSS3
+import JTSImageViewController
 
 class DownloadViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
@@ -92,9 +94,9 @@ class DownloadViewController: UIViewController, UICollectionViewDelegate, UIColl
                 print("listObjects failed: [\(exception)]")
             }
             if let listObjectsOutput = task.result as? AWSS3ListObjectsOutput {
-                if let contents = listObjectsOutput.contents as? [AWSS3Object] {
+                if let contents = listObjectsOutput.contents {
                     for s3Object in contents {
-                        let downloadingFileURL = NSURL(fileURLWithPath: NSTemporaryDirectory()).URLByAppendingPathComponent("download").URLByAppendingPathComponent(s3Object.key)
+                        let downloadingFileURL = NSURL(fileURLWithPath: NSTemporaryDirectory()).URLByAppendingPathComponent("download").URLByAppendingPathComponent(s3Object.key!)
                         let downloadingFilePath = downloadingFileURL.path!
                         
                         if NSFileManager.defaultManager().fileExistsAtPath(downloadingFilePath) {

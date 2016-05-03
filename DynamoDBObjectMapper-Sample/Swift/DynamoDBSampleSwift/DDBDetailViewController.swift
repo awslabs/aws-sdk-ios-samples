@@ -1,5 +1,5 @@
 /*
-* Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+* Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
 * You may not use this file except in compliance with the License.
@@ -14,6 +14,7 @@
 */
 
 import UIKit
+import AWSDynamoDB
 
 class DDBDetailViewController: UIViewController {
     
@@ -37,7 +38,8 @@ class DDBDetailViewController: UIViewController {
     func getTableRow() {
         let dynamoDBObjectMapper = AWSDynamoDBObjectMapper.defaultDynamoDBObjectMapper()
         
-        dynamoDBObjectMapper .load(DDBTableRow.self, hashKey: tableRow?.UserId, rangeKey: tableRow?.GameTitle) .continueWithExecutor(AWSExecutor.mainThreadExecutor(), withBlock: { (task:AWSTask!) -> AnyObject! in
+        //tableRow?.UserId --> (tableRow?.UserId)!
+        dynamoDBObjectMapper .load(DDBTableRow.self, hashKey: (tableRow?.UserId)!, rangeKey: tableRow?.GameTitle) .continueWithExecutor(AWSExecutor.mainThreadExecutor(), withBlock: { (task:AWSTask!) -> AnyObject! in
             if (task.error == nil) {
                 if (task.result != nil) {
                     let tableRow = task.result as! DDBTableRow
@@ -49,7 +51,7 @@ class DDBDetailViewController: UIViewController {
                 }
             } else {
                 print("Error: \(task.error)")
-                let alertController = UIAlertController(title: "Failed to get item from table.", message: task.error.description, preferredStyle: UIAlertControllerStyle.Alert)
+                let alertController = UIAlertController(title: "Failed to get item from table.", message: task.error!.description, preferredStyle: UIAlertControllerStyle.Alert)
                 let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: { (action:UIAlertAction) -> Void in
                 })
                 alertController.addAction(okAction)
@@ -81,7 +83,7 @@ class DDBDetailViewController: UIViewController {
             } else {
                 print("Error: \(task.error)")
                 
-                let alertController = UIAlertController(title: "Failed to insert the data into the table.", message: task.error.description, preferredStyle: UIAlertControllerStyle.Alert)
+                let alertController = UIAlertController(title: "Failed to insert the data into the table.", message: task.error!.description, preferredStyle: UIAlertControllerStyle.Alert)
                 let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: { (action:UIAlertAction) -> Void in
                 })
                 alertController.addAction(okAction)
@@ -112,7 +114,7 @@ class DDBDetailViewController: UIViewController {
             } else {
                 print("Error: \(task.error)")
                 
-                let alertController = UIAlertController(title: "Failed to update the data into the table.", message: task.error.description, preferredStyle: UIAlertControllerStyle.Alert)
+                let alertController = UIAlertController(title: "Failed to update the data into the table.", message: task.error!.description, preferredStyle: UIAlertControllerStyle.Alert)
                 let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: { (action:UIAlertAction) -> Void in
                 })
                 alertController.addAction(okAction)

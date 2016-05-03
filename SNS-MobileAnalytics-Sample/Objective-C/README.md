@@ -19,7 +19,11 @@ This sample demonstrates how you would track user engagement for the mobile push
 
         source 'https://github.com/CocoaPods/Specs.git'
         
-        pod 'AWSSNS'
+        platform :ios, '8.0'
+        use_frameworks!
+        
+        pod 'AWSMobileAnalytics', '~> 2.4.1'
+        pod 'AWSSNS', '~> 2.4.1'
         
 1. Then run the following command:
 	
@@ -30,13 +34,18 @@ This sample demonstrates how you would track user engagement for the mobile push
 1. Import the service headers in the bridging header in `AppDelegate.m`.
 
 		#import <AWSSNS/AWSSNS.h>
+        #import <AWSMobileAnalytics/AWSMobileAnalytics.h>
 
 1. In the [Amazon Cognito console](https://console.aws.amazon.com/cognito/), use Amazon Cognito to create a new identity pool. Obtain the `PoolID` constant. Make sure the [role](https://console.aws.amazon.com/iam/home?region=us-east-1#roles) has appropriate permissions for Amazon SNS Mobile Push and Amazon Mobile Analytics. Use Amazon Mobile Analytics to create an app, and obtain the `AppId` constant.
 
-1. Open `Constants.m` and update the following lines with the appropriate constants:
+1. Open `AppDelegate.m` and update the following lines with the appropriate constants:
 
-        AWSRegionType const CognitoRegionType = AWSRegionUnknown; // e.g. AWSRegionUSEast1
-        AWSRegionType const DefaultServiceRegionType = AWSRegionUnknown; // e.g. AWSRegionUSEast1
-        NSString *const CognitoIdentityPoolId = @"YourCognitoIdentityPoolId";
-        NSString *const SNSPlatformApplicationArn = @"YourSNSPlatformApplicationArn";
-        NSString *const MobileAnalyticsAppId = @"YourMobileAnalyticsAppId";
+        static NSString *const SNSPlatformApplicationArn = @"YourSNSPlatformApplicationArn";
+
+1. Open `Info.plist` and update the following lines with the appropriate constants:
+
+        AWS --> CredentialsProvider --> CognitoIdentity --> Default --> Region      // eg. USEast1
+        AWS --> CredentialsProvider --> CognitoIdentity --> Default --> PoolId
+        AWS --> SNS --> Default --> Region                                          // eg. USEast1
+        AWS --> MobileAnalytics --> Default --> Region                              // eg. USEast1
+        AWS --> MobileAnalytics --> Default --> AppId

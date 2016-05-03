@@ -19,7 +19,11 @@ This sample demonstrates how you would track user engagement for the mobile push
 
         source 'https://github.com/CocoaPods/Specs.git'
         
-        pod 'AWSSNS'
+        platform :ios, '8.0'
+        use_frameworks!
+        
+        pod 'AWSMobileAnalytics', '~> 2.4.1'
+        pod 'AWSSNS', '~> 2.4.1'
         
 1. Then run the following command:
 	
@@ -28,172 +32,22 @@ This sample demonstrates how you would track user engagement for the mobile push
 ##Getting Started with Swift
 
 1. Create an Objective-C bridging header file.
-1. Import the service headers in the bridging header.
 
-		#import <AWSSNS/AWSSNS.h>
+1. Import the service headers in the bridging header in `AppDelegate.swift`.
 
-1. Point **SWIFT_OBJC_BRIDGING_HEADER** to the bridging header by going to **Your Target** => **Build Settings** => **SWIFT_OBJC_BRIDGING_HEADER**.
+		import AWSMobileAnalytics
+		import AWSSNS
 
 1. In the [Amazon Cognito console](https://console.aws.amazon.com/cognito/), use Amazon Cognito to create a new identity pool. Obtain the `PoolID` constant. Make sure the [role](https://console.aws.amazon.com/iam/home?region=us-east-1#roles) has appropriate permissions for Amazon SNS Mobile Push and Amazon Mobile Analytics. Use Amazon Mobile Analytics to create an app, and obtain the `AppId` constant.
 
-1. Open `Constants.swift` and update the following lines with the appropriate constants:
+1. Open `AppDelegate.swift` and update the following lines with the appropriate constants:
 
-        let CognitoRegionType = AWSRegionType.Unknown
-        let DefaultServiceRegionType = AWSRegionType.Unknown
-        let CognitoIdentityPoolId = "YourCognitoIdentityPoolId"
         let SNSPlatformApplicationArn = "YourSNSPlatformApplicationArn"
-        let MobileAnalyticsAppId = "YourMobileAnalyticsAppId"
 
-1. Create a default service configuration by adding the following code snippet in the `@optional func application(_ application: UIApplication!, didFinishLaunchingWithOptions launchOptions: NSDictionary!) -> Bool` application delegate method.
+1. Open `Info.plist` and update the following lines with the appropriate constants:
 
-        let credentialsProvider = AWSCognitoCredentialsProvider(
-            regionType: CognitoRegionType,
-            identityPoolId: CognitoIdentityPoolId)
-        let defaultServiceConfiguration = AWSServiceConfiguration(
-            region: DefaultServiceRegionType,
-            credentialsProvider: credentialsProvider)
-        AWSServiceManager.defaultServiceManager().defaultServiceConfiguration = defaultServiceConfiguration
-
-##Set up interactive push notifications
-
-You can set up a notification category in `- application:didFinishLaunchingWithOptions:` using the following code:
-
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Sets up Mobile Push Notification
-        let readAction = UIMutableUserNotificationAction()
-        readAction.identifier = "READ_IDENTIFIER"
-        readAction.title = "Read"
-        readAction.activationMode = UIUserNotificationActivationMode.Foreground
-        readAction.destructive = false
-        readAction.authenticationRequired = true
-
-        let deleteAction = UIMutableUserNotificationAction()
-        deleteAction.identifier = "DELETE_IDENTIFIER"
-        deleteAction.title = "Delete"
-        deleteAction.activationMode = UIUserNotificationActivationMode.Foreground
-        deleteAction.destructive = true
-        deleteAction.authenticationRequired = true
-
-        let ignoreAction = UIMutableUserNotificationAction()
-        ignoreAction.identifier = "IGNORE_IDENTIFIER"
-        ignoreAction.title = "Ignore"
-        ignoreAction.activationMode = UIUserNotificationActivationMode.Foreground
-        ignoreAction.destructive = false
-        ignoreAction.authenticationRequired = false
-
-        let messageCategory = UIMutableUserNotificationCategory()
-        messageCategory.identifier = "MESSAGE_CATEGORY"
-        messageCategory.setActions([readAction, deleteAction], forContext: UIUserNotificationActionContext.Minimal)
-        messageCategory.setActions([readAction, deleteAction, ignoreAction], forContext: UIUserNotificationActionContext.Default)
-
-        let types = UIUserNotificationType.Badge | UIUserNotificationType.Sound | UIUserNotificationType.Alert
-        let notificationSettings = UIUserNotificationSettings(forTypes: types, categories: NSSet(object: messageCategory))
-
-        UIApplication.sharedApplication().registerForRemoteNotifications()
-        UIApplication.sharedApplication().registerUserNotificationSettings(notificationSettings)
-
-        ...
-
-        return true
-    }
-
-##Set up the Amazon Cognito credentials provider
-
-You can set up the Cognito credentials provider in `- application:didFinishLaunchingWithOptions:` as follows:
-
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-    
-        ...
-        
-        // Sets up the AWS Mobile SDK for iOS
-        let credentialsProvider = AWSCognitoCredentialsProvider(
-            regionType: CognitoRegionType,
-            identityPoolId: CognitoIdentityPoolId)
-        let defaultServiceConfiguration = AWSServiceConfiguration(
-            region: DefaultServiceRegionType,
-            credentialsProvider: credentialsProvider)
-        AWSServiceManager.defaultServiceManager().defaultServiceConfiguration = defaultServiceConfiguration
-
-        return true
-    }
-
-Once the default credentials provider is registered, you can start using default service clients anywhere in your app.
-
-##Register tokens for push notifications
-
-When iOS generates `deviceToken`, which is necessary for Amazon SNS Mobile Push, `- application:didRegisterForRemoteNotificationsWithDeviceToken:` is called. You can create an Amazon SNS platform application endpoint using the `deviceToken` as follows:
-
-    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
-        let deviceTokenString = "\(deviceToken)"
-            .stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString:"<>"))
-            .stringByReplacingOccurrencesOfString(" ", withString: "")
-        println("deviceTokenString: \(deviceTokenString)")
-
-        let sns = AWSSNS.defaultSNS()
-        let request = AWSSNSCreatePlatformEndpointInput()
-        request.token = deviceTokenString
-        request.platformApplicationArn = "YOUR-PLATFORM-APPLICATION-ARN"
-        sns.createPlatformEndpoint(request).continueWithBlock { (task: BFTask!) -> AnyObject! in
-            if task.error != nil {
-                println("Error: \(task.error)")
-            } else {
-                let createEndpointResponse = task.result as AWSSNSCreateEndpointResponse
-                println("endpointArn: \(createEndpointResponse.endpointArn)")
-            }
-
-            return nil
-        }
-    }
-
-You can use this generated **Endpoint ARN** to push notifications using Amazon SNS Mobile Push.
-
-##Receive push notifications callback
-
-When the iOS device receives the interactive push notification, and the user makes an action, `- application:handleActionWithIdentifier:forLocalNotification:completionHandler:` is called. By looking at `identifier`, you can find out which option the user selected in the interactive push notification.
-
-    func application(application: UIApplication, handleActionWithIdentifier identifier: String?, forRemoteNotification userInfo: [NSObject : AnyObject], completionHandler: () -> Void) {
-        if identifier == "READ_IDENTIFIER" {
-            println("User selected 'Read'")
-
-        } else if identifier == "DELETE_IDENTIFIER" {
-            println("User selected 'Delete'")
-        }
-
-        completionHandler()
-    }
-
-##Track user actions using Amazon Mobile Analytics
-
-You can track user actions by using the **Custom Events** feature of Amazon Mobile Analytics.
-
-    func application(application: UIApplication, handleActionWithIdentifier identifier: String?, forRemoteNotification userInfo: [NSObject : AnyObject], completionHandler: () -> Void) {
-        let mobileAnalytics = AWSMobileAnalytics(forAppId: "YOUR-APPID")
-        let eventClient = mobileAnalytics.eventClient
-        let pushNotificationEvent = eventClient.createEventWithEventType("PushNotificationEvent")
-
-        if identifier == "READ_IDENTIFIER" {
-            pushNotificationEvent.addAttribute("Read", forKey: "Action")
-            println("User selected 'Read'")
-
-        } else if identifier == "DELETE_IDENTIFIER" {
-            pushNotificationEvent.addAttribute("Deleted", forKey: "Action")
-            println("User selected 'Delete'")
-        } else {
-            pushNotificationEvent.addAttribute("Undefined", forKey: "Action")
-        }
-
-        eventClient.recordEvent(pushNotificationEvent)
-
-        completionHandler()
-    }
-
-##Push notifications and track user actions
-
-Now you are ready to push notifications to your device. Once you run the sample app, you can find your device endpoint in your app on the [AWS Management Console](http://aws.amazon.com/console/) under SNS. Select your device and click **Publish**. Select **Use platform specific JSON message dictionaries** option and copy and paste the following message, then click **Publish Message**.
-
-    {"APNS":"{\"aps\":{\"alert\":\"MESSAGE\",\"category\":\"MESSAGE_CATEGORY\"} }"}
-or if running in APNS_SANDBOX:
-
-	{"APNS_SANDBOX":"{\"aps\":{\"alert\":\"MESSAGE\",\"category\":\"MESSAGE_CATEGORY\"} }"}
-
-If your app is in the background, you receive an interactive notification. When you select *Read* or *Delete*, it is recorded by Amazon Mobile Analytics. You can see the metrics on the AWS Management Console under Mobile Analytics.
+        AWS --> CredentialsProvider --> CognitoIdentity --> Default --> Region      // eg. USEast1
+        AWS --> CredentialsProvider --> CognitoIdentity --> Default --> PoolId
+        AWS --> SNS --> Default --> Region                                          // eg. USEast1
+        AWS --> MobileAnalytics --> Default --> Region                              // eg. USEast1
+        AWS --> MobileAnalytics --> Default --> AppId

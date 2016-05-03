@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -13,10 +13,7 @@
  * permissions and limitations under the License.
  */
 
-#import <Foundation/Foundation.h>
-#import <AWSCore/AWSCore.h>
+@import Foundation;
+@import AWSCore;
 
-FOUNDATION_EXPORT AWSRegionType const CognitoRegionType;
-FOUNDATION_EXPORT AWSRegionType const DefaultServiceRegionType;
-FOUNDATION_EXPORT NSString *const CognitoIdentityPoolId;
 FOUNDATION_EXPORT NSString *const S3BucketName;

@@ -28,11 +28,17 @@ This sample demonstrates the Amazon S3 TransferManager found in the AWS Mobile S
 
 1. Open `S3TransferManagerSample.xcworkspace`.
 
-1. Open `Constants.m` and update the following lines with the appropriate constants:
+1. Open `Constants.m` and update the following line with the appropriate constant:
 
-        AWSRegionType const CognitoRegionType = AWSRegionUnknown; // e.g. AWSRegionUSEast1
-        AWSRegionType const DefaultServiceRegionType = AWSRegionUnknown; // e.g. AWSRegionUSEast1
-        NSString *const CognitoIdentityPoolId = @"YourCognitoIdentityPoolId";
         NSString *const S3BucketName = @"YourS3BucketName";
+
+1. Open `Info.plist` and update the following lines with the appropriate constants:
+
+    AWS --> CredentialsProvider --> CognitoIdentity --> Default --> Region      // eg. USEast1
+    AWS --> CredentialsProvider --> CognitoIdentity --> Default --> PoolId
+    AWS --> Cognito --> Default --> Region                                      // eg. USEast1
+    AWS --> S3TransferManager --> Default --> Region                            // eg. USEast1
+    AWS --> S3TransferUtility --> Default --> Region                            // eg. USEast1
+
 
 1. Build and run the sample app.

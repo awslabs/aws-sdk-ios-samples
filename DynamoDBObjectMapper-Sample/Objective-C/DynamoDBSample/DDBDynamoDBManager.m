@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -14,8 +14,8 @@
  */
 
 #import "DDBDynamoDBManager.h"
-#import <AWSDynamoDB/AWSDynamoDB.h>
-#import "Constants.h"
+
+static NSString *const AWSSampleDynamoDBTableName = @"DynamoDB-OM-Sample";
 
 @implementation DDBDynamoDBManager
 
@@ -52,11 +52,11 @@
     AWSDynamoDBAttributeDefinition *topScoreAttrDef = [AWSDynamoDBAttributeDefinition new];
     topScoreAttrDef.attributeName = @"TopScore";
     topScoreAttrDef.attributeType = AWSDynamoDBScalarAttributeTypeN;
-    
+
     AWSDynamoDBAttributeDefinition *winsAttrDef = [AWSDynamoDBAttributeDefinition new];
     winsAttrDef.attributeName = @"Wins";
     winsAttrDef.attributeType = AWSDynamoDBScalarAttributeTypeN;
-    
+
     AWSDynamoDBAttributeDefinition *lossesAttrDef = [AWSDynamoDBAttributeDefinition new];
     lossesAttrDef.attributeName = @"Losses";
     lossesAttrDef.attributeType = AWSDynamoDBScalarAttributeTypeN;
@@ -70,18 +70,18 @@
     NSMutableArray *gsiArray = [NSMutableArray new];
     for (NSString *rangeKey in rangeKeyArray) {
         AWSDynamoDBGlobalSecondaryIndex *gsi = [AWSDynamoDBGlobalSecondaryIndex new];
-        
+
         AWSDynamoDBKeySchemaElement *gsiHashKeySchema = [AWSDynamoDBKeySchemaElement new];
         gsiHashKeySchema.attributeName = @"GameTitle";
         gsiHashKeySchema.keyType = AWSDynamoDBKeyTypeHash;
-        
+
         AWSDynamoDBKeySchemaElement *gsiRangeKeySchema = [AWSDynamoDBKeySchemaElement new];
         gsiRangeKeySchema.attributeName = rangeKey;
         gsiRangeKeySchema.keyType = AWSDynamoDBKeyTypeRange;
-        
+
         AWSDynamoDBProjection *gsiProjection = [AWSDynamoDBProjection new];
         gsiProjection.projectionType = AWSDynamoDBProjectionTypeAll;
-        
+
         gsi.keySchema = @[gsiHashKeySchema,gsiRangeKeySchema];
         gsi.indexName = rangeKey;
         gsi.projection = gsiProjection;
@@ -89,7 +89,7 @@
 
         [gsiArray addObject:gsi];
     }
-    
+
 
     //Create TableInput
     AWSDynamoDBCreateTableInput *createTableInput = [AWSDynamoDBCreateTableInput new];
@@ -120,7 +120,7 @@
                 }];
             }
         }
-        
+
         return task;
     }];
 }

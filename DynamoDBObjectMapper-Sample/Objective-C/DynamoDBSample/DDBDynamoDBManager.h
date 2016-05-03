@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -17,7 +17,6 @@
 #import <AWSDynamoDB/AWSDynamoDB.h>
 
 @class DDBTableRow;
-@class AWSTask;
 
 @interface DDBDynamoDBManager : NSObject
 
@@ -37,4 +36,5 @@
 //Those properties should be ignored according to ignoreAttributes
 @property (nonatomic, strong) NSString *internalName;
 @property (nonatomic, strong) NSNumber *internalState;
+
 @end

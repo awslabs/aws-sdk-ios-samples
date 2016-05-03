@@ -16,21 +16,30 @@ This sample demonstrates the DynamoDB object mapper found in the AWS SDK for iOS
 
 1. To install the AWS Mobile SDK for iOS, simply add the following line to your **Podfile**:
 
-		pod "AWSiOSSDKv2"
+		source 'https://github.com/CocoaPods/Specs.git'
 
-	Then run the following command:
-	
-		pod install
+        platform :ios, '8.0'
+        use_frameworks!
+
+        pod 'AWSDynamoDB', '~> 2.4.1'
+
+1. Then run the following command:
+        	
+        pod install
 
 1. In the [Amazon Cognito console](https://console.aws.amazon.com/cognito/), use Amazon Cognito to create a new identity pool. Obtain the `PoolID` constant. Make sure the [role](https://console.aws.amazon.com/iam/home?region=us-east-1#roles) has full permissions for the sample table.
 
 1. Open `DynamoDBSample.xcworkspace`.
 
-1. Open `Constants.m` and update the following lines with the constants from step 1:
+1. Open `Constants.m` and update the following line (Optional):
 
-        AWSRegionType const CognitoRegionType = AWSRegionUnknown; // e.g. AWSRegionUSEast1
-        AWSRegionType const DefaultServiceRegionType = AWSRegionUnknown; // e.g. AWSRegionUSEast1
-        NSString *const CognitoIdentityPoolId = @"YourCognitoIdentityPoolId";
         NSString *const AWSSampleDynamoDBTableName = @"DynamoDB-OM-Sample";
+
+1. Open `Info.plist` and update the following lines with the appropriate constants:
+    
+        AWS --> CredentialsProvider --> CognitoIdentity --> Default --> Region      // e.g. USEast1
+        AWS --> CredentialsProvider --> CognitoIdentity --> Default --> PoolId      // e.g. us-east-1:12345678-1234-1234-1234-123456789abc
+        AWS --> DynamoDB --> Default --> Region                                     // e.g. USEast1
+        AWS --> DynamoDBObjectMapper --> Default --> Region                         // e.g. USEast1
 
 1. Build and run the sample app.

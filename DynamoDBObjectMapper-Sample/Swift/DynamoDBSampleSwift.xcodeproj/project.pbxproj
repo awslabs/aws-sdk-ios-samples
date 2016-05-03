@@ -7,19 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9244DD57889E689B5F8B6F7F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FF0178CEA1F46200BC931929 /* libPods.a */; };
+		2F5E719EF9380B3859D4E480 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22A346B37D279B38C8FAE03B /* Pods.framework */; };
 		BD5E346A1A4A22F9007A5169 /* DDBSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5E34691A4A22F9007A5169 /* DDBSearchViewController.swift */; };
 		BD843AFD1A44B071005E2575 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD843AFC1A44B071005E2575 /* AppDelegate.swift */; };
 		BD843B021A44B071005E2575 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD843B001A44B071005E2575 /* Main.storyboard */; };
 		BD843B041A44B071005E2575 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD843B031A44B071005E2575 /* Images.xcassets */; };
 		BD843B071A44B071005E2575 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD843B051A44B071005E2575 /* LaunchScreen.xib */; };
-		BD843B231A44C37E005E2575 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD843B221A44C37E005E2575 /* Constants.swift */; };
 		BD843B251A44C3E5005E2575 /* DDBDynamoDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD843B241A44C3E5005E2575 /* DDBDynamoDBManager.swift */; };
 		BD843B2A1A44F4C3005E2575 /* DDBDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD843B291A44F4C3005E2575 /* DDBDetailViewController.swift */; };
 		BD843B2E1A44F575005E2575 /* DDBMainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD843B2D1A44F575005E2575 /* DDBMainTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		22A346B37D279B38C8FAE03B /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		81D29617C9A717EDC419212F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		BD5E34691A4A22F9007A5169 /* DDBSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = DDBSearchViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		BD843AF71A44B071005E2575 /* DynamoDBSampleSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DynamoDBSampleSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -28,13 +28,10 @@
 		BD843B011A44B071005E2575 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BD843B031A44B071005E2575 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		BD843B061A44B071005E2575 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		BD843B221A44C37E005E2575 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BD843B241A44C3E5005E2575 /* DDBDynamoDBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = DDBDynamoDBManager.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		BD843B261A44C53D005E2575 /* DynamoDBSampleSwift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DynamoDBSampleSwift-Bridging-Header.h"; sourceTree = "<group>"; };
 		BD843B291A44F4C3005E2575 /* DDBDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = DDBDetailViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		BD843B2D1A44F575005E2575 /* DDBMainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = DDBMainTableViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		DDFE5AC52C51D83443C124DC /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		FF0178CEA1F46200BC931929 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,7 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9244DD57889E689B5F8B6F7F /* libPods.a in Frameworks */,
+				2F5E719EF9380B3859D4E480 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,7 +67,6 @@
 		BD843AF91A44B071005E2575 /* DynamoDBSampleSwift */ = {
 			isa = PBXGroup;
 			children = (
-				BD843B221A44C37E005E2575 /* Constants.swift */,
 				BD843AFC1A44B071005E2575 /* AppDelegate.swift */,
 				BD843B241A44C3E5005E2575 /* DDBDynamoDBManager.swift */,
 				BD843B2D1A44F575005E2575 /* DDBMainTableViewController.swift */,
@@ -88,7 +84,6 @@
 			isa = PBXGroup;
 			children = (
 				BD843AFB1A44B071005E2575 /* Info.plist */,
-				BD843B261A44C53D005E2575 /* DynamoDBSampleSwift-Bridging-Header.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -105,7 +100,7 @@
 		F97FE3DBE3C0C7AB85401551 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				FF0178CEA1F46200BC931929 /* libPods.a */,
+				22A346B37D279B38C8FAE03B /* Pods.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -122,6 +117,7 @@
 				BD843AF41A44B071005E2575 /* Frameworks */,
 				BD843AF51A44B071005E2575 /* Resources */,
 				683E128064F4FFD3E256A6CC /* Copy Pods Resources */,
+				1AC2C97A6006C222DD118FC9 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -180,6 +176,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		1AC2C97A6006C222DD118FC9 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		333574F80DC85CCE88742EFD /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -221,7 +232,6 @@
 				BD843B2E1A44F575005E2575 /* DDBMainTableViewController.swift in Sources */,
 				BD843AFD1A44B071005E2575 /* AppDelegate.swift in Sources */,
 				BD843B251A44C3E5005E2575 /* DDBDynamoDBManager.swift in Sources */,
-				BD843B231A44C37E005E2575 /* Constants.swift in Sources */,
 				BD5E346A1A4A22F9007A5169 /* DDBSearchViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -337,7 +347,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.amazonaws.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "DynamoDBSampleSwift/DynamoDBSampleSwift-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -353,7 +363,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.amazonaws.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "DynamoDBSampleSwift/DynamoDBSampleSwift-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Release;
 		};

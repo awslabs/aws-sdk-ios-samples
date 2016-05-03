@@ -7,18 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0204EF2EAC6B490DB5CE2EB8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F9C6AC714DE467BAF3078E5 /* libPods.a */; };
-		17480D601BC718C90022B2CF /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17480D5F1BC718C90022B2CF /* Launch Screen.storyboard */; settings = {ASSET_TAGS = (); }; };
+		17480D601BC718C90022B2CF /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17480D5F1BC718C90022B2CF /* Launch Screen.storyboard */; };
+		7D207530FCFE100325945B83 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 748A79D5DBFFB1033136ECF6 /* Pods.framework */; };
 		BD843AED1A438498005E2575 /* DDBSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD843AEC1A438498005E2575 /* DDBSearchViewController.m */; };
 		CE0DDA7A18BD19C900BD8F49 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE0DDA7918BD19C900BD8F49 /* Foundation.framework */; };
 		CE0DDA7C18BD19C900BD8F49 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE0DDA7B18BD19C900BD8F49 /* CoreGraphics.framework */; };
 		CE0DDA7E18BD19C900BD8F49 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE0DDA7D18BD19C900BD8F49 /* UIKit.framework */; };
-		CE0DDA8418BD19C900BD8F49 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE0DDA8218BD19C900BD8F49 /* InfoPlist.strings */; };
 		CE0DDA8618BD19C900BD8F49 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0DDA8518BD19C900BD8F49 /* main.m */; };
 		CE0DDA8A18BD19C900BD8F49 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0DDA8918BD19C900BD8F49 /* AppDelegate.m */; };
 		CE0DDA8D18BD19C900BD8F49 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE0DDA8B18BD19C900BD8F49 /* Main.storyboard */; };
 		CE0DDA9218BD19C900BD8F49 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE0DDA9118BD19C900BD8F49 /* Images.xcassets */; };
-		CE4729891935678900F49623 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4729881935678900F49623 /* Constants.m */; };
 		CE7BD55318C168DE0044F866 /* DDBDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7BD55218C168DE0044F866 /* DDBDetailViewController.m */; };
 		CE8A06CA18BD4AA6005CBA52 /* DDBMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8A06C918BD4AA6005CBA52 /* DDBMainViewController.m */; };
 		CEA9F50218C5270400B6AE51 /* DDBDynamoDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA9F50118C5270400B6AE51 /* DDBDynamoDBManager.m */; };
@@ -27,7 +25,7 @@
 /* Begin PBXFileReference section */
 		17480D5F1BC718C90022B2CF /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		3EACB15989C8207566228A17 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		3F9C6AC714DE467BAF3078E5 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		748A79D5DBFFB1033136ECF6 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		87B8A3C55F7CA7305E84CED4 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		BD843AEB1A438498005E2575 /* DDBSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDBSearchViewController.h; sourceTree = "<group>"; };
 		BD843AEC1A438498005E2575 /* DDBSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = DDBSearchViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
@@ -35,8 +33,7 @@
 		CE0DDA7918BD19C900BD8F49 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CE0DDA7B18BD19C900BD8F49 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		CE0DDA7D18BD19C900BD8F49 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		CE0DDA8118BD19C900BD8F49 /* DynamoDBSample-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DynamoDBSample-Info.plist"; sourceTree = "<group>"; };
-		CE0DDA8318BD19C900BD8F49 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CE0DDA8118BD19C900BD8F49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE0DDA8518BD19C900BD8F49 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CE0DDA8718BD19C900BD8F49 /* DynamoDBSample-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DynamoDBSample-Prefix.pch"; sourceTree = "<group>"; };
 		CE0DDA8818BD19C900BD8F49 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -44,8 +41,6 @@
 		CE0DDA8C18BD19C900BD8F49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CE0DDA9118BD19C900BD8F49 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CE0DDA9818BD19C900BD8F49 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		CE4729871935678900F49623 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
-		CE4729881935678900F49623 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		CE7BD55118C168DE0044F866 /* DDBDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDBDetailViewController.h; sourceTree = "<group>"; };
 		CE7BD55218C168DE0044F866 /* DDBDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDBDetailViewController.m; sourceTree = "<group>"; };
 		CE8A06C818BD4AA6005CBA52 /* DDBMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDBMainViewController.h; sourceTree = "<group>"; };
@@ -62,7 +57,7 @@
 				CE0DDA7C18BD19C900BD8F49 /* CoreGraphics.framework in Frameworks */,
 				CE0DDA7E18BD19C900BD8F49 /* UIKit.framework in Frameworks */,
 				CE0DDA7A18BD19C900BD8F49 /* Foundation.framework in Frameworks */,
-				0204EF2EAC6B490DB5CE2EB8 /* libPods.a in Frameworks */,
+				7D207530FCFE100325945B83 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,37 +98,12 @@
 				CE0DDA7B18BD19C900BD8F49 /* CoreGraphics.framework */,
 				CE0DDA7D18BD19C900BD8F49 /* UIKit.framework */,
 				CE0DDA9818BD19C900BD8F49 /* XCTest.framework */,
-				3F9C6AC714DE467BAF3078E5 /* libPods.a */,
+				748A79D5DBFFB1033136ECF6 /* Pods.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		CE0DDA7F18BD19C900BD8F49 /* DynamoDBSample */ = {
-			isa = PBXGroup;
-			children = (
-				CE4729871935678900F49623 /* Constants.h */,
-				CE4729881935678900F49623 /* Constants.m */,
-				CE7BD55018C168B20044F866 /* DynamoDB */,
-				CE0DDA8B18BD19C900BD8F49 /* Main.storyboard */,
-				CE0DDA9118BD19C900BD8F49 /* Images.xcassets */,
-				CE0DDA8018BD19C900BD8F49 /* Supporting Files */,
-				17480D5F1BC718C90022B2CF /* Launch Screen.storyboard */,
-			);
-			path = DynamoDBSample;
-			sourceTree = "<group>";
-		};
-		CE0DDA8018BD19C900BD8F49 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				CE0DDA8118BD19C900BD8F49 /* DynamoDBSample-Info.plist */,
-				CE0DDA8218BD19C900BD8F49 /* InfoPlist.strings */,
-				CE0DDA8518BD19C900BD8F49 /* main.m */,
-				CE0DDA8718BD19C900BD8F49 /* DynamoDBSample-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		CE7BD55018C168B20044F866 /* DynamoDB */ = {
 			isa = PBXGroup;
 			children = (
 				CE0DDA8818BD19C900BD8F49 /* AppDelegate.h */,
@@ -146,8 +116,22 @@
 				CE7BD55218C168DE0044F866 /* DDBDetailViewController.m */,
 				BD843AEB1A438498005E2575 /* DDBSearchViewController.h */,
 				BD843AEC1A438498005E2575 /* DDBSearchViewController.m */,
+				CE0DDA8B18BD19C900BD8F49 /* Main.storyboard */,
+				CE0DDA9118BD19C900BD8F49 /* Images.xcassets */,
+				CE0DDA8018BD19C900BD8F49 /* Supporting Files */,
+				17480D5F1BC718C90022B2CF /* Launch Screen.storyboard */,
 			);
-			name = DynamoDB;
+			path = DynamoDBSample;
+			sourceTree = "<group>";
+		};
+		CE0DDA8018BD19C900BD8F49 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CE0DDA8118BD19C900BD8F49 /* Info.plist */,
+				CE0DDA8518BD19C900BD8F49 /* main.m */,
+				CE0DDA8718BD19C900BD8F49 /* DynamoDBSample-Prefix.pch */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,6 +146,7 @@
 				CE0DDA7318BD19C900BD8F49 /* Frameworks */,
 				CE0DDA7418BD19C900BD8F49 /* Resources */,
 				9DCC3CB5FE3A42E59359E55D /* Copy Pods Resources */,
+				5567C57ED33B4F4C340BEEFC /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -205,7 +190,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE0DDA9218BD19C900BD8F49 /* Images.xcassets in Resources */,
-				CE0DDA8418BD19C900BD8F49 /* InfoPlist.strings in Resources */,
 				17480D601BC718C90022B2CF /* Launch Screen.storyboard in Resources */,
 				CE0DDA8D18BD19C900BD8F49 /* Main.storyboard in Resources */,
 			);
@@ -227,6 +211,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		5567C57ED33B4F4C340BEEFC /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		9DCC3CB5FE3A42E59359E55D /* Copy Pods Resources */ = {
@@ -257,21 +256,12 @@
 				CE0DDA8618BD19C900BD8F49 /* main.m in Sources */,
 				BD843AED1A438498005E2575 /* DDBSearchViewController.m in Sources */,
 				CE8A06CA18BD4AA6005CBA52 /* DDBMainViewController.m in Sources */,
-				CE4729891935678900F49623 /* Constants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		CE0DDA8218BD19C900BD8F49 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CE0DDA8318BD19C900BD8F49 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
 		CE0DDA8B18BD19C900BD8F49 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -363,7 +353,8 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DynamoDBSample/DynamoDBSample-Prefix.pch";
-				INFOPLIST_FILE = "DynamoDBSample/DynamoDBSample-Info.plist";
+				INFOPLIST_FILE = DynamoDBSample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.amazonaws.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = DynamoDBSample;
 				WRAPPER_EXTENSION = app;
@@ -379,7 +370,8 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DynamoDBSample/DynamoDBSample-Prefix.pch";
-				INFOPLIST_FILE = "DynamoDBSample/DynamoDBSample-Info.plist";
+				INFOPLIST_FILE = DynamoDBSample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.amazonaws.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = DynamoDBSample;
 				WRAPPER_EXTENSION = app;

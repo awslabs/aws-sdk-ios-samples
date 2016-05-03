@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -14,7 +14,8 @@
  */
 
 #import <UIKit/UIKit.h>
-@class AWSDynamoDBPaginatedOutput;
+
+#import <AWSDynamoDB/AWSDynamoDB.h>
 
 @interface DDBSearchViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>
 
@@ -25,6 +26,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *rangeConditionLabel;
 
 @property (strong, nonatomic) AWSDynamoDBPaginatedOutput *paginatedOutput;
+
 - (IBAction)searchBtnPressed:(id)sender;
 - (IBAction)rangeStepperChanged:(UIStepper *)sender;
 

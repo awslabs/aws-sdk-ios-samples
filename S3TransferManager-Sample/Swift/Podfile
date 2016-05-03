@@ -1,6 +1,8 @@
-source 'https://github.com/CocoaPods/Specs.git'
+source 'ssh://git.amazon.com:2222/pkg/AWSCocoaPodsSpecs'
 
 platform :ios, '8.0'
-pod 'AWSS3', '~> 2.3.0'
+use_frameworks!
+
+pod 'AWSS3', '~> 2.4.0’
 pod 'ELCImagePickerController'
 pod 'JTSImageViewController'

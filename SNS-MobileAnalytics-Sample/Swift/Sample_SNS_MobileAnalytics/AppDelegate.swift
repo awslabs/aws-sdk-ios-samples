@@ -14,9 +14,13 @@
 */
 
 import UIKit
+import AWSMobileAnalytics
+import AWSSNS
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+
+    let SNSPlatformApplicationArn = "YourSNSPlaatformApplicationArn"
 
     var window: UIWindow?
 
@@ -58,15 +62,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.sharedApplication().registerForRemoteNotifications()
         UIApplication.sharedApplication().registerUserNotificationSettings(notificationSettings)
 
-        // Sets up the AWS Mobile SDK for iOS
-        let credentialsProvider = AWSCognitoCredentialsProvider(
-            regionType: CognitoRegionType,
-            identityPoolId: CognitoIdentityPoolId)
-        let defaultServiceConfiguration = AWSServiceConfiguration(
-            region: DefaultServiceRegionType,
-            credentialsProvider: credentialsProvider)
-        AWSServiceManager.defaultServiceManager().defaultServiceConfiguration = defaultServiceConfiguration
-
         return true
     }
 
@@ -77,7 +72,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print("deviceTokenString: \(deviceTokenString)")
         NSUserDefaults.standardUserDefaults().setObject(deviceTokenString, forKey: "deviceToken")
         mainViewController()?.displayDeviceInfo()
-
+    
         let sns = AWSSNS.defaultSNS()
         let request = AWSSNSCreatePlatformEndpointInput()
         request.token = deviceTokenString
@@ -105,7 +100,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(application: UIApplication, handleActionWithIdentifier identifier: String?, forRemoteNotification userInfo: [NSObject : AnyObject], completionHandler: () -> Void) {
-        let mobileAnalytics = AWSMobileAnalytics(forAppId: MobileAnalyticsAppId)
+        
+        let mobileAnalytics = AWSMobileAnalytics.defaultMobileAnalytics()
         let eventClient = mobileAnalytics.eventClient
         let pushNotificationEvent = eventClient.createEventWithEventType("PushNotificationEvent")
 

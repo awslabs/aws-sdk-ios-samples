@@ -16,7 +16,12 @@ This sample demonstrates the DynamoDB object mapper found in the AWS SDK for iOS
 
 1. To install the AWS Mobile SDK for iOS, simply add the following line to your **Podfile**:
 
-		pod "AWSiOSSDKv2"
+        source 'https://github.com/CocoaPods/Specs.git'
+        
+        platform :ios, '8.0'
+        use_frameworks!
+        
+        pod 'AWSDynamoDB', '~> 2.4.1'
 
 	Then run the following command:
 	
@@ -26,11 +31,11 @@ This sample demonstrates the DynamoDB object mapper found in the AWS SDK for iOS
 
 1. Open `DynamoDBSampleSwift.xcworkspace`.
 
-1. Open `Constants.swift` and update the following lines with the constants from step 1:
+1. Open `Info.plist` and update the following lines with the appropriate constants:
 
-        let CognitoRegionType = AWSRegionType.Unknown
-        let DefaultServiceRegionType = AWSRegionType.Unknown
-        let CognitoIdentityPoolId = "YourCognitoIdentityPoolId"
-        let AWSSampleDynamoDBTableName = "DynamoDB-OM-SwiftSample"
+        AWS --> CredentialsProvider --> CognitoIdentity --> Default --> Region      // eg. USEast1
+        AWS --> CredentialsProvider --> CognitoIdentity --> Default --> PoolId
+        AWS --> DynamoDB --> Default --> Region                                     // eg. USEast1
+        AWS --> DynamoDBObjectMapper --> Default --> Region                         // eg. USEast1
 
 1. Build and run the sample app.

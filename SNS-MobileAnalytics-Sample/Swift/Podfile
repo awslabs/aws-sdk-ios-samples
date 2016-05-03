@@ -1,5 +1,7 @@
 source 'https://github.com/CocoaPods/Specs.git'
 
 platform :ios, '8.0'
-pod 'AWSMobileAnalytics', '~> 2.3.0'
-pod 'AWSSNS', '~> 2.3.0’
+use_frameworks!
+
+pod 'AWSMobileAnalytics', '~> 2.4.1'
+pod 'AWSSNS', '~> 2.4.1'

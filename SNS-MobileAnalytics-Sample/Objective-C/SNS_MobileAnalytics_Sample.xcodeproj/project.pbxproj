@@ -7,18 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B923E6CA80458E6A13355325 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 07E8D758DDCC89D76B48D90A /* libPods.a */; };
 		BDB1E8BB19F9BAFA00E38109 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BDB1E8BA19F9BAFA00E38109 /* main.m */; };
 		BDB1E8BE19F9BAFA00E38109 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BDB1E8BD19F9BAFA00E38109 /* AppDelegate.m */; };
 		BDB1E8C119F9BAFA00E38109 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDB1E8C019F9BAFA00E38109 /* ViewController.m */; };
 		BDB1E8C419F9BAFA00E38109 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDB1E8C219F9BAFA00E38109 /* Main.storyboard */; };
 		BDB1E8C619F9BAFA00E38109 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDB1E8C519F9BAFA00E38109 /* Images.xcassets */; };
 		BDB1E8C919F9BAFA00E38109 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BDB1E8C719F9BAFA00E38109 /* LaunchScreen.xib */; };
-		CE0A459F1A79D151006FCCD3 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0A459E1A79D151006FCCD3 /* Constants.m */; };
+		D62986A3BB8679412EFB24F5 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 192A2B04E7C284922673F127 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		07E8D758DDCC89D76B48D90A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		192A2B04E7C284922673F127 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		507F1F413B764E407A14CAA8 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		BDB1E8B519F9BAFA00E38109 /* SNS_MobileAnalytics_Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SNS_MobileAnalytics_Sample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDB1E8B919F9BAFA00E38109 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -31,8 +30,6 @@
 		BDB1E8C519F9BAFA00E38109 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		BDB1E8C819F9BAFA00E38109 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		C11A878988326E85EBEB6CAC /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		CE0A459D1A79D151006FCCD3 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
-		CE0A459E1A79D151006FCCD3 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,7 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B923E6CA80458E6A13355325 /* libPods.a in Frameworks */,
+				D62986A3BB8679412EFB24F5 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,7 +56,7 @@
 		62309933D439E9E7272B399C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				07E8D758DDCC89D76B48D90A /* libPods.a */,
+				192A2B04E7C284922673F127 /* Pods.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -85,8 +82,6 @@
 		BDB1E8B719F9BAFA00E38109 /* SNS_MobileAnalytics_Sample */ = {
 			isa = PBXGroup;
 			children = (
-				CE0A459D1A79D151006FCCD3 /* Constants.h */,
-				CE0A459E1A79D151006FCCD3 /* Constants.m */,
 				BDB1E8BC19F9BAFA00E38109 /* AppDelegate.h */,
 				BDB1E8BD19F9BAFA00E38109 /* AppDelegate.m */,
 				BDB1E8BF19F9BAFA00E38109 /* ViewController.h */,
@@ -120,6 +115,7 @@
 				BDB1E8B219F9BAFA00E38109 /* Frameworks */,
 				BDB1E8B319F9BAFA00E38109 /* Resources */,
 				BD13C524D4691A861C04D376 /* Copy Pods Resources */,
+				ADA156738D393FCB6DC03313 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -141,7 +137,7 @@
 				TargetAttributes = {
 					BDB1E8B419F9BAFA00E38109 = {
 						CreatedOnToolsVersion = 6.1;
-						DevelopmentTeam = W3DRXD72QU;
+						DevelopmentTeam = 8ZFZ59M4S8;
 					};
 				};
 			};
@@ -192,6 +188,21 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		ADA156738D393FCB6DC03313 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		BD13C524D4691A861C04D376 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -217,7 +228,6 @@
 				BDB1E8C119F9BAFA00E38109 /* ViewController.m in Sources */,
 				BDB1E8BE19F9BAFA00E38109 /* AppDelegate.m in Sources */,
 				BDB1E8BB19F9BAFA00E38109 /* main.m in Sources */,
-				CE0A459F1A79D151006FCCD3 /* Constants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,7 +341,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SNS_MobileAnalytics_Sample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.amazonaws.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.amazonaws.SNS-MobileAnalytics-Sample0012";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -346,7 +356,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SNS_MobileAnalytics_Sample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.amazonaws.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.amazonaws.SNS-MobileAnalytics-Sample0012";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

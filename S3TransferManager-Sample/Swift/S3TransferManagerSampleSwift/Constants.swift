@@ -1,5 +1,5 @@
 /*
-* Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+* Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
 * You may not use this file except in compliance with the License.
@@ -14,9 +14,7 @@
 */
 
 import Foundation
+import AWSCore
 
 //WARNING: To run this sample correctly, you must set the following constants.
-let CognitoRegionType = AWSRegionType.Unknown  // e.g. AWSRegionType.USEast1
-let DefaultServiceRegionType = AWSRegionType.Unknown // e.g. AWSRegionType.USEast1
-let CognitoIdentityPoolId = "YourCognitoIdentityPoolId"
-let S3BucketName = "YourS3BucketName"
+let S3BucketName = "S3BucketName"

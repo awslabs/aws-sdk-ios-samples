@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -14,9 +14,11 @@
  */
 
 #import "UploadViewController.h"
-#import <AssetsLibrary/AssetsLibrary.h>
-#import <AWSS3/AWSS3.h>
+
 #import "Constants.h"
+
+@import AssetsLibrary;
+@import AWSS3;
 
 @interface UploadViewController ()
 

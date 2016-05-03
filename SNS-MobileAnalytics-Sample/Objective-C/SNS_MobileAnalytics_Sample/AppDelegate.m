@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -15,10 +15,11 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
-#import "Constants.h"
 
-#import <AWSMobileAnalytics/AWSMobileAnalytics.h>
 #import <AWSSNS/AWSSNS.h>
+#import <AWSMobileAnalytics/AWSMobileAnalytics.h>
+
+static NSString *const SNSPlatformApplicationArn = @"YourSNSPlatformApplicationArn";
 
 @interface AppDelegate ()
 
@@ -66,14 +67,6 @@
     [[UIApplication sharedApplication] registerUserNotificationSettings:notificationSettings];
     [[UIApplication sharedApplication] registerForRemoteNotifications];
 
-    // Sets up the AWS Mobile SDK for iOS
-    AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:CognitoRegionType
-                                                                                                    identityPoolId:CognitoIdentityPoolId];
-    AWSServiceConfiguration *defaultServiceConfiguration = [[AWSServiceConfiguration alloc] initWithRegion:DefaultServiceRegionType
-                                                                                       credentialsProvider:credentialsProvider];
-
-    AWSServiceManager.defaultServiceManager.defaultServiceConfiguration = defaultServiceConfiguration;
-
     return YES;
 }
 
@@ -84,7 +77,8 @@
     [[NSUserDefaults standardUserDefaults] setObject:deviceTokenString forKey:@"deviceToken"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     [self.window.rootViewController.childViewControllers.firstObject performSelectorOnMainThread:@selector(displayDeviceInfo) withObject:nil waitUntilDone:nil];
-
+    
+    
     AWSSNS *sns = [AWSSNS defaultSNS];
     AWSSNSCreatePlatformEndpointInput *request = [AWSSNSCreatePlatformEndpointInput new];
     request.token = deviceTokenString;
@@ -116,7 +110,8 @@
 }
 
 - (void)application:(UIApplication *)application handleActionWithIdentifier:(NSString *)identifier forRemoteNotification:(NSDictionary *)userInfo completionHandler:(void (^)())completionHandler {
-    AWSMobileAnalytics *mobileAnalytics = [AWSMobileAnalytics mobileAnalyticsForAppId:MobileAnalyticsAppId];
+    
+    AWSMobileAnalytics *mobileAnalytics = [AWSMobileAnalytics defaultMobileAnalytics];
     id<AWSMobileAnalyticsEventClient> eventClient = mobileAnalytics.eventClient;
     id<AWSMobileAnalyticsEvent> pushNotificationEvent = [eventClient createEventWithEventType:@"PushNotificationEvent"];
 

@@ -1,0 +1,395 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9B385EC7FFC95377F43B1507 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88491F46DB1E92F588C5B2BD /* Pods.framework */; };
+		BDCB7B0319CCB6320089B5AE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BDCB7B0219CCB6320089B5AE /* main.m */; };
+		BDCB7B0619CCB6320089B5AE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BDCB7B0519CCB6320089B5AE /* AppDelegate.m */; };
+		BDCB7B0919CCB6320089B5AE /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDCB7B0819CCB6320089B5AE /* FirstViewController.m */; };
+		BDCB7B0C19CCB6320089B5AE /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDCB7B0B19CCB6320089B5AE /* SecondViewController.m */; };
+		BDCB7B0F19CCB6320089B5AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDCB7B0D19CCB6320089B5AE /* Main.storyboard */; };
+		BDCB7B1119CCB6330089B5AE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDCB7B1019CCB6330089B5AE /* Images.xcassets */; };
+		BDCB7B3319CCBAF30089B5AE /* TemplateIcon2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BDCB7B3219CCBAF30089B5AE /* TemplateIcon2x.png */; };
+		BDCB7B3519CCBB060089B5AE /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = BDCB7B3419CCBB060089B5AE /* Constants.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		845F78CD5DA166168BBAB982 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		88491F46DB1E92F588C5B2BD /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDCB7AFD19CCB6320089B5AE /* S3TransferUtilitySampleObjC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = S3TransferUtilitySampleObjC.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDCB7B0119CCB6320089B5AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BDCB7B0219CCB6320089B5AE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		BDCB7B0419CCB6320089B5AE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		BDCB7B0519CCB6320089B5AE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		BDCB7B0719CCB6320089B5AE /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
+		BDCB7B0819CCB6320089B5AE /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		BDCB7B0A19CCB6320089B5AE /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		BDCB7B0B19CCB6320089B5AE /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		BDCB7B0E19CCB6320089B5AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BDCB7B1019CCB6330089B5AE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		BDCB7B3119CCBAF30089B5AE /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		BDCB7B3219CCBAF30089B5AE /* TemplateIcon2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TemplateIcon2x.png; sourceTree = "<group>"; };
+		BDCB7B3419CCBB060089B5AE /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		C719624220C66D68D2A28AD6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BDCB7AFA19CCB6320089B5AE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B385EC7FFC95377F43B1507 /* Pods.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6EAB0826B7F643BCA520CD7D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				88491F46DB1E92F588C5B2BD /* Pods.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BDCB7AF419CCB6320089B5AE = {
+			isa = PBXGroup;
+			children = (
+				BDCB7AFF19CCB6320089B5AE /* S3BackgroundTransferSampleObjC */,
+				BDCB7AFE19CCB6320089B5AE /* Products */,
+				6EAB0826B7F643BCA520CD7D /* Frameworks */,
+				D33408708AF58BAFF6AE761B /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		BDCB7AFE19CCB6320089B5AE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BDCB7AFD19CCB6320089B5AE /* S3TransferUtilitySampleObjC.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BDCB7AFF19CCB6320089B5AE /* S3BackgroundTransferSampleObjC */ = {
+			isa = PBXGroup;
+			children = (
+				BDCB7B3119CCBAF30089B5AE /* Constants.h */,
+				BDCB7B3419CCBB060089B5AE /* Constants.m */,
+				BDCB7B2C19CCB9790089B5AE /* S3BackgroundTransfer */,
+				BDCB7B0D19CCB6320089B5AE /* Main.storyboard */,
+				BDCB7B1019CCB6330089B5AE /* Images.xcassets */,
+				BDCB7B0019CCB6320089B5AE /* Supporting Files */,
+				BDCB7B3219CCBAF30089B5AE /* TemplateIcon2x.png */,
+			);
+			path = S3BackgroundTransferSampleObjC;
+			sourceTree = "<group>";
+		};
+		BDCB7B0019CCB6320089B5AE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BDCB7B0119CCB6320089B5AE /* Info.plist */,
+				BDCB7B0219CCB6320089B5AE /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BDCB7B2C19CCB9790089B5AE /* S3BackgroundTransfer */ = {
+			isa = PBXGroup;
+			children = (
+				BDCB7B0419CCB6320089B5AE /* AppDelegate.h */,
+				BDCB7B0519CCB6320089B5AE /* AppDelegate.m */,
+				BDCB7B0719CCB6320089B5AE /* FirstViewController.h */,
+				BDCB7B0819CCB6320089B5AE /* FirstViewController.m */,
+				BDCB7B0A19CCB6320089B5AE /* SecondViewController.h */,
+				BDCB7B0B19CCB6320089B5AE /* SecondViewController.m */,
+			);
+			name = S3BackgroundTransfer;
+			sourceTree = "<group>";
+		};
+		D33408708AF58BAFF6AE761B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				845F78CD5DA166168BBAB982 /* Pods.debug.xcconfig */,
+				C719624220C66D68D2A28AD6 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BDCB7AFC19CCB6320089B5AE /* S3TransferUtilitySampleObjC */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BDCB7B2319CCB6330089B5AE /* Build configuration list for PBXNativeTarget "S3TransferUtilitySampleObjC" */;
+			buildPhases = (
+				7135539D0CBA42CC9D04B45A /* Check Pods Manifest.lock */,
+				BDCB7AF919CCB6320089B5AE /* Sources */,
+				BDCB7AFA19CCB6320089B5AE /* Frameworks */,
+				BDCB7AFB19CCB6320089B5AE /* Resources */,
+				D18C27D9EC194ED5AEC711F4 /* Copy Pods Resources */,
+				E94EADB28F72A0F8B650C860 /* Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = S3TransferUtilitySampleObjC;
+			productName = S3BackgroundTransferSampleObjC;
+			productReference = BDCB7AFD19CCB6320089B5AE /* S3TransferUtilitySampleObjC.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BDCB7AF519CCB6320089B5AE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = Amazon;
+				TargetAttributes = {
+					BDCB7AFC19CCB6320089B5AE = {
+						CreatedOnToolsVersion = 6.0.1;
+						DevelopmentTeam = W3DRXD72QU;
+					};
+				};
+			};
+			buildConfigurationList = BDCB7AF819CCB6320089B5AE /* Build configuration list for PBXProject "S3TransferUtilitySampleObjC" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BDCB7AF419CCB6320089B5AE;
+			productRefGroup = BDCB7AFE19CCB6320089B5AE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BDCB7AFC19CCB6320089B5AE /* S3TransferUtilitySampleObjC */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BDCB7AFB19CCB6320089B5AE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDCB7B3319CCBAF30089B5AE /* TemplateIcon2x.png in Resources */,
+				BDCB7B0F19CCB6320089B5AE /* Main.storyboard in Resources */,
+				BDCB7B1119CCB6330089B5AE /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7135539D0CBA42CC9D04B45A /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D18C27D9EC194ED5AEC711F4 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E94EADB28F72A0F8B650C860 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BDCB7AF919CCB6320089B5AE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDCB7B0C19CCB6320089B5AE /* SecondViewController.m in Sources */,
+				BDCB7B0619CCB6320089B5AE /* AppDelegate.m in Sources */,
+				BDCB7B0919CCB6320089B5AE /* FirstViewController.m in Sources */,
+				BDCB7B0319CCB6320089B5AE /* main.m in Sources */,
+				BDCB7B3519CCBB060089B5AE /* Constants.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		BDCB7B0D19CCB6320089B5AE /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BDCB7B0E19CCB6320089B5AE /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BDCB7B2119CCB6330089B5AE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		BDCB7B2219CCB6330089B5AE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BDCB7B2419CCB6330089B5AE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 845F78CD5DA166168BBAB982 /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = S3BackgroundTransferSampleObjC/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.amazonaws.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = S3TransferUtilitySampleObjC;
+			};
+			name = Debug;
+		};
+		BDCB7B2519CCB6330089B5AE /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C719624220C66D68D2A28AD6 /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = S3BackgroundTransferSampleObjC/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.amazonaws.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = S3TransferUtilitySampleObjC;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BDCB7AF819CCB6320089B5AE /* Build configuration list for PBXProject "S3TransferUtilitySampleObjC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BDCB7B2119CCB6330089B5AE /* Debug */,
+				BDCB7B2219CCB6330089B5AE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BDCB7B2319CCB6330089B5AE /* Build configuration list for PBXNativeTarget "S3TransferUtilitySampleObjC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BDCB7B2419CCB6330089B5AE /* Debug */,
+				BDCB7B2519CCB6330089B5AE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BDCB7AF519CCB6320089B5AE /* Project object */;
+}
