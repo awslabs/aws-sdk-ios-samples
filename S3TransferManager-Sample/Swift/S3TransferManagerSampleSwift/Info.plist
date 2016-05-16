@@ -85,23 +85,7 @@
 				</dict>
 			</dict>
 		</dict>
-		<key>Cognito</key>
-		<dict>
-			<key>Default</key>
-			<dict>
-				<key>Region</key>
-				<string>AWSRegionUnknown</string>
-			</dict>
-		</dict>
 		<key>S3TransferManager</key>
-		<dict>
-			<key>Default</key>
-			<dict>
-				<key>Region</key>
-				<string>AWSRegionUnknown</string>
-			</dict>
-		</dict>
-		<key>S3</key>
 		<dict>
 			<key>Default</key>
 			<dict>

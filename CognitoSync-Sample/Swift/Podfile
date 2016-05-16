@@ -1,5 +1,9 @@
 source 'https://github.com/CocoaPods/Specs.git'
+
+platform :ios, '8.0'
 use_frameworks!
 
-pod 'UICKeyChainStore', '~> 2.0.6'
-pod 'AWSCognito', '~> 2.4.1'
+target 'CognitoSyncDemo' do
+    pod 'UICKeyChainStore', '~> 2.0.6'
+    pod 'AWSCognito', '~> 2.4.1'
+end

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2667298BF4089D112770F451 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D723C5B464C247C788294CA /* Pods.framework */; };
+		13165D2F687D44C8E1217829 /* Pods_CognitoYourUserPoolsSample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BC208918A96F2D354AE8D40 /* Pods_CognitoYourUserPoolsSample.framework */; };
 		EF0C02AA1CD170D500A9F279 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EFE0C35B1CA2514800E50CEE /* AppDelegate.m */; };
 		EF0C02AB1CD170D600A9F279 /* UserDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF66D4DF1CA3457900380164 /* UserDetailTableViewController.m */; };
 		EF0C02AC1CD170D800A9F279 /* ConfirmForgotPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF1B27211CB7192F00556AB9 /* ConfirmForgotPasswordViewController.m */; };
@@ -59,7 +59,8 @@
 /* Begin PBXFileReference section */
 		4532114BA5F431815B627FC1 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		4F980BF907A288D82207E320 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		9D723C5B464C247C788294CA /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5923FACC20A653DEC696E47F /* Pods-CognitoYourUserPoolsSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CognitoYourUserPoolsSample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CognitoYourUserPoolsSample/Pods-CognitoYourUserPoolsSample.debug.xcconfig"; sourceTree = "<group>"; };
+		5BC208918A96F2D354AE8D40 /* Pods_CognitoYourUserPoolsSample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CognitoYourUserPoolsSample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF1B27181CB574CF00556AB9 /* MFAViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFAViewController.h; sourceTree = "<group>"; };
 		EF1B27191CB574CF00556AB9 /* MFAViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFAViewController.m; sourceTree = "<group>"; };
 		EF1B271A1CB574CF00556AB9 /* MFAViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MFAViewController.xib; sourceTree = "<group>"; };
@@ -91,6 +92,7 @@
 		EFE0C3781CA2514800E50CEE /* CognitoYourUserPoolsSample.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CognitoYourUserPoolsSample.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFE0C37C1CA2514800E50CEE /* CognitoIdentityProviderDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CognitoIdentityProviderDemoUITests.m; sourceTree = "<group>"; };
 		EFE0C37E1CA2514800E50CEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F502EA1434751B67A704D9D5 /* Pods-CognitoYourUserPoolsSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CognitoYourUserPoolsSample.release.xcconfig"; path = "Pods/Target Support Files/Pods-CognitoYourUserPoolsSample/Pods-CognitoYourUserPoolsSample.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2667298BF4089D112770F451 /* Pods.framework in Frameworks */,
+				13165D2F687D44C8E1217829 /* Pods_CognitoYourUserPoolsSample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,7 +124,7 @@
 		78DACDBEAA4D573E5AFE8925 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				9D723C5B464C247C788294CA /* Pods.framework */,
+				5BC208918A96F2D354AE8D40 /* Pods_CognitoYourUserPoolsSample.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -132,6 +134,8 @@
 			children = (
 				4F980BF907A288D82207E320 /* Pods.debug.xcconfig */,
 				4532114BA5F431815B627FC1 /* Pods.release.xcconfig */,
+				5923FACC20A653DEC696E47F /* Pods-CognitoYourUserPoolsSample.debug.xcconfig */,
+				F502EA1434751B67A704D9D5 /* Pods-CognitoYourUserPoolsSample.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -223,13 +227,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EFE0C3811CA2514800E50CEE /* Build configuration list for PBXNativeTarget "CognitoYourUserPoolsSample" */;
 			buildPhases = (
-				F65769D142B6E4F8FB6DE1C0 /* Check Pods Manifest.lock */,
+				F65769D142B6E4F8FB6DE1C0 /* 📦 Check Pods Manifest.lock */,
 				EFE0C3501CA2514800E50CEE /* Sources */,
 				EFE0C3511CA2514800E50CEE /* Frameworks */,
 				EFE0C3521CA2514800E50CEE /* Resources */,
 				EFD303D01CBCCF97008CA04F /* Embed Frameworks */,
-				6E878C79472418E5709BE678 /* Embed Pods Frameworks */,
-				07BD496896C612C898AD52C4 /* Copy Pods Resources */,
+				6E878C79472418E5709BE678 /* 📦 Embed Pods Frameworks */,
+				07BD496896C612C898AD52C4 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -348,44 +352,44 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		07BD496896C612C898AD52C4 /* Copy Pods Resources */ = {
+		07BD496896C612C898AD52C4 /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "📦 Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CognitoYourUserPoolsSample/Pods-CognitoYourUserPoolsSample-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		6E878C79472418E5709BE678 /* Embed Pods Frameworks */ = {
+		6E878C79472418E5709BE678 /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "📦 Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CognitoYourUserPoolsSample/Pods-CognitoYourUserPoolsSample-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F65769D142B6E4F8FB6DE1C0 /* Check Pods Manifest.lock */ = {
+		F65769D142B6E4F8FB6DE1C0 /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "📦 Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -549,7 +553,7 @@
 		};
 		EFE0C3821CA2514800E50CEE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4F980BF907A288D82207E320 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 5923FACC20A653DEC696E47F /* Pods-CognitoYourUserPoolsSample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -570,7 +574,7 @@
 		};
 		EFE0C3831CA2514800E50CEE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4532114BA5F431815B627FC1 /* Pods.release.xcconfig */;
+			baseConfigurationReference = F502EA1434751B67A704D9D5 /* Pods-CognitoYourUserPoolsSample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";

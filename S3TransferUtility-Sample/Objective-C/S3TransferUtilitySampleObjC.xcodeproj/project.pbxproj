@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9B385EC7FFC95377F43B1507 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88491F46DB1E92F588C5B2BD /* Pods.framework */; };
+		29F058C4AF6638690A40995E /* Pods_S3TransferUtilitySampleObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8ED4F32242EBFB238A5DD39 /* Pods_S3TransferUtilitySampleObjC.framework */; };
 		BDCB7B0319CCB6320089B5AE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BDCB7B0219CCB6320089B5AE /* main.m */; };
 		BDCB7B0619CCB6320089B5AE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BDCB7B0519CCB6320089B5AE /* AppDelegate.m */; };
 		BDCB7B0919CCB6320089B5AE /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDCB7B0819CCB6320089B5AE /* FirstViewController.m */; };
@@ -19,8 +19,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		51F3191BDED2BD9D891815FF /* Pods-S3TransferUtilitySampleObjC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-S3TransferUtilitySampleObjC.release.xcconfig"; path = "Pods/Target Support Files/Pods-S3TransferUtilitySampleObjC/Pods-S3TransferUtilitySampleObjC.release.xcconfig"; sourceTree = "<group>"; };
 		845F78CD5DA166168BBAB982 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		88491F46DB1E92F588C5B2BD /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ADB24EE354B761264E2E4042 /* Pods-S3TransferUtilitySampleObjC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-S3TransferUtilitySampleObjC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-S3TransferUtilitySampleObjC/Pods-S3TransferUtilitySampleObjC.debug.xcconfig"; sourceTree = "<group>"; };
 		BDCB7AFD19CCB6320089B5AE /* S3TransferUtilitySampleObjC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = S3TransferUtilitySampleObjC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDCB7B0119CCB6320089B5AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BDCB7B0219CCB6320089B5AE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -36,6 +37,7 @@
 		BDCB7B3219CCBAF30089B5AE /* TemplateIcon2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TemplateIcon2x.png; sourceTree = "<group>"; };
 		BDCB7B3419CCBB060089B5AE /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		C719624220C66D68D2A28AD6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		E8ED4F32242EBFB238A5DD39 /* Pods_S3TransferUtilitySampleObjC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_S3TransferUtilitySampleObjC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,7 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9B385EC7FFC95377F43B1507 /* Pods.framework in Frameworks */,
+				29F058C4AF6638690A40995E /* Pods_S3TransferUtilitySampleObjC.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,7 +55,7 @@
 		6EAB0826B7F643BCA520CD7D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				88491F46DB1E92F588C5B2BD /* Pods.framework */,
+				E8ED4F32242EBFB238A5DD39 /* Pods_S3TransferUtilitySampleObjC.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -117,6 +119,8 @@
 			children = (
 				845F78CD5DA166168BBAB982 /* Pods.debug.xcconfig */,
 				C719624220C66D68D2A28AD6 /* Pods.release.xcconfig */,
+				ADB24EE354B761264E2E4042 /* Pods-S3TransferUtilitySampleObjC.debug.xcconfig */,
+				51F3191BDED2BD9D891815FF /* Pods-S3TransferUtilitySampleObjC.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -128,12 +132,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BDCB7B2319CCB6330089B5AE /* Build configuration list for PBXNativeTarget "S3TransferUtilitySampleObjC" */;
 			buildPhases = (
-				7135539D0CBA42CC9D04B45A /* Check Pods Manifest.lock */,
+				7135539D0CBA42CC9D04B45A /* 📦 Check Pods Manifest.lock */,
 				BDCB7AF919CCB6320089B5AE /* Sources */,
 				BDCB7AFA19CCB6320089B5AE /* Frameworks */,
 				BDCB7AFB19CCB6320089B5AE /* Resources */,
-				D18C27D9EC194ED5AEC711F4 /* Copy Pods Resources */,
-				E94EADB28F72A0F8B650C860 /* Embed Pods Frameworks */,
+				D18C27D9EC194ED5AEC711F4 /* 📦 Copy Pods Resources */,
+				E94EADB28F72A0F8B650C860 /* 📦 Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -191,14 +195,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		7135539D0CBA42CC9D04B45A /* Check Pods Manifest.lock */ = {
+		7135539D0CBA42CC9D04B45A /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "📦 Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -206,34 +210,34 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		D18C27D9EC194ED5AEC711F4 /* Copy Pods Resources */ = {
+		D18C27D9EC194ED5AEC711F4 /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "📦 Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-S3TransferUtilitySampleObjC/Pods-S3TransferUtilitySampleObjC-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E94EADB28F72A0F8B650C860 /* Embed Pods Frameworks */ = {
+		E94EADB28F72A0F8B650C860 /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "📦 Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-S3TransferUtilitySampleObjC/Pods-S3TransferUtilitySampleObjC-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -344,7 +348,7 @@
 		};
 		BDCB7B2419CCB6330089B5AE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 845F78CD5DA166168BBAB982 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = ADB24EE354B761264E2E4042 /* Pods-S3TransferUtilitySampleObjC.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = S3BackgroundTransferSampleObjC/Info.plist;
@@ -357,7 +361,7 @@
 		};
 		BDCB7B2519CCB6330089B5AE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C719624220C66D68D2A28AD6 /* Pods.release.xcconfig */;
+			baseConfigurationReference = 51F3191BDED2BD9D891815FF /* Pods-S3TransferUtilitySampleObjC.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = S3BackgroundTransferSampleObjC/Info.plist;

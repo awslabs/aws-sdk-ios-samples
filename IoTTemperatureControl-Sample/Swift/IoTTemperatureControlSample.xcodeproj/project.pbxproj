@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		35C3CD403632B80E765AADE4 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57A0238D25B5B3B30E0A29D9 /* Pods.framework */; };
+		7F2F67D0CDAF25BD62EFF2E6 /* Pods_IoTTemperatureControlSample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DD14A68E317C842D5A295AC /* Pods_IoTTemperatureControlSample.framework */; };
 		A625DEC11C0F753C00DB1463 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A625DEC01C0F753C00DB1463 /* AppDelegate.swift */; };
 		A625DEC31C0F753C00DB1463 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A625DEC21C0F753C00DB1463 /* ViewController.swift */; };
 		A625DEC61C0F753C00DB1463 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A625DEC41C0F753C00DB1463 /* Main.storyboard */; };
@@ -18,7 +18,8 @@
 
 /* Begin PBXFileReference section */
 		1292D3607FA1249F5E28CAC8 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		57A0238D25B5B3B30E0A29D9 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1DD14A68E317C842D5A295AC /* Pods_IoTTemperatureControlSample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IoTTemperatureControlSample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A16E5090B708484C8031F557 /* Pods-IoTTemperatureControlSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IoTTemperatureControlSample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IoTTemperatureControlSample/Pods-IoTTemperatureControlSample.debug.xcconfig"; sourceTree = "<group>"; };
 		A625DEBD1C0F753C00DB1463 /* IoTTemperatureControlSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IoTTemperatureControlSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A625DEC01C0F753C00DB1463 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A625DEC21C0F753C00DB1463 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -28,6 +29,7 @@
 		A625DECC1C0F753C00DB1463 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A6A007CF1C0F9F3E00073985 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B9F3D667F8E3307DD81B1B14 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		DE7DF36FD5002C230B973B21 /* Pods-IoTTemperatureControlSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IoTTemperatureControlSample.release.xcconfig"; path = "Pods/Target Support Files/Pods-IoTTemperatureControlSample/Pods-IoTTemperatureControlSample.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,7 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				35C3CD403632B80E765AADE4 /* Pods.framework in Frameworks */,
+				7F2F67D0CDAF25BD62EFF2E6 /* Pods_IoTTemperatureControlSample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -45,7 +47,7 @@
 		6D22B6498074B09E7BF9A704 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				57A0238D25B5B3B30E0A29D9 /* Pods.framework */,
+				1DD14A68E317C842D5A295AC /* Pods_IoTTemperatureControlSample.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -55,6 +57,8 @@
 			children = (
 				B9F3D667F8E3307DD81B1B14 /* Pods.debug.xcconfig */,
 				1292D3607FA1249F5E28CAC8 /* Pods.release.xcconfig */,
+				A16E5090B708484C8031F557 /* Pods-IoTTemperatureControlSample.debug.xcconfig */,
+				DE7DF36FD5002C230B973B21 /* Pods-IoTTemperatureControlSample.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -106,12 +110,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A625DECF1C0F753C00DB1463 /* Build configuration list for PBXNativeTarget "IoTTemperatureControlSample" */;
 			buildPhases = (
-				11CBFDC0B3C1CE0BAD86BB7D /* Check Pods Manifest.lock */,
+				11CBFDC0B3C1CE0BAD86BB7D /* 📦 Check Pods Manifest.lock */,
 				A625DEB91C0F753C00DB1463 /* Sources */,
 				A625DEBA1C0F753C00DB1463 /* Frameworks */,
 				A625DEBB1C0F753C00DB1463 /* Resources */,
-				DAD179729B23559785C71E09 /* Copy Pods Resources */,
-				1F530B41058F573EA1E1DF7B /* Embed Pods Frameworks */,
+				DAD179729B23559785C71E09 /* 📦 Copy Pods Resources */,
+				1F530B41058F573EA1E1DF7B /* 📦 Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -168,14 +172,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		11CBFDC0B3C1CE0BAD86BB7D /* Check Pods Manifest.lock */ = {
+		11CBFDC0B3C1CE0BAD86BB7D /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "📦 Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -183,34 +187,34 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		1F530B41058F573EA1E1DF7B /* Embed Pods Frameworks */ = {
+		1F530B41058F573EA1E1DF7B /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "📦 Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-IoTTemperatureControlSample/Pods-IoTTemperatureControlSample-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DAD179729B23559785C71E09 /* Copy Pods Resources */ = {
+		DAD179729B23559785C71E09 /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "📦 Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-IoTTemperatureControlSample/Pods-IoTTemperatureControlSample-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -333,7 +337,7 @@
 		};
 		A625DED01C0F753C00DB1463 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B9F3D667F8E3307DD81B1B14 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = A16E5090B708484C8031F557 /* Pods-IoTTemperatureControlSample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = IoTTemperatureControlSample/Info.plist;
@@ -347,7 +351,7 @@
 		};
 		A625DED11C0F753C00DB1463 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1292D3607FA1249F5E28CAC8 /* Pods.release.xcconfig */;
+			baseConfigurationReference = DE7DF36FD5002C230B973B21 /* Pods-IoTTemperatureControlSample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = IoTTemperatureControlSample/Info.plist;

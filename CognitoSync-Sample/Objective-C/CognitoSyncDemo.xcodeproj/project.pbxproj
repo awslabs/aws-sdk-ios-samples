@@ -13,7 +13,7 @@
 		38B4ADB9194CE9F100609D48 /* CognitoDatasetListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38B4ADB8194CE9F100609D48 /* CognitoDatasetListViewController.m */; };
 		38C380CF1A09ABDD001886BE /* Crypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C380CC1A09ABDD001886BE /* Crypto.m */; };
 		38C380D01A09ABDD001886BE /* DeveloperAuthenticatedIdentityProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C380CE1A09ABDD001886BE /* DeveloperAuthenticatedIdentityProvider.m */; };
-		AFD73486E384F017F0F8AC51 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 69BFC43D39FEC93C454EBB8F /* libPods.a */; };
+		A33F92F224ABA420BBF83382 /* libPods-CognitoSyncDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BE602C069DE51257EAC4478 /* libPods-CognitoSyncDemo.a */; };
 		CE76800F1A7ACE9D005E3ACE /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = CE76800E1A7ACE9D005E3ACE /* Constants.m */; };
 		CE9E36D61CD7DD5A00445A96 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE9E36D51CD7DD5A00445A96 /* Launch Screen.storyboard */; };
 		EFFA9179192FB8080059AE57 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFFA9178192FB8080059AE57 /* Foundation.framework */; };
@@ -58,7 +58,9 @@
 		38C380CC1A09ABDD001886BE /* Crypto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Crypto.m; sourceTree = "<group>"; };
 		38C380CD1A09ABDD001886BE /* DeveloperAuthenticatedIdentityProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeveloperAuthenticatedIdentityProvider.h; sourceTree = "<group>"; };
 		38C380CE1A09ABDD001886BE /* DeveloperAuthenticatedIdentityProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeveloperAuthenticatedIdentityProvider.m; sourceTree = "<group>"; };
-		69BFC43D39FEC93C454EBB8F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E6CB0D6C8A9059A99C73D4C /* Pods-CognitoSyncDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CognitoSyncDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-CognitoSyncDemo/Pods-CognitoSyncDemo.release.xcconfig"; sourceTree = "<group>"; };
+		4BE602C069DE51257EAC4478 /* libPods-CognitoSyncDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CognitoSyncDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB95776310764F74C819FE8E /* Pods-CognitoSyncDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CognitoSyncDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CognitoSyncDemo/Pods-CognitoSyncDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		CE76800E1A7ACE9D005E3ACE /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		CE9E36D51CD7DD5A00445A96 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		EFFA9175192FB8080059AE57 /* CognitoSyncDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CognitoSyncDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -90,7 +92,7 @@
 				EFFA917B192FB8080059AE57 /* CoreGraphics.framework in Frameworks */,
 				EFFA917D192FB8080059AE57 /* UIKit.framework in Frameworks */,
 				EFFA9179192FB8080059AE57 /* Foundation.framework in Frameworks */,
-				AFD73486E384F017F0F8AC51 /* libPods.a in Frameworks */,
+				A33F92F224ABA420BBF83382 /* libPods-CognitoSyncDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,6 +127,8 @@
 			children = (
 				1CD3A84C10799B4E6EC8A937 /* Pods.debug.xcconfig */,
 				2E8C2EA844CD56E56789F74C /* Pods.release.xcconfig */,
+				AB95776310764F74C819FE8E /* Pods-CognitoSyncDemo.debug.xcconfig */,
+				3E6CB0D6C8A9059A99C73D4C /* Pods-CognitoSyncDemo.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -156,7 +160,7 @@
 				EFFA917A192FB8080059AE57 /* CoreGraphics.framework */,
 				EFFA917C192FB8080059AE57 /* UIKit.framework */,
 				EFFA919A192FB8080059AE57 /* XCTest.framework */,
-				69BFC43D39FEC93C454EBB8F /* libPods.a */,
+				4BE602C069DE51257EAC4478 /* libPods-CognitoSyncDemo.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -221,12 +225,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EFFA91AA192FB8090059AE57 /* Build configuration list for PBXNativeTarget "CognitoSyncDemo" */;
 			buildPhases = (
-				6A06151213EF401E83414C7D /* Check Pods Manifest.lock */,
+				6A06151213EF401E83414C7D /* 📦 Check Pods Manifest.lock */,
 				EFFA9171192FB8080059AE57 /* Sources */,
 				EFFA9172192FB8080059AE57 /* Frameworks */,
 				EFFA9173192FB8080059AE57 /* Resources */,
-				20879EF7BF4D42B8B01AA6A3 /* Copy Pods Resources */,
-				A12AF2561BE3ADC9C8385B28 /* Embed Pods Frameworks */,
+				20879EF7BF4D42B8B01AA6A3 /* 📦 Copy Pods Resources */,
+				A12AF2561BE3ADC9C8385B28 /* 📦 Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -262,7 +266,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = AZC;
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "Behroozi, David";
 				TargetAttributes = {
 					EFFA9198192FB8080059AE57 = {
@@ -312,29 +316,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		20879EF7BF4D42B8B01AA6A3 /* Copy Pods Resources */ = {
+		20879EF7BF4D42B8B01AA6A3 /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "📦 Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CognitoSyncDemo/Pods-CognitoSyncDemo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		6A06151213EF401E83414C7D /* Check Pods Manifest.lock */ = {
+		6A06151213EF401E83414C7D /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "📦 Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -342,19 +346,19 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		A12AF2561BE3ADC9C8385B28 /* Embed Pods Frameworks */ = {
+		A12AF2561BE3ADC9C8385B28 /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "📦 Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CognitoSyncDemo/Pods-CognitoSyncDemo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -441,6 +445,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -495,7 +500,7 @@
 		};
 		EFFA91AB192FB8090059AE57 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1CD3A84C10799B4E6EC8A937 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = AB95776310764F74C819FE8E /* Pods-CognitoSyncDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -506,6 +511,7 @@
 				GCC_PREFIX_HEADER = "CognitoSyncDemo/CognitoSyncDemo-Prefix.pch";
 				INFOPLIST_FILE = "CognitoSyncDemo/CognitoSyncDemo-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.amazon.aws.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -513,7 +519,7 @@
 		};
 		EFFA91AC192FB8090059AE57 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2E8C2EA844CD56E56789F74C /* Pods.release.xcconfig */;
+			baseConfigurationReference = 3E6CB0D6C8A9059A99C73D4C /* Pods-CognitoSyncDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -524,6 +530,7 @@
 				GCC_PREFIX_HEADER = "CognitoSyncDemo/CognitoSyncDemo-Prefix.pch";
 				INFOPLIST_FILE = "CognitoSyncDemo/CognitoSyncDemo-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.amazon.aws.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -545,6 +552,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "CognitoSyncDemoTests/CognitoSyncDemoTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.amazon.aws.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -563,6 +571,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CognitoSyncDemo/CognitoSyncDemo-Prefix.pch";
 				INFOPLIST_FILE = "CognitoSyncDemoTests/CognitoSyncDemoTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.amazon.aws.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;

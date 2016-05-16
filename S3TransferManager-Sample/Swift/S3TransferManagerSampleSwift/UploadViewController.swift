@@ -28,14 +28,12 @@ class UploadViewController: UIViewController, UICollectionViewDelegate, UICollec
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let error = NSErrorPointer()
         do {
             try NSFileManager.defaultManager().createDirectoryAtURL(
                 NSURL(fileURLWithPath: NSTemporaryDirectory()).URLByAppendingPathComponent("upload"),
                 withIntermediateDirectories: true,
                 attributes: nil)
-        } catch let error1 as NSError {
-            error.memory = error1
+        } catch {
             print("Creating 'upload' directory failed. Error: \(error)")
         }
     }

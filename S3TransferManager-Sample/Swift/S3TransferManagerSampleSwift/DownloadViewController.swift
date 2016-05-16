@@ -27,14 +27,13 @@ class DownloadViewController: UIViewController, UICollectionViewDelegate, UIColl
     override func viewDidLoad() {
         super.viewDidLoad()
         listObjects()
-        let error = NSErrorPointer()
+
         do {
             try NSFileManager.defaultManager().createDirectoryAtURL(
                 NSURL(fileURLWithPath: NSTemporaryDirectory()).URLByAppendingPathComponent("download"),
                 withIntermediateDirectories: true,
                 attributes: nil)
-        } catch let error1 as NSError {
-            error.memory = error1
+        } catch {
             print("Creating 'download' directory failed. Error: \(error)")
         }
     }
