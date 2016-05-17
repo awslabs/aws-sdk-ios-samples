@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2F5E719EF9380B3859D4E480 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22A346B37D279B38C8FAE03B /* Pods.framework */; };
+		5938E8F810D551C2B43FBD7D /* Pods_DynamoDBSampleSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 522F06202C64A5DC13C60E0D /* Pods_DynamoDBSampleSwift.framework */; };
 		BD5E346A1A4A22F9007A5169 /* DDBSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5E34691A4A22F9007A5169 /* DDBSearchViewController.swift */; };
 		BD843AFD1A44B071005E2575 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD843AFC1A44B071005E2575 /* AppDelegate.swift */; };
 		BD843B021A44B071005E2575 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD843B001A44B071005E2575 /* Main.storyboard */; };
@@ -19,7 +19,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		22A346B37D279B38C8FAE03B /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		27B6B4B73E760B492C56BB9B /* Pods-DynamoDBSampleSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DynamoDBSampleSwift.release.xcconfig"; path = "Pods/Target Support Files/Pods-DynamoDBSampleSwift/Pods-DynamoDBSampleSwift.release.xcconfig"; sourceTree = "<group>"; };
+		4B2E185F760101946F29BAA7 /* Pods-DynamoDBSampleSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DynamoDBSampleSwift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DynamoDBSampleSwift/Pods-DynamoDBSampleSwift.debug.xcconfig"; sourceTree = "<group>"; };
+		522F06202C64A5DC13C60E0D /* Pods_DynamoDBSampleSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DynamoDBSampleSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		81D29617C9A717EDC419212F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		BD5E34691A4A22F9007A5169 /* DDBSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = DDBSearchViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		BD843AF71A44B071005E2575 /* DynamoDBSampleSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DynamoDBSampleSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -39,7 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2F5E719EF9380B3859D4E480 /* Pods.framework in Frameworks */,
+				5938E8F810D551C2B43FBD7D /* Pods_DynamoDBSampleSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,6 +95,8 @@
 			children = (
 				DDFE5AC52C51D83443C124DC /* Pods.debug.xcconfig */,
 				81D29617C9A717EDC419212F /* Pods.release.xcconfig */,
+				4B2E185F760101946F29BAA7 /* Pods-DynamoDBSampleSwift.debug.xcconfig */,
+				27B6B4B73E760B492C56BB9B /* Pods-DynamoDBSampleSwift.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -100,7 +104,7 @@
 		F97FE3DBE3C0C7AB85401551 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				22A346B37D279B38C8FAE03B /* Pods.framework */,
+				522F06202C64A5DC13C60E0D /* Pods_DynamoDBSampleSwift.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -112,12 +116,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BD843B161A44B071005E2575 /* Build configuration list for PBXNativeTarget "DynamoDBSampleSwift" */;
 			buildPhases = (
-				333574F80DC85CCE88742EFD /* Check Pods Manifest.lock */,
+				333574F80DC85CCE88742EFD /* 📦 Check Pods Manifest.lock */,
 				BD843AF31A44B071005E2575 /* Sources */,
 				BD843AF41A44B071005E2575 /* Frameworks */,
 				BD843AF51A44B071005E2575 /* Resources */,
-				683E128064F4FFD3E256A6CC /* Copy Pods Resources */,
-				1AC2C97A6006C222DD118FC9 /* Embed Pods Frameworks */,
+				683E128064F4FFD3E256A6CC /* 📦 Copy Pods Resources */,
+				1AC2C97A6006C222DD118FC9 /* 📦 Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -176,29 +180,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1AC2C97A6006C222DD118FC9 /* Embed Pods Frameworks */ = {
+		1AC2C97A6006C222DD118FC9 /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "📦 Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DynamoDBSampleSwift/Pods-DynamoDBSampleSwift-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		333574F80DC85CCE88742EFD /* Check Pods Manifest.lock */ = {
+		333574F80DC85CCE88742EFD /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "📦 Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -206,19 +210,19 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		683E128064F4FFD3E256A6CC /* Copy Pods Resources */ = {
+		683E128064F4FFD3E256A6CC /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "📦 Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DynamoDBSampleSwift/Pods-DynamoDBSampleSwift-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -338,7 +342,7 @@
 		};
 		BD843B171A44B071005E2575 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DDFE5AC52C51D83443C124DC /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 4B2E185F760101946F29BAA7 /* Pods-DynamoDBSampleSwift.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -354,7 +358,7 @@
 		};
 		BD843B181A44B071005E2575 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 81D29617C9A717EDC419212F /* Pods.release.xcconfig */;
+			baseConfigurationReference = 27B6B4B73E760B492C56BB9B /* Pods-DynamoDBSampleSwift.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
