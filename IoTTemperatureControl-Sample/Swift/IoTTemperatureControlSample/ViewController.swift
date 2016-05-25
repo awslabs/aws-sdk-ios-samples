@@ -43,11 +43,6 @@ class ViewController: UIViewController {
 
     var iotDataManager: AWSIoTDataManager!;
     
-    func updateThingShadow( thingName: String, jsonData: JSON )
-    {
-        self.iotDataManager.publishString( jsonData.rawString(), onTopic: "$aws/things/\(thingName)/shadow/update", qoS:.MessageDeliveryAttemptedAtMostOnce);
-    }
-
     @IBAction func statusSwitchChanged(sender: UISwitch) {
         //
         // Initialize the control JSON object
@@ -56,12 +51,13 @@ class ViewController: UIViewController {
 
         if (!controlThingOperationInProgress)
         {
-            updateThingShadow( controlThingName, jsonData: controlJson )
+            currentlyEnabled = sender.on;
+            self.iotDataManager.updateShadow( controlThingName, jsonString: controlJson.rawString() )
             controlThingOperationInProgress = true
         }
         else
         {
-            sender.on = !sender.on;    // cancel the operation
+            sender.on = currentlyEnabled;    // cancel the operation
         }
     }
     
@@ -75,7 +71,7 @@ class ViewController: UIViewController {
         {
             currentSetpoint = Int(setpointStepper.value)
             setpointLabel.text = String(currentSetpoint)
-            updateThingShadow( controlThingName, jsonData: controlJson )
+            self.iotDataManager.updateShadow( controlThingName, jsonString: controlJson.rawString() )
             controlThingOperationInProgress = true
         }
         else
@@ -83,12 +79,7 @@ class ViewController: UIViewController {
             sender.value = currentSetpointStepValue;    // cancel the operation
         }
     }
-    
-    func getThingState( thingName: String )
-    {
-        self.iotDataManager.publishString( "{ }", onTopic: "$aws/things/\(thingName)/shadow/get", qoS:.MessageDeliveryAttemptedAtMostOnce);
-    }
-    
+
     func updateStatus( interiorTemperature: Int?, exteriorTemperature: Int?, state: String? )
     {
         if let interiorTemperature = interiorTemperature {
@@ -119,9 +110,11 @@ class ViewController: UIViewController {
             setpointStepper.value=Double(setPoint)
             setpointLabel.text = String(setPoint)
             currentSetpointStepValue = setpointStepper.value;
+            currentSetpoint = Int(currentSetpointStepValue);
         }
         if let enabled = enabled {
             statusSwitch.on = enabled
+            currentlyEnabled = enabled;
         }
     }
     func thingShadowDeltaCallback( thingName: String, json: JSON, payloadString: String ) -> Void {
@@ -164,42 +157,32 @@ class ViewController: UIViewController {
         print("operation rejected on: \(thingName)")
     }
     func getThingStates() {
-        getThingState(statusThingName)
-        getThingState(controlThingName)
+        self.iotDataManager.getShadow(statusThingName)
+        self.iotDataManager.getShadow(controlThingName)
     }
-    func dispatchSpecialTopic(thingName: String, payload: NSData, callback: ( String, JSON, String ) -> Void) {
-        let stringValue = NSString(data: payload, encoding: NSUTF8StringEncoding)!
-        
-        print("received: \(stringValue)")
-        let json = JSON(data: payload as NSData!)
-        
-        dispatch_async(dispatch_get_main_queue()) {
-            callback( thingName, json, stringValue as String );
+    func deviceShadowCallback(name:String!, operation:AWSIoTShadowOperationType, operationStatus:AWSIoTShadowOperationStatusType, clientToken:String!, payload:NSData!) -> Void {
+        dispatch_async( dispatch_get_main_queue()) {
+            let json = JSON(data: payload as NSData!)
+            let stringValue = NSString(data: payload, encoding: NSUTF8StringEncoding)
+            
+            switch(operationStatus) {
+            case .Accepted:
+                print("accepted on \(name)")
+                self.thingShadowAcceptedCallback( name, json: json, payloadString: stringValue as! String)
+            case .Rejected:
+                print("rejected on \(name)")
+                self.thingShadowRejectedCallback( name, json: json, payloadString: stringValue as! String)
+            case .Delta:
+                print("delta on \(name)")
+                self.thingShadowDeltaCallback( name, json: json, payloadString: stringValue as! String)
+            case .Timeout:
+                print("timeout on \(name)")
+                
+            default:
+                print("unknown operation status: \(operationStatus.rawValue)")
+            }
         }
     }
-    func subscribeSpecialTopics() {
-        let things = [String]( arrayLiteral: statusThingName, controlThingName );
-
-        for thing in things
-        {
-            self.iotDataManager.subscribeToTopic("$aws/things/\(thing)/shadow/update/accepted", qoS: .MessageDeliveryAttemptedAtMostOnce, messageCallback: {
-                (payload) ->Void in
-                self.dispatchSpecialTopic( thing, payload: payload, callback: self.thingShadowAcceptedCallback );
-            })
-            self.iotDataManager.subscribeToTopic("$aws/things/\(thing)/shadow/update/rejected", qoS: .MessageDeliveryAttemptedAtMostOnce, messageCallback: {
-                (payload) ->Void in
-                self.dispatchSpecialTopic( thing, payload: payload, callback: self.thingShadowRejectedCallback );
-            })
-            self.iotDataManager.subscribeToTopic("$aws/things/\(thing)/shadow/get/accepted", qoS: .MessageDeliveryAttemptedAtMostOnce, messageCallback: {
-                (payload) ->Void in
-                self.dispatchSpecialTopic( thing, payload: payload, callback: self.thingShadowAcceptedCallback );
-            })
-            self.iotDataManager.subscribeToTopic("$aws/things/\(thing)/shadow/get/rejected", qoS: .MessageDeliveryAttemptedAtMostOnce, messageCallback: {
-                (payload) ->Void in
-                self.dispatchSpecialTopic( thing, payload: payload, callback: self.thingShadowRejectedCallback );
-            })
-        }
-     }
     func mqttEventCallback( status: AWSIoTMQTTStatus )
     {
         dispatch_async( dispatch_get_main_queue()) {
@@ -211,6 +194,16 @@ class ViewController: UIViewController {
                 
             case .Connected:
                 print( "Connected" )
+                //
+                // Register the device shadows once connected.
+                //
+                self.iotDataManager.registerWithShadow( statusThingName, eventCallback: self.deviceShadowCallback )
+                self.iotDataManager.registerWithShadow( controlThingName, eventCallback: self.deviceShadowCallback )
+                
+                //
+                // Two seconds after registering the device shadows, retrieve their current states.
+                //
+                NSTimer.scheduledTimerWithTimeInterval( 2.5, target: self, selector: #selector(ViewController.getThingStates), userInfo: nil, repeats: false )
                 
             case .Disconnected:
                 print( "Disconnected" )
@@ -229,7 +222,8 @@ class ViewController: UIViewController {
             }
         }
     }
-    
+
+
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -286,17 +280,6 @@ class ViewController: UIViewController {
         // Connect via WebSocket
         //
         self.iotDataManager.connectUsingWebSocketWithClientId( NSUUID().UUIDString, cleanSession:true, statusCallback: mqttEventCallback)
-            
-        //
-        // Wait a few seconds and then subscribe to the special thing shadow topics.
-        //
-        
-        setupTimer = NSTimer.scheduledTimerWithTimeInterval( 2.5, target: self, selector: #selector(ViewController.subscribeSpecialTopics), userInfo: nil, repeats: false )
-        
-        //
-        // Two seconds after subscribing to all the special topics, retrieve the current thing states.
-        //
-        NSTimer.scheduledTimerWithTimeInterval( 4.5, target: self, selector: #selector(ViewController.getThingStates), userInfo: nil, repeats: false )
     }
 
     override func didReceiveMemoryWarning() {

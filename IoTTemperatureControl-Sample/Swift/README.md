@@ -32,7 +32,6 @@ This sample demonstrates use of the AWS IoT MQTT device shadow APIs over a WebSo
 	let AwsRegion = AWSRegionType.Unknown // e.g. AWSRegionType.USEast1
 	let CognitoIdentityPoolId = "YourCognitoIdentityPoolId"
 	```
-
 1. Install the [AWS IoT JavaScript SDK for Embedded Devices](https://github.com/aws/aws-iot-device-sdk-js).
 
 1. Follow the instructions in the AWS IoT JavaScript SDK for Embedded Devices to install dependencies for the temperature-control example application.
