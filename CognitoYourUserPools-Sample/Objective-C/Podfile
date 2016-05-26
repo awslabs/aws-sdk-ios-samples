@@ -4,6 +4,6 @@ platform :ios, '8.0'
 use_frameworks!
 
 target 'CognitoYourUserPoolsSample' do
-    pod 'AWSCore', '~> 2.4.1'
-    pod 'AWSCognitoIdentityProvider', '~> 2.4.1'
+    pod 'AWSCore', '~> 2.4.2'
+    pod 'AWSCognitoIdentityProvider', '~> 2.4.2'
 end
