@@ -15,8 +15,9 @@
 
 import UIKit
 import AWSCore
+import GoogleSignIn
 
-class CognitoHomeViewController: UIViewController {
+class CognitoHomeViewController: UIViewController, GIDSignInUIDelegate {
     @IBOutlet weak var browseData: UIButton!
     @IBOutlet weak var login: UIButton!
     @IBOutlet weak var logoutWipe: UIButton!
@@ -24,6 +25,8 @@ class CognitoHomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.disableUI()
+        
+        GIDSignIn.sharedInstance().uiDelegate = self
         
         if AmazonClientManager.sharedInstance.isConfigured() {
             UIApplication.sharedApplication().networkActivityIndicatorVisible = true

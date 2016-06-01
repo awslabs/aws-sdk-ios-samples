@@ -24,7 +24,7 @@ import TwitterKit
 import DigitsKit
 import GoogleSignIn
 
-class AmazonClientManager : NSObject, GPPSignInDelegate, AIAuthenticationDelegate {
+class AmazonClientManager : NSObject, GIDSignInDelegate, AIAuthenticationDelegate {
     static let sharedInstance = AmazonClientManager()
     
     enum Provider: String {
@@ -44,8 +44,7 @@ class AmazonClientManager : NSObject, GPPSignInDelegate, AIAuthenticationDelegat
     var keyChain: UICKeyChainStore
     var completionHandler: AWSContinuationBlock?
     var fbLoginManager: FBSDKLoginManager?
-    var gppSignIn: GPPSignIn?
-    var googleAuth: GTMOAuth2Authentication?
+    var googleAuth: GIDAuthentication?
     var credentialsProvider: AWSCognitoCredentialsProvider?
     var devAuthClient: DeveloperAuthenticationClient?
     var loginViewController: UIViewController?
@@ -270,26 +269,27 @@ class AmazonClientManager : NSObject, GPPSignInDelegate, AIAuthenticationDelegat
     
     func reloadGSession() {
         print("Reloading Google session")
-        self.gppSignIn?.trySilentAuthentication()
+        GIDSignIn.sharedInstance().signInSilently()
     }
     
     func googleLogin() {
-        self.gppSignIn = GPPSignIn.sharedInstance()
-        self.gppSignIn?.delegate = self
-        self.gppSignIn?.clientID = Constants.GOOGLE_CLIENT_ID
-        self.gppSignIn?.scopes = [Constants.GOOGLE_CLIENT_SCOPE, Constants.GOOGLE_OIDC_SCOPE]
-        self.gppSignIn?.authenticate()
+        let signIn = GIDSignIn.sharedInstance()
+        signIn.clientID = Constants.GOOGLE_CLIENT_ID
+        signIn.scopes = [Constants.GOOGLE_CLIENT_SCOPE, Constants.GOOGLE_OIDC_SCOPE]
+        signIn.delegate = self;
+        
+        GIDSignIn.sharedInstance().signIn()
     }
     
     func googleLogout() {
-        self.gppSignIn?.disconnect()
+        GIDSignIn.sharedInstance().disconnect()
         self.googleAuth = nil
         self.keyChain[GOOGLE_PROVIDER] = nil
     }
     
-    func finishedWithAuth(auth: GTMOAuth2Authentication!, error: NSError!) {
+    func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!, withError error: NSError!) {
         if self.googleAuth == nil {
-            self.googleAuth = auth;
+            self.googleAuth = user.authentication;
             
             if error != nil {
                 self.errorAlert("Error logging in with Google: " + error.localizedDescription)
@@ -298,10 +298,10 @@ class AmazonClientManager : NSObject, GPPSignInDelegate, AIAuthenticationDelegat
             }
         }
     }
-    
+        
     func completeGoogleLogin() {
         self.keyChain[GOOGLE_PROVIDER] = "YES"
-        if let idToken: AnyObject = self.googleAuth?.parameters.objectForKey("id_token") {
+        if let idToken: AnyObject = self.googleAuth?.idToken {
              self.completeLogin(["accounts.google.com": idToken])
         }
        
