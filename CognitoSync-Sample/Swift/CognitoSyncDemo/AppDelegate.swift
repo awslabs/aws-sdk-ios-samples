@@ -19,6 +19,7 @@ import Fabric
 import DigitsKit
 import AWSCognito
 import AWSCore
+//import GoogleSignIn
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -27,6 +28,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
+        
+       // if url == "" {
+        //    return GIDSignIn.sharedInstance().handleURL(url, sourceApplication: sourceApplication, annotation: annotation)
+        //}
+        
         return AmazonClientManager.sharedInstance.application(application, openURL: url, sourceApplication: sourceApplication, annotation: annotation)
     }
 
@@ -37,6 +43,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         Fabric.with([Twitter.self(), Digits.self()])
+        
+        var configureError: NSError?
+        GGLContext.sharedInstance().configureWithError(&configureError)
+        assert(configureError == nil, "Error configuring Google services: \(configureError)")
 
         return AmazonClientManager.sharedInstance.application(application, didFinishLaunchingWithOptions: launchOptions)
     }

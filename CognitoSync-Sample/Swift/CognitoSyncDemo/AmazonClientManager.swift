@@ -22,6 +22,7 @@ import FBSDKLoginKit
 import FBSDKShareKit
 import TwitterKit
 import DigitsKit
+import GoogleSignIn
 
 class AmazonClientManager : NSObject, GPPSignInDelegate, AIAuthenticationDelegate {
     static let sharedInstance = AmazonClientManager()

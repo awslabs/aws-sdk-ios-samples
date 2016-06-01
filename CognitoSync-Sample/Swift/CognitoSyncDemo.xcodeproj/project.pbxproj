@@ -239,6 +239,7 @@
 				DC761FB4998AEE85BABD472F /* 📦 Embed Pods Frameworks */,
 				6F15FEFEFA54822FB50FA601 /* 📦 Copy Pods Resources */,
 				32DD04481BA1F82B00B98D7E /* ShellScript */,
+				651F7C752C3EE16798359C95 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -339,6 +340,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Fabric/Fabric.framework/run\" 447bc42e7fc3ecfd9f954eb0c05f575c4547a1f3 db437d522b5c6d8a585d3d1b76620ed9b042f33f9a909d9d9d2443870ed5b6ef";
+		};
+		651F7C752C3EE16798359C95 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CognitoSyncDemo/Pods-CognitoSyncDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 		6F15FEFEFA54822FB50FA601 /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
