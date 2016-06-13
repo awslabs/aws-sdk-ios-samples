@@ -46,6 +46,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         Fabric.with([Twitter.self(), Digits.self()])
         
+        var configureError: NSError?
+        GGLContext.sharedInstance().configureWithError(&configureError)
+        assert(configureError == nil, "Error configuring Google services: \(configureError)")
+        
         return AmazonClientManager.sharedInstance.application(application, didFinishLaunchingWithOptions: launchOptions)
     }
     
