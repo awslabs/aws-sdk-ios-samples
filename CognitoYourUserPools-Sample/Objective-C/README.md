@@ -1,6 +1,6 @@
 # The Amazon Cognito User Pools Sample
 
-This sample demonstrates the Amazon Cognito Identity Provider (Beta) found in the AWS Mobile SDK for iOS.
+This sample demonstrates the Amazon Cognito Identity Provider found in the AWS Mobile SDK for iOS.
 
 ## Requirements
 

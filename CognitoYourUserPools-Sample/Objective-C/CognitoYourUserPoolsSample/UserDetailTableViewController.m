@@ -73,6 +73,9 @@
 
 - (IBAction)signOut:(id)sender {
     [self.user signOut];
+    self.title = nil;
+    self.response = nil;
+    [self.tableView reloadData];
     [self refresh];
 }
 

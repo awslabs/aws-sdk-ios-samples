@@ -16,15 +16,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "AWSCognitoIdentityProvider.h"
-#import "MFAViewController.h"
-#import "SignInViewController.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate, AWSCognitoIdentityInteractiveAuthenticationDelegate, AWSCognitoIdentityRememberDevice, UIAlertViewDelegate>
-@property (strong, nonatomic) UIWindow *window;
-@property (strong, nonatomic) UIStoryboard *storyboard;
-@property(nonatomic,strong) UINavigationController *navigationController;
-@property(nonatomic,strong) SignInViewController* signInViewController;
-@property(nonatomic,strong) MFAViewController* mfaViewController;
+@interface DevicesDetailTableViewController : UITableViewController
+
 @end
-

@@ -35,7 +35,7 @@
 #pragma mark - Navigation
 
 - (IBAction)confirm:(id)sender {
-    [[self.user confirmSignUp:self.code.text] continueWithBlock: ^id _Nullable(AWSTask<AWSCognitoIdentityUserConfirmSignUpResponse *> * _Nonnull task) {
+    [[self.user confirmSignUp:self.code.text forceAliasCreation:YES] continueWithBlock: ^id _Nullable(AWSTask<AWSCognitoIdentityUserConfirmSignUpResponse *> * _Nonnull task) {
         dispatch_async(dispatch_get_main_queue(), ^{
             if(task.error){
                 if(task.error){

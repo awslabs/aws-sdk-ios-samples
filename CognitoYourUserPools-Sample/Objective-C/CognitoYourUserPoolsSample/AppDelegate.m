@@ -21,6 +21,7 @@
 
 
 @interface AppDelegate ()
+@property (nonatomic,strong) AWSTaskCompletionSource<NSNumber *>* rememberDeviceCompletionSource;
 @end
 
 @implementation AppDelegate
@@ -103,4 +104,51 @@
     });
     return self.mfaViewController;
 }
+
+//set up remember device ui
+-(id<AWSCognitoIdentityRememberDevice>) startRememberDevice {
+    return self;
+}
+
+-(void) getRememberDevice: (AWSTaskCompletionSource<NSNumber *> *) rememberDeviceCompletionSource {
+    self.rememberDeviceCompletionSource = rememberDeviceCompletionSource;
+    
+    //Don't do anything fancy here, just display a popup.
+    dispatch_async(dispatch_get_main_queue(), ^{
+       [[[UIAlertView alloc] initWithTitle:@"Remember Device"
+                                        message:@"Do you want to remember this device?"
+                                       delegate:self
+                              cancelButtonTitle:@"No"
+                              otherButtonTitles:@"Yes", nil] show];
+    });
+}
+
+-(void) didCompleteRememberDeviceStepWithError:(NSError* _Nullable) error {
+    //Don't do anything fancy here, just display a popup.
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if(error){
+            [[[UIAlertView alloc] initWithTitle:error.userInfo[@"__type"]
+                                        message:error.userInfo[@"message"]
+                                       delegate:nil
+                              cancelButtonTitle:nil
+                              otherButtonTitles:@"Ok", nil] show];
+        }
+    });
+}
+
+
+#pragma mark - UIAlertViewDelegate
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    switch (buttonIndex) {
+        case 0:
+            self.rememberDeviceCompletionSource.result = @(YES);
+            break;
+        case 1:
+            self.rememberDeviceCompletionSource.result = @(NO);
+            break;
+        default:
+            break;
+    }
+}
 @end
+

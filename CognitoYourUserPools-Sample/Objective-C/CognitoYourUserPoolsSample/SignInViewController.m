@@ -54,6 +54,7 @@
                               cancelButtonTitle:nil
                               otherButtonTitles:@"Retry", nil] show];
         }else{
+            self.usernameText = nil;
             [self dismissViewControllerAnimated:YES completion:nil];
         }
     });
