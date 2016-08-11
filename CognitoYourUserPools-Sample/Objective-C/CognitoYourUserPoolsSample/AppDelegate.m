@@ -33,7 +33,7 @@
     [AWSLogger defaultLogger].logLevel = AWSLogLevelVerbose;
     
     //setup service config
-    AWSServiceConfiguration *serviceConfiguration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    AWSServiceConfiguration *serviceConfiguration = [[AWSServiceConfiguration alloc] initWithRegion:CognitoIdentityUserPoolRegion credentialsProvider:nil];
     
     if([@"YOUR_USER_POOL_ID" isEqualToString:CognitoIdentityUserPoolId]){
         [[[UIAlertView alloc] initWithTitle:@"Invalid Configuration"
