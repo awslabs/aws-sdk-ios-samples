@@ -141,10 +141,10 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     switch (buttonIndex) {
         case 0:
-            self.rememberDeviceCompletionSource.result = @(YES);
+            self.rememberDeviceCompletionSource.result = @(NO);
             break;
         case 1:
-            self.rememberDeviceCompletionSource.result = @(NO);
+            self.rememberDeviceCompletionSource.result = @(YES);
             break;
         default:
             break;
