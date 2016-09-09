@@ -3,10 +3,18 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 
 target 'CognitoSyncDemo' do
-    pod 'AWSCognito', '~> 2.2.0'
-    pod 'UICKeyChainStore', '~> 2.0.0'
-    pod 'FBSDKLoginKit', '~> 4.6.0'
-    pod 'FBSDKCoreKit', '~> 4.6.0'
-    pod 'FBSDKShareKit', '~> 4.6.0'
-    #pod 'google-plus-ios-sdk'
+  pod 'UICKeyChainStore'
+  pod 'AWSCognito'
+  pod 'AWSCognitoIdentityProvider'
+
+# To USe Google Remove the LoginWithAmazon.framework
+#  pod 'google-plus-ios-sdk', '~> 1.7.1'
+
+#  pod 'FBSDKCoreKit'
+#  pod 'FBSDKLoginKit'
+#  pod 'FBSDKShareKit'
+#  pod 'TwitterKit', '~> 1.12.0'
+#  pod 'Fabric', '~> 1.5.0'
+#  pod 'TwitterCore', '~> 1.12.0'
+#  pod 'Digits', '~> 1.12.0'
 end

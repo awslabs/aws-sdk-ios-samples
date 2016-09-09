@@ -20,6 +20,12 @@
 AWSRegionType const CognitoRegionType = AWSRegionUnknown; // e.g. AWSRegionUSEast1
 NSString *const CognitoIdentityPoolId = @"YourCognitoIdentityPoolId";
 
+#pragma mark - OPTIONAL: Enable Cognito User Pool
+
+NSString *const CognitoIdentityUserPoolId = @"YourCognitoIdentityUserPoolId";
+NSString *const CognitoIdentityUserPoolAppClientId = @"YourCognitoIdentityUserPoolAppClientId";
+NSString *const CognitoIdentityUserPoolAppClientSecret = @"YourCognitoIdentityUserPoolAppClientSecret";
+
 #pragma mark - OPTIONAL: Enable FB Login
 /**
  * OPTIONAL: Enable FB Login
@@ -86,6 +92,7 @@ NSString *const DeveloperAuthProviderName = @"PROVIDER_NAME";
 /*******************************************
  * DO NOT CHANGE THE VALUES BELOW HERE
  */
+NSString *const BYOIProvider = @"DeveloperAuth";
 NSString *const DeviceTokenKey = @"DeviceToken";
 NSString *const CognitoDeviceTokenKey = @"CognitoDeviceToken";
 NSString *const CognitoPushNotification = @"CognitoPushNotification";

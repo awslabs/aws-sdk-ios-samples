@@ -37,9 +37,6 @@ NSString *const EncryptionKeyKey = @"authkey";
 @end
 
 @interface DeveloperAuthenticationClient()
-@property (nonatomic, strong) NSString *identityPoolId;
-@property (nonatomic, strong) NSString *identityId;
-@property (nonatomic, strong) NSString *token;
 
 // used for internal encryption
 @property (nonatomic, strong) NSString *uid;
@@ -92,8 +89,8 @@ NSString *const EncryptionKeyKey = @"authkey";
         NSData *rawResponse = [NSData dataWithContentsOfURL:request];
         if (!rawResponse) {
             return [AWSTask taskWithError:[NSError errorWithDomain:DeveloperAuthenticationClientDomain
-                                                             code:DeveloperAuthenticationClientLoginError
-                                                         userInfo:nil]];
+                                                              code:DeveloperAuthenticationClientLoginError
+                                                          userInfo:nil]];
         }
         
         NSString *response = [[NSString alloc] initWithData:rawResponse encoding:NSUTF8StringEncoding];
@@ -102,8 +99,8 @@ NSString *const EncryptionKeyKey = @"authkey";
         NSData *body = [Crypto decrypt:response key:key];
         if (!body) {
             return [AWSTask taskWithError:[NSError errorWithDomain:DeveloperAuthenticationClientDomain
-                                                             code:DeveloperAuthenticationClientDecryptError
-                                                         userInfo:nil]];
+                                                              code:DeveloperAuthenticationClientDecryptError
+                                                          userInfo:nil]];
         }
         
         NSString *json = [[NSString alloc] initWithData:body encoding:NSUTF8StringEncoding];
@@ -112,8 +109,8 @@ NSString *const EncryptionKeyKey = @"authkey";
         self.key = [jsonDict objectForKey:@"key"];
         if (!self.key) {
             return [AWSTask taskWithError:[NSError errorWithDomain:DeveloperAuthenticationClientDomain
-                                                             code:DeveloperAuthenticationClientUnknownError
-                                                         userInfo:nil]];
+                                                              code:DeveloperAuthenticationClientUnknownError
+                                                          userInfo:nil]];
         }
         AWSLogDebug(@"key: %@", self.key);
         
@@ -139,8 +136,8 @@ NSString *const EncryptionKeyKey = @"authkey";
     // make sure we've authenticated
     if (![self isAuthenticated]) {
         return [AWSTask taskWithError:[NSError errorWithDomain:DeveloperAuthenticationClientDomain
-                                                         code:DeveloperAuthenticationClientLoginError
-                                                     userInfo:nil]];
+                                                          code:DeveloperAuthenticationClientLoginError
+                                                      userInfo:nil]];
     }
     
     return [[AWSTask taskWithResult:nil] continueWithBlock:^id(AWSTask *task) {
@@ -148,16 +145,16 @@ NSString *const EncryptionKeyKey = @"authkey";
         NSData *rawResponse = [NSData dataWithContentsOfURL:request];
         if (!rawResponse) {
             return [AWSTask taskWithError:[NSError errorWithDomain:DeveloperAuthenticationClientDomain
-                                                             code:DeveloperAuthenticationClientLoginError
-                                                         userInfo:nil]];
+                                                              code:DeveloperAuthenticationClientLoginError
+                                                          userInfo:nil]];
         }
         
         NSString *response = [[NSString alloc] initWithData:rawResponse encoding:NSUTF8StringEncoding];
         NSData *body = [Crypto decrypt:response key:self.key];
         if (!body) {
             return [AWSTask taskWithError:[NSError errorWithDomain:DeveloperAuthenticationClientDomain
-                                                             code:DeveloperAuthenticationClientDecryptError
-                                                         userInfo:nil]];
+                                                              code:DeveloperAuthenticationClientDecryptError
+                                                          userInfo:nil]];
         }
         
         NSString *json = [[NSString alloc] initWithData:body encoding:NSUTF8StringEncoding];
@@ -172,8 +169,8 @@ NSString *const EncryptionKeyKey = @"authkey";
         authResponse.identityPoolId = [jsonDict objectForKey:@"identityPoolId"];
         if (!(authResponse.token || authResponse.identityId || authResponse.identityPoolId)) {
             return [AWSTask taskWithError:[NSError errorWithDomain:DeveloperAuthenticationClientDomain
-                                                             code:DeveloperAuthenticationClientUnknownError
-                                                         userInfo:nil]];
+                                                              code:DeveloperAuthenticationClientUnknownError
+                                                          userInfo:nil]];
         }
         
         return [AWSTask taskWithResult:authResponse];

@@ -2,6 +2,18 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>fbauth2</string>
+		<string>com.google.gppconsent.2.4.1</string>
+		<string>com.google.gppconsent.2.4.0</string>
+		<string>com.google.gppconsent.2.3.0</string>
+		<string>com.google.gppconsent.2.2.0</string>
+		<string>com.google.gppconsent</string>
+		<string>hasgplus4</string>
+		<string>googlechrome-x-callback</string>
+		<string>googlechrome</string>
+	</array>
 	<key>APIKey</key>
 	<string>AMZN_API_KEY</string>
 	<key>CFBundleDevelopmentRegion</key>

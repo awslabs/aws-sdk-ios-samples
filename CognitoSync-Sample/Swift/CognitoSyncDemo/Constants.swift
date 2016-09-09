@@ -17,12 +17,19 @@ import Foundation
 import AWSCore
 
 
-struct Constants {
+@objc class Constants: NSObject {
     
     // MARK: Required: Amazon Cognito Configuration
     
     static let COGNITO_REGIONTYPE = AWSRegionType.Unknown // e.g. AWSRegionType.USEast1
     static let COGNITO_IDENTITY_POOL_ID = "YourCognitoIdentityPoolId"
+    
+    
+    // MARK: Required: Amazon Cognito User Pool Configuration
+    
+    static let COGNITO_IDENTITY_USER_POOL_ID = "YourCognitoIdentityUserPoolId"
+    static let COGNITO_IDENTITY_USER_POOL_APP_CLIENT_ID = "YourCognitoIdentityUserPoolAppClientId"
+    static let COGNITO_IDENTITY_USER_POOL_APP_CLIENT_SECRET = "YourCognitoIdentityUserPoolAppClientSecret"
     
     // MARK: Optional: Enable Facebook Login
     
@@ -84,6 +91,7 @@ struct Constants {
     * DO NOT CHANGE THE VALUES BELOW HERE
     */
     
+    static let BYOIProvider = "BYOI"
     static let DEVICE_TOKEN_KEY = "DeviceToken"
     static let COGNITO_DEVICE_TOKEN_KEY = "CognitoDeviceToken"
     static let COGNITO_PUSH_NOTIF = "CognitoPushNotification"

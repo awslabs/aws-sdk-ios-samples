@@ -4,11 +4,12 @@ platform :ios, '8.0'
 use_frameworks!
 
 target 'CognitoSyncDemo' do
-    pod 'UICKeyChainStore', '~> 2.0.6'
-    pod 'AWSCognito', '~> 2.2.5'
-    pod 'FBSDKCoreKit', '~> 4.9'
-    pod 'FBSDKLoginKit', '~> 4.9'
-    pod 'FBSDKShareKit', '~> 4.9'
+    pod 'UICKeyChainStore'
+    pod 'AWSCognito'
+    pod 'AWSCognitoIdentityProvider'
+    pod 'FBSDKCoreKit'
+    pod 'FBSDKLoginKit'
+    pod 'FBSDKShareKit'
     pod 'google-plus-ios-sdk', '~> 1.7.1'
     pod 'TwitterKit', '~> 1.12.0'
     pod 'Fabric', '~> 1.5.0'
