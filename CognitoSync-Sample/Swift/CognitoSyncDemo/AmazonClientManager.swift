@@ -284,7 +284,7 @@ class AmazonClientManager : NSObject, GPPSignInDelegate, AIAuthenticationDelegat
                 
             } else {
                 
-                let provider = "cognito-idp.us-east-1.amazonaws.com/\(Constants.COGNITO_IDENTITY_POOL_ID)"
+                let provider = "cognito-idp.us-east-1.amazonaws.com/\(Constants.COGNITO_IDENTITY_USER_POOL_ID)"
                 let userSession = task.result as? AWSCognitoIdentityUserSession
                 let token = userSession?.idToken?.tokenString ?? ""
                 self.keyChain[self.COGNITO_USERPOOL_PROVIDER] = provider

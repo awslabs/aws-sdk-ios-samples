@@ -419,7 +419,7 @@
             [[AWSTask taskWithError:task.error] continueWithBlock:self.completionHandler];
         } else {
             
-            NSString *provider = @"cognito-idp.us-east-1.amazonaws.com/\(Constants.COGNITO_IDENTITY_POOL_ID)";
+            NSString *provider = [NSString stringWithFormat:@"cognito-idp.us-east-1.amazonaws.com/%@",Constrants.CognitoIdentityUserPoolId]
             AWSCognitoIdentityUserSession* userSession = task.result;
             NSString *token = userSession.idToken.tokenString ? : @"";
             self.keychain[COGNITO_USERPOOL_PROVIDER] = provider;
