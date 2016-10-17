@@ -80,12 +80,23 @@
 }
 
 -(void) refresh {
-    [[self.user getDetails] continueWithSuccessBlock:^id _Nullable(AWSTask<AWSCognitoIdentityUserGetDetailsResponse *> * _Nonnull task) {
+    [[self.user getDetails] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityUserGetDetailsResponse *> * _Nonnull task) {
+        
         dispatch_async(dispatch_get_main_queue(), ^{
-            self.response = task.result;
-            self.title = self.user.username;
-            [self.tableView reloadData];
+            if(task.error){
+                self.title = task.error.userInfo[@"__type"];
+                if(self.title == nil){
+                    self.title = task.error.userInfo[NSLocalizedDescriptionKey];
+                }
+                [self.navigationController setToolbarHidden:YES];
+            }else {
+                self.response = task.result;
+                self.title = self.user.username;
+                [self.tableView reloadData];
+                [self.navigationController setToolbarHidden:NO];
+            }
         });
+        
         return nil;
     }];
 }

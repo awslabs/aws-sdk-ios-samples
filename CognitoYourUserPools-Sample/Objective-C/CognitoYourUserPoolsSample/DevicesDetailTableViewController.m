@@ -41,14 +41,8 @@
 
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.navigationController setToolbarHidden:YES];
-}
-
-- (void) viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
     [self.navigationController setToolbarHidden:NO];
 }
-
 
 #pragma mark - Table view data source
 
@@ -107,6 +101,23 @@
         });
         return nil;
     }];
+}
+- (IBAction)forgetDevice:(UIBarButtonItem *)sender {
+    if(self.response && self.response.devices.count > 0){
+        [[self.user forgetDevice] continueWithBlock:
+        ^id _Nullable(AWSTask * _Nonnull task) {
+            if(task.error){
+                    [[[UIAlertView alloc] initWithTitle:task.error.userInfo[@"__type"]
+                                                message:task.error.userInfo[@"message"]
+                                               delegate:nil
+                                      cancelButtonTitle:nil
+                                      otherButtonTitles:@"Ok", nil] show];
+            }
+            
+            [self refresh];
+            return nil;
+        }];
+    }
 }
 
 @end

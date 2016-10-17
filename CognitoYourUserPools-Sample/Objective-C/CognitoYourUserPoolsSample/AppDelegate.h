@@ -19,6 +19,7 @@
 #import "AWSCognitoIdentityProvider.h"
 #import "MFAViewController.h"
 #import "SignInViewController.h"
+#import "NewPasswordRequiredViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, AWSCognitoIdentityInteractiveAuthenticationDelegate, AWSCognitoIdentityRememberDevice, UIAlertViewDelegate>
 @property (strong, nonatomic) UIWindow *window;
@@ -26,5 +27,6 @@
 @property(nonatomic,strong) UINavigationController *navigationController;
 @property(nonatomic,strong) SignInViewController* signInViewController;
 @property(nonatomic,strong) MFAViewController* mfaViewController;
+@property(nonatomic,strong) NewPasswordRequiredViewController* passwordRequiredViewController;
 @end
 

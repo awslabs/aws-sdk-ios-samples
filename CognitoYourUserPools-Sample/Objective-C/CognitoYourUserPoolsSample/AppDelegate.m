@@ -28,7 +28,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-
+    
     //setup logging
     [AWSLogger defaultLogger].logLevel = AWSLogLevelVerbose;
     
@@ -37,10 +37,10 @@
     
     if([@"YOUR_USER_POOL_ID" isEqualToString:CognitoIdentityUserPoolId]){
         [[[UIAlertView alloc] initWithTitle:@"Invalid Configuration"
-                                message:@"Please configure user pool constants in Constants.m"
-                               delegate:nil
-                      cancelButtonTitle:nil
-                      otherButtonTitles:@"Ok", nil] show];
+                                    message:@"Please configure user pool constants in Constants.m"
+                                   delegate:nil
+                          cancelButtonTitle:nil
+                          otherButtonTitles:@"Ok", nil] show];
     }
     
     //create a pool
@@ -49,7 +49,7 @@
     [AWSCognitoIdentityUserPool registerCognitoIdentityUserPoolWithConfiguration:serviceConfiguration userPoolConfiguration:configuration forKey:@"UserPool"];
     
     AWSCognitoIdentityUserPool *pool = [AWSCognitoIdentityUserPool CognitoIdentityUserPoolForKey:@"UserPool"];
-
+    
     self.storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
     pool.delegate = self;
@@ -115,27 +115,30 @@
     
     //Don't do anything fancy here, just display a popup.
     dispatch_async(dispatch_get_main_queue(), ^{
-       [[[UIAlertView alloc] initWithTitle:@"Remember Device"
-                                        message:@"Do you want to remember this device?"
-                                       delegate:self
-                              cancelButtonTitle:@"No"
-                              otherButtonTitles:@"Yes", nil] show];
+        [[[UIAlertView alloc] initWithTitle:@"Remember Device"
+                                    message:@"Do you want to remember this device?"
+                                   delegate:self
+                          cancelButtonTitle:@"No"
+                          otherButtonTitles:@"Yes", nil] show];
     });
 }
 
 -(void) didCompleteRememberDeviceStepWithError:(NSError* _Nullable) error {
+    [self errorPopup:error];
+}
+
+-(void) errorPopup:(NSError *_Nullable) error {
     //Don't do anything fancy here, just display a popup.
-    dispatch_async(dispatch_get_main_queue(), ^{
-        if(error){
+    if(error){
+        dispatch_async(dispatch_get_main_queue(), ^{
             [[[UIAlertView alloc] initWithTitle:error.userInfo[@"__type"]
                                         message:error.userInfo[@"message"]
                                        delegate:nil
                               cancelButtonTitle:nil
                               otherButtonTitles:@"Ok", nil] show];
-        }
-    });
+        });
+    }
 }
-
 
 #pragma mark - UIAlertViewDelegate
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
@@ -149,6 +152,35 @@
         default:
             break;
     }
+    
+    self.rememberDeviceCompletionSource = nil;
 }
+
+#pragma mark - passwordRequired
+-(id<AWSCognitoIdentityNewPasswordRequired>) startNewPasswordRequired {
+    if(!self.passwordRequiredViewController){
+        self.passwordRequiredViewController = [NewPasswordRequiredViewController new];
+        self.passwordRequiredViewController.modalPresentationStyle = UIModalPresentationPopover;
+    }
+    dispatch_async(dispatch_get_main_queue(), ^{
+        //if new password required view isn't already visible, display it
+        if (!(self.passwordRequiredViewController.isViewLoaded && self.passwordRequiredViewController.view.window)) {
+            //display mfa as popover on current view controller
+            UIViewController *vc = self.window.rootViewController;
+            [vc presentViewController:self.passwordRequiredViewController animated: YES completion: nil];
+            
+            //configure popover vc
+            UIPopoverPresentationController *presentationController =
+            [self.passwordRequiredViewController popoverPresentationController];
+            presentationController.permittedArrowDirections =
+            UIPopoverArrowDirectionLeft | UIPopoverArrowDirectionRight;
+            presentationController.sourceView = vc.view;
+            presentationController.sourceRect = vc.view.bounds;
+        }
+    });
+    return self.passwordRequiredViewController;
+
+}
+
 @end
 
