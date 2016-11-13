@@ -32,17 +32,17 @@ class FirstViewController: UIViewController{
         self.statusLabel.text = "Ready"
 
         self.progressBlock = {(task, progress) in
-            dispatch_async(dispatch_get_main_queue(), {
+            DispatchQueue.main.async(execute: {
                 self.progressView.progress = Float(progress.fractionCompleted)
                 self.statusLabel.text = "Uploading..."
             })
         }
 
         self.completionHandler = { (task, error) -> Void in
-            dispatch_async(dispatch_get_main_queue(), {
-                if ((error) != nil){
+            DispatchQueue.main.async(execute: {
+                if let safeError = error as? NSError {
                     NSLog("Failed with error")
-                    NSLog("Error: %@",error!);
+                    NSLog("Error: %@",safeError);
                     self.statusLabel.text = "Failed"
                 }
                 else if(self.progressView.progress != 1.0) {
@@ -56,26 +56,26 @@ class FirstViewController: UIViewController{
         }
     }
 
-    @IBAction func start(sender: UIButton) {
+    @IBAction func start(_ sender: UIButton) {
         statusLabel.text = "Creating a test data..."
 
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+        DispatchQueue.global(qos: .default).async {
             //Create a test file in the temporary directory
             var dataString = "1234567890"
             for _ in 1..<22 { //~20MB
                 dataString += dataString
             }
-            let testData = dataString.dataUsingEncoding(NSUTF8StringEncoding)!
+            let testData = dataString.data(using: String.Encoding.utf8)!
 
             self.uploadData(testData)
         }
     }
 
-    func uploadData(data: NSData) {
+    func uploadData(_ data: Data) {
         let expression = AWSS3TransferUtilityUploadExpression()
         expression.progressBlock = progressBlock
 
-        let transferUtility = AWSS3TransferUtility.defaultS3TransferUtility()
+        let transferUtility = AWSS3TransferUtility.default()
 
         transferUtility.uploadData(
             data,
@@ -83,7 +83,7 @@ class FirstViewController: UIViewController{
             key: S3UploadKeyName,
             contentType: "text/plain",
             expression: expression,
-            completionHander: completionHandler).continueWithBlock { (task) -> AnyObject! in
+            completionHander: completionHandler).continue(successBlock: { (task) -> AnyObject! in
                 if let error = task.error {
                     NSLog("Error: %@",error.localizedDescription);
                     self.statusLabel.text = "Failed"
@@ -99,6 +99,6 @@ class FirstViewController: UIViewController{
                 }
                 
                 return nil;
-        }
+            })
     }
 }

@@ -37,23 +37,23 @@ class SecondViewController: UIViewController{
         // Dispose of any resources that can be recreated.
     }
 
-    @IBAction func start(sender: UIButton) {
+    @IBAction func start(_ sender: UIButton) {
 
         self.imageView.image = nil;
 
         let expression = AWSS3TransferUtilityDownloadExpression()
         expression.progressBlock = {(task, progress) in
-            dispatch_async(dispatch_get_main_queue(), {
+            DispatchQueue.main.async(execute: {
                 self.progressView.progress = Float(progress.fractionCompleted)
                 self.statusLabel.text = "Downloading..."
             })
         }
 
         self.completionHandler = { (task, location, data, error) -> Void in
-            dispatch_async(dispatch_get_main_queue(), {
-                if ((error) != nil){
+            DispatchQueue.main.async(execute: {
+                if let safeError = error as? NSError {
                     NSLog("Failed with error")
-                    NSLog("Error: %@",error!);
+                    NSLog("Error: %@",safeError);
                     self.statusLabel.text = "Failed"
                 }
                 else if(self.progressView.progress != 1.0) {
@@ -67,27 +67,27 @@ class SecondViewController: UIViewController{
             })
         }
 
-        let transferUtility = AWSS3TransferUtility.defaultS3TransferUtility()
+        let transferUtility = AWSS3TransferUtility.default()
 
-        transferUtility.downloadDataFromBucket(
-            S3BucketName,
+        transferUtility.downloadData(
+            fromBucket: S3BucketName,
             key: S3DownloadKeyName,
             expression: expression,
-            completionHander: completionHandler).continueWithBlock { (task) -> AnyObject? in
-            if let error = task.error {
-                NSLog("Error: %@",error.localizedDescription);
-                self.statusLabel.text = "Failed"
-            }
-            if let exception = task.exception {
-                NSLog("Exception: %@",exception.description);
-                self.statusLabel.text = "Failed"
-            }
-            if let _ = task.result {
-                self.statusLabel.text = "Starting Download"
-                NSLog("Download Starting!")
-                // Do something with uploadTask.
-            }
-            return nil;
-        }
+            completionHander: completionHandler).continue(successBlock: { (task) -> AnyObject? in
+                if let error = task.error {
+                    NSLog("Error: %@",error.localizedDescription);
+                    self.statusLabel.text = "Failed"
+                }
+                if let exception = task.exception {
+                    NSLog("Exception: %@",exception.description);
+                    self.statusLabel.text = "Failed"
+                }
+                if let _ = task.result {
+                    self.statusLabel.text = "Starting Download"
+                    NSLog("Download Starting!")
+                    // Do something with uploadTask.
+                }
+                return nil;
+            })
     }
 }
