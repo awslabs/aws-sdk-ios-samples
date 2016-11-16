@@ -38,7 +38,7 @@ Some set up is required in order to be able to log-in using external providers. 
 ##2. Setup Facebook App
 1. Sign up for the Facebook developer program at [developers.facebook.com](https://developers.facebook.com/)
 
-1. Visit the guide [Getting Started with the Facebook SDK for iOS](https://developers.facebook.com/docs/getting-started/facebook-sdk-for-ios/) and follow the instructions to **Create a Facebook App**. Make note of your `App ID`. You'll use it in configuring the sample. The other steps in this guide will be useful with your future Facebook Apps, but are not necessary for this sample. Enter the following as your **Bundle ID**: `com.amazon.aws.CognitoSyncDemo`.
+1. Visit the guide [Getting Started with the Facebook SDK for iOS](https://developers.facebook.com/docs/getting-started/facebook-sdk-for-ios/) and follow the instructions to **Create a Facebook App**. Make note of your `App ID`. You'll use it in configuring the sample. The other steps in this guide will be useful with your future Facebook Apps, but are not necessary for this sample. Enter the following as your **Bundle ID**: `amazon.aws.CognitoSyncDemo`.
 
 1. In Xcode, update *FACEBOOK_APP_ID* with your app id and *FACEBOOK_DISPLAY_NAME* with your app name under the Information Property List.
 
@@ -49,7 +49,7 @@ Some set up is required in order to be able to log-in using external providers. 
 
 1. Under **Label** give the key a meaningful name.
 
-1. Enter the following as your **Bundle ID**: `com.amazon.aws.CognitoSyncDemo`.  
+1. Enter the following as your **Bundle ID**: `amazon.aws.CognitoSyncDemo`.  
 
 1. Make sure to click **Get API Key Value** after creating your API key. This value is used in configuring the sample.  
 
@@ -62,7 +62,7 @@ Some set up is required in order to be able to log-in using external providers. 
 
 1. Under **Installed application type**, select **iOS**.
 
-1. Enter the following as your **Bundle ID**: `com.amazon.aws.CognitoSyncDemo`.  
+1. Enter the following as your **Bundle ID**: `amazon.aws.CognitoSyncDemo`.  
 
 1. Copy the **Client ID** you generated with Google and update the following line in the `Constants.swift`:
 
