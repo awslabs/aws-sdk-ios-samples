@@ -1,0 +1,398 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		110E2E43EA58BB4FD229FBF5 /* Pods_LexSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAB7C006E54F0A5AA4EDD2C1 /* Pods_LexSwift.framework */; };
+		17DA1C361DD517CD002DD9AF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DA1C351DD517CD002DD9AF /* Constants.swift */; };
+		17DD06671DD2C86200BD639D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DD06661DD2C86200BD639D /* AppDelegate.swift */; };
+		17DD066E1DD2C86200BD639D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17DD066D1DD2C86200BD639D /* Assets.xcassets */; };
+		17DD06711DD2C86200BD639D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17DD066F1DD2C86200BD639D /* LaunchScreen.storyboard */; };
+		17DD067B1DD3AF6100BD639D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17DD067A1DD3AF6100BD639D /* Main.storyboard */; };
+		17DD067D1DD3C34A00BD639D /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DD067C1DD3C34A00BD639D /* ChatViewController.swift */; };
+		17DD068E1DD3EE9D00BD639D /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DD068D1DD3EE9D00BD639D /* TableViewController.swift */; };
+		17DD06921DD3F18100BD639D /* VoiceChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DD06911DD3F18100BD639D /* VoiceChatViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		18CE71C01DDE318F00ED6041 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		1731B0DD9412B467C655F831 /* Pods-LexSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LexSwift.release.xcconfig"; path = "Pods/Target Support Files/Pods-LexSwift/Pods-LexSwift.release.xcconfig"; sourceTree = "<group>"; };
+		17DA1C351DD517CD002DD9AF /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		17DD06631DD2C86200BD639D /* LexSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LexSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		17DD06661DD2C86200BD639D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		17DD066D1DD2C86200BD639D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		17DD06701DD2C86200BD639D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		17DD06721DD2C86200BD639D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		17DD067A1DD3AF6100BD639D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		17DD067C1DD3C34A00BD639D /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		17DD068D1DD3EE9D00BD639D /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		17DD06911DD3F18100BD639D /* VoiceChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoiceChatViewController.swift; sourceTree = "<group>"; };
+		51FAC61F3A6130DDD2E53389 /* Pods-LexSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LexSwift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LexSwift/Pods-LexSwift.debug.xcconfig"; sourceTree = "<group>"; };
+		5F643AA8A22F82C3FB42F60F /* Pods-DeepSenseSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeepSenseSwift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DeepSenseSwift/Pods-DeepSenseSwift.debug.xcconfig"; sourceTree = "<group>"; };
+		987F88259B70ACA84498B704 /* Pods-DeepSenseSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeepSenseSwift.release.xcconfig"; path = "Pods/Target Support Files/Pods-DeepSenseSwift/Pods-DeepSenseSwift.release.xcconfig"; sourceTree = "<group>"; };
+		CAB7C006E54F0A5AA4EDD2C1 /* Pods_LexSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LexSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		17DD06601DD2C86200BD639D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				110E2E43EA58BB4FD229FBF5 /* Pods_LexSwift.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		17DD065A1DD2C86200BD639D = {
+			isa = PBXGroup;
+			children = (
+				17DD06651DD2C86200BD639D /* LexSwift */,
+				17DD06941DD3FC9800BD639D /* Frameworks */,
+				17DD06641DD2C86200BD639D /* Products */,
+				498380ACF23D902D247DE254 /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		17DD06641DD2C86200BD639D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				17DD06631DD2C86200BD639D /* LexSwift.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		17DD06651DD2C86200BD639D /* LexSwift */ = {
+			isa = PBXGroup;
+			children = (
+				17DD06661DD2C86200BD639D /* AppDelegate.swift */,
+				17DD066D1DD2C86200BD639D /* Assets.xcassets */,
+				17DD066F1DD2C86200BD639D /* LaunchScreen.storyboard */,
+				17DD067A1DD3AF6100BD639D /* Main.storyboard */,
+				17DD06721DD2C86200BD639D /* Info.plist */,
+				17DD067C1DD3C34A00BD639D /* ChatViewController.swift */,
+				17DD068D1DD3EE9D00BD639D /* TableViewController.swift */,
+				17DD06911DD3F18100BD639D /* VoiceChatViewController.swift */,
+				17DA1C351DD517CD002DD9AF /* Constants.swift */,
+			);
+			path = LexSwift;
+			sourceTree = "<group>";
+		};
+		17DD06941DD3FC9800BD639D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CAB7C006E54F0A5AA4EDD2C1 /* Pods_LexSwift.framework */,
+			);
+			name = Frameworks;
+			path = DeepSenseSwift;
+			sourceTree = "<group>";
+		};
+		498380ACF23D902D247DE254 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5F643AA8A22F82C3FB42F60F /* Pods-DeepSenseSwift.debug.xcconfig */,
+				987F88259B70ACA84498B704 /* Pods-DeepSenseSwift.release.xcconfig */,
+				51FAC61F3A6130DDD2E53389 /* Pods-LexSwift.debug.xcconfig */,
+				1731B0DD9412B467C655F831 /* Pods-LexSwift.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		17DD06621DD2C86200BD639D /* LexSwift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 17DD06751DD2C86200BD639D /* Build configuration list for PBXNativeTarget "LexSwift" */;
+			buildPhases = (
+				AA451B05703C30D0EF8427DA /* 📦 Check Pods Manifest.lock */,
+				17DD065F1DD2C86200BD639D /* Sources */,
+				17DD06601DD2C86200BD639D /* Frameworks */,
+				17DD06611DD2C86200BD639D /* Resources */,
+				2F98D5F948504D38E78A252C /* 📦 Embed Pods Frameworks */,
+				79EC07A1A05ED010CDF8BCE2 /* 📦 Copy Pods Resources */,
+				18CE71C01DDE318F00ED6041 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LexSwift;
+			productName = DeepSenseSwift;
+			productReference = 17DD06631DD2C86200BD639D /* LexSwift.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		17DD065B1DD2C86200BD639D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Dubal, Rohan";
+				TargetAttributes = {
+					17DD06621DD2C86200BD639D = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 17DD065E1DD2C86200BD639D /* Build configuration list for PBXProject "LexSwift" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 17DD065A1DD2C86200BD639D;
+			productRefGroup = 17DD06641DD2C86200BD639D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				17DD06621DD2C86200BD639D /* LexSwift */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		17DD06611DD2C86200BD639D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17DD067B1DD3AF6100BD639D /* Main.storyboard in Resources */,
+				17DD06711DD2C86200BD639D /* LaunchScreen.storyboard in Resources */,
+				17DD066E1DD2C86200BD639D /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2F98D5F948504D38E78A252C /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LexSwift/Pods-LexSwift-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		79EC07A1A05ED010CDF8BCE2 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LexSwift/Pods-LexSwift-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AA451B05703C30D0EF8427DA /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		17DD065F1DD2C86200BD639D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17DA1C361DD517CD002DD9AF /* Constants.swift in Sources */,
+				17DD06921DD3F18100BD639D /* VoiceChatViewController.swift in Sources */,
+				17DD067D1DD3C34A00BD639D /* ChatViewController.swift in Sources */,
+				17DD06671DD2C86200BD639D /* AppDelegate.swift in Sources */,
+				17DD068E1DD3EE9D00BD639D /* TableViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		17DD066F1DD2C86200BD639D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				17DD06701DD2C86200BD639D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		17DD06731DD2C86200BD639D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		17DD06741DD2C86200BD639D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		17DD06761DD2C86200BD639D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 51FAC61F3A6130DDD2E53389 /* Pods-LexSwift.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = "$(SRCROOT)/LexSwift/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.ios.sample.LexSwift;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		17DD06771DD2C86200BD639D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1731B0DD9412B467C655F831 /* Pods-LexSwift.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = "$(SRCROOT)/LexSwift/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.ios.sample.LexSwift;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		17DD065E1DD2C86200BD639D /* Build configuration list for PBXProject "LexSwift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				17DD06731DD2C86200BD639D /* Debug */,
+				17DD06741DD2C86200BD639D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		17DD06751DD2C86200BD639D /* Build configuration list for PBXNativeTarget "LexSwift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				17DD06761DD2C86200BD639D /* Debug */,
+				17DD06771DD2C86200BD639D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 17DD065B1DD2C86200BD639D /* Project object */;
+}
