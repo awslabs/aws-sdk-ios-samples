@@ -66,6 +66,24 @@ This sample demonstrates accessing device shadows using Cognito authentication; 
 * [Amazon AWS IoT](http://aws.amazon.com/iot/)
 * [Amazon Cognito Identity](http://aws.amazon.com/cognito/)
 
+###Amazon Lex Sample ([ObjC](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/Lex-Sample/ObjC/), [Swift2.3](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/Lex-Sample/swift-2.3/), [Swift3](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/Lex-Sample/swift-3/))
+
+This sample demonstrates how to use text to text chat and voice to voice chat using Amazon Lex SDK.
+
+####AWS Services Demonstrated:
+
+* [Amazon Lex](http://aws.amazon.com/lex/)
+* [Amazon Cognito Identity](http://aws.amazon.com/cognito/)
+
+###Amazon Polly Sample ([Swift](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/Polly-Sample/Swift/))
+
+This sample demonstrates how to get the list of voices and synthesize speech using Amazon Polly SDK.
+
+####AWS Services Demonstrated:
+
+* [Amazon Polly](http://aws.amazon.com/polly/)
+* [Amazon Cognito Identity](http://aws.amazon.com/cognito/)
+
 ###Sample Apps for Version 1 SDK
 
 Version 1 of the AWS Mobile SDK for iOS is deprecated as of September 29, 2014. If you are building new apps, we recommend you use Version 2.
