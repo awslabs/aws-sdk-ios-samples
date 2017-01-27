@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -35,7 +35,7 @@ class DDBSearchViewController: UIViewController,UIPickerViewDataSource,UIPickerV
         pickerData = ["Comet Quest","Galaxy Invaders","Meteor Blasters", "Starship X", "Alien Adventure","Attack Ships"]
         rangeKeyArray = ["TopScore","Wins","Losses"]
         for i in 0..<self.rangeKeyArray.count {
-            self.sortSegControl.setTitle(self.rangeKeyArray[i], forSegmentAtIndex: i)
+            self.sortSegControl.setTitle(self.rangeKeyArray[i], forSegmentAt: i)
         }
     }
 
@@ -44,55 +44,54 @@ class DDBSearchViewController: UIViewController,UIPickerViewDataSource,UIPickerV
         // Dispose of any resources that can be recreated.
     }
 
-    @IBAction func searchBtnPressed(sender: UIButton) {
+    @IBAction func searchBtnPressed(_ sender: UIButton) {
 
-        let dynamoDBObjectMapper = AWSDynamoDBObjectMapper.defaultDynamoDBObjectMapper()
+        let dynamoDBObjectMapper = AWSDynamoDBObjectMapper.default()
 
         //Query using GSI index table
         //What is the top score ever recorded for the game Meteor Blasters?
         let queryExpression = AWSDynamoDBQueryExpression()
-        queryExpression.scanIndexForward = self.orderSegControl.selectedSegmentIndex==0 ? true : false;
-        queryExpression.indexName = self.sortSegControl.titleForSegmentAtIndex(self.sortSegControl.selectedSegmentIndex)
+        queryExpression.scanIndexForward = self.orderSegControl.selectedSegmentIndex == 0 ? true : false;
+        queryExpression.indexName = self.sortSegControl.titleForSegment(at: self.sortSegControl.selectedSegmentIndex)
 
         queryExpression.keyConditionExpression = "GameTitle = :gameTitle AND \(self.rangeKeyArray[self.sortSegControl.selectedSegmentIndex]) > :rangeval"
 
         queryExpression.expressionAttributeValues = [
-            ":gameTitle" : self.pickerData[self.gameTitlePickerView .selectedRowInComponent(0)],
+            ":gameTitle" : self.pickerData[self.gameTitlePickerView .selectedRow(inComponent: 0)],
             ":rangeval" : self.rangeStepper.value];
 
-        dynamoDBObjectMapper .query(DDBTableRow.self, expression: queryExpression) .continueWithExecutor(AWSExecutor.mainThreadExecutor(), withBlock: { (task:AWSTask!) -> AnyObject! in
-            if (task.error != nil) {
-                print("Error: \(task.error)")
+        dynamoDBObjectMapper .query(DDBTableRow.self, expression: queryExpression) .continueWith(executor: AWSExecutor.mainThread(), block: { (task:AWSTask!) -> AnyObject! in
+            if let error = task.error as? NSError {
+                print("Error: \(error)")
 
-                let alertController = UIAlertController(title: "Failed to query a test table.", message: task.error!.description, preferredStyle: UIAlertControllerStyle.Alert)
-                let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: { (action:UIAlertAction) -> Void in
-                })
+                let alertController = UIAlertController(title: "Failed to query a test table.", message: error.description, preferredStyle: UIAlertControllerStyle.alert)
+                let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil)
                 alertController.addAction(okAction)
-                self.presentViewController(alertController, animated: true, completion: nil)
+                self.present(alertController, animated: true, completion: nil)
             } else {
-                if (task.result != nil) {
-                    self.pagniatedOutput = task.result as? AWSDynamoDBPaginatedOutput
+                if let result = task.result {//(task.result != nil) {
+                    self.pagniatedOutput = result
                 }
-                self.performSegueWithIdentifier("unwindToMainSegue", sender: self)
+                self.performSegue(withIdentifier: "unwindToMainSegue", sender: self)
             }
             return nil
         })
 
     }
 
-    @IBAction func rangeStepperChanged(sender: UIStepper) {
+    @IBAction func rangeStepperChanged(_ sender: UIStepper) {
         self.rangeConditionLabel.text = "Larger than \(sender.value)"
     }
 
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
 
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return self.pickerData.count
     }
 
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return self.pickerData[row]
     }
     

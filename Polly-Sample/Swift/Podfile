@@ -4,5 +4,5 @@ platform :ios, '8.0'
 use_frameworks!
 
 target 'PollySample' do
-    pod 'AWSPolly', '~> 2.4.13'
+    pod 'AWSPolly', '~> 2.5.0'
 end

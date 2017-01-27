@@ -137,6 +137,7 @@
 				TargetAttributes = {
 					A625DEBC1C0F753C00DB1463 = {
 						CreatedOnToolsVersion = 7.0.1;
+						LastSwiftMigration = 0820;
 					};
 				};
 			};
@@ -346,6 +347,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Amazon-Web-Services.IoTTemperatureControlSample";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -360,6 +362,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Amazon-Web-Services.IoTTemperatureControlSample";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

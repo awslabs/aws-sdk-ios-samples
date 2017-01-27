@@ -116,7 +116,7 @@ class ViewController: UIViewController, UITextViewDelegate, UIPickerViewDelegate
 		// When the request is done, asynchronously do the following block
 		// (we ignore all the errors, but in a real-world scenario they need
 		// to be handled)
-		task.continue(successBlock: { (awsTask: AWSTask) -> Any? in
+		task.continueOnSuccessWith { (awsTask: AWSTask<AWSPollyDescribeVoicesOutput>) -> Any? in
 			// awsTask.result is an instance of AWSPollyDescribeVoicesOutput in
 			// case of the "describeVoices" method
 			let data = (awsTask.result! as AWSPollyDescribeVoicesOutput).voices
@@ -150,7 +150,7 @@ class ViewController: UIViewController, UITextViewDelegate, UIPickerViewDelegate
 			}
 
 			return nil
-		})
+		}
 
 		// Handle keyboard changing frame
 		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: .UIKeyboardWillChangeFrame, object: nil)
@@ -254,7 +254,7 @@ class ViewController: UIViewController, UITextViewDelegate, UIPickerViewDelegate
 		let builder = AWSPollySynthesizeSpeechURLBuilder.default().getPreSignedURL(input)
 
 		// Request the URL for synthesis result
-		builder.continue(successBlock: { (awsTask: AWSTask<NSURL>) -> Any? in
+		builder.continueOnSuccessWith { (awsTask: AWSTask<NSURL>) -> Any? in
 			// The result of getPresignedURL task is NSURL.
 			// Again, we ignore the errors in the example.
 			let url = awsTask.result!
@@ -264,7 +264,7 @@ class ViewController: UIViewController, UITextViewDelegate, UIPickerViewDelegate
 			self.audioPlayer.play()
 
 			return nil
-		})
+		}
 	}
 }
 

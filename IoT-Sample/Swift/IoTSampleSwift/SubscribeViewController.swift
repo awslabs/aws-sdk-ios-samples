@@ -24,26 +24,26 @@ class SubscribeViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view, typically from a nib.
-        subscribeSlider.enabled = false
+        subscribeSlider.isEnabled = false
     }
 
-    override func viewWillAppear(animated: Bool) {
-        let iotDataManager = AWSIoTDataManager.defaultIoTDataManager()
+    override func viewWillAppear(_ animated: Bool) {
+        let iotDataManager = AWSIoTDataManager.default()
         let tabBarViewController = tabBarController as! IoTSampleTabBarController
 
-        iotDataManager.subscribeToTopic(tabBarViewController.topic, qoS: .MessageDeliveryAttemptedAtMostOnce, messageCallback: {
+        iotDataManager.subscribe(toTopic: tabBarViewController.topic, qoS: .messageDeliveryAttemptedAtMostOnce, messageCallback: {
             (payload) ->Void in
-            let stringValue = NSString(data: payload, encoding: NSUTF8StringEncoding)!
+            let stringValue = NSString(data: payload, encoding: String.Encoding.utf8.rawValue)!
 
             print("received: \(stringValue)")
-            dispatch_async(dispatch_get_main_queue()) {
+            DispatchQueue.main.async {
                 self.subscribeSlider.value = stringValue.floatValue
             }
         } )
     }
 
-    override func viewWillDisappear(animated: Bool) {
-        let iotDataManager = AWSIoTDataManager.defaultIoTDataManager()
+    override func viewWillDisappear(_ animated: Bool) {
+        let iotDataManager = AWSIoTDataManager.default()
         let tabBarViewController = tabBarController as! IoTSampleTabBarController
         iotDataManager.unsubscribeTopic(tabBarViewController.topic)
     }

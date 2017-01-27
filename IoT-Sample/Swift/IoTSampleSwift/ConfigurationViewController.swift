@@ -20,13 +20,13 @@ class ConfigurationViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var deleteCertificateButton: UIButton!
     @IBOutlet weak var topicTextField: UITextField!
 
-    @IBAction func deleteCertificateButtonPressed(sender: AnyObject) {
-        let actionController: UIAlertController = UIAlertController( title: nil, message: nil, preferredStyle: .ActionSheet)
-        let cancelAction: UIAlertAction = UIAlertAction( title: "Cancel", style: .Cancel) { action -> Void in
+    @IBAction func deleteCertificateButtonPressed(_ sender: AnyObject) {
+        let actionController: UIAlertController = UIAlertController( title: nil, message: nil, preferredStyle: .actionSheet)
+        let cancelAction: UIAlertAction = UIAlertAction( title: "Cancel", style: .cancel) { action -> Void in
         }
         actionController.addAction( cancelAction )
 
-        let okAction: UIAlertAction = UIAlertAction( title: "Delete", style: .Default) { action -> Void in
+        let okAction: UIAlertAction = UIAlertAction( title: "Delete", style: .default) { action -> Void in
             print( "deleting identity...")
 
             //
@@ -43,64 +43,55 @@ class ConfigurationViewController: UIViewController, UITextFieldDelegate {
             //  1) Remove the keys and certificate from the keychain
             //  2) Delete user defaults
             //
-            let defaults = NSUserDefaults.standardUserDefaults()
-            let certificateId = defaults.stringForKey( "certificateId")
-            let certificateArn = defaults.stringForKey( "certificateArn")
+            let defaults = UserDefaults.standard
+            let certificateId = defaults.string( forKey: "certificateId")
+            let certificateArn = defaults.string( forKey: "certificateArn")
             
             if certificateArn != "from-bundle" && certificateId != nil
             {
-                let iot = AWSIoT.defaultIoT()
+                let iot = AWSIoT.default()
 
                 let updateCertificateRequest = AWSIoTUpdateCertificateRequest()
-                updateCertificateRequest.certificateId = certificateId
-                updateCertificateRequest.latestStatus = .Inactive
+                updateCertificateRequest?.certificateId = certificateId
+                updateCertificateRequest?.latestStatus = .inactive
 
-                iot.updateCertificate( updateCertificateRequest ).continueWithBlock { (task) -> AnyObject? in
+                iot.updateCertificate( updateCertificateRequest! ).continueWith(block:{ (task) -> AnyObject? in
 
                     if let error = task.error {
                         print("failed: [\(error)]")
                     }
-                    if let exception = task.exception {
-                        print("failed: [\(exception)]")
-                    }
                     print("result: [\(task.result)]")
-                    if (task.exception == nil && task.error == nil)
+                    if (task.error == nil)
                     {
                         //
                         // The certificate is now inactive; detach the policy from the
                         // certificate.
                         //
-                        let certificateArn = defaults.stringForKey( "certificateArn")
+                        let certificateArn = defaults.string( forKey: "certificateArn")
                         let detachPolicyRequest = AWSIoTDetachPrincipalPolicyRequest()
-                        detachPolicyRequest.principal = certificateArn
-                        detachPolicyRequest.policyName = PolicyName
+                        detachPolicyRequest?.principal = certificateArn
+                        detachPolicyRequest?.policyName = PolicyName
 
-                        iot.detachPrincipalPolicy(detachPolicyRequest).continueWithBlock { (task) -> AnyObject? in
+                        iot.detachPrincipalPolicy(detachPolicyRequest!).continueWith(block: { (task) -> AnyObject? in
                             if let error = task.error {
                                 print("failed: [\(error)]")
                             }
-                            if let exception = task.exception {
-                                print("failed: [\(exception)]")
-                            }
                             print("result: [\(task.result)]")
-                            if (task.exception == nil && task.error == nil)
+                            if (task.error == nil)
                             {
                                 //
                                 // The policy is now detached; delete the certificate
                                 //
                                 let deleteCertificateRequest = AWSIoTDeleteCertificateRequest()
-                                deleteCertificateRequest.certificateId = certificateId
+                                deleteCertificateRequest?.certificateId = certificateId
 
-                                iot.deleteCertificate(deleteCertificateRequest).continueWithBlock { (task) -> AnyObject? in
+                                iot.deleteCertificate(deleteCertificateRequest!).continueWith(block: { (task) -> AnyObject? in
 
                                     if let error = task.error {
                                         print("failed: [\(error)]")
                                     }
-                                    if let exception = task.exception {
-                                        print("failed: [\(exception)]")
-                                    }
                                     print("result: [\(task.result)]")
-                                    if (task.exception == nil && task.error == nil)
+                                    if (task.error == nil)
                                     {
                                         //
                                         // The certificate has been deleted; now delete the keys
@@ -112,21 +103,21 @@ class ConfigurationViewController: UIViewController, UITextFieldDelegate {
                                         }
                                         else
                                         {
-                                            defaults.removeObjectForKey("certificateId")
-                                            defaults.removeObjectForKey("certificateArn")
-                                            dispatch_async( dispatch_get_main_queue() ) {
+                                            defaults.removeObject(forKey: "certificateId")
+                                            defaults.removeObject(forKey: "certificateArn")
+                                            DispatchQueue.main.async {
                                                 self.tabBarController?.selectedIndex = 0
                                             }
                                         }
                                     }
                                     return nil
-                                }
+                                })
                             }
                             return nil
-                        }
+                        })
                     }
                     return nil
-                }
+                })
 
             }
             else if certificateArn == "from-bundle"
@@ -140,9 +131,9 @@ class ConfigurationViewController: UIViewController, UITextFieldDelegate {
                 }
                 else
                 {
-                    defaults.removeObjectForKey("certificateId")
-                    defaults.removeObjectForKey("certificateArn")
-                    dispatch_async( dispatch_get_main_queue() ) {
+                    defaults.removeObject(forKey: "certificateId")
+                    defaults.removeObject(forKey: "certificateArn")
+                    DispatchQueue.main.async {
                         self.tabBarController?.selectedIndex = 0
                     }
                 }
@@ -154,30 +145,30 @@ class ConfigurationViewController: UIViewController, UITextFieldDelegate {
 
         }
         actionController.addAction( okAction )
-        self.presentViewController( actionController, animated: true, completion: nil )
+        self.present( actionController, animated: true, completion: nil )
     }
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         topicTextField.resignFirstResponder()
         return true
     }
-    func textFieldDidEndEditing(textField: UITextField) {
+    func textFieldDidEndEditing(_ textField: UITextField) {
         topicTextField.text = textField.text
-        let defaults = NSUserDefaults.standardUserDefaults()
+        let defaults = UserDefaults.standard
         let tabBarViewController = tabBarController as! IoTSampleTabBarController
         tabBarViewController.topic=textField.text!
-        defaults.setObject(textField.text, forKey:"sliderTopic")
+        defaults.set(textField.text, forKey:"sliderTopic")
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         topicTextField.delegate = self
-        let defaults = NSUserDefaults.standardUserDefaults()
-        let certificateId = defaults.stringForKey( "certificateId")
-        let sliderTopic = defaults.stringForKey( "sliderTopic" )
+        let defaults = UserDefaults.standard
+        let certificateId = defaults.string( forKey: "certificateId")
+        let sliderTopic = defaults.string( forKey: "sliderTopic" )
         let tabBarViewController = tabBarController as! IoTSampleTabBarController
 
         if (certificateId == nil)
         {
-            deleteCertificateButton.hidden=true
+            deleteCertificateButton.isHidden=true
         }
         if (sliderTopic != nil)
         {
@@ -185,18 +176,18 @@ class ConfigurationViewController: UIViewController, UITextFieldDelegate {
         }
         topicTextField.text = tabBarViewController.topic
     }
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let defaults = NSUserDefaults.standardUserDefaults()
-        let certificateId = defaults.stringForKey( "certificateId")
+        let defaults = UserDefaults.standard
+        let certificateId = defaults.string( forKey: "certificateId")
 
         if (certificateId == nil)
         {
-            deleteCertificateButton.hidden=true
+            deleteCertificateButton.isHidden=true
         }
         else
         {
-            deleteCertificateButton.hidden=false
+            deleteCertificateButton.isHidden=false
         }
     }
     override func didReceiveMemoryWarning() {

@@ -1,0 +1,429 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0D5A8E5387CC8FA610CFB75B /* Pods_CognitoYourUserPoolsSample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB8F26771F0FF8105FC402DD /* Pods_CognitoYourUserPoolsSample.framework */; };
+		17FC2F801E258FC500174015 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FC2F7F1E258FC500174015 /* AppDelegate.swift */; };
+		17FC2F851E258FC500174015 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17FC2F831E258FC500174015 /* Main.storyboard */; };
+		17FC2F871E258FC500174015 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17FC2F861E258FC500174015 /* Assets.xcassets */; };
+		17FC2F8A1E258FC500174015 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17FC2F881E258FC500174015 /* LaunchScreen.storyboard */; };
+		17FC2F921E25908D00174015 /* CognitoLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 17FC2F911E25908D00174015 /* CognitoLogo.png */; };
+		17FC2F951E2590D800174015 /* MFAViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17FC2F941E2590D800174015 /* MFAViewController.xib */; };
+		17FC2F971E25928900174015 /* MFAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FC2F961E25928900174015 /* MFAViewController.swift */; };
+		17FC2F991E25940900174015 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FC2F981E25940900174015 /* SignInViewController.swift */; };
+		17FC2F9B1E259E0500174015 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FC2F9A1E259E0500174015 /* Constants.swift */; };
+		17FC2F9D1E259E5D00174015 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FC2F9C1E259E5D00174015 /* SignUpViewController.swift */; };
+		17FC2F9F1E259F3200174015 /* ConfirmSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FC2F9E1E259F3200174015 /* ConfirmSignUpViewController.swift */; };
+		17FC2FA11E25A25900174015 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FC2FA01E25A25900174015 /* ForgotPasswordViewController.swift */; };
+		17FC2FA31E25A5D000174015 /* ConfirmForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FC2FA21E25A5D000174015 /* ConfirmForgotPasswordViewController.swift */; };
+		17FC2FA51E25A77600174015 /* UserDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FC2FA41E25A77600174015 /* UserDetailTableViewController.swift */; };
+		17FC2FA71E25A9A200174015 /* DevicesDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FC2FA61E25A9A200174015 /* DevicesDetailTableViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		17FC2F7C1E258FC500174015 /* CognitoYourUserPoolsSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CognitoYourUserPoolsSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		17FC2F7F1E258FC500174015 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		17FC2F841E258FC500174015 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		17FC2F861E258FC500174015 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		17FC2F891E258FC500174015 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		17FC2F8B1E258FC500174015 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		17FC2F911E25908D00174015 /* CognitoLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CognitoLogo.png; sourceTree = "<group>"; };
+		17FC2F941E2590D800174015 /* MFAViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MFAViewController.xib; sourceTree = "<group>"; };
+		17FC2F961E25928900174015 /* MFAViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MFAViewController.swift; sourceTree = "<group>"; };
+		17FC2F981E25940900174015 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		17FC2F9A1E259E0500174015 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		17FC2F9C1E259E5D00174015 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		17FC2F9E1E259F3200174015 /* ConfirmSignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmSignUpViewController.swift; sourceTree = "<group>"; };
+		17FC2FA01E25A25900174015 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		17FC2FA21E25A5D000174015 /* ConfirmForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		17FC2FA41E25A77600174015 /* UserDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailTableViewController.swift; sourceTree = "<group>"; };
+		17FC2FA61E25A9A200174015 /* DevicesDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DevicesDetailTableViewController.swift; sourceTree = "<group>"; };
+		2D8C9B52DE415302BA7B152A /* Pods-CognitoYourUserPoolsSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CognitoYourUserPoolsSample.release.xcconfig"; path = "Pods/Target Support Files/Pods-CognitoYourUserPoolsSample/Pods-CognitoYourUserPoolsSample.release.xcconfig"; sourceTree = "<group>"; };
+		AB8F26771F0FF8105FC402DD /* Pods_CognitoYourUserPoolsSample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CognitoYourUserPoolsSample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DBEB9BB4F88788184F7DD583 /* Pods-CognitoYourUserPoolsSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CognitoYourUserPoolsSample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CognitoYourUserPoolsSample/Pods-CognitoYourUserPoolsSample.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		17FC2F791E258FC500174015 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0D5A8E5387CC8FA610CFB75B /* Pods_CognitoYourUserPoolsSample.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		17FC2F731E258FC500174015 = {
+			isa = PBXGroup;
+			children = (
+				17FC2F7E1E258FC500174015 /* CognitoYourUserPoolsSample */,
+				17FC2F7D1E258FC500174015 /* Products */,
+				DB539DB17300E4375A37CCA6 /* Pods */,
+				2B50A37AC16AACF9427C4F0F /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		17FC2F7D1E258FC500174015 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				17FC2F7C1E258FC500174015 /* CognitoYourUserPoolsSample.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		17FC2F7E1E258FC500174015 /* CognitoYourUserPoolsSample */ = {
+			isa = PBXGroup;
+			children = (
+				17FC2F941E2590D800174015 /* MFAViewController.xib */,
+				17FC2F7F1E258FC500174015 /* AppDelegate.swift */,
+				17FC2F831E258FC500174015 /* Main.storyboard */,
+				17FC2F861E258FC500174015 /* Assets.xcassets */,
+				17FC2F881E258FC500174015 /* LaunchScreen.storyboard */,
+				17FC2F8B1E258FC500174015 /* Info.plist */,
+				17FC2F931E25909300174015 /* Supporting Files */,
+				17FC2F961E25928900174015 /* MFAViewController.swift */,
+				17FC2F981E25940900174015 /* SignInViewController.swift */,
+				17FC2F9A1E259E0500174015 /* Constants.swift */,
+				17FC2F9C1E259E5D00174015 /* SignUpViewController.swift */,
+				17FC2F9E1E259F3200174015 /* ConfirmSignUpViewController.swift */,
+				17FC2FA01E25A25900174015 /* ForgotPasswordViewController.swift */,
+				17FC2FA21E25A5D000174015 /* ConfirmForgotPasswordViewController.swift */,
+				17FC2FA41E25A77600174015 /* UserDetailTableViewController.swift */,
+				17FC2FA61E25A9A200174015 /* DevicesDetailTableViewController.swift */,
+			);
+			path = CognitoYourUserPoolsSample;
+			sourceTree = "<group>";
+		};
+		17FC2F931E25909300174015 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				17FC2F911E25908D00174015 /* CognitoLogo.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2B50A37AC16AACF9427C4F0F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AB8F26771F0FF8105FC402DD /* Pods_CognitoYourUserPoolsSample.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DB539DB17300E4375A37CCA6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DBEB9BB4F88788184F7DD583 /* Pods-CognitoYourUserPoolsSample.debug.xcconfig */,
+				2D8C9B52DE415302BA7B152A /* Pods-CognitoYourUserPoolsSample.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		17FC2F7B1E258FC500174015 /* CognitoYourUserPoolsSample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 17FC2F8E1E258FC500174015 /* Build configuration list for PBXNativeTarget "CognitoYourUserPoolsSample" */;
+			buildPhases = (
+				2A6F4D1C912A849202344013 /* [CP] Check Pods Manifest.lock */,
+				17FC2F781E258FC500174015 /* Sources */,
+				17FC2F791E258FC500174015 /* Frameworks */,
+				17FC2F7A1E258FC500174015 /* Resources */,
+				E3AE3BC58D3D91C5DAC696FA /* [CP] Embed Pods Frameworks */,
+				9214D2BD8818DE69A24072DD /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CognitoYourUserPoolsSample;
+			productName = CognitoYourUserPoolsSample;
+			productReference = 17FC2F7C1E258FC500174015 /* CognitoYourUserPoolsSample.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		17FC2F741E258FC500174015 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "Dubal, Rohan";
+				TargetAttributes = {
+					17FC2F7B1E258FC500174015 = {
+						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0820;
+					};
+				};
+			};
+			buildConfigurationList = 17FC2F771E258FC500174015 /* Build configuration list for PBXProject "CognitoYourUserPoolsSample" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 17FC2F731E258FC500174015;
+			productRefGroup = 17FC2F7D1E258FC500174015 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				17FC2F7B1E258FC500174015 /* CognitoYourUserPoolsSample */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		17FC2F7A1E258FC500174015 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17FC2F8A1E258FC500174015 /* LaunchScreen.storyboard in Resources */,
+				17FC2F871E258FC500174015 /* Assets.xcassets in Resources */,
+				17FC2F921E25908D00174015 /* CognitoLogo.png in Resources */,
+				17FC2F851E258FC500174015 /* Main.storyboard in Resources */,
+				17FC2F951E2590D800174015 /* MFAViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2A6F4D1C912A849202344013 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		9214D2BD8818DE69A24072DD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CognitoYourUserPoolsSample/Pods-CognitoYourUserPoolsSample-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E3AE3BC58D3D91C5DAC696FA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CognitoYourUserPoolsSample/Pods-CognitoYourUserPoolsSample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		17FC2F781E258FC500174015 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17FC2FA31E25A5D000174015 /* ConfirmForgotPasswordViewController.swift in Sources */,
+				17FC2FA11E25A25900174015 /* ForgotPasswordViewController.swift in Sources */,
+				17FC2F9D1E259E5D00174015 /* SignUpViewController.swift in Sources */,
+				17FC2F9F1E259F3200174015 /* ConfirmSignUpViewController.swift in Sources */,
+				17FC2F9B1E259E0500174015 /* Constants.swift in Sources */,
+				17FC2F991E25940900174015 /* SignInViewController.swift in Sources */,
+				17FC2F971E25928900174015 /* MFAViewController.swift in Sources */,
+				17FC2FA71E25A9A200174015 /* DevicesDetailTableViewController.swift in Sources */,
+				17FC2F801E258FC500174015 /* AppDelegate.swift in Sources */,
+				17FC2FA51E25A77600174015 /* UserDetailTableViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		17FC2F831E258FC500174015 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				17FC2F841E258FC500174015 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		17FC2F881E258FC500174015 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				17FC2F891E258FC500174015 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		17FC2F8C1E258FC500174015 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		17FC2F8D1E258FC500174015 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		17FC2F8F1E258FC500174015 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DBEB9BB4F88788184F7DD583 /* Pods-CognitoYourUserPoolsSample.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = CognitoYourUserPoolsSample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.CognitoYourUserPoolsSample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		17FC2F901E258FC500174015 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2D8C9B52DE415302BA7B152A /* Pods-CognitoYourUserPoolsSample.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = CognitoYourUserPoolsSample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.CognitoYourUserPoolsSample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		17FC2F771E258FC500174015 /* Build configuration list for PBXProject "CognitoYourUserPoolsSample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				17FC2F8C1E258FC500174015 /* Debug */,
+				17FC2F8D1E258FC500174015 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		17FC2F8E1E258FC500174015 /* Build configuration list for PBXNativeTarget "CognitoYourUserPoolsSample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				17FC2F8F1E258FC500174015 /* Debug */,
+				17FC2F901E258FC500174015 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 17FC2F741E258FC500174015 /* Project object */;
+}

@@ -89,7 +89,7 @@
                              key:S3UploadKeyName
                      contentType:@"text/plain"
                       expression:expression
-                completionHander:self.completionHandler] continueWithBlock:^id(AWSTask *task) {
+               completionHandler:self.completionHandler] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             NSLog(@"Error: %@", task.error);
         }

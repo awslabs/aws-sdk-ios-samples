@@ -1,56 +1,58 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Upload-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController id="9pv-A4-QxB" customClass="FirstViewController" customModule="S3BackgroundTransferSampleSwift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9pv-A4-QxB" customClass="UploadViewController" customModule="S3TransferUtilitySampleSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ia1-K6-d13"/>
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZLf-2r-dkP">
-                                <rect key="frame" x="20" y="40" width="71" height="33"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="71" id="7Uc-sN-MUp"/>
-                                </constraints>
+                                <rect key="frame" x="16" y="40" width="343" height="33"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Start">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Select Image and Upload">
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="start:" destination="9pv-A4-QxB" eventType="touchUpInside" id="IqQ-yd-frg"/>
+                                    <action selector="selectAndUpload:" destination="9pv-A4-QxB" eventType="touchUpInside" id="St2-mD-Xbl"/>
                                 </connections>
                             </button>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="JdB-Qi-jEc">
-                                <rect key="frame" x="54" y="89" width="492" height="2"/>
+                                <rect key="frame" x="16" y="89" width="343" height="2"/>
                             </progressView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VEG-2J-CRx">
-                                <rect key="frame" x="54" y="111" width="492" height="21"/>
+                                <rect key="frame" x="16" y="111" width="343" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="ZLf-2r-dkP" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" id="2SG-zM-FhI"/>
-                            <constraint firstItem="VEG-2J-CRx" firstAttribute="top" secondItem="JdB-Qi-jEc" secondAttribute="bottom" constant="20" id="2U2-cL-6WJ"/>
-                            <constraint firstItem="JdB-Qi-jEc" firstAttribute="leading" secondItem="VEG-2J-CRx" secondAttribute="leading" id="EVX-T1-cOY"/>
-                            <constraint firstItem="JdB-Qi-jEc" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="34" id="RqE-uf-ONq"/>
-                            <constraint firstItem="ZLf-2r-dkP" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="20" id="XNk-GG-76f"/>
-                            <constraint firstItem="JdB-Qi-jEc" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="chy-cz-pwC"/>
-                            <constraint firstItem="JdB-Qi-jEc" firstAttribute="top" secondItem="ZLf-2r-dkP" secondAttribute="bottom" constant="16" id="myw-cF-U2K"/>
-                            <constraint firstItem="JdB-Qi-jEc" firstAttribute="trailing" secondItem="VEG-2J-CRx" secondAttribute="trailing" id="zmt-xV-icv"/>
+                            <constraint firstItem="VEG-2J-CRx" firstAttribute="top" secondItem="JdB-Qi-jEc" secondAttribute="bottom" constant="20" id="16q-Oh-yi8"/>
+                            <constraint firstItem="JdB-Qi-jEc" firstAttribute="trailing" secondItem="VEG-2J-CRx" secondAttribute="trailing" id="JEi-vW-COx"/>
+                            <constraint firstItem="ZLf-2r-dkP" firstAttribute="trailing" secondItem="JdB-Qi-jEc" secondAttribute="trailing" id="R1w-em-rsv"/>
+                            <constraint firstItem="JdB-Qi-jEc" firstAttribute="top" secondItem="ZLf-2r-dkP" secondAttribute="bottom" constant="16" id="Xt3-Bp-iDB"/>
+                            <constraint firstItem="ZLf-2r-dkP" firstAttribute="trailing" secondItem="tsR-hK-woN" secondAttribute="trailingMargin" id="heQ-cM-GtR"/>
+                            <constraint firstItem="ZLf-2r-dkP" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" id="mWt-OY-Rv0"/>
+                            <constraint firstItem="JdB-Qi-jEc" firstAttribute="leading" secondItem="VEG-2J-CRx" secondAttribute="leading" id="qW7-wP-xap"/>
+                            <constraint firstItem="ZLf-2r-dkP" firstAttribute="leading" secondItem="JdB-Qi-jEc" secondAttribute="leading" id="qZ7-t0-47i"/>
+                            <constraint firstItem="ZLf-2r-dkP" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="20" id="yin-7N-5Vm"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Upload" image="first" id="acW-dT-cKf"/>
@@ -61,61 +63,59 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="-320.07042253521126"/>
+            <point key="canvasLocation" x="748" y="-320.68965517241384"/>
         </scene>
         <!--Download-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController id="8rJ-Kc-sve" customClass="SecondViewController" customModule="S3BackgroundTransferSampleSwift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="8rJ-Kc-sve" customClass="DownloadViewController" customModule="S3TransferUtilitySampleSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L7p-HK-0SC"/>
                         <viewControllerLayoutGuide type="bottom" id="Djb-ko-YwX"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lFZ-Tk-KxH">
-                                <rect key="frame" x="20" y="42" width="71" height="33"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="71" id="wYU-eh-jPZ"/>
-                                </constraints>
+                                <rect key="frame" x="16" y="42" width="343" height="33"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Start">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Start Downloading Uploaded Image">
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="start:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="KpS-J6-Ett"/>
                                 </connections>
                             </button>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="9UL-sy-VNW">
-                                <rect key="frame" x="54" y="89" width="492" height="2"/>
+                                <rect key="frame" x="16" y="89" width="343" height="2"/>
                             </progressView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="djB-Ud-Csi">
+                                <rect key="frame" x="16" y="166" width="343" height="385"/>
+                                <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ulS-xp-U89">
-                                <rect key="frame" x="54" y="111" width="492" height="21"/>
+                                <rect key="frame" x="16" y="110" width="343" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="djB-Ud-Csi">
-                                <rect key="frame" x="0.0" y="166" width="600" height="385"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="lFZ-Tk-KxH" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" id="5fL-iv-Ece"/>
-                            <constraint firstItem="9UL-sy-VNW" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" constant="34" id="5nM-zw-Qb4"/>
-                            <constraint firstItem="lFZ-Tk-KxH" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" constant="22" id="8Ma-NQ-0CX"/>
-                            <constraint firstAttribute="trailing" secondItem="djB-Ud-Csi" secondAttribute="trailing" id="Aqa-KB-Pgg"/>
-                            <constraint firstAttribute="bottom" secondItem="djB-Ud-Csi" secondAttribute="bottom" constant="49" id="Fwb-aH-Tfw"/>
-                            <constraint firstItem="9UL-sy-VNW" firstAttribute="top" secondItem="lFZ-Tk-KxH" secondAttribute="bottom" constant="14" id="OTf-Oj-cdM"/>
-                            <constraint firstItem="9UL-sy-VNW" firstAttribute="leading" secondItem="ulS-xp-U89" secondAttribute="leading" id="S4A-70-yjr"/>
-                            <constraint firstItem="djB-Ud-Csi" firstAttribute="top" secondItem="ulS-xp-U89" secondAttribute="bottom" constant="34" id="Si8-gg-lxI"/>
-                            <constraint firstItem="djB-Ud-Csi" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" id="TwL-DI-KTh"/>
-                            <constraint firstItem="ulS-xp-U89" firstAttribute="trailing" secondItem="9UL-sy-VNW" secondAttribute="trailing" id="aqp-kg-08b"/>
-                            <constraint firstItem="ulS-xp-U89" firstAttribute="top" secondItem="9UL-sy-VNW" secondAttribute="bottom" constant="20" id="iYT-Pi-Gl5"/>
-                            <constraint firstAttribute="centerX" secondItem="9UL-sy-VNW" secondAttribute="centerX" id="wpd-LJ-y68"/>
+                            <constraint firstItem="9UL-sy-VNW" firstAttribute="trailing" secondItem="ulS-xp-U89" secondAttribute="trailing" id="4ia-j8-4GE"/>
+                            <constraint firstItem="ulS-xp-U89" firstAttribute="trailing" secondItem="djB-Ud-Csi" secondAttribute="trailing" id="5pk-PS-RBb"/>
+                            <constraint firstItem="ulS-xp-U89" firstAttribute="leading" secondItem="djB-Ud-Csi" secondAttribute="leading" id="7mX-0G-gVc"/>
+                            <constraint firstItem="djB-Ud-Csi" firstAttribute="top" secondItem="ulS-xp-U89" secondAttribute="bottom" constant="35" id="Cuh-4O-JKk"/>
+                            <constraint firstItem="lFZ-Tk-KxH" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" constant="22" id="KI8-UT-fDN"/>
+                            <constraint firstItem="9UL-sy-VNW" firstAttribute="top" secondItem="lFZ-Tk-KxH" secondAttribute="bottom" constant="14" id="Qa0-Ar-5LB"/>
+                            <constraint firstItem="9UL-sy-VNW" firstAttribute="trailing" secondItem="QS5-Rx-YEW" secondAttribute="trailingMargin" id="R0s-Oj-LQV"/>
+                            <constraint firstItem="lFZ-Tk-KxH" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" id="SY7-57-cV1"/>
+                            <constraint firstItem="lFZ-Tk-KxH" firstAttribute="trailing" secondItem="9UL-sy-VNW" secondAttribute="trailing" id="XlH-P0-rsK"/>
+                            <constraint firstItem="lFZ-Tk-KxH" firstAttribute="leading" secondItem="9UL-sy-VNW" secondAttribute="leading" id="a6f-9E-r7t"/>
+                            <constraint firstItem="9UL-sy-VNW" firstAttribute="leading" secondItem="ulS-xp-U89" secondAttribute="leading" id="cJa-ct-uDh"/>
+                            <constraint firstItem="ulS-xp-U89" firstAttribute="top" secondItem="9UL-sy-VNW" secondAttribute="bottom" constant="19" id="hn8-CH-OG4"/>
+                            <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="djB-Ud-Csi" secondAttribute="bottom" constant="67" id="tKD-YG-EjV"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Download" image="second" id="cPa-gy-q4n"/>
@@ -127,7 +127,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="359.15492957746477"/>
+            <point key="canvasLocation" x="749.60000000000002" y="358.4707646176912"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -137,7 +137,7 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>

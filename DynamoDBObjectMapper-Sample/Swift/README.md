@@ -4,7 +4,7 @@ This sample demonstrates the DynamoDB object mapper found in the AWS SDK for iOS
 
 ## Requirements
 
-* Xcode 7 and later
+* Xcode 8 and later
 * iOS 8 and later
 
 ## Using the Sample
@@ -21,7 +21,7 @@ This sample demonstrates the DynamoDB object mapper found in the AWS SDK for iOS
         platform :ios, '8.0'
         use_frameworks!
         
-        pod 'AWSDynamoDB', '~> 2.4.1'
+        pod 'AWSDynamoDB', '~> 2.5.0'
 
 	Then run the following command:
 	

@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let credentialsProvider = AWSCognitoCredentialsProvider(regionType: CognitoRegion, identityPoolId: CognitoIdentityId)
         // Lex currently only in us-east-1
-        let configuration = AWSServiceConfiguration(region: .usEast1, credentialsProvider: credentialsProvider)
+        let configuration = AWSServiceConfiguration(region: .USEast1, credentialsProvider: credentialsProvider)
         AWSServiceManager.default().defaultServiceConfiguration = configuration
         
         let chatConfig = AWSLexInteractionKitConfig.defaultInteractionKitConfig(withBotName: BotName, botAlias: BotAlias)

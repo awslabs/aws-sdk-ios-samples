@@ -58,7 +58,7 @@ class ChatViewController: JSQMessagesViewController, JSQMessagesComposerTextView
         self.messages?.append(message)
         
         if let textModeSwitchingCompletion = textModeSwitchingCompletion {
-            textModeSwitchingCompletion.setResult(text)
+            textModeSwitchingCompletion.set(result: text)
             self.textModeSwitchingCompletion = nil
         }
         else {
@@ -193,7 +193,7 @@ extension ChatViewController: AWSLexInteractionDelegate {
         let switchModeResponse = AWSLexSwitchModeResponse()
         switchModeResponse.interactionMode = AWSLexInteractionMode.Text
         switchModeResponse.sessionAttributes = switchModeInput.sessionAttributes
-        completionSource?.setResult(switchModeResponse)
+        completionSource?.set(result: switchModeResponse)
     }
     
     /*

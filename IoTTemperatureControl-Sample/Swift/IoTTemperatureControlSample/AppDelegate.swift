@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
 
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         //
         // Use Cognito authentication
         //
@@ -32,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             region: AwsRegion,
             credentialsProvider: credentialProvider)
         
-        AWSServiceManager.defaultServiceManager().defaultServiceConfiguration = configuration
+        AWSServiceManager.default().defaultServiceConfiguration = configuration
 
         return true
     }

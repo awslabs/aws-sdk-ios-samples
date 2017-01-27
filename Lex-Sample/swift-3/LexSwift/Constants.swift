@@ -17,6 +17,6 @@ import Foundation
 import AWSCore
 
 let CognitoIdentityId = "CognitoIdentityPoolId"
-let CognitoRegion = AWSRegionType.unknown
+let CognitoRegion = AWSRegionType.Unknown
 let BotName = "BotName"
 let BotAlias = "$LATEST"

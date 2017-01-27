@@ -28,12 +28,12 @@ class PublishViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    @IBAction func sliderValueChanged(sender: UISlider) {
+    @IBAction func sliderValueChanged(_ sender: UISlider) {
         print("\(sender.value)")
 
-        let iotDataManager = AWSIoTDataManager.defaultIoTDataManager()
+        let iotDataManager = AWSIoTDataManager.default()
         let tabBarViewController = tabBarController as! IoTSampleTabBarController
 
-        iotDataManager.publishString("\(sender.value)", onTopic:tabBarViewController.topic, qoS:.MessageDeliveryAttemptedAtMostOnce)
+        iotDataManager.publishString("\(sender.value)", onTopic:tabBarViewController.topic, qoS:.messageDeliveryAttemptedAtMostOnce)
     }
 }

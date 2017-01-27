@@ -1,5 +1,5 @@
 /*
-* Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+* Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
 * You may not use this file except in compliance with the License.
@@ -17,6 +17,6 @@ import Foundation
 import AWSCore
 
 //WARNING: To run this sample correctly, you must set the following constants.
-let S3BucketName: String = "S3BucketName"
-let S3DownloadKeyName: String = "S3DownloadKeyName" // an image in the specified S3 Bucket
-let S3UploadKeyName: String = "uploadfileswift.txt"
+let S3BucketName: String = "YourBucketNameHere" // Update this to your bucket name
+let S3DownloadKeyName: String = "test-image.png"
+let S3UploadKeyName: String = "test-image.png"
