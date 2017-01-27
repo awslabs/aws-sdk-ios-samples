@@ -2,7 +2,7 @@
 
 This repository contains sample apps that demonstrate various aspects of the AWS Mobile SDK for iOS. Please refer to **README.md** in each sample directory for more specific instructions.
 
-###Cognito Your User Pools Sample  ([Objective-C](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/CognitoYourUserPools-Sample/Objective-C/))
+###Cognito Your User Pools Sample  ([Swift](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/CognitoYourUserPools-Sample/Swift), [Objective-C](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/CognitoYourUserPools-Sample/Objective-C/))
 
 This sample demonstrates how sign up and sign in a user to display an authenticated portion of your app.
 
