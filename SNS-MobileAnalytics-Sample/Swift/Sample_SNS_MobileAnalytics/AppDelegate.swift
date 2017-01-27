@@ -77,7 +77,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let request = AWSSNSCreatePlatformEndpointInput()
         request.token = deviceTokenString
         request.platformApplicationArn = SNSPlatformApplicationArn
-        sns.createPlatformEndpoint(request).continueWithExecutor(AWSExecutor.mainThreadExecutor(), withBlock: { (task: AWSTask!) -> AnyObject! in
+        sns.createPlatformEndpoint(request).continueWith(executor: AWSExecutor.mainThreadExecutor(), block: { (task: AWSTask!) -> AnyObject! in
             if task.error != nil {
                 print("Error: \(task.error)")
             } else {
