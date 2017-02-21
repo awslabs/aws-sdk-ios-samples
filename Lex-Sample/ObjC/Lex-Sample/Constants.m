@@ -20,7 +20,7 @@ AWSRegionType const CognitoRegionType = AWSRegionUnknown; // e.g. AWSRegionUSEas
 AWSRegionType const LexRegionType = AWSRegionUnknown;
 NSString *const CognitoIdentityPoolId = @"CognitoIdentityPoolId";
 NSString *const BotName = @"BotName";
-NSString *const BotAlias = @"$Latest";
+NSString *const BotAlias = @"$LATEST";
 
 @implementation Constants
 
