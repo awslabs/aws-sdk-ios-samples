@@ -187,9 +187,20 @@ extension ChatViewController: AWSLexInteractionDelegate {
     public func interactionKit(_ interactionKit: AWSLexInteractionKit, switchModeInput: AWSLexSwitchModeInput, completionSource: AWSTaskCompletionSource<AWSLexSwitchModeResponse>?) {
         self.sessionAttributes = switchModeInput.sessionAttributes
         DispatchQueue.main.async(execute: {
-            let message = JSQMessage(senderId: ServerSenderId, senderDisplayName: "", date: Date(), text: switchModeInput.outputText!)
-            self.messages?.append(message!)
-            self.finishSendingMessage(animated: true)
+            let message: JSQMessage
+            // Handle a successful fulfillment
+            if (switchModeInput.dialogState == AWSLexDialogState.readyForFulfillment) {
+                // Currently just displaying the slots returned on ready for fulfillment
+                if let slots = switchModeInput.slots {
+                    message = JSQMessage(senderId: ServerSenderId, senderDisplayName: "", date: Date(), text: "Slots:\n\(slots)")
+                    self.messages?.append(message)
+                    self.finishSendingMessage(animated: true)
+                }
+            } else {
+                message = JSQMessage(senderId: ServerSenderId, senderDisplayName: "", date: Date(), text: switchModeInput.outputText!)
+                self.messages?.append(message)
+                self.finishSendingMessage(animated: true)
+            }
         })
         //this can expand to take input from user.
         let switchModeResponse = AWSLexSwitchModeResponse()
