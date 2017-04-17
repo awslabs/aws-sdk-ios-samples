@@ -1,14 +1,14 @@
-#SNS Mobile Push and Mobile Analytics Sample
+# SNS Mobile Push and Mobile Analytics Sample
 
 This sample demonstrates how you would track user engagement for the mobile push notifications using [Amazon Cognito](http://aws.amazon.com/cognito/), [Amazon SNS Mobile Push](http://aws.amazon.com/sns/), and [Amazon Mobile Analytics](http://aws.amazon.com/mobileanalytics/).
 
-##Requirements
+## Requirements
 
 * Xcode 7 and later
 * iOS 8 and later
 * Before moving forward, follow [Getting Started with Apple Push Notification Service](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-apns.html) and [Using Amazon SNS Mobile Push](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send.html) and configure Amazon SNS Mobile Push properly.
 
-##Setting up CocoaPods
+## Setting up CocoaPods
 
 1. The AWS Mobile SDK for iOS is available through [CocoaPods](http://cocoapods.org). If you have not installed CocoaPods, install CocoaPods by running the command:
 
@@ -29,7 +29,7 @@ This sample demonstrates how you would track user engagement for the mobile push
 	
 		pod install
 
-##Getting Started with Swift
+## Getting Started with Swift
 
 1. Create an Objective-C bridging header file.
 
