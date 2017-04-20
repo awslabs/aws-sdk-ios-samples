@@ -30,6 +30,9 @@
 #pragma mark - VoiceButtonDelegate Methods
 
 - (void)voiceButton:(AWSLexVoiceButton *)button onResponse:(nonnull AWSLexVoiceButtonResponse *)response{
+    // `inputranscript` is the transcript of the voice input to the operation
+    NSLog(@"Input Transcript: %@", response.inputTranscript);
+    self.input.text = [NSString stringWithFormat:@"\"%@\"", response.inputTranscript];
     NSLog(@"on text output %@", response.outputText);
     self.output.text = response.outputText;
 }

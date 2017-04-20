@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="IW0-7w-chR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1421" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="IW0-7w-chR">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,7 +23,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yLj-8l-OUR" id="y3r-ia-o4c">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -89,28 +89,46 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o89-mz-GBu" customClass="AWSLexVoiceButton">
-                                <rect key="frame" x="87" y="304" width="241" height="129"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o89-mz-GBu" customClass="AWSLexVoiceButton">
+                                <rect key="frame" x="67" y="269" width="241" height="129"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wYk-Z2-xIH">
-                                <rect key="frame" x="-35" y="-78" width="0.0" height="0.0"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sod-P9-Ouc">
+                                <rect key="frame" x="16" y="503" width="343" height="144"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="144" id="rKL-kv-e0b"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TGs-ig-ZFe">
+                                <rect key="frame" x="16" y="20" width="343" height="165"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="165" id="6wD-we-zeF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="o89-mz-GBu" firstAttribute="centerY" secondItem="6JV-gA-Ogd" secondAttribute="centerY" id="Egl-10-n03"/>
-                            <constraint firstItem="o89-mz-GBu" firstAttribute="leading" secondItem="6JV-gA-Ogd" secondAttribute="leadingMargin" constant="67" id="Qtf-XG-CcZ"/>
-                            <constraint firstItem="o89-mz-GBu" firstAttribute="centerX" secondItem="6JV-gA-Ogd" secondAttribute="centerX" id="bMI-jS-LiB"/>
-                            <constraint firstItem="o89-mz-GBu" firstAttribute="top" secondItem="77P-JB-GRZ" secondAttribute="bottom" constant="240" id="da8-Bm-ImU"/>
+                            <constraint firstItem="TGs-ig-ZFe" firstAttribute="leading" secondItem="Sod-P9-Ouc" secondAttribute="leading" id="0OK-Fd-Oos"/>
+                            <constraint firstItem="o89-mz-GBu" firstAttribute="centerY" secondItem="6JV-gA-Ogd" secondAttribute="centerY" id="5Bp-1Q-0ll"/>
+                            <constraint firstItem="TGs-ig-ZFe" firstAttribute="trailing" secondItem="Sod-P9-Ouc" secondAttribute="trailing" id="84I-g7-AR9"/>
+                            <constraint firstItem="TGs-ig-ZFe" firstAttribute="leading" secondItem="6JV-gA-Ogd" secondAttribute="leadingMargin" id="HYY-ZW-ESK"/>
+                            <constraint firstItem="TGs-ig-ZFe" firstAttribute="top" secondItem="6JV-gA-Ogd" secondAttribute="top" constant="20" symbolic="YES" id="Lbc-Z3-GjP"/>
+                            <constraint firstItem="TGs-ig-ZFe" firstAttribute="trailing" secondItem="6JV-gA-Ogd" secondAttribute="trailingMargin" id="S1D-DD-bf9"/>
+                            <constraint firstItem="TGs-ig-ZFe" firstAttribute="centerX" secondItem="o89-mz-GBu" secondAttribute="centerX" id="V2u-Pe-GbU"/>
+                            <constraint firstAttribute="bottom" secondItem="Sod-P9-Ouc" secondAttribute="bottom" constant="20" symbolic="YES" id="XLO-oJ-V3S"/>
+                            <constraint firstItem="o89-mz-GBu" firstAttribute="leading" secondItem="6JV-gA-Ogd" secondAttribute="leadingMargin" constant="51" id="tAv-nz-pgy"/>
+                            <constraint firstItem="o89-mz-GBu" firstAttribute="top" secondItem="TGs-ig-ZFe" secondAttribute="bottom" constant="84" id="vCC-Dy-Xq4"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="output" destination="wYk-Z2-xIH" id="tbh-Xt-YrF"/>
+                        <outlet property="input" destination="TGs-ig-ZFe" id="9Sx-1a-mW0"/>
+                        <outlet property="output" destination="Sod-P9-Ouc" id="62a-yY-0o1"/>
                         <outlet property="voiceButton" destination="o89-mz-GBu" id="Wkz-Wd-1D5"/>
                     </connections>
                 </viewController>

@@ -21,7 +21,9 @@ import UIKit
 class VoiceChatViewController: UIViewController, AWSLexVoiceButtonDelegate {
     
     @IBOutlet weak var voiceButton: AWSLexVoiceButton!
+    @IBOutlet weak var input: UILabel!
     @IBOutlet weak var output: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +33,11 @@ class VoiceChatViewController: UIViewController, AWSLexVoiceButtonDelegate {
     
     func voiceButton(button: AWSLexVoiceButton, onResponse response: AWSLexVoiceButtonResponse) {
         dispatch_async(dispatch_get_main_queue(), {
+            // `inputranscript` is the transcript of the voice input to the operation
+            print("Input Transcript: \(response.inputTranscript)")
+            if let inputTranscript = response.inputTranscript {
+                self.input.text = "\"\(inputTranscript)\""
+            }
             print("on text output \(response.outputText)")
             self.output.text = response.outputText
         })

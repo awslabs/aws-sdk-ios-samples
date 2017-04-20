@@ -20,6 +20,7 @@
 
 @property (weak, nonatomic) IBOutlet AWSLexVoiceButton *voiceButton;
 @property (weak, nonatomic) IBOutlet UILabel *output;
+@property (weak, nonatomic) IBOutlet UILabel *input;
 
 
 @property (nonatomic, weak) id<AWSLexVoiceButtonDelegate> delegate;
