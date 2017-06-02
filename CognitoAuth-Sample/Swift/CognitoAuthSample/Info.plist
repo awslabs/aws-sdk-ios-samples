@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>en</string>
+	<key>CFBundleExecutable</key>
+	<string>$(EXECUTABLE_NAME)</string>
+	<key>CFBundleIdentifier</key>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>$(PRODUCT_NAME)</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0</string>
+	<key>CFBundleVersion</key>
+	<string>1</string>
+	<key>LSRequiresIPhoneOS</key>
+	<true/>
+	<key>UILaunchStoryboardName</key>
+	<string>LaunchScreen</string>
+	<key>UIMainStoryboardFile</key>
+	<string>Main</string>
+	<key>UIRequiredDeviceCapabilities</key>
+	<array>
+		<string>armv7</string>
+	</array>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+    <key>AWS</key>
+    <dict>
+        <key>CognitoUserPool</key>
+        <dict>
+            <key>Default</key>
+            <dict>
+                <key>CognitoAuthScopes</key>
+                <array>
+                    <string>openid</string>
+                </array>
+                <key>CognitoAuthSignInRedirectUri</key>
+                <string>myapp://SETME</string>
+                <key>CognitoAuthSignOutRedirectUri</key>
+                <string>myapp://SETME</string>
+                <key>CognitoAuthWebDomain</key>
+                <string>https://SETME</string>
+                <key>CognitoUserPoolAppClientId</key>
+                <string>SETME</string>
+                <key>CognitoUserPoolAppClientSecret</key>
+                <string>SETME or Remove key if App client has no secret</string>
+            </dict>
+        </dict>
+    </dict>
+    <key>CFBundleURLTypes</key>
+    <array>
+        <dict>
+            <key>CFBundleURLSchemes</key>
+            <array>
+                <string>myapp</string>
+            </array>
+            <key>CFBundleURLName</key>
+            <string>${PRODUCT_BUNDLE_IDENTIFIER}</string>
+        </dict>
+    </array>
+</dict>
+</plist>

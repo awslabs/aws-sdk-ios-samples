@@ -1,0 +1,506 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		56ED642C5D34BCB902EA8758 /* Pods_CognitoAuthSample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6D86A94F68F360B596FE3AC /* Pods_CognitoAuthSample.framework */; };
+		EF5BA2481EDD247400CDD73E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5BA2471EDD247400CDD73E /* AppDelegate.swift */; };
+		EF5BA24A1EDD247400CDD73E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5BA2491EDD247400CDD73E /* ViewController.swift */; };
+		EF5BA24D1EDD247400CDD73E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF5BA24B1EDD247400CDD73E /* Main.storyboard */; };
+		EF5BA24F1EDD247400CDD73E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF5BA24E1EDD247400CDD73E /* Assets.xcassets */; };
+		EF5BA2521EDD247400CDD73E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF5BA2501EDD247400CDD73E /* LaunchScreen.storyboard */; };
+		EF5BA25D1EDD247500CDD73E /* CognitoAuthSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5BA25C1EDD247500CDD73E /* CognitoAuthSwiftTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EF5BA2591EDD247500CDD73E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EF5BA23C1EDD247400CDD73E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EF5BA2431EDD247400CDD73E;
+			remoteInfo = CognitoAuthSwift;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1F05DA6FBFD6A102F7A9C410 /* Pods-CognitoAuthSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CognitoAuthSample.release.xcconfig"; path = "Pods/Target Support Files/Pods-CognitoAuthSample/Pods-CognitoAuthSample.release.xcconfig"; sourceTree = "<group>"; };
+		25F1892F88EDA8BDE69BF5D4 /* Pods-CognitoAuthSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CognitoAuthSample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CognitoAuthSample/Pods-CognitoAuthSample.debug.xcconfig"; sourceTree = "<group>"; };
+		B6D86A94F68F360B596FE3AC /* Pods_CognitoAuthSample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CognitoAuthSample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF5BA2441EDD247400CDD73E /* CognitoAuthSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CognitoAuthSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF5BA2471EDD247400CDD73E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EF5BA2491EDD247400CDD73E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EF5BA24C1EDD247400CDD73E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EF5BA24E1EDD247400CDD73E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EF5BA2511EDD247400CDD73E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		EF5BA2531EDD247400CDD73E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EF5BA2581EDD247500CDD73E /* CognitoAuthSampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CognitoAuthSampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF5BA25C1EDD247500CDD73E /* CognitoAuthSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CognitoAuthSwiftTests.swift; sourceTree = "<group>"; };
+		EF5BA25E1EDD247500CDD73E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EF5BA2411EDD247400CDD73E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				56ED642C5D34BCB902EA8758 /* Pods_CognitoAuthSample.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF5BA2551EDD247500CDD73E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3843E41D5D4CAA12B04F8348 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				25F1892F88EDA8BDE69BF5D4 /* Pods-CognitoAuthSample.debug.xcconfig */,
+				1F05DA6FBFD6A102F7A9C410 /* Pods-CognitoAuthSample.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		9251F38F66C06E062782202E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B6D86A94F68F360B596FE3AC /* Pods_CognitoAuthSample.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EF5BA23B1EDD247400CDD73E = {
+			isa = PBXGroup;
+			children = (
+				EF5BA2461EDD247400CDD73E /* CognitoAuthSample */,
+				EF5BA25B1EDD247500CDD73E /* CognitoAuthSampleTests */,
+				EF5BA2451EDD247400CDD73E /* Products */,
+				3843E41D5D4CAA12B04F8348 /* Pods */,
+				9251F38F66C06E062782202E /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		EF5BA2451EDD247400CDD73E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EF5BA2441EDD247400CDD73E /* CognitoAuthSample.app */,
+				EF5BA2581EDD247500CDD73E /* CognitoAuthSampleTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EF5BA2461EDD247400CDD73E /* CognitoAuthSample */ = {
+			isa = PBXGroup;
+			children = (
+				EF5BA2471EDD247400CDD73E /* AppDelegate.swift */,
+				EF5BA2491EDD247400CDD73E /* ViewController.swift */,
+				EF5BA24B1EDD247400CDD73E /* Main.storyboard */,
+				EF5BA24E1EDD247400CDD73E /* Assets.xcassets */,
+				EF5BA2501EDD247400CDD73E /* LaunchScreen.storyboard */,
+				EF5BA2531EDD247400CDD73E /* Info.plist */,
+			);
+			path = CognitoAuthSample;
+			sourceTree = "<group>";
+		};
+		EF5BA25B1EDD247500CDD73E /* CognitoAuthSampleTests */ = {
+			isa = PBXGroup;
+			children = (
+				EF5BA25C1EDD247500CDD73E /* CognitoAuthSwiftTests.swift */,
+				EF5BA25E1EDD247500CDD73E /* Info.plist */,
+			);
+			path = CognitoAuthSampleTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EF5BA2431EDD247400CDD73E /* CognitoAuthSample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EF5BA2611EDD247500CDD73E /* Build configuration list for PBXNativeTarget "CognitoAuthSample" */;
+			buildPhases = (
+				02743492116C790ABCBBC94C /* [CP] Check Pods Manifest.lock */,
+				EF5BA2401EDD247400CDD73E /* Sources */,
+				EF5BA2411EDD247400CDD73E /* Frameworks */,
+				EF5BA2421EDD247400CDD73E /* Resources */,
+				F39D107BD44DB9F05ECE833A /* [CP] Embed Pods Frameworks */,
+				31BA6A73F30A3F18D0B3EE4F /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CognitoAuthSample;
+			productName = CognitoAuthSwift;
+			productReference = EF5BA2441EDD247400CDD73E /* CognitoAuthSample.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EF5BA2571EDD247500CDD73E /* CognitoAuthSampleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EF5BA2641EDD247500CDD73E /* Build configuration list for PBXNativeTarget "CognitoAuthSampleTests" */;
+			buildPhases = (
+				EF5BA2541EDD247500CDD73E /* Sources */,
+				EF5BA2551EDD247500CDD73E /* Frameworks */,
+				EF5BA2561EDD247500CDD73E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EF5BA25A1EDD247500CDD73E /* PBXTargetDependency */,
+			);
+			name = CognitoAuthSampleTests;
+			productName = CognitoAuthSwiftTests;
+			productReference = EF5BA2581EDD247500CDD73E /* CognitoAuthSampleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EF5BA23C1EDD247400CDD73E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "Behroozi, David";
+				TargetAttributes = {
+					EF5BA2431EDD247400CDD73E = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = W3DRXD72QU;
+						ProvisioningStyle = Automatic;
+					};
+					EF5BA2571EDD247500CDD73E = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = W3DRXD72QU;
+						ProvisioningStyle = Automatic;
+						TestTargetID = EF5BA2431EDD247400CDD73E;
+					};
+				};
+			};
+			buildConfigurationList = EF5BA23F1EDD247400CDD73E /* Build configuration list for PBXProject "CognitoAuthSample" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EF5BA23B1EDD247400CDD73E;
+			productRefGroup = EF5BA2451EDD247400CDD73E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EF5BA2431EDD247400CDD73E /* CognitoAuthSample */,
+				EF5BA2571EDD247500CDD73E /* CognitoAuthSampleTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EF5BA2421EDD247400CDD73E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF5BA2521EDD247400CDD73E /* LaunchScreen.storyboard in Resources */,
+				EF5BA24F1EDD247400CDD73E /* Assets.xcassets in Resources */,
+				EF5BA24D1EDD247400CDD73E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF5BA2561EDD247500CDD73E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		02743492116C790ABCBBC94C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		31BA6A73F30A3F18D0B3EE4F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CognitoAuthSample/Pods-CognitoAuthSample-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F39D107BD44DB9F05ECE833A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CognitoAuthSample/Pods-CognitoAuthSample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EF5BA2401EDD247400CDD73E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF5BA24A1EDD247400CDD73E /* ViewController.swift in Sources */,
+				EF5BA2481EDD247400CDD73E /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF5BA2541EDD247500CDD73E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF5BA25D1EDD247500CDD73E /* CognitoAuthSwiftTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EF5BA25A1EDD247500CDD73E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EF5BA2431EDD247400CDD73E /* CognitoAuthSample */;
+			targetProxy = EF5BA2591EDD247500CDD73E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		EF5BA24B1EDD247400CDD73E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EF5BA24C1EDD247400CDD73E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		EF5BA2501EDD247400CDD73E /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EF5BA2511EDD247400CDD73E /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EF5BA25F1EDD247500CDD73E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		EF5BA2601EDD247500CDD73E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EF5BA2621EDD247500CDD73E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 25F1892F88EDA8BDE69BF5D4 /* Pods-CognitoAuthSample.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = W3DRXD72QU;
+				INFOPLIST_FILE = CognitoAuthSample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.cognito.auth.CognitoAuthSample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		EF5BA2631EDD247500CDD73E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1F05DA6FBFD6A102F7A9C410 /* Pods-CognitoAuthSample.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = W3DRXD72QU;
+				INFOPLIST_FILE = CognitoAuthSample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.cognito.auth.CognitoAuthSample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		EF5BA2651EDD247500CDD73E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = W3DRXD72QU;
+				INFOPLIST_FILE = CognitoAuthSampleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.cognito.auth.CognitoAuthSampleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CognitoAuthSample.app/CognitoAuthSample";
+			};
+			name = Debug;
+		};
+		EF5BA2661EDD247500CDD73E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = W3DRXD72QU;
+				INFOPLIST_FILE = CognitoAuthSampleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.cognito.auth.CognitoAuthSampleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CognitoAuthSample.app/CognitoAuthSample";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EF5BA23F1EDD247400CDD73E /* Build configuration list for PBXProject "CognitoAuthSample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF5BA25F1EDD247500CDD73E /* Debug */,
+				EF5BA2601EDD247500CDD73E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EF5BA2611EDD247500CDD73E /* Build configuration list for PBXNativeTarget "CognitoAuthSample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF5BA2621EDD247500CDD73E /* Debug */,
+				EF5BA2631EDD247500CDD73E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EF5BA2641EDD247500CDD73E /* Build configuration list for PBXNativeTarget "CognitoAuthSampleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF5BA2651EDD247500CDD73E /* Debug */,
+				EF5BA2661EDD247500CDD73E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EF5BA23C1EDD247400CDD73E /* Project object */;
+}
