@@ -31,6 +31,7 @@ This sample demonstrates use of the AWS IoT MQTT device shadow APIs over a WebSo
 	```c
 	let AwsRegion = AWSRegionType.Unknown // e.g. AWSRegionType.USEast1
 	let CognitoIdentityPoolId = "YourCognitoIdentityPoolId"
+        let IOT_ENDPOINT = "https://xxxxxxxxxx.iot.<region>.amazonaws.com"
 	```
 1. Install the [AWS IoT JavaScript SDK for Embedded Devices](https://github.com/aws/aws-iot-device-sdk-js).
 

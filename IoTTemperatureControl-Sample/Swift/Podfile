@@ -4,6 +4,6 @@ platform :ios, '8.0'
 use_frameworks!
 
 target 'IoTTemperatureControlSample' do
-    pod 'AWSIoT', ''~>2.5.0'
+    pod 'AWSIoT', '~>2.5.0'
     pod 'SwiftyJSON'
 end

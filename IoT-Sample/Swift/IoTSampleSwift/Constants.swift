@@ -24,3 +24,5 @@ let CertificateSigningRequestCountryName = "Your Country"
 let CertificateSigningRequestOrganizationName = "Your Organization"
 let CertificateSigningRequestOrganizationalUnitName = "Your Organizational Unit"
 let PolicyName = "YourPolicyName"
+//This is the endpoint in your AWS IoT console. eg: https://xxxxxxxxxx.iot.<region>.amazonaws.com
+let IOT_ENDPOINT = "https://xxxxxxxxxx.iot.<region>.amazonaws.com"

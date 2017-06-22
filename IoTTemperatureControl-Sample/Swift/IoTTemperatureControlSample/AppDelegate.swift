@@ -23,16 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        //
-        // Use Cognito authentication
-        //
-        let credentialProvider = AWSCognitoCredentialsProvider(regionType: AwsRegion, identityPoolId: CognitoIdentityPoolId)
-        
-        let configuration = AWSServiceConfiguration(
-            region: AwsRegion,
-            credentialsProvider: credentialProvider)
-        
-        AWSServiceManager.default().defaultServiceConfiguration = configuration
+        //Setup logging to xcode console.
+        AWSDDLog.sharedInstance.logLevel = .debug
+        AWSDDLog.add(AWSDDTTYLogger.sharedInstance)
 
         return true
     }

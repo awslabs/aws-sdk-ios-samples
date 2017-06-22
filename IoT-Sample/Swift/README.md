@@ -36,6 +36,7 @@ This sample demonstrates use of the AWS IoT APIs to securely publish to and subs
 	let CertificateSigningRequestOrganizationName = "Your Organization"
 	let CertificateSigningRequestOrganizationalUnitName = "Your Organizational Unit"
 	let PolicyName = "YourPolicyName"
+        let IOT_ENDPOINT = "https://xxxxxxxxxx.iot.<region>.amazonaws.com"
 	```
 
 1. Build and run the sample app.

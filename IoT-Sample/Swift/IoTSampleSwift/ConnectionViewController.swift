@@ -231,7 +231,6 @@ class ConnectionViewController: UIViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-
         let tabBarViewController = tabBarController as! IoTSampleTabBarController
         publishViewController = tabBarViewController.viewControllers![1]
         subscribeViewController = tabBarViewController.viewControllers![2]
@@ -245,16 +244,25 @@ class ConnectionViewController: UIViewController, UITextViewDelegate {
         // Set up Cognito
         //
         let credentialsProvider = AWSCognitoCredentialsProvider(regionType: AwsRegion, identityPoolId: CognitoIdentityPoolId)
-        let configuration = AWSServiceConfiguration(region: AwsRegion, credentialsProvider: credentialsProvider)
-
-        AWSServiceManager.default().defaultServiceConfiguration = configuration
+        let iotEndPoint = AWSEndpoint(urlString: IOT_ENDPOINT)
+        //configuration for AWSIoT control plane APIs
+        let iotConfiguration = AWSServiceConfiguration(region: AwsRegion,
+                                       credentialsProvider: credentialsProvider)
+        //configuration for AWSIoT Data plane APIs
+        let iotDataConfiguration = AWSServiceConfiguration(region: AwsRegion,
+                                                  endpoint: iotEndPoint,
+                                       credentialsProvider: credentialsProvider)
+        AWSServiceManager.default().defaultServiceConfiguration = iotConfiguration
 
         iotManager = AWSIoTManager.default()
         iot = AWSIoT.default()
-        
-        iotDataManager = AWSIoTDataManager.default()
-        iotData = AWSIoTData.default()
-        
+
+        AWSIoTDataManager.register(with: iotDataConfiguration!, forKey: "MyIotDataManager")
+        iotDataManager = AWSIoTDataManager(forKey: "MyIotDataManager")
+
+        AWSIoTData.register(with: iotDataConfiguration!, forKey: "MyIotData")
+        iotData = AWSIoTData(forKey: "MyIotData")
+
     }
     
     override func didReceiveMemoryWarning() {

@@ -117,6 +117,16 @@ class ViewController: UIViewController {
             currentlyEnabled = enabled;
         }
     }
+    func thingShadowTimeoutCallback( _ thingName: String, json: JSON, payloadString: String ) -> Void {
+        if (thingName == controlThingName)
+        {
+            controlThingOperationInProgress = false;
+        }
+        else   // thingName == statusThingName
+        {
+            statusThingOperationInProgress = false;
+        }
+    }
     func thingShadowDeltaCallback( _ thingName: String, json: JSON, payloadString: String ) -> Void {
         if (thingName == controlThingName)
         {
@@ -180,6 +190,7 @@ class ViewController: UIViewController {
                 self.thingShadowDeltaCallback( name, json: json, payloadString: stringValue as! String)
             case .timeout:
                 print("timeout on \(name)")
+                self.thingShadowTimeoutCallback( name, json: json, payloadString: stringValue as! String)
                 
             default:
                 print("unknown operation status: \(operationStatus.rawValue)")
@@ -249,12 +260,25 @@ class ViewController: UIViewController {
         // Initialize the status switch
         //
         statusSwitch.isOn=true
-        
+
+        //
+        // Use Cognito authentication
+        //
+        let credentialProvider = AWSCognitoCredentialsProvider(regionType: AwsRegion, identityPoolId: CognitoIdentityPoolId)
+        let iotEndPoint = AWSEndpoint(urlString: IOT_ENDPOINT)
+        let iotDataConfiguration = AWSServiceConfiguration(
+            region: AwsRegion,
+            endpoint: iotEndPoint,
+            credentialsProvider: credentialProvider)
+
         //
         // Init IOT
         //
-        iotDataManager = AWSIoTDataManager.default()
-        
+
+        AWSIoTDataManager.register(with: iotDataConfiguration!, forKey: "MyIotDataManager")
+        iotDataManager = AWSIoTDataManager(forKey: "MyIotDataManager")
+
+
         #if DEMONSTRATE_LAST_WILL_AND_TESTAMENT
         //
         // Set a Last Will and Testament message in the MQTT configuration; other
