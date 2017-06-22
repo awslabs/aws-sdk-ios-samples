@@ -4,7 +4,7 @@ platform :ios, '8.0'
 use_frameworks!
 
 target 'S3TransferManagerSample' do
-    pod 'AWSS3', '~> 2.4.1'
+    pod 'AWSS3', '~> 2.5.5'
     pod 'ELCImagePickerController'
     pod 'JTSImageViewController'
 end

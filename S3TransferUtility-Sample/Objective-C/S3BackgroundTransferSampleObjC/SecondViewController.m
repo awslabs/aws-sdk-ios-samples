@@ -84,9 +84,6 @@
         if (task.error) {
             NSLog(@"Error: %@", task.error);
         }
-        if (task.exception) {
-            NSLog(@"Exception: %@", task.exception);
-        }
         if (task.result) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 self.statusLabel.text = @"Downloading...";

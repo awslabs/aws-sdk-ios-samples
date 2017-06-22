@@ -94,5 +94,7 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Give permission to let the app get access to the images from the Photo Library</string>
 </dict>
 </plist>

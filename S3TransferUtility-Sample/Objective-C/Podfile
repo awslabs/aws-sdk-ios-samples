@@ -4,5 +4,5 @@ platform :ios, '8.0'
 use_frameworks!
 
 target 'S3TransferUtilitySampleObjC' do
-    pod 'AWSS3', '~> 2.5.0'
+    pod 'AWSS3', '~> 2.5.5'
 end
