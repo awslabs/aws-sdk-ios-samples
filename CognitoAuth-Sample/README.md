@@ -1,6 +1,6 @@
 # Introduction
 
-The Amazon Cognito Auth SDK for iOS simplifies adding sign-up, sign-in functionality in your apps. With this SDK, you can use Cognito User Pools’ app integration and federation features, with a customizable UI hosted by AWS to sign up and sign in users, and with built-in federation for external identity providers via SAML. These features are currently (as of 6/1/2017) in public beta. To learn more see our [Developer Guide](http://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-federation-beta-release-overview.html).
+The Amazon Cognito Auth SDK for iOS simplifies adding sign-up, sign-in functionality in your apps. With this SDK, you can use Cognito User Pools’ app integration and federation features, with a customizable UI hosted by AWS to sign up and sign in users, and with built-in federation for external identity providers via SAML. To learn more see our [Developer Guide](http://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-federation-beta-release-overview.html).
 
 If you are looking for our SDK to access all user APIs for Cognito User Pools, see the [iOS Cognito Identity Provider SDK](https://github.com/aws/aws-sdk-ios/tree/master/AWSCognitoIdentityProvider).
 
@@ -35,11 +35,17 @@ Add the following keys:
                 <string>SETME</string>
                 <key>CognitoUserPoolAppClientSecret</key>
                 <string>SETME</string>
+                <key>PoolIdForEnablingASF</key>
+                <string>SETME</string>
                 <key>CognitoAuthWebDomain</key>
                 <string>SETME</string>
                 <key>CognitoAuthSignInRedirectUri</key>
                 <string>SETME</string>
                 <key>CognitoAuthSignOutRedirectUri</key>
+                <string>SETME</string>
+                <key>IdpIdentifier</key>
+                <string>SETME</string>
+                <key>IdentityProvider</key>
                 <string>SETME</string>
                 <key>CognitoAuthScopes</key>
                 <array>
@@ -54,10 +60,13 @@ Replace all of the _SETME_ with the appropriate value as described below.
 
 1. **CognitoUserPoolAppClientId** Your app client id, i.e 81q37d9nfu607gil4uhopekm4b
 2. **CognitoUserPoolAppClientSecret** _Optional_ Your app client secret, i.e. 45dpc0bk45v8alftrjv4afeu4nduz1b7do5mjqtia36r7cbnl4d9. If you don't have a client secret, completely remove this key/string pair.
-3. **CognitoAuthWebDomain** Your domain, i.e. https://yourdomain.auth.region.amazoncognito.com
-4. **CognitoAuthSignInRedirectUri** Your sign in redirect uri, i.e myapp://signin
-5. **CognitoAuthSignOutRedirectUri** Your sign out redirect uri, i.e. myapp://signout
-6. **CognitoAuthScopes** Array containing scopes to request, i.e. aws.cognito.signin.user.admin
+3. **PoolIdForEnablingASF** _Optional_ Your pool id, i.e. us-east-2_A3x5147bl. If you don't want to enable the adaptive authentication advanced security feature on this pool, completely remove this key/string pair.
+4. **CognitoAuthWebDomain** Your domain, i.e. https://yourdomain.auth.region.amazoncognito.com
+5. **CognitoAuthSignInRedirectUri** Your sign in redirect uri, i.e myapp://signin
+6. **CognitoAuthSignOutRedirectUri** Your sign out redirect uri, i.e. myapp://signout
+3. **IdpIdentifier** _Optional_ The provider identifier to authenticate with directly instead of presenting the end user with a list of configured providers.  Use this if you want to hide the provider name from the end user.  Remove this key/string pair if unused.
+3. **IdentityProvider** _Optional_  The provider name to authenticate with directly instead of presenting the end user with a list of configured providers. Remove this key/string pair if unused.
+7. **CognitoAuthScopes** Array containing scopes to request, i.e. aws.cognito.signin.user.admin
 
 While you are editing the `info.plist` you should also take the time to Configure Custom Uri Schemes as described below.
 
@@ -66,18 +75,21 @@ __Objective-C__
 
 ```
 AWSCognitoAuthConfiguration * configuration = [[AWSCognitoAuthConfiguration alloc] initWithAppClientId:@"SETME"
-                                                                                           appClientSecret: @"SETME"
+                                                                                           appClientSecret: @"SETME_OR_NIL"
                                                                                                     scopes:[NSSet setWithArray:@[@"SETME"]]
                                                                                          signInRedirectUri:@"SETME"
                                                                                         signOutRedirectUri:@"SETME"
-                                                                                                 webDomain:@"SETME"];
+                                                                                                 webDomain:@"SETME"
+                                                                                          identityProvider:@"SETME_OR_NIL"
+                                                                                             idpIdentifier:@"SETME_OR_NIL"
+                                                                                  userPoolIdForEnablingASF:@"SETME_OR_NIL"
+                                                                                                 ];
 ```
 __Swift__
 ```
-let configuration = AWSCognitoAuthConfiguration(appClientId: "SETME", appClientSecret: "SETME", scopes: Set(["SETME"]), signInRedirectUri: "SETME", signOutRedirectUri: "SETME", webDomain: "SETME")
-```
+let configuration = AWSCognitoAuthConfiguration(appClientId: "SETME", appClientSecret: "SETME_OR_NIL", scopes: Set(["SETME"]), signInRedirectUri: "SETME", signOutRedirectUri: "SETME", webDomain: "SETME", identityProvider: "SETME_OR_NIL", idpIdentifier: "SETME_OR_NIL", userPoolIdForEnablingASF: "SETME_OR_NIL")```
 
-Replace all of the _SETME_ with the appropriate value as described in above.
+Replace all of the _SETME_ with the appropriate value as described in above.  Replace all of the _SETME\_OR\_NIL_ with the appropriate value or ```nil``` if unused.
 
 Register an AWSCognitoAuth object with the configuration you just created.
 
