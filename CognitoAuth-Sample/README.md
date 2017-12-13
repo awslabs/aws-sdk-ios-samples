@@ -87,7 +87,8 @@ AWSCognitoAuthConfiguration * configuration = [[AWSCognitoAuthConfiguration allo
 ```
 __Swift__
 ```
-let configuration = AWSCognitoAuthConfiguration(appClientId: "SETME", appClientSecret: "SETME_OR_NIL", scopes: Set(["SETME"]), signInRedirectUri: "SETME", signOutRedirectUri: "SETME", webDomain: "SETME", identityProvider: "SETME_OR_NIL", idpIdentifier: "SETME_OR_NIL", userPoolIdForEnablingASF: "SETME_OR_NIL")```
+let configuration = AWSCognitoAuthConfiguration(appClientId: "SETME", appClientSecret: "SETME_OR_NIL", scopes: Set(["SETME"]), signInRedirectUri: "SETME", signOutRedirectUri: "SETME", webDomain: "SETME", identityProvider: "SETME_OR_NIL", idpIdentifier: "SETME_OR_NIL", userPoolIdForEnablingASF: "SETME_OR_NIL")
+```
 
 Replace all of the _SETME_ with the appropriate value as described in above.  Replace all of the _SETME\_OR\_NIL_ with the appropriate value or ```nil``` if unused.
 
