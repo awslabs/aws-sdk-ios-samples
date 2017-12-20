@@ -23,10 +23,12 @@ This sample demonstrates the Amazon Cognito Identity Provider found in the AWS M
 1. Open `CognitoYourUserPoolsSample.xcworkspace`.
 
 1. Open **Constants.swift**. Set **CognitoIdentityUserPoolRegion**, **CognitoIdentityUserPoolId**, **CognitoIdentityUserPoolAppClientId** and **CognitoIdentityUserPoolAppClientSecret** to the values obtained when you created your user pool.
+
 		let CognitoIdentityUserPoolRegion: AWSRegionType = .Unknown
 		let CognitoIdentityUserPoolId = "YOUR_USER_POOL_ID"
 		let CognitoIdentityUserPoolAppClientId = "YOUR_APP_CLIENT_ID"
 		let CognitoIdentityUserPoolAppClientSecret = "YOUR_APP_CLIENT_SECRET"
+
 1. Build and run the sample app.
 
 ## Notes
