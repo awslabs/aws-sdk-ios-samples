@@ -6,7 +6,7 @@ This repository contains sample apps that demonstrate various aspects of the AWS
 
 This sample demonstrates how sign up and sign in a user to display an authenticated portion of your app.
 
-#### AWS Services Demonstrated:
+**AWS Services Demonstrated:**
 
 * [Amazon Cognito Your User Pools](http://aws.amazon.com/cognito/)
 
@@ -14,7 +14,7 @@ This sample demonstrates how sign up and sign in a user to display an authentica
 
 This sample demonstrates how to securely manage and sync your mobile app data and create unique identities via login providers including Facebook, Google, and Login with Amazon.
 
-#### AWS Services Demonstrated:
+**AWS Services Demonstrated:**
 
 * [Amazon Cognito Sync](http://aws.amazon.com/cognito/)
 * [Amazon Cognito Identity](http://aws.amazon.com/cognito/)
@@ -23,7 +23,7 @@ This sample demonstrates how to securely manage and sync your mobile app data an
 
 This sample demonstrates how to insert / update / delete / query items using DynamoDB Object Mapper.
 
-#### AWS Services Demonstrated:
+**AWS Services Demonstrated:**
 
 * [Amazon DynamoDB](http://aws.amazon.com/dynamodb/)
 * [Amazon Cognito Identity](http://aws.amazon.com/cognito/)
@@ -32,27 +32,16 @@ This sample demonstrates how to insert / update / delete / query items using Dyn
 
 This sample demonstrates how to use the Amazon S3 PreSigned URL Builder to download / upload files in background.
 
-#### AWS Services Demonstrated:
+**AWS Services Demonstrated:**
 
 * [Amazon S3](http://aws.amazon.com/s3/)
-* [Amazon Cognito Identity](http://aws.amazon.com/cognito/)
-
-
-### SNS Mobile Push and Mobile Analytics Sample ([Swift](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/SNS-MobileAnalytics-Sample/Swift/), [Objective-C](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/SNS-MobileAnalytics-Sample/Objective-C/))
-
-This sample demonstrates how to set up Amazon SNS Mobile Push and record events using Amazon Mobile Analytics.
-
-#### AWS Services Demonstrated:
-
-* [Amazon SNS Mobile Push](http://aws.amazon.com/sns/)
-* [Amazon Mobile Analytics](http://aws.amazon.com/mobileanalytics/)
 * [Amazon Cognito Identity](http://aws.amazon.com/cognito/)
 
 ### IoT Sample ([Swift](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/IoT-Sample/Swift/))
 
 This sample demonstrates how to publish and subscribe to data using AWS IoT.
 
-#### AWS Services Demonstrated:
+**AWS Services Demonstrated:**
 
 * [Amazon AWS IoT](http://aws.amazon.com/iot/)
 * [Amazon Cognito Identity](http://aws.amazon.com/cognito/)
@@ -61,7 +50,7 @@ This sample demonstrates how to publish and subscribe to data using AWS IoT.
 
 This sample demonstrates accessing device shadows using Cognito authentication; it works in conjunction with the Temperature Control Example Program in the [AWS IoT JavaScript SDK for Embedded Devices](https://github.com/aws/aws-iot-device-sdk-js).
 
-#### AWS Services Demonstrated:
+**AWS Services Demonstrated:**
 
 * [Amazon AWS IoT](http://aws.amazon.com/iot/)
 * [Amazon Cognito Identity](http://aws.amazon.com/cognito/)
@@ -70,7 +59,7 @@ This sample demonstrates accessing device shadows using Cognito authentication; 
 
 This sample demonstrates how to use text to text chat and voice to voice chat using Amazon Lex SDK.
 
-#### AWS Services Demonstrated:
+**AWS Services Demonstrated:**
 
 * [Amazon Lex](http://aws.amazon.com/lex/)
 * [Amazon Cognito Identity](http://aws.amazon.com/cognito/)
@@ -79,7 +68,7 @@ This sample demonstrates how to use text to text chat and voice to voice chat us
 
 This sample demonstrates how to get the list of voices and synthesize speech using Amazon Polly SDK.
 
-#### AWS Services Demonstrated:
+**AWS Services Demonstrated:**
 
 * [Amazon Polly](http://aws.amazon.com/polly/)
 * [Amazon Cognito Identity](http://aws.amazon.com/cognito/)
