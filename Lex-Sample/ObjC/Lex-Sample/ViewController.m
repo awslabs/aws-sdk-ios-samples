@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -30,9 +30,10 @@
 #pragma mark - VoiceButtonDelegate Methods
 
 - (void)voiceButton:(AWSLexVoiceButton *)button onResponse:(nonnull AWSLexVoiceButtonResponse *)response{
-    // `inputranscript` is the transcript of the voice input to the operation
+    // `inputTranscript` is the transcript of the voice input to the operation
     NSLog(@"Input Transcript: %@", response.inputTranscript);
     self.input.text = [NSString stringWithFormat:@"\"%@\"", response.inputTranscript];
+    
     NSLog(@"on text output %@", response.outputText);
     self.output.text = response.outputText;
 }

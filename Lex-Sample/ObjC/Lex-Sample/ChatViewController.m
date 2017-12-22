@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -102,7 +102,7 @@
 
 - (void)collectionView:(JSQMessagesCollectionView *)collectionView didDeleteMessageAtIndexPath:(NSIndexPath *)indexPath
 {
-    //DO NOTHING
+    // Do nothing
 }
 
 - (id<JSQMessageBubbleImageDataSource>)collectionView:(JSQMessagesCollectionView *)collectionView messageBubbleImageDataForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -159,9 +159,8 @@
 {
     JSQMessage *message = [self.messages objectAtIndex:indexPath.item];
     
-    /**
-     *  iOS7-style sender name labels
-     */
+    // iOS7-style sender name labels
+
     if ([message.senderId isEqualToString:self.senderId]) {
         return nil;
     }
@@ -173,9 +172,7 @@
         }
     }
     
-    /**
-     *  Don't specify attributes to use the defaults.
-     */
+    // Don't specify attributes to use the defaults.
     return [[NSAttributedString alloc] initWithString:message.senderDisplayName];
 }
 
@@ -198,7 +195,7 @@
 
 - (void)interactionKit:(AWSLexInteractionKit *)interactionKit
                onError:(NSError *)error{
-    //do nothing for now.
+    // Do nothing for now.
     NSLog(@"error occured %@", error);
 }
 
@@ -210,17 +207,20 @@
     
     dispatch_async(dispatch_get_main_queue(), ^{
         JSQMessage *message = nil;
-        message = [[JSQMessage alloc] initWithSenderId:SERVER_SENDER_ID
-                                     senderDisplayName:@""
-                                                  date:[[NSDate alloc]init]
-                                                  text:switchModeInput.outputText];
         
-        [self.messages addObject:message];
+        if (switchModeInput.outputText != nil) {
+            message = [[JSQMessage alloc] initWithSenderId:SERVER_SENDER_ID
+                                         senderDisplayName:@""
+                                                      date:[[NSDate alloc]init]
+                                                      text:switchModeInput.outputText];
+            
+            [self.messages addObject:message];
+        }
         
         [self finishSendingMessageAnimated:YES];
     });
     
-    //this can expand to take input from user.
+    // This can expand to take input from user.
     AWSLexSwitchModeResponse *switchModeResponse = [AWSLexSwitchModeResponse new];
     [switchModeResponse setInteractionMode:AWSLexInteractionModeText];
     [switchModeResponse setSessionAttributes:switchModeInput.sessionAttributes];

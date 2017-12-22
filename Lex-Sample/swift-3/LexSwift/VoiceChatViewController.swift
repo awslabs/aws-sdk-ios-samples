@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -33,11 +33,15 @@ class VoiceChatViewController: UIViewController, AWSLexVoiceButtonDelegate {
     func voiceButton(_ button: AWSLexVoiceButton, on response: AWSLexVoiceButtonResponse) {
         DispatchQueue.main.async(execute: {
             // `inputranscript` is the transcript of the voice input to the operation
-            print("Input Transcript: \(response.inputTranscript)")
             if let inputTranscript = response.inputTranscript {
+                print("Input Transcript: " + inputTranscript)
                 self.input.text = "\"\(inputTranscript)\""
             }
-            print("on text output \(response.outputText)")
+            
+            if let outputText = response.outputText {
+                print("Input Transcript: " + outputText)
+            }
+
             self.output.text = response.outputText
         })
     }

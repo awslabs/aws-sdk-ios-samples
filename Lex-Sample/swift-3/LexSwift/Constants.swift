@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -16,7 +16,11 @@
 import Foundation
 import AWSCore
 
-let CognitoIdentityId = "CognitoIdentityPoolId"
-let CognitoRegion = AWSRegionType.Unknown
-let BotName = "BotName"
-let BotAlias = "$LATEST"
+// WARNING: To run this sample correctly, you must set the following constants.
+
+let CognitoIdentityPoolId = "YourCognitoIdentityPoolId"     // Put your Cognito Identity Pool ID here
+let CognitoRegion = AWSRegionType.Unknown                   // Put your Cognito region here
+let LexRegion = AWSRegionType.Unknown                       // Change this is this is not your Lex region (most are currently AWSRegionType.USEast1)
+let BotName = "BotName"                                     // Put your bot name here
+let BotAlias = "$LATEST"                                    // You can leave this if you always want to use
+                                                            // the latest version of your bot or put the version

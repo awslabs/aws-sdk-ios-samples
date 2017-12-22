@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -15,11 +15,12 @@
 
 #import "Constants.h"
 
+// WARNING: To run this sample correctly, you must set the following constants.
 
 AWSRegionType const CognitoRegionType = AWSRegionUnknown; // e.g. AWSRegionUSEast1
 AWSRegionType const LexRegionType = AWSRegionUnknown;
-NSString *const CognitoIdentityPoolId = @"CognitoIdentityPoolId";
-NSString *const BotName = @"BotName";
+NSString *const CognitoIdentityPoolId = @"YourCognitoIdentityPoolId";
+NSString *const BotName = @"YourBotName";
 NSString *const BotAlias = @"$LATEST";
 
 @implementation Constants
