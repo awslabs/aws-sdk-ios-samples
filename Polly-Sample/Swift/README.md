@@ -14,15 +14,11 @@ This sample demonstrates use of the Amazon Polly APIs to retrieve list of voices
 		sudo gem install cocoapods
 		pod setup
 
-1. To install the AWS Mobile SDK for iOS, simply add the following line to your **Podfile**:
-
-		pod 'AWSPolly'
-
-	Then run the following command:
+1. To install the AWS Mobile SDK for iOS, change the current directory to the one with your **Podfile** in it and run the following command:
 
 		pod install
 
-1. This sample requires Cognito to authorize to Amazon Polly in order to access device shadows.  Use Amazon Cognito to create a new identity pool:
+1. This sample requires Cognito to authorize to Amazon Polly.  Use Amazon Cognito to create a new identity pool:
 	1. In the [Amazon Cognito Console](https://console.aws.amazon.com/cognito/), press the `Manage Federated Identities` button and on the resulting page press the `Create new identity pool` button.
 	1. Give your identity pool a name and ensure that `Enable access to unauthenticated identities` under the `Unauthenticated identities` section is checked.  This allows the sample application to assume the unauthenticated role associated with this identity pool.  Press the `Create Pool` button to create your identity pool.
 
@@ -35,7 +31,7 @@ This sample demonstrates use of the Amazon Polly APIs to retrieve list of voices
 
 		More information on AWS IAM roles and policies can be found [here](http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage.html).  More information on Amazon Polly policies can be found [here](http://docs.aws.amazon.com/polly/latest/dg/using-identity-based-policies.html).
 
-		**Note**: to keep this example simple it makes use of unauthenticated users in the identity pool.  This can be used for getting started and prototypes but unauthenticated users should typically only be given read-only permissions in production applications.  More information on Cognito identity pools including the Cognito developer guide can be found [here](http://aws.amazon.com/cognito/).
+		**Note**: To keep this example simple it makes use of unauthenticated users in the identity pool.  This can be used for getting started and prototypes but unauthenticated users should typically only be given read-only permissions in production applications.  More information on Cognito identity pools including the Cognito developer guide can be found [here](http://aws.amazon.com/cognito/).
 
 1. Open `PollySample.xcworkspace`.
 
