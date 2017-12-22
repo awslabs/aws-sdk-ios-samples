@@ -40,7 +40,7 @@ class DDBDetailViewController: UIViewController {
         
         //tableRow?.UserId --> (tableRow?.UserId)!
         dynamoDBObjectMapper .load(DDBTableRow.self, hashKey: (tableRow?.UserId)!, rangeKey: tableRow?.GameTitle) .continueWith(executor: AWSExecutor.mainThread(), block: { (task:AWSTask!) -> AnyObject! in
-            if let error = task.error as? NSError {
+            if let error = task.error as NSError? {
                 print("Error: \(error)")
                 let alertController = UIAlertController(title: "Failed to get item from table.", message: error.description, preferredStyle: UIAlertControllerStyle.alert)
                 let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil)
@@ -62,7 +62,7 @@ class DDBDetailViewController: UIViewController {
         let dynamoDBObjectMapper = AWSDynamoDBObjectMapper.default()
         
         dynamoDBObjectMapper.save(tableRow) .continueWith(executor: AWSExecutor.mainThread(), block: { (task:AWSTask!) -> AnyObject! in
-            if let error = task.error as? NSError {
+            if let error = task.error as NSError? {
                 print("Error: \(error)")
 
                 let alertController = UIAlertController(title: "Failed to insert the data into the table.", message: error.description, preferredStyle: UIAlertControllerStyle.alert)
@@ -91,7 +91,7 @@ class DDBDetailViewController: UIViewController {
         let dynamoDBObjectMapper = AWSDynamoDBObjectMapper.default()
         
         dynamoDBObjectMapper .save(tableRow) .continueWith(executor: AWSExecutor.mainThread(), block: { (task:AWSTask!) -> AnyObject! in
-            if let error = task.error as? NSError {
+            if let error = task.error as NSError? {
                 print("Error: \(error)")
                 
                 let alertController = UIAlertController(title: "Failed to update the data into the table.", message: error.description, preferredStyle: UIAlertControllerStyle.alert)

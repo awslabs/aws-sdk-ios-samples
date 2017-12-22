@@ -47,11 +47,11 @@ class DDBMainTableViewController: UITableViewController {
         DDBDynamoDBManger.describeTable().continueWith(executor: AWSExecutor.mainThread(), block: { (task:AWSTask!) -> AnyObject! in
 
             // If the test table doesn't exist, create one.
-            if let error = task.error as? NSError, error.domain == AWSDynamoDBErrorDomain && error.code == AWSDynamoDBErrorType.resourceNotFound.rawValue {
+            if let error = task.error as NSError?, error.domain == AWSDynamoDBErrorDomain && error.code == AWSDynamoDBErrorType.resourceNotFound.rawValue {
                     self.performSegue(withIdentifier: "DDBLoadingViewSegue", sender: self)
 
                     return DDBDynamoDBManger.createTable() .continueWith(executor: AWSExecutor.mainThread(), block: { (task:AWSTask!) -> AnyObject! in
-                        if let error = task.error as? NSError {
+                        if let error = task.error as NSError? {
                             //Handle errors.
                             print("Error: \(error)")
                             
@@ -67,7 +67,8 @@ class DDBMainTableViewController: UITableViewController {
                         return nil
 
                     })
-            } else {
+           } else {
+                
                 //load table contents
                 self.refreshList(true)
             }
@@ -110,7 +111,7 @@ class DDBMainTableViewController: UITableViewController {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 self.tableView.reloadData()
 
-                if let error = task.error as? NSError {
+                if let error = task.error as NSError? {
                     print("Error: \(error)")
                 }
 
@@ -127,7 +128,7 @@ class DDBMainTableViewController: UITableViewController {
 
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
 
-            if let error = task.error as? NSError {
+            if let error = task.error as NSError? {
                 print("Error: \(error)")
 
                 let alertController = UIAlertController(title: "Failed to delete a row.", message: error.description, preferredStyle: UIAlertControllerStyle.alert)
@@ -171,7 +172,7 @@ class DDBMainTableViewController: UITableViewController {
         }
 
         AWSTask<AnyObject>(forCompletionOfAllTasks: Optional(tasks)).continueWith(executor: AWSExecutor.mainThread(), block: { (task: AWSTask) -> AnyObject? in
-            if let error = task.error as? NSError {
+            if let error = task.error as NSError? {
                 print("Error: \(error)")
             }
 

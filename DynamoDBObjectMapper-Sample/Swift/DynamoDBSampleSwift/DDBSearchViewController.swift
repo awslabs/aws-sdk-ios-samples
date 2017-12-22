@@ -61,7 +61,7 @@ class DDBSearchViewController: UIViewController,UIPickerViewDataSource,UIPickerV
             ":rangeval" : self.rangeStepper.value];
 
         dynamoDBObjectMapper .query(DDBTableRow.self, expression: queryExpression) .continueWith(executor: AWSExecutor.mainThread(), block: { (task:AWSTask!) -> AnyObject! in
-            if let error = task.error as? NSError {
+            if let error = task.error as NSError? {
                 print("Error: \(error)")
 
                 let alertController = UIAlertController(title: "Failed to query a test table.", message: error.description, preferredStyle: UIAlertControllerStyle.alert)
