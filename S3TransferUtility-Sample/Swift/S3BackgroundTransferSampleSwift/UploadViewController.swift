@@ -79,12 +79,19 @@ class UploadViewController: UIViewController, UINavigationControllerDelegate {
             completionHandler: completionHandler).continueWith { (task) -> AnyObject! in
                 if let error = task.error {
                     print("Error: \(error.localizedDescription)")
-                    self.statusLabel.text = "Failed"
+                    
+                    DispatchQueue.main.async {
+                        self.statusLabel.text = "Failed"
+                    }
                 }
                 
                 if let _ = task.result {
-                    self.statusLabel.text = "Generating Upload File"
-                    print("Upload Starting!")
+                    
+                    DispatchQueue.main.async {
+                        self.statusLabel.text = "Generating Upload File"
+                        print("Upload Starting!")
+                    }
+                    
                     // Do something with uploadTask.
                 }
                 

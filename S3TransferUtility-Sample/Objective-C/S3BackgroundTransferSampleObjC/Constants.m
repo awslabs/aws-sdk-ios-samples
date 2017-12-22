@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -16,6 +16,6 @@
 #import "Constants.h"
 
 #warning To run this sample correctly, you must set the following constants.
-NSString *const S3BucketName = @"S3BucketName";
-NSString *const S3DownloadKeyName = @"S3DownloadKeyName";
-NSString *const S3UploadKeyName = @"uploadfileobj.txt";
+NSString *const S3BucketName = @"YourS3BucketNameHere";         // Update this to your bucket name
+NSString *const S3DownloadKeyName = @"S3DownloadKeyName";       // Name of file to be downloaded
+NSString *const S3UploadKeyName = @"uploadfileobj.txt";         // Name of file to be uploaded
