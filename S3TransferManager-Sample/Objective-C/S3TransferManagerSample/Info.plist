@@ -73,7 +73,7 @@
 					<key>PoolId</key>
 					<string>YourCognitoIdentityPoolId</string>
 					<key>Region</key>
-					<string>AWSRegionUnknown</string>
+					<string>YourCognitoRegion</string>
 				</dict>
 			</dict>
 		</dict>
@@ -82,11 +82,19 @@
 			<key>Default</key>
 			<dict>
 				<key>Region</key>
-				<string>AWSRegionUnknown</string>
+				<string>YourS3Region</string>
+			</dict>
+		</dict>
+		<key>S3</key>
+		<dict>
+			<key>Default</key>
+			<dict>
+				<key>Region</key>
+				<string>YourS3Region</string>
 			</dict>
 		</dict>
 	</dict>
-	<key>NSPhotoLibraryUsageDescription</key>	
+	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Give permission to let the app get access to the images from the Photo Library</string>
 </dict>
 </plist>

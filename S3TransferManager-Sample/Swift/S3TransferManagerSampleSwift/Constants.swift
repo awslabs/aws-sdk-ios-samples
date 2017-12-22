@@ -17,4 +17,4 @@ import Foundation
 import AWSCore
 
 //WARNING: To run this sample correctly, you must set the following constants.
-let S3BucketName = "S3BucketName"
+let S3BucketName = "YourS3BucketName"

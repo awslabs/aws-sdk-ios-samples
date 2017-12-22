@@ -13,7 +13,6 @@
 		CEED1F0319AE798A00515299 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEED1F0219AE798A00515299 /* Foundation.framework */; };
 		CEED1F0519AE798A00515299 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEED1F0419AE798A00515299 /* CoreGraphics.framework */; };
 		CEED1F0719AE798A00515299 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEED1F0619AE798A00515299 /* UIKit.framework */; };
-		CEED1F0D19AE798A00515299 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CEED1F0B19AE798A00515299 /* InfoPlist.strings */; };
 		CEED1F0F19AE798A00515299 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CEED1F0E19AE798A00515299 /* main.m */; };
 		CEED1F1319AE798A00515299 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CEED1F1219AE798A00515299 /* AppDelegate.m */; };
 		CEED1F1619AE798A00515299 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEED1F1419AE798A00515299 /* Main.storyboard */; };
@@ -38,10 +37,8 @@
 		CEED1F0219AE798A00515299 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CEED1F0419AE798A00515299 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		CEED1F0619AE798A00515299 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		CEED1F0A19AE798A00515299 /* S3TransferManagerSample-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "S3TransferManagerSample-Info.plist"; sourceTree = "<group>"; };
-		CEED1F0C19AE798A00515299 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CEED1F0A19AE798A00515299 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CEED1F0E19AE798A00515299 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		CEED1F1019AE798A00515299 /* S3TransferManagerSample-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "S3TransferManagerSample-Prefix.pch"; sourceTree = "<group>"; };
 		CEED1F1119AE798A00515299 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CEED1F1219AE798A00515299 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		CEED1F1519AE798A00515299 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -119,10 +116,8 @@
 		CEED1F0919AE798A00515299 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				CEED1F0A19AE798A00515299 /* S3TransferManagerSample-Info.plist */,
-				CEED1F0B19AE798A00515299 /* InfoPlist.strings */,
+				CEED1F0A19AE798A00515299 /* Info.plist */,
 				CEED1F0E19AE798A00515299 /* main.m */,
-				CEED1F1019AE798A00515299 /* S3TransferManagerSample-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -145,12 +140,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CEED1F3119AE798A00515299 /* Build configuration list for PBXNativeTarget "S3TransferManagerSample" */;
 			buildPhases = (
-				49F55A8CF19B4E418354F16F /* 📦 Check Pods Manifest.lock */,
+				49F55A8CF19B4E418354F16F /* [CP] Check Pods Manifest.lock */,
 				CEED1EFB19AE798A00515299 /* Sources */,
 				CEED1EFC19AE798A00515299 /* Frameworks */,
 				CEED1EFD19AE798A00515299 /* Resources */,
-				B819AD5315F84AE1AA8BF772 /* 📦 Copy Pods Resources */,
-				F180EB40618FFE9008825A95 /* 📦 Embed Pods Frameworks */,
+				B819AD5315F84AE1AA8BF772 /* [CP] Copy Pods Resources */,
+				F180EB40618FFE9008825A95 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -167,7 +162,7 @@
 		CEED1EF719AE798A00515299 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "Amazon Web Services";
 				TargetAttributes = {
 					CEED1EFE19AE798A00515299 = {
@@ -199,7 +194,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEED1F1B19AE798A00515299 /* Images.xcassets in Resources */,
-				CEED1F0D19AE798A00515299 /* InfoPlist.strings in Resources */,
 				17480D621BC72A0F0022B2CF /* Launch Screen.storyboard in Resources */,
 				CEED1F1619AE798A00515299 /* Main.storyboard in Resources */,
 			);
@@ -208,29 +202,32 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		49F55A8CF19B4E418354F16F /* 📦 Check Pods Manifest.lock */ = {
+		49F55A8CF19B4E418354F16F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-S3TransferManagerSample-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B819AD5315F84AE1AA8BF772 /* 📦 Copy Pods Resources */ = {
+		B819AD5315F84AE1AA8BF772 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -238,15 +235,24 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-S3TransferManagerSample/Pods-S3TransferManagerSample-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F180EB40618FFE9008825A95 /* 📦 Embed Pods Frameworks */ = {
+		F180EB40618FFE9008825A95 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-S3TransferManagerSample/Pods-S3TransferManagerSample-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AWSCore/AWSCore.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSS3/AWSS3.framework",
+				"${BUILT_PRODUCTS_DIR}/ELCImagePickerController/ELCImagePickerController.framework",
+				"${BUILT_PRODUCTS_DIR}/JTSImageViewController/JTSImageViewController.framework",
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSS3.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ELCImagePickerController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JTSImageViewController.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -271,14 +277,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		CEED1F0B19AE798A00515299 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CEED1F0C19AE798A00515299 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
 		CEED1F1419AE798A00515299 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -298,19 +296,30 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -337,18 +346,29 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -370,8 +390,8 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "S3TransferManagerSample/S3TransferManagerSample-Prefix.pch";
-				INFOPLIST_FILE = "S3TransferManagerSample/S3TransferManagerSample-Info.plist";
+				GCC_PREFIX_HEADER = "";
+				INFOPLIST_FILE = S3TransferManagerSample/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.amazonaws.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -388,8 +408,8 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "S3TransferManagerSample/S3TransferManagerSample-Prefix.pch";
-				INFOPLIST_FILE = "S3TransferManagerSample/S3TransferManagerSample-Info.plist";
+				GCC_PREFIX_HEADER = "";
+				INFOPLIST_FILE = S3TransferManagerSample/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.amazonaws.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
