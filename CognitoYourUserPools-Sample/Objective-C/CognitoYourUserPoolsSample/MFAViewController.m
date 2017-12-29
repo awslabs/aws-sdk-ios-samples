@@ -1,5 +1,5 @@
 //
-// Copyright 2014-2016 Amazon.com,
+// Copyright 2014-2017 Amazon.com,
 // Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Amazon Software License (the "License").
@@ -16,6 +16,7 @@
 //
 
 #import "MFAViewController.h"
+#import "AlertUser.h"
 
 @interface MFAViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *confirmationCode;
@@ -44,11 +45,10 @@
 -(void) didCompleteMultifactorAuthenticationStepWithError:(NSError*) error {
     dispatch_async(dispatch_get_main_queue(), ^{
         if(error){
-            [[[UIAlertView alloc] initWithTitle:error.userInfo[@"__type"]
-                                        message:error.userInfo[@"message"]
-                                       delegate:nil
-                              cancelButtonTitle:nil
-                              otherButtonTitles:@"Retry", nil] show];
+            [AlertUser alertUser: self
+                            title:error.userInfo[@"__type"]
+                            message:error.userInfo[@"message"]
+                            buttonTitle:@"Retry"];
         }else{
             [self dismissViewControllerAnimated:YES completion:nil];
         }

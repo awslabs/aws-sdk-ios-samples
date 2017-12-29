@@ -1,5 +1,5 @@
 //
-// Copyright 2014-2016 Amazon.com,
+// Copyright 2014-2017 Amazon.com,
 // Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Amazon Software License (the "License").
@@ -18,6 +18,7 @@
 #import "SignUpViewController.h"
 #import "AWSCognitoIdentityProvider.h"
 #import "ConfirmSignUpViewController.h"
+#import "AlertUser.h"
 
 @interface SignUpViewController () <UITextFieldDelegate>
 
@@ -73,11 +74,10 @@
         NSLog(@"Successful signUp user: %@",task.result.user.username);
         dispatch_async(dispatch_get_main_queue(), ^{
             if(task.error){
-                [[[UIAlertView alloc] initWithTitle:task.error.userInfo[@"__type"]
-                                            message:task.error.userInfo[@"message"]
-                                           delegate:nil
-                                  cancelButtonTitle:@"Ok"
-                                  otherButtonTitles:nil] show];
+                [AlertUser alertUser: self
+                                title:task.error.userInfo[@"__type"]
+                                message:task.error.userInfo[@"message"]
+                                buttonTitle:@"Ok"];
             }else if(task.result.user.confirmedStatus != AWSCognitoIdentityUserStatusConfirmed){
                 self.sentTo = task.result.codeDeliveryDetails.destination;
                 [self performSegueWithIdentifier:@"confirmSignUpSegue" sender:sender];

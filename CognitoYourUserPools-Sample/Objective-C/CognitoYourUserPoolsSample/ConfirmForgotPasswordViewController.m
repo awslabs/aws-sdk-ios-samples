@@ -1,5 +1,5 @@
 //
-// Copyright 2014-2016 Amazon.com,
+// Copyright 2014-2017 Amazon.com,
 // Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Amazon Software License (the "License").
@@ -16,6 +16,7 @@
 //
 
 #import "ConfirmForgotPasswordViewController.h"
+#import "AlertUser.h"
 
 @interface ConfirmForgotPasswordViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *confirmationCode;
@@ -30,11 +31,10 @@
     [[self.user confirmForgotPassword:self.confirmationCode.text password:self.proposedPassword.text] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityUserConfirmForgotPasswordResponse *> * _Nonnull task) {
         dispatch_async(dispatch_get_main_queue(), ^{
             if(task.error){
-                [[[UIAlertView alloc] initWithTitle:task.error.userInfo[@"__type"]
-                                            message:task.error.userInfo[@"message"]
-                                           delegate:nil
-                                  cancelButtonTitle:@"Ok"
-                                  otherButtonTitles:nil] show];
+                [AlertUser alertUser: self
+                                title:task.error.userInfo[@"__type"]
+                                message:task.error.userInfo[@"message"]
+                                buttonTitle:@"Ok"];
             }else {
                 [self.navigationController popToRootViewControllerAnimated:YES];
             }

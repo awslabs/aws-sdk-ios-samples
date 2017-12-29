@@ -17,5 +17,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UserDetailTableViewController : UITableViewController
+@interface AlertUser : NSObject
+
++ (void)alertUser:(nonnull UIViewController *)viewController title:(nullable NSString *)title message:(nullable NSString *)message buttonTitle:(nonnull NSString *)buttonTitle;
+
 @end

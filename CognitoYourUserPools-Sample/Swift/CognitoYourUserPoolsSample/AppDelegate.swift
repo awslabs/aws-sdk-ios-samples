@@ -44,7 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         // setup logging
-        AWSLogger.default().logLevel = .verbose
+        AWSDDLog.sharedInstance.logLevel = .verbose
         
         // setup service configuration
         let serviceConfiguration = AWSServiceConfiguration(region: CognitoIdentityUserPoolRegion, credentialsProvider: nil)
@@ -172,7 +172,7 @@ extension AppDelegate: AWSCognitoIdentityRememberDevice {
     
     func didCompleteStepWithError(_ error: Error?) {
         DispatchQueue.main.async {
-            if let error = error as? NSError {
+            if let error = error as NSError? {
                 let alertController = UIAlertController(title: error.userInfo["__type"] as? String,
                                                         message: error.userInfo["message"] as? String,
                                                         preferredStyle: .alert)

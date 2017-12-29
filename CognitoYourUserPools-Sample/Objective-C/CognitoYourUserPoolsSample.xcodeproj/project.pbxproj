@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7FFB50D83901048DF5A662CD /* Pods_CognitoYourUserPoolsSample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A17077FE4829BB6D218B7EE /* Pods_CognitoYourUserPoolsSample.framework */; };
+		E441115C1FEDD6E600360598 /* AlertUser.m in Sources */ = {isa = PBXBuildFile; fileRef = E441115B1FEDD6E600360598 /* AlertUser.m */; };
 		EF0AAFCB1DAD969300D7AAAC /* NewPasswordRequiredViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF0AAFCA1DAD969300D7AAAC /* NewPasswordRequiredViewController.m */; };
 		EF0AAFD21DADAACC00D7AAAC /* NewPasswordRequiredView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF0AAFD11DADAACC00D7AAAC /* NewPasswordRequiredView.xib */; };
 		EF0C02AA1CD170D500A9F279 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EFE0C35B1CA2514800E50CEE /* AppDelegate.m */; };
@@ -63,6 +64,8 @@
 		1A17077FE4829BB6D218B7EE /* Pods_CognitoYourUserPoolsSample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CognitoYourUserPoolsSample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		254BC7B53C4640CD527AE555 /* Pods-CognitoYourUserPoolsSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CognitoYourUserPoolsSample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CognitoYourUserPoolsSample/Pods-CognitoYourUserPoolsSample.debug.xcconfig"; sourceTree = "<group>"; };
 		60B058EBDDD22C803869875D /* Pods-CognitoYourUserPoolsSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CognitoYourUserPoolsSample.release.xcconfig"; path = "Pods/Target Support Files/Pods-CognitoYourUserPoolsSample/Pods-CognitoYourUserPoolsSample.release.xcconfig"; sourceTree = "<group>"; };
+		E441115B1FEDD6E600360598 /* AlertUser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AlertUser.m; sourceTree = "<group>"; };
+		E441115D1FEDD70C00360598 /* AlertUser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AlertUser.h; sourceTree = "<group>"; };
 		EF0AAFC91DAD969300D7AAAC /* NewPasswordRequiredViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewPasswordRequiredViewController.h; sourceTree = "<group>"; };
 		EF0AAFCA1DAD969300D7AAAC /* NewPasswordRequiredViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewPasswordRequiredViewController.m; sourceTree = "<group>"; };
 		EF0AAFD11DADAACC00D7AAAC /* NewPasswordRequiredView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewPasswordRequiredView.xib; sourceTree = "<group>"; };
@@ -199,6 +202,8 @@
 				EFE0C3571CA2514800E50CEE /* Supporting Files */,
 				EF66D4DE1CA3457900380164 /* UserDetailTableViewController.h */,
 				EF66D4DF1CA3457900380164 /* UserDetailTableViewController.m */,
+				E441115B1FEDD6E600360598 /* AlertUser.m */,
+				E441115D1FEDD70C00360598 /* AlertUser.h */,
 			);
 			path = CognitoYourUserPoolsSample;
 			sourceTree = "<group>";
@@ -375,13 +380,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CognitoYourUserPoolsSample-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		68B2A144E9E0F691834F5F0F /* [CP] Copy Pods Resources */ = {
@@ -405,9 +413,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-CognitoYourUserPoolsSample/Pods-CognitoYourUserPoolsSample-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AWSCognitoIdentityProvider/AWSCognitoIdentityProvider.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSCognitoIdentityProviderASF/AWSCognitoIdentityProviderASF.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSCore/AWSCore.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCognitoIdentityProvider.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCognitoIdentityProviderASF.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCore.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -426,6 +441,7 @@
 				EF0C02AB1CD170D600A9F279 /* UserDetailTableViewController.m in Sources */,
 				EF0C02B21CD170E500A9F279 /* main.m in Sources */,
 				EF0C02B01CD170E100A9F279 /* MFAViewController.m in Sources */,
+				E441115C1FEDD6E600360598 /* AlertUser.m in Sources */,
 				EF41C26A1CD4293E008E3F79 /* Constants.m in Sources */,
 				EF0C02AE1CD170DE00A9F279 /* ForgotPasswordViewController.m in Sources */,
 				EF0AAFCB1DAD969300D7AAAC /* NewPasswordRequiredViewController.m in Sources */,
@@ -583,7 +599,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/CognitoYourUserPoolsSample/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.cognito.identity.CognitoYourUserPoolsSample;
 				PRODUCT_NAME = CognitoYourUserPoolsSample;
@@ -605,7 +621,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/CognitoYourUserPoolsSample/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.cognito.identity.CognitoYourUserPoolsSample;
 				PRODUCT_NAME = CognitoYourUserPoolsSample;

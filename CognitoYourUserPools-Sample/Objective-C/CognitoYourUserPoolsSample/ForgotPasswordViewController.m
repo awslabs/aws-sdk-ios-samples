@@ -1,5 +1,5 @@
 //
-// Copyright 2014-2016 Amazon.com,
+// Copyright 2014-2017 Amazon.com,
 // Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Amazon Software License (the "License").
@@ -18,6 +18,7 @@
 #import "ForgotPasswordViewController.h"
 #import "AWSCognitoIdentityProvider.h"
 #import "ConfirmForgotPasswordViewController.h"
+#import "AlertUser.h"
 
 @interface ForgotPasswordViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *username;
@@ -54,11 +55,10 @@
     [[self.user forgotPassword] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityUserForgotPasswordResponse *> * _Nonnull task) {
         dispatch_async(dispatch_get_main_queue(), ^{
             if(task.error){
-                [[[UIAlertView alloc] initWithTitle:task.error.userInfo[@"__type"]
-                                            message:task.error.userInfo[@"message"]
-                                           delegate:nil
-                                  cancelButtonTitle:@"Ok"
-                                  otherButtonTitles:nil] show];
+                [AlertUser alertUser: self
+                                title:task.error.userInfo[@"__type"]
+                                message:task.error.userInfo[@"message"]
+                                buttonTitle:@"Ok"];
             }else {
                 [self performSegueWithIdentifier:@"confirmForgotPasswordSegue" sender:sender];
             }

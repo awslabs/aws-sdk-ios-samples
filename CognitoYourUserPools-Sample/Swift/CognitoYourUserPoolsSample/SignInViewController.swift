@@ -58,7 +58,7 @@ extension SignInViewController: AWSCognitoIdentityPasswordAuthentication {
     
     public func didCompleteStepWithError(_ error: Error?) {
         DispatchQueue.main.async {
-            if let error = error as? NSError {
+            if let error = error as NSError? {
                 let alertController = UIAlertController(title: error.userInfo["__type"] as? String,
                                                         message: error.userInfo["message"] as? String,
                                                         preferredStyle: .alert)

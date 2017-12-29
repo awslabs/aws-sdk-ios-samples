@@ -47,7 +47,7 @@ class ConfirmForgotPasswordViewController: UIViewController {
         self.user?.confirmForgotPassword(confirmationCodeValue, password: self.proposedPassword.text!).continueWith {[weak self] (task: AWSTask) -> AnyObject? in
             guard let strongSelf = self else { return nil }
             DispatchQueue.main.async(execute: {
-                if let error = task.error as? NSError {
+                if let error = task.error as NSError? {
                     let alertController = UIAlertController(title: error.userInfo["__type"] as? String,
                                                             message: error.userInfo["message"] as? String,
                                                             preferredStyle: .alert)

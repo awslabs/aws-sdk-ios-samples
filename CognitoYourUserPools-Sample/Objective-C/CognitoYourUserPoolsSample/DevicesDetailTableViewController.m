@@ -1,5 +1,5 @@
 //
-// Copyright 2014-2016 Amazon.com,
+// Copyright 2014-2017 Amazon.com,
 // Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Amazon Software License (the "License").
@@ -17,6 +17,7 @@
 
 #import "DevicesDetailTableViewController.h"
 #import "AWSCognitoIdentityProvider.h"
+#import "AlertUser.h"
 
 
 @interface DevicesDetailTableViewController ()
@@ -107,11 +108,10 @@
         [[self.user forgetDevice] continueWithBlock:
         ^id _Nullable(AWSTask * _Nonnull task) {
             if(task.error){
-                    [[[UIAlertView alloc] initWithTitle:task.error.userInfo[@"__type"]
-                                                message:task.error.userInfo[@"message"]
-                                               delegate:nil
-                                      cancelButtonTitle:nil
-                                      otherButtonTitles:@"Ok", nil] show];
+                [AlertUser alertUser: self
+                                title:task.error.userInfo[@"__type"]
+                                message:task.error.userInfo[@"message"]
+                                buttonTitle:@"Ok"];
             }
             
             [self refresh];

@@ -50,7 +50,7 @@ class ConfirmSignUpViewController : UIViewController {
         self.user?.confirmSignUp(self.code.text!, forceAliasCreation: true).continueWith {[weak self] (task: AWSTask) -> AnyObject? in
             guard let strongSelf = self else { return nil }
             DispatchQueue.main.async(execute: {
-                if let error = task.error as? NSError {
+                if let error = task.error as NSError? {
                     let alertController = UIAlertController(title: error.userInfo["__type"] as? String,
                                                             message: error.userInfo["message"] as? String,
                                                             preferredStyle: .alert)
@@ -71,7 +71,7 @@ class ConfirmSignUpViewController : UIViewController {
         self.user?.resendConfirmationCode().continueWith {[weak self] (task: AWSTask) -> AnyObject? in
             guard let _ = self else { return nil }
             DispatchQueue.main.async(execute: {
-                if let error = task.error as? NSError {
+                if let error = task.error as NSError? {
                     let alertController = UIAlertController(title: error.userInfo["__type"] as? String,
                                                             message: error.userInfo["message"] as? String,
                                                             preferredStyle: .alert)
@@ -81,7 +81,7 @@ class ConfirmSignUpViewController : UIViewController {
                     self?.present(alertController, animated: true, completion:  nil)
                 } else if let result = task.result {
                     let alertController = UIAlertController(title: "Code Resent",
-                                                            message: "Code resent to \(result.codeDeliveryDetails?.destination!)",
+                                                            message: "Code resent to \(result.codeDeliveryDetails?.destination! ?? " no message")",
                         preferredStyle: .alert)
                     let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
                     alertController.addAction(okAction)

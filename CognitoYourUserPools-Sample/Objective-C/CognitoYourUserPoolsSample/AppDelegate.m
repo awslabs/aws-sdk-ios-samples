@@ -1,5 +1,5 @@
 //
-// Copyright 2014-2016 Amazon.com,
+// Copyright 2014-2017 Amazon.com,
 // Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Amazon Software License (the "License").
@@ -18,7 +18,7 @@
 #import "AppDelegate.h"
 #import "UserDetailTableViewController.h"
 #import "Constants.h"
-
+#import "AlertUser.h"
 
 @interface AppDelegate ()
 @property (nonatomic,strong) AWSTaskCompletionSource<NSNumber *>* rememberDeviceCompletionSource;
@@ -30,17 +30,16 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     //setup logging
-    [AWSLogger defaultLogger].logLevel = AWSLogLevelVerbose;
-    
+    [AWSDDLog sharedInstance].logLevel = AWSLogLevelVerbose;
+
     //setup service config
     AWSServiceConfiguration *serviceConfiguration = [[AWSServiceConfiguration alloc] initWithRegion:CognitoIdentityUserPoolRegion credentialsProvider:nil];
     
     if([@"YOUR_USER_POOL_ID" isEqualToString:CognitoIdentityUserPoolId]){
-        [[[UIAlertView alloc] initWithTitle:@"Invalid Configuration"
-                                    message:@"Please configure user pool constants in Constants.m"
-                                   delegate:nil
-                          cancelButtonTitle:nil
-                          otherButtonTitles:@"Ok", nil] show];
+        [AlertUser alertUser: self.window.rootViewController
+                        title:@"Invalid Configuration"
+                        message:@"Please configure user pool constants in Constants.m"
+                        buttonTitle:@"Ok"];
     }
     
     //create a pool
@@ -115,11 +114,32 @@
     
     //Don't do anything fancy here, just display a popup.
     dispatch_async(dispatch_get_main_queue(), ^{
-        [[[UIAlertView alloc] initWithTitle:@"Remember Device"
-                                    message:@"Do you want to remember this device?"
-                                   delegate:self
-                          cancelButtonTitle:@"No"
-                          otherButtonTitles:@"Yes", nil] show];
+        UIAlertController * alert = [UIAlertController
+                                     alertControllerWithTitle:@"Remember Device"
+                                     message:@"Do you want to remember this device?"
+                                     preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction* yesButton = [UIAlertAction
+                                    actionWithTitle:@"Yes"
+                                    style:UIAlertActionStyleDefault
+                                    handler:^(UIAlertAction * action) {
+                                        self.rememberDeviceCompletionSource.result = @(YES);
+                                        self.rememberDeviceCompletionSource = nil;
+                                    }];
+        
+        UIAlertAction* noButton = [UIAlertAction
+                                   actionWithTitle:@"No"
+                                   style:UIAlertActionStyleDefault
+                                   handler:^(UIAlertAction * action) {
+                                       self.rememberDeviceCompletionSource.result = @(NO);
+                                       self.rememberDeviceCompletionSource = nil;
+                                   }];
+        
+        [alert addAction:yesButton];
+        [alert addAction:noButton];
+        
+        [self.window.rootViewController presentViewController:alert animated:YES completion:nil];
+        
     });
 }
 
@@ -131,29 +151,12 @@
     //Don't do anything fancy here, just display a popup.
     if(error){
         dispatch_async(dispatch_get_main_queue(), ^{
-            [[[UIAlertView alloc] initWithTitle:error.userInfo[@"__type"]
-                                        message:error.userInfo[@"message"]
-                                       delegate:nil
-                              cancelButtonTitle:nil
-                              otherButtonTitles:@"Ok", nil] show];
+            [AlertUser alertUser: self.window.rootViewController
+                            title:error.userInfo[@"__type"]
+                            message:error.userInfo[@"message"]
+                            buttonTitle:@"Ok"];
         });
     }
-}
-
-#pragma mark - UIAlertViewDelegate
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    switch (buttonIndex) {
-        case 0:
-            self.rememberDeviceCompletionSource.result = @(NO);
-            break;
-        case 1:
-            self.rememberDeviceCompletionSource.result = @(YES);
-            break;
-        default:
-            break;
-    }
-    
-    self.rememberDeviceCompletionSource = nil;
 }
 
 #pragma mark - passwordRequired

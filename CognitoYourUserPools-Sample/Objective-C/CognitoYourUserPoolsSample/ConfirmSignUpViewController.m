@@ -1,5 +1,5 @@
 //
-// Copyright 2014-2016 Amazon.com,
+// Copyright 2014-2017 Amazon.com,
 // Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Amazon Software License (the "License").
@@ -17,6 +17,7 @@
 
 #import "ConfirmSignUpViewController.h"
 #import "SignInViewController.h"
+#import "AlertUser.h"
 
 @interface ConfirmSignUpViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *username;
@@ -39,11 +40,10 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             if(task.error){
                 if(task.error){
-                    [[[UIAlertView alloc] initWithTitle:task.error.userInfo[@"__type"]
-                                                message:task.error.userInfo[@"message"]
-                                               delegate:nil
-                                      cancelButtonTitle:@"Ok"
-                                      otherButtonTitles:nil] show];
+                    [AlertUser alertUser: self
+                                    title:task.error.userInfo[@"__type"]
+                                    message:task.error.userInfo[@"message"]
+                                    buttonTitle:@"Ok"];
                 }
             }else {
                 //return to signin screen
@@ -60,20 +60,19 @@
     [[self.user resendConfirmationCode] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityUserResendConfirmationCodeResponse *> * _Nonnull task) {
         dispatch_async(dispatch_get_main_queue(), ^{
             if(task.error){
-                [[[UIAlertView alloc] initWithTitle:task.error.userInfo[@"__type"]
-                                            message:task.error.userInfo[@"message"]
-                                           delegate:nil
-                                  cancelButtonTitle:@"Ok"
-                                  otherButtonTitles:nil] show];
+                [AlertUser alertUser: self
+                                title:task.error.userInfo[@"__type"]
+                                message:task.error.userInfo[@"message"]
+                                buttonTitle:@"Ok"];
             }else {
-                [[[UIAlertView alloc] initWithTitle:@"Code Resent"
-                                       message:[NSString stringWithFormat:@"Code resent to: %@", task.result.codeDeliveryDetails.destination]
-                                      delegate:self
-                             cancelButtonTitle:@"OK"
-                             otherButtonTitles:nil] show];
+                [AlertUser alertUser: self
+                               title:@"Code Resent"
+                                message:[NSString stringWithFormat:@"Code resent to: %@", task.result.codeDeliveryDetails.destination]
+                                buttonTitle:@"Ok"];
             }
         });
         return nil;
     }];
 }
+
 @end

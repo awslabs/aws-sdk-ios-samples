@@ -61,7 +61,7 @@ extension MFAViewController : AWSCognitoIdentityMultiFactorAuthentication {
     
     func didCompleteMultifactorAuthenticationStepWithError(_ error: Error?) {
         DispatchQueue.main.async(execute: {
-            if let error = error as? NSError {
+            if let error = error as NSError? {
                 
                 let alertController = UIAlertController(title: error.userInfo["__type"] as? String,
                                                         message: error.userInfo["message"] as? String,
