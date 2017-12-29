@@ -1,5 +1,5 @@
 /*
-* Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+* Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
 * You may not use this file except in compliance with the License.
@@ -17,12 +17,16 @@ import Foundation
 import AWSCore
 
 //WARNING: To run this sample correctly, you must set the following constants.
-let AwsRegion = AWSRegionType.Unknown // e.g. AWSRegionType.USEast1
+
+let AWSRegion = AWSRegionType.Unknown // e.g. AWSRegionType.USEast1
 let CognitoIdentityPoolId = "YourCognitoIdentityPoolId"
 let CertificateSigningRequestCommonName = "IoTSampleSwift Application"
 let CertificateSigningRequestCountryName = "Your Country"
 let CertificateSigningRequestOrganizationName = "Your Organization"
 let CertificateSigningRequestOrganizationalUnitName = "Your Organizational Unit"
 let PolicyName = "YourPolicyName"
-//This is the endpoint in your AWS IoT console. eg: https://xxxxxxxxxx.iot.<region>.amazonaws.com
+
+// This is the endpoint in your AWS IoT console. eg: https://xxxxxxxxxx.iot.<region>.amazonaws.com
+
 let IOT_ENDPOINT = "https://xxxxxxxxxx.iot.<region>.amazonaws.com"
+let ASWIoTDataManager = "MyIotDataManager"

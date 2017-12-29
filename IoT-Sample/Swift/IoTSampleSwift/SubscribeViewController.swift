@@ -1,5 +1,5 @@
 /*
-* Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+* Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
 * You may not use this file except in compliance with the License.
@@ -28,7 +28,7 @@ class SubscribeViewController: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        let iotDataManager = AWSIoTDataManager.default()
+        let iotDataManager = AWSIoTDataManager(forKey: ASWIoTDataManager)
         let tabBarViewController = tabBarController as! IoTSampleTabBarController
 
         iotDataManager.subscribe(toTopic: tabBarViewController.topic, qoS: .messageDeliveryAttemptedAtMostOnce, messageCallback: {
@@ -43,14 +43,9 @@ class SubscribeViewController: UIViewController {
     }
 
     override func viewWillDisappear(_ animated: Bool) {
-        let iotDataManager = AWSIoTDataManager.default()
+        let iotDataManager = AWSIoTDataManager(forKey: ASWIoTDataManager)
         let tabBarViewController = tabBarController as! IoTSampleTabBarController
         iotDataManager.unsubscribeTopic(tabBarViewController.topic)
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 }
 
