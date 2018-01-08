@@ -1,5 +1,5 @@
 /*
-* Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+* Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
 * You may not use this file except in compliance with the License.
@@ -22,5 +22,5 @@ import AWSCore
 // there is some other setup that is needed to get the list of voices to show up
 // when the app is run.
 
-let AwsRegion = AWSRegionType.unknown // e.g. AWSRegionType.usEast1
+let AwsRegion = AWSRegionType.Unknown // e.g. AWSRegionType.usEast1
 let CognitoIdentityPoolId = "YourCognitoIdentityPoolId"

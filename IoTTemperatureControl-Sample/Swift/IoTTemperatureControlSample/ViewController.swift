@@ -1,5 +1,5 @@
 /*
-* Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+* Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
 * You may not use this file except in compliance with the License.
@@ -175,22 +175,26 @@ class ViewController: UIViewController {
    
     func deviceShadowCallback(name:String, operation:AWSIoTShadowOperationType, operationStatus:AWSIoTShadowOperationStatusType, clientToken:String, payload:Data){
         DispatchQueue.main.async {
-            let json = JSON(data: (payload as NSData!) as Data)
+            guard let json = try? JSON(data: (payload as NSData!) as Data) else {
+                print("Could not get JSON")
+                
+                return
+            }
             let stringValue = NSString(data: payload, encoding: String.Encoding.utf8.rawValue)
             
             switch(operationStatus) {
             case .accepted:
                 print("accepted on \(name)")
-                self.thingShadowAcceptedCallback( name, json: json, payloadString: stringValue as! String)
+                self.thingShadowAcceptedCallback( name, json: json, payloadString: stringValue! as String)
             case .rejected:
                 print("rejected on \(name)")
-                self.thingShadowRejectedCallback( name, json: json, payloadString: stringValue as! String)
+                self.thingShadowRejectedCallback( name, json: json, payloadString: stringValue! as String)
             case .delta:
                 print("delta on \(name)")
-                self.thingShadowDeltaCallback( name, json: json, payloadString: stringValue as! String)
+                self.thingShadowDeltaCallback( name, json: json, payloadString: stringValue! as String)
             case .timeout:
                 print("timeout on \(name)")
-                self.thingShadowTimeoutCallback( name, json: json, payloadString: stringValue as! String)
+                self.thingShadowTimeoutCallback( name, json: json, payloadString: stringValue! as String)
                 
             default:
                 print("unknown operation status: \(operationStatus.rawValue)")
