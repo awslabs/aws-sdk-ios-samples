@@ -22,5 +22,5 @@ import AWSCore
 // there is some other setup that is needed to get the list of voices to show up
 // when the app is run.
 
-let AwsRegion = AWSRegionType.Unknown // e.g. AWSRegionType.usEast1
+let AwsRegion = AWSRegionType.Unknown // e.g. AWSRegionType.USEast1
 let CognitoIdentityPoolId = "YourCognitoIdentityPoolId"
