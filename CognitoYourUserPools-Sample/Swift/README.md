@@ -14,20 +14,23 @@ This sample demonstrates the Amazon Cognito Identity Provider found in the AWS M
 		sudo gem install cocoapods
 		pod setup
 
-1. To install the AWS Mobile SDK for iOS run the following command in the directory containing this sample:
+2. To install the AWS Mobile SDK for iOS run the following command in the directory containing this sample:
 
 		pod install
 
-1. Create an Amazon Cognito User Pool. Follow the 4 steps under **Creating your Cognito Identity user pool** in this [blog post] (http://mobile.awsblog.com/post/TxGNH1AUKDRZDH/Announcing-Your-User-Pools-in-Amazon-Cognito).
+3. Create an Amazon Cognito User Pool. Follow the 4 steps under **Creating your Cognito Identity user pool** in this [blog post](http://mobile.awsblog.com/post/TxGNH1AUKDRZDH/Announcing-Your-User-Pools-in-Amazon-Cognito).
 
-1. Open `CognitoYourUserPoolsSample.xcworkspace`.
+4. Open `CognitoYourUserPoolsSample.xcworkspace`.
 
-1. Open **Constants.swift**. Set **CognitoIdentityUserPoolRegion**, **CognitoIdentityUserPoolId**, **CognitoIdentityUserPoolAppClientId** and **CognitoIdentityUserPoolAppClientSecret** to the values obtained when you created your user pool.
+5. Open **Constants.swift**. Set **CognitoIdentityUserPoolRegion**, **CognitoIdentityUserPoolId**, **CognitoIdentityUserPoolAppClientId** and **CognitoIdentityUserPoolAppClientSecret** to the values obtained when you created your user pool.
+```swift
 		let CognitoIdentityUserPoolRegion: AWSRegionType = .Unknown
 		let CognitoIdentityUserPoolId = "YOUR_USER_POOL_ID"
 		let CognitoIdentityUserPoolAppClientId = "YOUR_APP_CLIENT_ID"
 		let CognitoIdentityUserPoolAppClientSecret = "YOUR_APP_CLIENT_SECRET"
-1. Build and run the sample app.
+```
+
+6. Build and run the sample app.
 
 ## Notes
 The sample showcases how to display a UI that requires an authenticated user.  
