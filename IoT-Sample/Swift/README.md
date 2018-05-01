@@ -91,7 +91,7 @@ This sample demonstrates use of the AWS IoT APIs to securely publish to and subs
 	let CertificateSigningRequestOrganizationName = "Your Organization"
 	let CertificateSigningRequestOrganizationalUnitName = "Your Organizational Unit"
 	let PolicyName = "YourPolicyName"
-        let IOT_ENDPOINT = "https://xxxxxxxxxx.iot.<region>.amazonaws.com"
+	let IOT_ENDPOINT = "https://xxxxxxxxxx.iot.<region>.amazonaws.com" // make sure to include "https://" prefix
 	```
 
 1. Drop the awsiot-identity.p12 file (located in the same directory as your project workspace file into the 'Supporting Files' folder of the project.
