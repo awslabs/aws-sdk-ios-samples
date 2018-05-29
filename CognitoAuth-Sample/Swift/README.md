@@ -14,12 +14,12 @@ This sample demonstrates Amazon Cognito Auth found in the AWS Mobile SDK for iOS
 		sudo gem install cocoapods
 		pod setup
 
-1. To install the AWS Mobile SDK for iOS run the following command in the directory containing this sample:
+2. To install the AWS Mobile SDK for iOS run the following command in the directory containing this sample:
 	
 		pod install
 
-1. Create an Amazon Cognito User Pool. Follow the 4 steps under **Creating your Cognito Identity user pool** in this [blog post] (http://mobile.awsblog.com/post/TxGNH1AUKDRZDH/Announcing-Your-User-Pools-in-Amazon-Cognito).
-2. Configure App Integration for the App Client you created above
+3. Create an Amazon Cognito User Pool. Follow the 4 steps under **Creating your Cognito Identity user pool** in this [blog post](http://mobile.awsblog.com/post/TxGNH1AUKDRZDH/Announcing-Your-User-Pools-in-Amazon-Cognito).
+4. Configure App Integration for the App Client you created above
    1. Under **Enabled Identity Providers** check __Cognito User Pool__
    2. Under **Sign in and sign out URLs** specify `myapp://` for both the Callback URL(s) and Sign out URL(s)
    3. Under **OAuth2.0** Check __Authorization code grant__
@@ -29,7 +29,7 @@ This sample demonstrates Amazon Cognito Auth found in the AWS Mobile SDK for iOS
    7. Enter a domain prefix for your auth endpoint and click __Create Domain__
    8. Optionally continue with __Customize UI__ to set a background image.
 
-1. Open `CognitoAuthSample.xcworkspace`.
-1. Right Click on `Info.plist` and `Open As->Source Code`
-2. Search for __SETME__ and replace all of the values based on the setup you just did above.
-1. Build and run the sample app.
+5. Open `CognitoAuthSample.xcworkspace`.
+6. Right Click on `Info.plist` and `Open As->Source Code`
+7. Search for __SETME__ and replace all of the values based on the setup you just did above.
+8. Build and run the sample app.
