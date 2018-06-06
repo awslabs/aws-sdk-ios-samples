@@ -71,7 +71,7 @@ class ViewController: UIViewController, UITextViewDelegate, UIPickerViewDelegate
 		AWSPollyVoiceId.marlene: "Hallo, mein Name ist Marlene. Ich werde jeden Text vorlesen, den Sie eingeben.",
         AWSPollyVoiceId.vicki: "Hallo, mein Name ist Vicki. Ich werde jeden Text vorlesen, den Sie eingeben.",
 
-		//Icelandic
+	//Icelandic
         AWSPollyVoiceId.dora: "Ég heiti Dóra. Ég les upphátt allan texta sem þú skrifar hér.",
         AWSPollyVoiceId.karl: "Ég heiti Karl. Ég les upphátt allan texta sem þú skrifar hér.",
 
