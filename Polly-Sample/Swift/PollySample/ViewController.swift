@@ -61,7 +61,8 @@ class ViewController: UIViewController, UITextViewDelegate, UIPickerViewDelegate
         //French
         AWSPollyVoiceId.celine: "Salut, je m'appelle Céline. Je vais lire le texte que vous écrirez ici.",
         AWSPollyVoiceId.mathieu: "Salut, je m'appelle Mathieu. Je vais lire le texte que vous écrirez ici.",
-
+        AWSPollyVoiceId.lea: "Salut, je m'appelle Lea. Je vais lire le texte que vous écrirez ici.",
+        
         //French (Canadian)
         AWSPollyVoiceId.chantal: "Salut, je m'appelle Chantal. Je vais lire le texte que vous écrirez ici.",
 
@@ -70,7 +71,7 @@ class ViewController: UIViewController, UITextViewDelegate, UIPickerViewDelegate
 		AWSPollyVoiceId.marlene: "Hallo, mein Name ist Marlene. Ich werde jeden Text vorlesen, den Sie eingeben.",
         AWSPollyVoiceId.vicki: "Hallo, mein Name ist Vicki. Ich werde jeden Text vorlesen, den Sie eingeben.",
 
-		//Icelandic
+	//Icelandic
         AWSPollyVoiceId.dora: "Ég heiti Dóra. Ég les upphátt allan texta sem þú skrifar hér.",
         AWSPollyVoiceId.karl: "Ég heiti Karl. Ég les upphátt allan texta sem þú skrifar hér.",
 
