@@ -37,7 +37,7 @@ This sample demonstrates use of the AWS IoT APIs to securely publish to and subs
               "Action": [
                 "iot:AttachPrincipalPolicy",
                 "iot:CreateKeysAndCertificate",
-		"iot:CreateCertificateFromCsr"
+                "iot:CreateCertificateFromCsr"
               ],
               "Resource": [
                 "*"
