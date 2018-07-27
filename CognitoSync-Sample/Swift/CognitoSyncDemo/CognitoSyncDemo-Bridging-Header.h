@@ -19,3 +19,4 @@
 #import "DeveloperAuthenticatedIdentityProvider.h"
 #import "DeveloperAuthenticationClient.h"
 #import <LoginWithAmazon/LoginWithAmazon.h>
+#import <Google/SignIn.h>
