@@ -17,15 +17,14 @@
 
 @class DeveloperAuthenticationClient;
 
-@interface DeveloperAuthenticatedIdentityProvider : AWSAbstractCognitoIdentityProvider
+@interface DeveloperAuthenticatedIdentityProvider : AWSCognitoCredentialsProviderHelper
 
 @property (strong, atomic, readonly) DeveloperAuthenticationClient *client;
 
 - (instancetype)initWithRegionType:(AWSRegionType)regionType
-                        identityId:(NSString *)identityId
                     identityPoolId:(NSString *)identityPoolId
-                            logins:(NSDictionary *)logins
                       providerName:(NSString *)providerName
-                        authClient:(DeveloperAuthenticationClient *)client;
+                        authClient:(DeveloperAuthenticationClient *)client
+           identityProviderManager:(id<AWSIdentityProviderManager>)identityProviderManager;
 
 @end

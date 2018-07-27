@@ -13,10 +13,29 @@
  * permissions and limitations under the License.
  */
 
+/*
+ * Copyright 2016 BJSS, Inc. or its affiliates. All Rights Reserved.
+ *
+ * Created by Andrea Scuderi on 08/09/2016.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License").
+ * You may not use this file except in compliance with the License.
+ * A copy of the License is located at
+ *
+ *  https://github.com/bjss/aws-sdk-ios-samples/blob/master/LICENSE
+ *
+ * or in the "license" file accompanying this file. This file is distributed
+ * on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
+ * express or implied. See the License for the specific language governing
+ * permissions and limitations under the License.
+ */
+
 #import <AWSCore/AWSCore.h>
 #import <AWSCognito/AWSCognito.h>
+#import <AWSCognitoIdentityProvider/AWSCognitoIdentityProvider.h>
 #import <UICKeyChainStore/UICKeyChainStore.h>
 #import "AmazonClientManager.h"
+#import "AmazonIdentityProviderManager.h"
 #import "Constants.h"
 #import "DeveloperAuthenticatedIdentityProvider.h"
 #import "DeveloperAuthenticationClient.h"
@@ -27,6 +46,7 @@
 #define TWITTER_PROVIDER        @"Twitter"
 #define DIGITS_PROVIDER         @"Digits"
 #define BYOI_PROVIDER           @"DeveloperAuth"
+#define COGNITO_USERPOOL_PROVIDER  @"Cognito"
 
 @interface AmazonClientManager()
 
@@ -34,6 +54,8 @@
 @property (atomic, copy) AWSContinuationBlock completionHandler;
 @property (nonatomic, strong) UICKeyChainStore *keychain;
 @property (nonatomic, strong) DeveloperAuthenticationClient *devAuthClient;
+@property (nonatomic, strong) AmazonIdentityProviderManager* identityProviderManager;
+@property (nonatomic, weak) UIViewController* loginViewController;
 
 #if GOOGLE_LOGIN
 @property (strong, nonatomic) GTMOAuth2Authentication *googleAuth;
@@ -55,6 +77,7 @@
         sharedInstance = [AmazonClientManager new];
         sharedInstance.keychain = [UICKeyChainStore keyChainStoreWithService:[NSString stringWithFormat:@"%@.%@", [NSBundle mainBundle].bundleIdentifier, [AmazonClientManager class]]];
         sharedInstance.devAuthClient = [[DeveloperAuthenticationClient alloc] initWithAppname:DeveloperAuthAppName endpoint:DeveloperAuthEndpoint];
+        [sharedInstance initializeAWS];
     });
     return sharedInstance;
 }
@@ -107,37 +130,61 @@
 - (BOOL)isLoggedIn
 {
     return ( [self isLoggedInWithFacebook] || [self isLoggedInWithGoogle] || [self isLoggedInWithAmazon] ||
-            [self isLoggedInWithBYOI] || [self isLoggedInWithTwitter] || [self isLoggedInWithDigits]);
+            [self isLoggedInWithBYOI] || [self isLoggedInWithTwitter] || [self isLoggedInWithDigits] || [self isLoggedInWithCognito]);
 }
 
-- (AWSTask *)initializeClients:(NSDictionary *)logins {
+- (void)initializeAWS {
+    
     NSLog(@"initializing clients...");
     [AWSLogger defaultLogger].logLevel = AWSLogLevelVerbose;
-
-    id<AWSCognitoIdentityProvider> identityProvider = [[DeveloperAuthenticatedIdentityProvider alloc] initWithRegionType:CognitoRegionType
-                                                                                                              identityId:nil
-                                                                                                          identityPoolId:CognitoIdentityPoolId
-                                                                                                                  logins:logins
-                                                                                                            providerName:DeveloperAuthProviderName
-                                                                                                              authClient:self.devAuthClient];
-
-    self.credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:CognitoRegionType
-                                                                        identityProvider:identityProvider
-                                                                           unauthRoleArn:nil
-                                                                             authRoleArn:nil];
-
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:CognitoRegionType
+    
+    AWSServiceConfiguration *serviceConfiguration = [[AWSServiceConfiguration alloc] initWithRegion:CognitoRegionType
                                                                          credentialsProvider:self.credentialsProvider];
+    AWSCognitoIdentityUserPoolConfiguration *userPoolConfiguration = [[AWSCognitoIdentityUserPoolConfiguration alloc]
+                                                                      initWithClientId: CognitoIdentityUserPoolAppClientId
+                                                                      clientSecret:CognitoIdentityUserPoolAppClientSecret
+                                                                      poolId:CognitoIdentityUserPoolId];
+    
+    [AWSCognitoIdentityUserPool registerCognitoIdentityUserPoolWithConfiguration:serviceConfiguration
+                                                           userPoolConfiguration:userPoolConfiguration
+                                                                          forKey:@"UserPool"];
+
+    
+    self.identityProviderManager = [AmazonIdentityProviderManager sharedInstance];
+    
+    
+    DeveloperAuthenticatedIdentityProvider *identityProvider = [[DeveloperAuthenticatedIdentityProvider alloc] initWithRegionType:CognitoRegionType
+                                                                                                                          identityPoolId:CognitoIdentityPoolId
+                                                                                                                            providerName:DeveloperAuthProviderName
+                                                                                                                              authClient:self.devAuthClient
+                                                                                                                 identityProviderManager:self.identityProviderManager];
+    
+    AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:CognitoRegionType
+                                                                           unauthRoleArn:nil
+                                                                             authRoleArn:nil
+                                                                        identityProvider:identityProvider];
+    
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:CognitoRegionType
+                                                                         credentialsProvider:credentialsProvider];
     AWSServiceManager.defaultServiceManager.defaultServiceConfiguration = configuration;
+
+}
+
+- (AWSTask *)initializeClients {
+    NSLog(@"initializing clients...");
+    [AWSLogger defaultLogger].logLevel = AWSLogLevelVerbose;
+    
+    self.credentialsProvider = [AWSServiceManager defaultServiceManager].defaultServiceConfiguration.credentialsProvider;
     return [self.credentialsProvider getIdentityId];
 }
 
 - (void)wipeAll
 {
-    self.credentialsProvider.logins = nil;
+    [self.identityProviderManager reset];
 
     [[AWSCognito defaultCognito] wipe];
     [self.credentialsProvider clearKeychain];
+    [self.credentialsProvider clearCredentials];
 }
 
 - (void)logoutWithCompletionHandler:(AWSContinuationBlock)completionHandler
@@ -165,6 +212,9 @@
         [self DigitsLogout];
     }
 #endif
+    if ([self isLoggedInWithCognito]) {
+        [self cognitoLogout];
+    }
     [self.devAuthClient logout];
 
     [self wipeAll];
@@ -172,10 +222,11 @@
 }
 
 
-- (void)loginFromView:(UIView *)theView withCompletionHandler:(AWSContinuationBlock)completionHandler
+- (void)loginFromView:(UIViewController *)theViewController withCompletionHandler:(AWSContinuationBlock)completionHandler
 {
     self.completionHandler = completionHandler;
-    [[AmazonClientManager loginSheet] showInView:theView];
+    self.loginViewController = theViewController;
+    [[AmazonClientManager loginSheet] showInView:theViewController.view];
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(nullable NSDictionary *)launchOptions {
@@ -257,14 +308,12 @@
 -(void)completeLogin:(NSDictionary *)logins {
     AWSTask *task;
     if (self.credentialsProvider == nil) {
-        task = [self initializeClients:logins];
+        task = [self initializeClients];
     }
     else {
-        NSMutableDictionary *merge = [NSMutableDictionary dictionaryWithDictionary:self.credentialsProvider.logins];
-        [merge addEntriesFromDictionary:logins];
-        self.credentialsProvider.logins = merge;
         // Force a refresh of credentials to see if we need to merge
-        task = [self.credentialsProvider refresh];
+        [self.credentialsProvider invalidateCachedTemporaryCredentials];
+        task = [self.credentialsProvider getIdentityId];
     }
 
     [[task continueWithBlock:^id(AWSTask *task) {
@@ -295,7 +344,7 @@
                                        delegate:[AmazonClientManager sharedInstance]
                               cancelButtonTitle:@"Cancel"
                          destructiveButtonTitle:nil
-                              otherButtonTitles:FB_PROVIDER, GOOGLE_PROVIDER, AMZN_PROVIDER, TWITTER_PROVIDER, DIGITS_PROVIDER, BYOI_PROVIDER, nil];
+                              otherButtonTitles:COGNITO_USERPOOL_PROVIDER, FB_PROVIDER, GOOGLE_PROVIDER, AMZN_PROVIDER, TWITTER_PROVIDER, DIGITS_PROVIDER, BYOI_PROVIDER, nil];
 }
 
 + (UIAlertView *)errorAlert:(NSString *)message
@@ -315,6 +364,9 @@
     }
     else if ([buttonTitle isEqualToString:BYOI_PROVIDER]) {
         [self BYOILogin];
+    }
+    else if ([buttonTitle isEqualToString:COGNITO_USERPOOL_PROVIDER]) {
+        [self COGNITOLogin];
     }
 #if FB_LOGIN
     else if ([buttonTitle isEqualToString:FB_PROVIDER]) {
@@ -344,6 +396,77 @@
         [[AWSTask taskWithResult:nil] continueWithBlock:self.completionHandler];
     }
 }
+
+#pragma mark - COGNITO USER POOL
+
+- (BOOL)isLoggedInWithCognito {
+    AWSCognitoIdentityUserPool *userPool = [AWSCognitoIdentityUserPool CognitoIdentityUserPoolForKey:@"UserPool"];
+    return self.keychain[COGNITO_USERPOOL_PROVIDER] != nil && [userPool.currentUser isSignedIn];
+}
+
+- (void)cognitoLogin:(NSString * _Nonnull)username password:(NSString * _Nonnull)password delegate:(id <AWSCognitoIdentityInteractiveAuthenticationDelegate> _Nullable)delegate withCompletionHandler:(AWSContinuationBlock _Nonnull)completionHandler {
+    
+    self.completionHandler = completionHandler;
+    AWSCognitoIdentityUserPool *userPool = [AWSCognitoIdentityUserPool CognitoIdentityUserPoolForKey:@"UserPool"];
+    AWSCognitoIdentityUser* user = [userPool getUser:username];
+    AWSTask<AWSCognitoIdentityUserSession*>* session = [user getSession:username password:password validationData:nil];
+    [session continueWithExecutor:[AWSExecutor mainThreadExecutor] withBlock:^id _Nullable(AWSTask<AWSCognitoIdentityUserSession *> * _Nonnull task) {
+        
+        if (task.cancelled) {
+            [[AmazonClientManager errorAlert:@"Login canceled."] show];
+        } else if (task.error) {
+            [[AmazonClientManager errorAlert:@"Login failed. Check your username and password."] show];
+            [[AWSTask taskWithError:task.error] continueWithBlock:self.completionHandler];
+        } else {
+            
+            NSString *provider = [NSString stringWithFormat:@"cognito-idp.us-east-1.amazonaws.com/%@",Constrants.CognitoIdentityUserPoolId];
+            AWSCognitoIdentityUserSession* userSession = task.result;
+            NSString *token = userSession.idToken.tokenString ? : @"";
+            self.keychain[COGNITO_USERPOOL_PROVIDER] = provider;
+            [self completeLogin: @{ provider: token}];
+        }
+        return nil;
+    }];
+}
+
+- (void)cognitoLogout {
+    AWSCognitoIdentityUserPool *userPool = [AWSCognitoIdentityUserPool CognitoIdentityUserPoolForKey:@"UserPool"];
+    [userPool.currentUser signOutAndClearLastKnownUser];
+    self.keychain[COGNITO_USERPOOL_PROVIDER] = nil;
+}
+
+- (void)COGNITOLogin {
+    __block UITextField *username;
+    __block UITextField *password;
+    UIAlertController *COGNITOLoginAlert = [UIAlertController alertControllerWithTitle:@"Login"
+                                                                               message:@"Enter Cognito User Pool Account Credentials"
+                                                                        preferredStyle:UIAlertControllerStyleAlert];
+    
+    [COGNITOLoginAlert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        textField.placeholder = @"Username";
+        username = textField;
+    }];
+    
+    [COGNITOLoginAlert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        textField.placeholder = @"Password";
+        textField.secureTextEntry = true;
+        password = textField;
+    }];
+    
+    UIAlertAction *loginAction = [UIAlertAction actionWithTitle:@"Login" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self cognitoLogin:username.text password:password.text delegate:nil withCompletionHandler:self.completionHandler];
+    }];
+    
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
+    
+    
+    [COGNITOLoginAlert addAction:loginAction];
+    [COGNITOLoginAlert addAction:cancelAction];
+    
+    [self.loginViewController presentViewController:COGNITOLoginAlert animated:YES completion:nil];
+
+}
+
 
 #pragma mark - BYOI
 - (void)reloadBYOISession {
@@ -415,7 +538,7 @@
     if (!self.facebookLogin)
         self.facebookLogin = [FBSDKLoginManager new];
     
-    [self.facebookLogin logInWithReadPermissions:nil handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
+    [self.facebookLogin logInWithReadPermissions:nil fromViewController:self.loginViewController handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
         if (error) {
             [[AmazonClientManager errorAlert:[NSString stringWithFormat:@"Error logging in with FB: %@", error.localizedDescription]] show];
         } else if (result.isCancelled) {

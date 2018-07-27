@@ -14,7 +14,8 @@
 		38B4ADB9194CE9F100609D48 /* CognitoDatasetListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38B4ADB8194CE9F100609D48 /* CognitoDatasetListViewController.m */; };
 		38C380CF1A09ABDD001886BE /* Crypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C380CC1A09ABDD001886BE /* Crypto.m */; };
 		38C380D01A09ABDD001886BE /* DeveloperAuthenticatedIdentityProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C380CE1A09ABDD001886BE /* DeveloperAuthenticatedIdentityProvider.m */; };
-		38CD1256196276F5001FC4E1 /* LoginWithAmazon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38CD1255196276F5001FC4E1 /* LoginWithAmazon.framework */; };
+		BD1B1D201D82BB6F00F46512 /* AmazonIdentityProviderManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1B1D1F1D82BB6F00F46512 /* AmazonIdentityProviderManager.m */; };
+		BD1B1D211D82C15400F46512 /* LoginWithAmazon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38CD1255196276F5001FC4E1 /* LoginWithAmazon.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		CE76800F1A7ACE9D005E3ACE /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = CE76800E1A7ACE9D005E3ACE /* Constants.m */; };
 		EFFA9179192FB8080059AE57 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFFA9178192FB8080059AE57 /* Foundation.framework */; };
 		EFFA917B192FB8080059AE57 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFFA917A192FB8080059AE57 /* CoreGraphics.framework */; };
@@ -59,6 +60,8 @@
 		38C380CD1A09ABDD001886BE /* DeveloperAuthenticatedIdentityProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeveloperAuthenticatedIdentityProvider.h; sourceTree = "<group>"; };
 		38C380CE1A09ABDD001886BE /* DeveloperAuthenticatedIdentityProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeveloperAuthenticatedIdentityProvider.m; sourceTree = "<group>"; };
 		38CD1255196276F5001FC4E1 /* LoginWithAmazon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = LoginWithAmazon.framework; sourceTree = "<group>"; };
+		BD1B1D1E1D82BB6F00F46512 /* AmazonIdentityProviderManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmazonIdentityProviderManager.h; sourceTree = "<group>"; };
+		BD1B1D1F1D82BB6F00F46512 /* AmazonIdentityProviderManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmazonIdentityProviderManager.m; sourceTree = "<group>"; };
 		C52DF1163E4813FDA6EAD53A /* libPods-CognitoSyncDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CognitoSyncDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE76800E1A7ACE9D005E3ACE /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		D9FAE4895F26CE7789F4385F /* Pods-CognitoSyncDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CognitoSyncDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-CognitoSyncDemo/Pods-CognitoSyncDemo.release.xcconfig"; sourceTree = "<group>"; };
@@ -92,7 +95,7 @@
 				EFFA917B192FB8080059AE57 /* CoreGraphics.framework in Frameworks */,
 				EFFA917D192FB8080059AE57 /* UIKit.framework in Frameworks */,
 				EFFA9179192FB8080059AE57 /* Foundation.framework in Frameworks */,
-				38CD1256196276F5001FC4E1 /* LoginWithAmazon.framework in Frameworks */,
+				BD1B1D211D82C15400F46512 /* LoginWithAmazon.framework in Frameworks */,
 				18319ED87A768D8F1AEDCDBC /* libPods-CognitoSyncDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -182,6 +185,8 @@
 				38B4ADB8194CE9F100609D48 /* CognitoDatasetListViewController.m */,
 				382EC93219511AAC00D555AB /* AmazonClientManager.h */,
 				382EC93319511AAC00D555AB /* AmazonClientManager.m */,
+				BD1B1D1E1D82BB6F00F46512 /* AmazonIdentityProviderManager.h */,
+				BD1B1D1F1D82BB6F00F46512 /* AmazonIdentityProviderManager.m */,
 				382EC936195120A100D555AB /* CognitoHomeViewController.h */,
 				382EC937195120A100D555AB /* CognitoHomeViewController.m */,
 				38C380CA1A09ABDD001886BE /* DeveloperAuthenticated */,
@@ -226,12 +231,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EFFA91AA192FB8090059AE57 /* Build configuration list for PBXNativeTarget "CognitoSyncDemo" */;
 			buildPhases = (
-				6A06151213EF401E83414C7D /* 📦 Check Pods Manifest.lock */,
+				6A06151213EF401E83414C7D /* [CP] Check Pods Manifest.lock */,
 				EFFA9171192FB8080059AE57 /* Sources */,
 				EFFA9172192FB8080059AE57 /* Frameworks */,
 				EFFA9173192FB8080059AE57 /* Resources */,
-				20879EF7BF4D42B8B01AA6A3 /* 📦 Copy Pods Resources */,
-				A6CD192C0EB861C353475D94 /* 📦 Embed Pods Frameworks */,
+				20879EF7BF4D42B8B01AA6A3 /* [CP] Copy Pods Resources */,
+				A6CD192C0EB861C353475D94 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -316,14 +321,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		20879EF7BF4D42B8B01AA6A3 /* 📦 Copy Pods Resources */ = {
+		20879EF7BF4D42B8B01AA6A3 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -331,14 +336,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CognitoSyncDemo/Pods-CognitoSyncDemo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		6A06151213EF401E83414C7D /* 📦 Check Pods Manifest.lock */ = {
+		6A06151213EF401E83414C7D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -346,14 +351,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		A6CD192C0EB861C353475D94 /* 📦 Embed Pods Frameworks */ = {
+		A6CD192C0EB861C353475D94 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -377,6 +382,7 @@
 				EFFA9185192FB8080059AE57 /* main.m in Sources */,
 				EFFA9189192FB8080059AE57 /* AZCAppDelegate.m in Sources */,
 				EFFA918F192FB8080059AE57 /* CognitoDatasetViewController.m in Sources */,
+				BD1B1D201D82BB6F00F46512 /* AmazonIdentityProviderManager.m in Sources */,
 				38B4ADB9194CE9F100609D48 /* CognitoDatasetListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

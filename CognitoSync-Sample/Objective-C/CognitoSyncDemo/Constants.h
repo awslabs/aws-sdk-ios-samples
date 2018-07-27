@@ -16,6 +16,8 @@
 #import <Foundation/Foundation.h>
 #import <AWSCore/AWSCore.h>
 
+#define BYOI_PROVIDER @"DeveloperAuth"
+
 FOUNDATION_EXPORT AWSRegionType const CognitoRegionType;
 FOUNDATION_EXPORT NSString *const CognitoIdentityPoolId;
 
@@ -28,6 +30,10 @@ FOUNDATION_EXPORT NSString *const GoogleClientID;
 FOUNDATION_EXPORT NSString *const DeveloperAuthAppName;
 FOUNDATION_EXPORT NSString *const DeveloperAuthEndpoint;
 FOUNDATION_EXPORT NSString *const DeveloperAuthProviderName;
+
+FOUNDATION_EXPORT NSString *const CognitoIdentityUserPoolAppClientId;
+FOUNDATION_EXPORT NSString *const CognitoIdentityUserPoolAppClientSecret;
+FOUNDATION_EXPORT NSString *const CognitoIdentityUserPoolId;
 
 #if __has_include(<FBSDKCoreKit/FBSDKCoreKit.h>) && __has_include(<FBSDKLoginKit/FBSDKLoginKit.h>)
 #define FB_LOGIN 1

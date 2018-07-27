@@ -51,7 +51,7 @@
 -(IBAction)loginClicked:(id)sender {
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     [self disableUI];
-    [[AmazonClientManager sharedInstance] loginFromView:self.view withCompletionHandler:^id(AWSTask *task) {
+    [[AmazonClientManager sharedInstance] loginFromView:self withCompletionHandler:^id(AWSTask *task) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [self refreshUI];
         });

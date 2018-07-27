@@ -54,10 +54,10 @@ class CognitoDatasetViewController: UITableViewController {
         if (sender as! UISwitch).on {
             self.dataset?.subscribe().continueWithBlock {
                 (task) -> AnyObject! in
-                if task.error == nil {
+                if let error = task.error {
                     self.subscribeSwitch.setOn(false, animated: true)
                     dispatch_async(dispatch_get_main_queue()) {
-                        self.errorAlert("Unable to subscribe to dataset: " + task.error.description)
+                        self.errorAlert("Unable to subscribe to dataset: " + error.description)
                     }
                 } else {
                     let userDefaults = NSUserDefaults.standardUserDefaults()
@@ -70,10 +70,10 @@ class CognitoDatasetViewController: UITableViewController {
             }
         } else {
             self.dataset?.unsubscribe() .continueWithBlock { (task) -> AnyObject! in
-                if task.error == nil {
+                if let error = task.error {
                     self.subscribeSwitch.setOn(false, animated: false)
                     dispatch_async(dispatch_get_main_queue()) {
-                        self.errorAlert("Unable to subscribe to dataset: " + task.error.description)
+                        self.errorAlert("Unable to subscribe to dataset: " + error.description)
                     }
                 } else {
                     let userDefaults = NSUserDefaults.standardUserDefaults()

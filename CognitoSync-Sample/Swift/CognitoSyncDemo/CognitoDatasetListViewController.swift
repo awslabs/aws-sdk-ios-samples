@@ -75,8 +75,8 @@ class CognitoDatasetListViewController: UITableViewController {
             dispatch_async(dispatch_get_main_queue()) {
                 UIApplication.sharedApplication().networkActivityIndicatorVisible = false
                 
-                if task.error != nil {
-                    self.errorAlert(task.error.description)
+                if let error = task.error {
+                    self.errorAlert(error.description)
                 } else {
                     self.datasets = AWSCognito.defaultCognito().listDatasets()
                     self.tableView.reloadData()
