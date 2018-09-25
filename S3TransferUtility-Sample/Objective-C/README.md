@@ -85,7 +85,7 @@ This sample demonstrates how to use `AWSS3TransferUtility` to download / upload 
                handleEventsForBackgroundURLSession:identifier
                              completionHandler:completionHandler];
        }	
-1. This sample requires Cognito to authorize to Amazon S3 in order to access the bucket.  Use Amazon Cognito to create a new identity pool:
+
 1. If, you get a bunch of warnings that look similar to the one below when you run the sample and try doing an upload:
 
 		Function boringssl_session_errorlog: line 2868 [boringssl_session_write] SSL_ERROR_SYSCALL(5): operation failed externally to the library
