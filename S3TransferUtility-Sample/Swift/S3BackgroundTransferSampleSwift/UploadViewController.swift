@@ -37,8 +37,9 @@ class UploadViewController: UIViewController, UINavigationControllerDelegate {
 
         self.progressBlock = {(task, progress) in
             DispatchQueue.main.async(execute: {
-                self.progressView.progress = Float(progress.fractionCompleted)
-                self.statusLabel.text = "Uploading..."
+                if (self.progressView.progress < Float(progress.fractionCompleted)) {
+                    self.progressView.progress = Float(progress.fractionCompleted)
+                }
             })
         }
 
@@ -70,6 +71,11 @@ class UploadViewController: UIViewController, UINavigationControllerDelegate {
         let expression = AWSS3TransferUtilityUploadExpression()
         expression.progressBlock = progressBlock
 
+        DispatchQueue.main.async(execute: {
+            self.statusLabel.text = ""
+            self.progressView.progress = 0
+        })
+        
         transferUtility.uploadData(
             data,
             bucket: S3BucketName,
@@ -88,7 +94,7 @@ class UploadViewController: UIViewController, UINavigationControllerDelegate {
                 if let _ = task.result {
                     
                     DispatchQueue.main.async {
-                        self.statusLabel.text = "Generating Upload File"
+                        self.statusLabel.text = "Uploading..."
                         print("Upload Starting!")
                     }
                     

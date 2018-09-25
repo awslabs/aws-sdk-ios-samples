@@ -41,13 +41,19 @@ class DownloadViewController: UIViewController{
     
     @IBAction func start(_ sender: UIButton) {
         
+        DispatchQueue.main.async(execute: {
+            self.statusLabel.text = ""
+            self.progressView.progress = 0
+        })
+        
         self.imageView.image = nil;
         
         let expression = AWSS3TransferUtilityDownloadExpression()
         expression.progressBlock = {(task, progress) in
             DispatchQueue.main.async(execute: {
-                self.progressView.progress = Float(progress.fractionCompleted)
-                self.statusLabel.text = "Downloading..."
+                if (self.progressView.progress < Float(progress.fractionCompleted)) {
+                    self.progressView.progress = Float(progress.fractionCompleted)
+                }
             })
         }
         
@@ -59,7 +65,6 @@ class DownloadViewController: UIViewController{
                 }
                 else if(self.progressView.progress != 1.0) {
                     self.statusLabel.text = "Failed"
-                    NSLog("Error: Failed - Likely due to invalid region / filename")
                 }
                 else{
                     self.statusLabel.text = "Success"
@@ -75,11 +80,15 @@ class DownloadViewController: UIViewController{
             completionHandler: completionHandler).continueWith { (task) -> AnyObject? in
                 if let error = task.error {
                     NSLog("Error: %@",error.localizedDescription);
-                    self.statusLabel.text = "Failed"
+                    DispatchQueue.main.async(execute: {
+                        self.statusLabel.text = "Failed"
+                    })
                 }
                 
                 if let _ = task.result {
-                    self.statusLabel.text = "Starting Download"
+                    DispatchQueue.main.async(execute: {
+                        self.statusLabel.text = "Downloading..."
+                    })
                     NSLog("Download Starting!")
                     // Do something with uploadTask.
                 }

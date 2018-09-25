@@ -23,13 +23,14 @@
     return YES;
 }
 
-- (void)application:(UIApplication *)application handleEventsForBackgroundURLSession:(NSString *)identifier completionHandler:(void (^)(void))completionHandler {
-    /*
-     Store the completion handler.
-     */
-    [AWSS3TransferUtility interceptApplication:application
-           handleEventsForBackgroundURLSession:identifier
-                             completionHandler:completionHandler];
-}
+- (void) application:(UIApplication *)application
+   handleEventsForBackgroundURLSession:(NSString *)identifier
+   completionHandler:(void (^)(void))completionHandler {
+       
+       //provide the completionHandler to the TransferUtility to support background transfers.
+       [AWSS3TransferUtility interceptApplication:application
+              handleEventsForBackgroundURLSession:identifier
+                                completionHandler:completionHandler];
+   }
 
 @end

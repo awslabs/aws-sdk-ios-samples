@@ -4,7 +4,7 @@ This sample demonstrates how to use `AWSS3TransferUtility` to download / upload 
 
 ## Requirements
 
-* Xcode 7 and later
+* Xcode 8 and later
 * iOS 8 and later
 
 ## Using the Sample
@@ -47,7 +47,7 @@ This sample demonstrates how to use `AWSS3TransferUtility` to download / upload 
 		**Note**: To keep this example simple it makes use of unauthenticated users in the identity pool.  This can be used for getting started and prototypes but unauthenticated users should typically only be given read-only permissions in production applications.  More information on Cognito identity pools including the Cognito developer guide can be found [here](http://aws.amazon.com/cognito/).
 
 1. Open `S3BackgroundTransferSampleObjC.xcworkspace` or `S3BackgroundTransferSampleSwift.xcworkspace`.
-  
+
 1. Open `Info.plist` and update the following lines with the your values:
 
 **AWS --> CredentialsProvider --> CognitoIdentity --> Default --> PoolId** (put your Cognito IdentityPoolID here)
@@ -57,3 +57,38 @@ This sample demonstrates how to use `AWSS3TransferUtility` to download / upload 
 **AWS --> S3TransferUtility --> Default --> Region** (for example: USEast1)
 
 1. Build and run the sample app.
+
+## NOTES
+
+1. The TransferUtility uses a `NSURL Background Session` to upload and download files. To make sure that the transfers continue to run when the app is moved to the background, the `handleEventsForBackgroundURLSession` method has to be implemented in the `AppDelegate`.  The sample implements this as follows
+
+	Swift
+
+       func application(_ application: UIApplication, 
+                       handleEventsForBackgroundURLSession identifier: String, 
+                       completionHandler: @escaping () -> Void) {
+        
+            //provide the completionHandler to the TransferUtility to support background transfers.
+            AWSS3TransferUtility.interceptApplication(application, 
+                handleEventsForBackgroundURLSession: identifier, 
+                completionHandler: completionHandler)
+        }
+
+	Objective-C
+
+       (void) application:(UIApplication *)application 
+              handleEventsForBackgroundURLSession:(NSString *)identifier 
+              completionHandler:(void (^)(void))completionHandler {
+
+           //provide the completionHandler to the TransferUtility to support background transfers.
+           [AWSS3TransferUtility interceptApplication:application
+               handleEventsForBackgroundURLSession:identifier
+                             completionHandler:completionHandler];
+       }	
+
+1. If, you get a bunch of warnings that look similar to the one below when you run the sample and try doing an upload:
+
+		Function boringssl_session_errorlog: line 2868 [boringssl_session_write] SSL_ERROR_SYSCALL(5): operation failed externally to the library
+		2017-12-22 10:46:37.105342-0800 S3TransferManagerSampleSwift[59012:3381604] [BoringSSL]
+
+	You can disable OS logging in Xcode to make them go away.  With your project window open, go to Project -> Scheme -> Edit Scheme... and add "OS_ACTIVITY_MODE" to the Environment Variables section and set its value to "disable".  When you rerun the app those warnings should now not appear.
