@@ -22,52 +22,25 @@
 @property (weak, nonatomic) IBOutlet UIProgressView *progressView;
 @property (weak, nonatomic) IBOutlet UILabel *statusLabel;
 
-@property (copy, nonatomic) AWSS3TransferUtilityUploadCompletionHandlerBlock completionHandler;
-@property (copy, nonatomic) AWSS3TransferUtilityProgressBlock progressBlock;
-
 @end
 
 @implementation FirstViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    self.progressView.progress = 0;
-    self.statusLabel.text = @"Ready";
-
-    __weak FirstViewController *weakSelf = self;
-    self.completionHandler = ^(AWSS3TransferUtilityUploadTask *task, NSError *error) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            if (error) {
-                weakSelf.statusLabel.text = @"Failed to Upload";
-            } else {
-                weakSelf.statusLabel.text = @"Successfully Uploaded";
-                weakSelf.progressView.progress = 1.0;
-            }
-        });
-    };
-
-    self.progressBlock = ^(AWSS3TransferUtilityTask *task, NSProgress *progress) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            weakSelf.progressView.progress = progress.fractionCompleted;
-        });
-    };
-
-    AWSS3TransferUtility *transferUtility = [AWSS3TransferUtility defaultS3TransferUtility];
-    [transferUtility enumerateToAssignBlocksForUploadTask:^(AWSS3TransferUtilityUploadTask * _Nonnull uploadTask, AWSS3TransferUtilityProgressBlock  _Nullable __autoreleasing * _Nullable uploadProgressBlockReference, AWSS3TransferUtilityUploadCompletionHandlerBlock  _Nullable __autoreleasing * _Nullable completionHandlerReference) {
-        NSLog(@"%lu", (unsigned long)uploadTask.taskIdentifier);
-
-        *uploadProgressBlockReference = weakSelf.progressBlock;
-        *completionHandlerReference = weakSelf.completionHandler;
-
-        dispatch_async(dispatch_get_main_queue(), ^{
-            self.statusLabel.text = @"Uploading...";
-        });
-    } downloadTask:nil];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.statusLabel.text = @"";
+        self.progressView.progress = 0;
+    });
+    
 }
 
 - (IBAction)start:(id)sender {
-    self.statusLabel.text = @"Creating a test file...";
+    dispatch_async(dispatch_get_main_queue(), ^{
+          self.statusLabel.text = @"Creating a test file...";
+          self.progressView.progress = 0;
+      });
+    
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         // Create a test file in the temporary directory
         NSMutableString *dataString = [NSMutableString new];
@@ -80,8 +53,37 @@
 }
 
 - (void)uploadData:(NSData *)testData {
+    //Initalize the screen elements
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.progressView.progress = 0;
+        self.statusLabel.text = @"";
+    });
+    
+    
+    __weak FirstViewController *weakSelf = self;
+    
+    //Create the completion handler for the transfer
+    AWSS3TransferUtilityUploadCompletionHandlerBlock completionHandler = ^(AWSS3TransferUtilityUploadTask *task, NSError *error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (error) {
+                weakSelf.statusLabel.text = @"Failed to Upload";
+            } else {
+                weakSelf.statusLabel.text = @"Successfully Uploaded";
+                weakSelf.progressView.progress = 1.0;
+            }
+        });
+    };
+    
+    //Create the TransferUtility expression and add the progress block to it.
+    //This would be needed to report on progress tracking
     AWSS3TransferUtilityUploadExpression *expression = [AWSS3TransferUtilityUploadExpression new];
-    expression.progressBlock = self.progressBlock;
+    expression.progressBlock = ^(AWSS3TransferUtilityTask *task, NSProgress *progress) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if ( weakSelf.progressView.progress < progress.fractionCompleted) {
+                weakSelf.progressView.progress = progress.fractionCompleted;
+            }
+        });
+    };
 
     AWSS3TransferUtility *transferUtility = [AWSS3TransferUtility defaultS3TransferUtility];
     [[transferUtility uploadData:testData
@@ -89,7 +91,7 @@
                              key:S3UploadKeyName
                      contentType:@"text/plain"
                       expression:expression
-               completionHandler:self.completionHandler] continueWithBlock:^id(AWSTask *task) {
+               completionHandler:completionHandler] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             NSLog(@"Error: %@", task.error);
         }
@@ -98,7 +100,6 @@
                 self.statusLabel.text = @"Uploading...";
             });
         }
-
         return nil;
     }];
 }

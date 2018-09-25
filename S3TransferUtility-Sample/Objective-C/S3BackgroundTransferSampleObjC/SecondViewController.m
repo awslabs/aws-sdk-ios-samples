@@ -24,21 +24,33 @@
 @property (weak, nonatomic) IBOutlet UIProgressView *progressView;
 @property (weak, nonatomic) IBOutlet UILabel *statusLabel;
 
-@property (copy, nonatomic) AWSS3TransferUtilityDownloadCompletionHandlerBlock completionHandler;
-@property (copy, nonatomic) AWSS3TransferUtilityProgressBlock progressBlock;
-
 @end
 
 @implementation SecondViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.progressView.progress = 0;
+        self.statusLabel.text = @"";
+    });
+    
 
-    self.progressView.progress = 0;
-    self.statusLabel.text = @"Ready";
+}
 
+- (IBAction)start:(id)sender {
+    
+    //Initalize the screen elements
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.progressView.progress = 0;
+        self.statusLabel.text = @"";
+        self.imageView.image = nil;
+    });
+    
     __weak SecondViewController *weakSelf = self;
-    self.completionHandler = ^(AWSS3TransferUtilityDownloadTask *task, NSURL *location, NSData *data, NSError *error) {
+
+    //Create the completion handler for the transfer
+    AWSS3TransferUtilityDownloadCompletionHandlerBlock completionHandler = ^(AWSS3TransferUtilityDownloadTask *task, NSURL *location, NSData *data, NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
             if (error) {
                 weakSelf.statusLabel.text = @"Failed to Download";
@@ -50,37 +62,23 @@
             }
         });
     };
-
-    self.progressBlock = ^(AWSS3TransferUtilityTask *task, NSProgress *progress) {
+    
+    
+    //Create the TransferUtility expression and add the progress block to it.
+    //This would be needed to report on progress tracking
+    AWSS3TransferUtilityDownloadExpression *expression = [AWSS3TransferUtilityDownloadExpression new];
+    expression.progressBlock = ^(AWSS3TransferUtilityTask *task, NSProgress *progress) {
         dispatch_async(dispatch_get_main_queue(), ^{
             weakSelf.progressView.progress = progress.fractionCompleted;
         });
     };
 
-    AWSS3TransferUtility *transferUtility = [AWSS3TransferUtility defaultS3TransferUtility];
-    [transferUtility enumerateToAssignBlocksForUploadTask:nil downloadTask:^(AWSS3TransferUtilityDownloadTask * _Nonnull downloadTask, AWSS3TransferUtilityProgressBlock  _Nullable __autoreleasing * _Nullable downloadProgressBlockReference, AWSS3TransferUtilityDownloadCompletionHandlerBlock  _Nullable __autoreleasing * _Nullable completionHandlerReference) {
-        NSLog(@"%lu", (unsigned long)downloadTask.taskIdentifier);
-
-        *downloadProgressBlockReference = weakSelf.progressBlock;
-        *completionHandlerReference = weakSelf.completionHandler;
-
-        dispatch_async(dispatch_get_main_queue(), ^{
-            self.statusLabel.text = @"Uploading...";
-        });
-    }];
-}
-
-- (IBAction)start:(id)sender {
-    self.imageView.image = nil;
-
-    AWSS3TransferUtilityDownloadExpression *expression = [AWSS3TransferUtilityDownloadExpression new];
-    expression.progressBlock = self.progressBlock;
-
+   
     AWSS3TransferUtility *transferUtility = [AWSS3TransferUtility defaultS3TransferUtility];
     [[transferUtility downloadDataFromBucket:S3BucketName
                                          key:S3DownloadKeyName
                                   expression:expression
-                           completionHandler:self.completionHandler] continueWithBlock:^id(AWSTask *task) {
+                           completionHandler:completionHandler] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             NSLog(@"Error: %@", task.error);
         }
