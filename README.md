@@ -80,3 +80,7 @@ Version 1 of the AWS Mobile SDK for iOS is deprecated as of September 29, 2014. 
 To find the samples for Version 1 of the AWS Mobile SDK for iOS, select the [v1 branch](https://github.com/awslabs/aws-sdk-ios-samples/tree/v1).
 
 To find the samples for Swift 2.3 Version 2 of the AWS Mobile SDK for iOS, select the [swift2.3 branch](https://github.com/awslabs/aws-sdk-ios-samples/tree/swift2.3).
+
+### Getting Help
+
+We use [AWS iOS SDK GitHub issues](https://github.com/aws/aws-sdk-ios/issues) for tracking questions, bugs, and feature requests.
