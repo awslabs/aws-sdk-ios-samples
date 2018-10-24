@@ -10,7 +10,7 @@ This sample demonstrates how sign up and sign in a user to display an authentica
 
 * [Amazon Cognito Your User Pools](http://aws.amazon.com/cognito/)
 
-### Cognito Sync Sample ([Swift](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/CognitoSync-Sample/Swift/), [Objective-C](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/CognitoSync-Sample/Objective-C/))
+### [DEPRECATED]Cognito Sync Sample ([Swift](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/[DEPRECATED]CognitoSync-Sample/Swift/), [Objective-C](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/[DEPRECATED]CognitoSync-Sample/Objective-C/))
 
 This sample demonstrates how to securely manage and sync your mobile app data and create unique identities via login providers including Facebook, Google, and Login with Amazon.
 
@@ -19,7 +19,7 @@ This sample demonstrates how to securely manage and sync your mobile app data an
 * [Amazon Cognito Sync](http://aws.amazon.com/cognito/)
 * [Amazon Cognito Identity](http://aws.amazon.com/cognito/)
 
-### DynamoDB Object Mapper Sample ([Swift](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/DynamoDBObjectMapper-Sample/Swift/), [Objective-C](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/DynamoDBObjectMapper-Sample/Objective-C/))
+### [DEPRECATED]DynamoDB Object Mapper Sample ([Swift](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/[DEPRECATED]DynamoDBObjectMapper-Sample/Swift/), [Objective-C](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/[DEPRECATED]DynamoDBObjectMapper-Sample/Objective-C/))
 
 This sample demonstrates how to insert / update / delete / query items using DynamoDB Object Mapper.
 
