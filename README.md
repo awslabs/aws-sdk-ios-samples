@@ -1,68 +1,38 @@
-# The AWS Mobile SDK for iOS Samples
+# The AWS SDK for iOS Samples
 
-This repository contains sample apps that demonstrate various aspects of the AWS Mobile SDK for iOS. Please refer to **README.md** in each sample directory for more specific instructions.
+This repository has samples that demonstrate various aspects of the [AWS SDK for iOS](https://github.com/aws-amplify/aws-sdk-ios).
 
-### Cognito Your User Pools Sample  ([Swift](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/CognitoYourUserPools-Sample/Swift), [Objective-C](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/CognitoYourUserPools-Sample/Objective-C/))
+### Resources
 
-This sample demonstrates how sign up and sign in a user to display an authenticated portion of your app.
+* [Developer Guide for AWS SDK for iOS](https://aws-amplify.github.io/docs/ios/start)
 
-**AWS Services Demonstrated:**
+Please refer to **README.md** in each sample directory for more specific instructions.
 
-* [Amazon Cognito Your User Pools](http://aws.amazon.com/cognito/)
+### List of Samples
 
-### S3 Transfer Utility Sample ([Swift](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/S3TransferUtility-Sample/Swift/), [Objective-C](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/S3TransferUtility-Sample/Objective-C/))
+* CognitoYourUserPools-Sample ([Swift](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/CognitoYourUserPools-Sample/Swift), [Objective-C](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/CognitoYourUserPools-Sample/Objective-C/)). This is a sample mobile application that demonstrates how to sign up and sign in a user to display an authenticated portion of your app. Involved AWS Services are:
+  + Amazon Cognito Identity Provider (Your User Pools)
 
-This sample demonstrates how to use the Amazon S3 PreSigned URL Builder to download / upload files in background.
+* S3TransferUtility-Sample ([Swift](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/S3TransferUtility-Sample/Swift/), [Objective-C](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/S3TransferUtility-Sample/Objective-C/)). This is a sample mobile application that demonstrates how to use the Amazon S3 PreSigned URL Builder to download / upload files in background. Involved AWS Services are:
+  + Amazon S3
+  + Amazon Cognito Identity
 
-**AWS Services Demonstrated:**
+* IoT-Sample ([Swift](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/IoT-Sample/Swift/)). This is a sample mobile application that demonstrates how to publish and subscribe to data using AWS IoT. Involved AWS Services are:
+  + Amazon AWS IoT
+  + Amazon Cognito Identity
 
-* [Amazon S3](http://aws.amazon.com/s3/)
-* [Amazon Cognito Identity](http://aws.amazon.com/cognito/)
+* IoTTemperatureControl-Sample ([Swift](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/IoTTemperatureControl-Sample/Swift/)). This is a sample mobile application that demonstrates accessing device shadows using Cognito authentication; it works in conjunction with the Temperature Control Example Program in the [AWS IoT JavaScript SDK for Embedded Devices](https://github.com/aws/aws-iot-device-sdk-js). Involved AWS Services are:
+  + Amazon AWS IoT
+  + Amazon Cognito Identity
 
-### IoT Sample ([Swift](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/IoT-Sample/Swift/))
+* Lex-Sample ([Objective-C](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/Lex-Sample/ObjC/), [Swift](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/Lex-Sample/swift-3/)). This is a sample mobile application that demonstrates how to use text to text chat and voice to voice chat using Amazon Lex. Involved AWS Services are:
+  + Amazon Lex
+  + Amazon Cognito Identity
 
-This sample demonstrates how to publish and subscribe to data using AWS IoT.
-
-**AWS Services Demonstrated:**
-
-* [Amazon AWS IoT](http://aws.amazon.com/iot/)
-* [Amazon Cognito Identity](http://aws.amazon.com/cognito/)
-
-### IoT Temperature Control Sample ([Swift](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/IoTTemperatureControl-Sample/Swift/))
-
-This sample demonstrates accessing device shadows using Cognito authentication; it works in conjunction with the Temperature Control Example Program in the [AWS IoT JavaScript SDK for Embedded Devices](https://github.com/aws/aws-iot-device-sdk-js).
-
-**AWS Services Demonstrated:**
-
-* [Amazon AWS IoT](http://aws.amazon.com/iot/)
-* [Amazon Cognito Identity](http://aws.amazon.com/cognito/)
-
-### Amazon Lex Sample ([ObjC](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/Lex-Sample/ObjC/), [Swift3](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/Lex-Sample/swift-3/))
-
-This sample demonstrates how to use text to text chat and voice to voice chat using Amazon Lex SDK.
-
-**AWS Services Demonstrated:**
-
-* [Amazon Lex](http://aws.amazon.com/lex/)
-* [Amazon Cognito Identity](http://aws.amazon.com/cognito/)
-
-### Amazon Polly Sample ([Swift](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/Polly-Sample/Swift/))
-
-This sample demonstrates how to get the list of voices and synthesize speech using Amazon Polly SDK.
-
-**AWS Services Demonstrated:**
-
-* [Amazon Polly](http://aws.amazon.com/polly/)
-* [Amazon Cognito Identity](http://aws.amazon.com/cognito/)
-
-### Sample Apps for Version 1 SDK
-
-Version 1 of the AWS Mobile SDK for iOS is deprecated as of September 29, 2014. If you are building new apps, we recommend you use Version 2.
-
-To find the samples for Version 1 of the AWS Mobile SDK for iOS, select the [v1 branch](https://github.com/awslabs/aws-sdk-ios-samples/tree/v1).
-
-To find the samples for Swift 2.3 Version 2 of the AWS Mobile SDK for iOS, select the [swift2.3 branch](https://github.com/awslabs/aws-sdk-ios-samples/tree/swift2.3).
+* Polly-Sample ([Swift](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/Polly-Sample/Swift/)). This is a sample mobile application that demonstrates how to get the list of voices and synthesize speech using Amazon Polly. Involved AWS Services are:
+  + Amazon Polly
+  + Amazon Cognito Identity
 
 ### Getting Help
 
-We use [AWS iOS SDK GitHub issues](https://github.com/aws/aws-sdk-ios/issues) for tracking questions, bugs, and feature requests.
+We use [AWS iOS SDK GitHub issues](https://github.com/aws-amplify/aws-sdk-ios/issues) for tracking questions, bugs, and feature requests.
