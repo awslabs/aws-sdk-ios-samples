@@ -4,7 +4,7 @@ This sample demonstrates how to use `AWSS3TransferUtility` to download / upload 
 
 ## Requirements
 
-* Xcode 8 and later
+* Xcode 9.2 and later
 * iOS 8 and later
 
 ## Using the Sample
