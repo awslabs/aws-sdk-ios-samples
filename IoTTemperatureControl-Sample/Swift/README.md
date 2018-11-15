@@ -4,8 +4,8 @@ This sample demonstrates use of the AWS IoT MQTT device shadow APIs over a WebSo
 
 ## Requirements
 
-* Xcode 7 and later
-* iOS 8 and later
+* Xcode 9.2 and later
+* iOS 9 and later
 
 ## Using the Sample
 
