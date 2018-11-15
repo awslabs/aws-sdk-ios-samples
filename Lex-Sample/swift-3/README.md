@@ -4,7 +4,7 @@ This sample demonstrates how to use Amazon Lex interaction client library on iOS
 
 ## Requirements
 
-* Xcode 8 and later
+* Xcode 9.2 and later
 * iOS 9 and later
 
 ## Using the Sample
