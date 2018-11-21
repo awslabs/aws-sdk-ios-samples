@@ -41,7 +41,7 @@ This sample demonstrates how to use Amazon Lex interaction client library on iOS
 	```c
     let CognitoIdentityPoolId = "YourCognitoIdentityPoolId"     // Put your Cognito Identity Pool ID here
     let CognitoRegion = AWSRegionType.Unknown                   // Put your Cognito region here
-    let LexRegion = AWSRegionType.Unknown                       // Change this is this is not your Lex region (most are currently AWSRegionType.USEast1)
+    let LexRegion = AWSRegionType.Unknown                       // Change this to your Lex region (most are currently AWSRegionType.USEast1)
     let BotName = "BotName"                                     // Put your bot name here
     let BotAlias = "$LATEST"                                    // You can leave this if you always want to use the latest version of your bot or put the version
 	```
