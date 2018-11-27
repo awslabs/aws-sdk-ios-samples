@@ -4,7 +4,7 @@ This sample demonstrates use of the Amazon Polly APIs to retrieve list of voices
 
 ## Requirements
 
-* Xcode 8 and later
+* Xcode 9.2 and later
 * iOS 8 and later
 
 ## Using the Sample

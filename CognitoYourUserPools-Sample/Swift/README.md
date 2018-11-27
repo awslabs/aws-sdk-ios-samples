@@ -4,7 +4,7 @@ This sample demonstrates the Amazon Cognito Identity Provider found in the AWS M
 
 ## Requirements
 
-* Xcode 8 and later
+* Xcode 9.2 and later
 * iOS 8 and later
 
 ## Using the Sample

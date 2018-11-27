@@ -4,7 +4,7 @@ This sample demonstrates Amazon Cognito Auth found in the AWS Mobile SDK for iOS
 
 ## Requirements
 
-* Xcode 8 and later
+* Xcode 9.2 and later
 * iOS 9 and later
 
 ## Using the Sample

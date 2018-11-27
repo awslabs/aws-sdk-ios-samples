@@ -4,7 +4,7 @@ This sample demonstrates use of the AWS IoT APIs to securely publish to and subs
 
 ## Requirements
 
-* Xcode 8 and later
+* Xcode 9.2 and later
 * iOS 9 and later
 
 ## Using the Sample
