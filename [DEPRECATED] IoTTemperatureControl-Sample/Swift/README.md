@@ -1,4 +1,4 @@
-# The Amazon IoT Temperature Control Sample
+# [DEPRECATED] The Amazon IoT Temperature Control Sample
 
 This sample demonstrates use of the AWS IoT MQTT device shadow APIs over a WebSocket.  It works in conjunction with the Temperature Control Example Program in the [AWS IoT JavaScript SDK for Embedded Devices](https://github.com/aws/aws-iot-device-sdk-js).
 
