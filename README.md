@@ -21,7 +21,7 @@ Please refer to **README.md** in each sample directory for more specific instruc
   + Amazon AWS IoT
   + Amazon Cognito Identity
 
-* [DEPRECATED] IoTTemperatureControl-Sample ([Swift](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/[DEPRECATED] IoTTemperatureControl-Sample/Swift/)). This is a sample mobile application that demonstrates accessing device shadows using Cognito authentication; it works in conjunction with the Temperature Control Example Program in the [AWS IoT JavaScript SDK for Embedded Devices](https://github.com/aws/aws-iot-device-sdk-js). Involved AWS Services are:
+* [DEPRECATED] IoTTemperatureControl-Sample ([Swift](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/[DEPRECATED]%20IoTTemperatureControl-Sample/Swift/)). This is a sample mobile application that demonstrates accessing device shadows using Cognito authentication; it works in conjunction with the Temperature Control Example Program in the [AWS IoT JavaScript SDK for Embedded Devices](https://github.com/aws/aws-iot-device-sdk-js). Involved AWS Services are:
   + Amazon AWS IoT
   + Amazon Cognito Identity
 
