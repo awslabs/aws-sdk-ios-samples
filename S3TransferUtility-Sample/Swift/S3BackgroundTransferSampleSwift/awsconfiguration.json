@@ -1,0 +1,20 @@
+{
+  "Version": "1.0",
+  "IdentityManager": {
+    "Default": {}
+  },
+  "CredentialsProvider": {
+    "CognitoIdentity": {
+      "Default": {
+        "PoolId": "SETME",
+        "Region": "SETME"
+      }
+    
+  },
+  "S3TransferUtility": {
+    "Default": {
+      "Bucket": "SETME",
+      "Region": "SETME"
+    }
+  }
+}
