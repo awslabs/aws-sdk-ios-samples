@@ -18,6 +18,5 @@ import AWSCore
 
 // Warning: To run this sample correctly, you must set the following constants.
 
-let S3BucketName: String = "YourS3BucketNameHere"   // Update this to your bucket name
 let S3DownloadKeyName: String = "test-image.png"    // Name of file to be downloaded
 let S3UploadKeyName: String = "test-image.png"      // Name of file to be uploaded

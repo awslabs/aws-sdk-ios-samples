@@ -20,17 +20,6 @@ This sample demonstrates how to use `AWSS3TransferUtility` to download / upload 
 
 1. Create an Amazon S3 bucket. (For details on creating a bucket in the Amazon S3 console, see [Create a Bucket](http://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html).)
 
-1. Upload a image in the bucket. Open `Constants.m` or `Constants.swift` and update the following lines with the appropriate constants:
-
-	Swift
-
-        let S3BucketName: String = "YourS3BucketName"
-
-	Objective-C
-
-        NSString *const S3BucketName = @"YourS3BucketName";
-        NSString *const S3DownloadKeyName = @"YourDownloadKeyName";
-		
 1. This sample requires Cognito to authorize to Amazon S3 in order to access the bucket.  Use Amazon Cognito to create a new identity pool:
 	1. In the [Amazon Cognito Console](https://console.aws.amazon.com/cognito/), press the `Manage Federated Identities` button and on the resulting page press the `Create new identity pool` button.
 	1. Give your identity pool a name and ensure that `Enable access to unauthenticated identities` under the `Unauthenticated identities` section is checked.  This allows the sample application to assume the unauthenticated role associated with this identity pool.  Press the `Create Pool` button to create your identity pool.
@@ -48,13 +37,7 @@ This sample demonstrates how to use `AWSS3TransferUtility` to download / upload 
 
 1. Open `S3BackgroundTransferSampleObjC.xcworkspace` or `S3BackgroundTransferSampleSwift.xcworkspace`.
 
-1. Open `Info.plist` and update the following lines with the your values:
-
-**AWS --> CredentialsProvider --> CognitoIdentity --> Default --> PoolId** (put your Cognito IdentityPoolID here)
-
-**AWS --> CredentialsProvider --> CognitoIdentity --> Default --> Region** (for example: USEast1)
-
-**AWS --> S3TransferUtility --> Default --> Region** (for example: USEast1)
+1. Open `S3BackgroundTransferSampleSwift/awsconfiguration.json` and set `PoolId`, `Region` and `Bucket` using respective values obtained from the steps above.
 
 1. Build and run the sample app.
 
