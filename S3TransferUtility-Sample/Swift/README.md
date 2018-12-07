@@ -18,43 +18,32 @@ This sample demonstrates how to use `AWSS3TransferUtility` to download / upload 
 
 		pod install
 
-1. Create an Amazon S3 bucket. (For details on creating a bucket in the Amazon S3 console, see [Create a Bucket](http://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html).)
+1. Create new AWS backend resources and pull the AWS services configuration into the app by running the following command:
 
-1. Upload a image in the bucket. Open `Constants.m` or `Constants.swift` and update the following lines with the appropriate constants:
+		amplify init  # accept default options to get started
+		amplify push  # create the configuration file
 
-	Swift
+1. Add the required S3 resource to your app's cloud-enabled backend using the following CLI command:
 
-        let S3BucketName: String = "YourS3BucketName"
+		amplify add storage
 
-	Objective-C
+1. Choose `Content` as your storage service.
 
-        NSString *const S3BucketName = @"YourS3BucketName";
-        NSString *const S3DownloadKeyName = @"YourDownloadKeyName";
-		
-1. This sample requires Cognito to authorize to Amazon S3 in order to access the bucket.  Use Amazon Cognito to create a new identity pool:
-	1. In the [Amazon Cognito Console](https://console.aws.amazon.com/cognito/), press the `Manage Federated Identities` button and on the resulting page press the `Create new identity pool` button.
-	1. Give your identity pool a name and ensure that `Enable access to unauthenticated identities` under the `Unauthenticated identities` section is checked.  This allows the sample application to assume the unauthenticated role associated with this identity pool.  Press the `Create Pool` button to create your identity pool.
+		❯ Content (Images, audio, video, etc.)
 
-		**Important**: see note below on unauthenticated user access.
+1. The CLI walks you through the options to enable Auth (if not enabled previously), to name your S3 bucket, and to decide who should have access (select Auth and guest users and read/write for both auth and guest users).
 
-	1. As part of creating the identity pool, Cognito will setup two roles in [Identity and Access Management (IAM)](https://console.aws.amazon.com/iam/home#roles).  These will be named something similar to: `Cognito_PoolNameAuth_Role` and `Cognito_PoolNameUnauth_Role`.  You can view them by pressing the `View Details` button.  Now press the `Allow` button to create the roles.
-	1. Save the `Identity pool ID` value that shows up in red in the "Getting started with Amazon Cognito" page, it should look similar to: `us-east-1:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" and note the region that is being used.  These will be used in the application code later.
-	1. Now we will attach a policy to the unauthenticated role which has permissions to access the required Amazon S3 API.  This is done by attaching an IAM Policy to the unauthenticated role in the [IAM Console](https://console.aws.amazon.com/iam/home#roles).  First, search for the unauth role that you created in step 3 above (named something similar to `Cognito_PoolNameUnauth_Role`) and select its hyperlink.  In the resulting "Summary" page press the `Attach Policy` button in the "Permissions" tab.
-	1. Search for "S3" and check the box next to the policy named `AmazonS3FullAccess` and then press the `Attach Policy` button.  This policy allows the application to perform all operations on the Amazon Polly service.
+1. Confirm that you have storage and auth set up with the following command:
 
-		More information on AWS IAM roles and policies can be found [here](http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage.html).  More information on Amazon S3 policies can be found [here](http://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html).
+		amplify status
 
-		**Note**: To keep this example simple it makes use of unauthenticated users in the identity pool.  This can be used for getting started and prototypes but unauthenticated users should typically only be given read-only permissions in production applications.  More information on Cognito identity pools including the Cognito developer guide can be found [here](http://aws.amazon.com/cognito/).
+1. Create the specified backend by running the following command:
 
-1. Open `S3BackgroundTransferSampleObjC.xcworkspace` or `S3BackgroundTransferSampleSwift.xcworkspace`.
+		amplify push
 
-1. Open `Info.plist` and update the following lines with the your values:
+1. Open `S3TransferUtilitySampleSwift.xcworkspace`.
 
-**AWS --> CredentialsProvider --> CognitoIdentity --> Default --> PoolId** (put your Cognito IdentityPoolID here)
-
-**AWS --> CredentialsProvider --> CognitoIdentity --> Default --> Region** (for example: USEast1)
-
-**AWS --> S3TransferUtility --> Default --> Region** (for example: USEast1)
+1. Add the cli-generated `awsconfiguration.json` by right-clicking the project in Xcode project navigator, selecting `Add Files to "S3TransferUtilitySampleSwift"..."` and following instructions in the dialog window.
 
 1. Build and run the sample app.
 

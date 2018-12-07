@@ -78,7 +78,6 @@ class UploadViewController: UIViewController, UINavigationControllerDelegate {
         
         transferUtility.uploadData(
             data,
-            bucket: S3BucketName,
             key: S3UploadKeyName,
             contentType: "image/png",
             expression: expression,
