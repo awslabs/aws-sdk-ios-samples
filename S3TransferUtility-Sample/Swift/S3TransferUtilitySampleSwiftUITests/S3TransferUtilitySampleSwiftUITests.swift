@@ -1,10 +1,17 @@
-//
-//  S3TransferUtilitySampleSwiftUITests.swift
-//  S3TransferUtilitySampleSwiftUITests
-//
-//  Created by Kumar, Roshan on 12/7/18.
-//  Copyright © 2018 Amazon. All rights reserved.
-//
+/*
+ * Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License").
+ * You may not use this file except in compliance with the License.
+ * A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ * or in the "license" file accompanying this file. This file is distributed
+ * on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
+ * express or implied. See the License for the specific language governing
+ * permissions and limitations under the License.
+ */
 
 import XCTest
 
@@ -28,10 +35,22 @@ class S3TransferUtilitySampleSwiftUITests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
+    func testButtons() {
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
-        XCUIApplication().buttons["Select Image and Upload"].tap()
+
+        let app = XCUIApplication()
+        let tabBarsQuery = app.tabBars
+        let uploadButton = tabBarsQuery.buttons["Upload"]
+        uploadButton.tap()
+        app.buttons["Select Image and Upload"].tap()
+        app.navigationBars["Photos"].buttons["Cancel"].tap()
+
+        let readyStaticText = app.staticTexts["Ready"]
+        readyStaticText.tap()
+        tabBarsQuery.buttons["Download"].tap()
+        readyStaticText.tap()
+        uploadButton.tap()
     }
     
 }
