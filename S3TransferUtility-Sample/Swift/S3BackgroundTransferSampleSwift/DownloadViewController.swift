@@ -74,8 +74,7 @@ class DownloadViewController: UIViewController{
         }
 
         transferUtility.downloadData(
-            fromBucket: S3BucketName,
-            key: S3DownloadKeyName,
+            forKey: S3DownloadKeyName,
             expression: expression,
             completionHandler: completionHandler).continueWith { (task) -> AnyObject? in
                 if let error = task.error {

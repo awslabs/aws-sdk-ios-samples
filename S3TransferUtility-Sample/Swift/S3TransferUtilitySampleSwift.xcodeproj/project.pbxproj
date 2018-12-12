@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		17480E031BC833D10022B2CF /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17480E021BC833D10022B2CF /* Launch Screen.storyboard */; };
+		806CCAC421BAFCF10083836F /* S3TransferUtilitySampleSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806CCAC321BAFCF10083836F /* S3TransferUtilitySampleSwiftUITests.swift */; };
 		BDCC7EC119DE50AB008B2510 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCC7EC019DE50AB008B2510 /* AppDelegate.swift */; };
 		BDCC7EC319DE50AB008B2510 /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCC7EC219DE50AB008B2510 /* UploadViewController.swift */; };
 		BDCC7EC519DE50AB008B2510 /* DownloadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCC7EC419DE50AB008B2510 /* DownloadViewController.swift */; };
@@ -17,11 +18,24 @@
 		DCBBEFEEEC34C98F0C061D33 /* Pods_S3TransferUtilitySampleSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB7448429987CC77DCB71A7C /* Pods_S3TransferUtilitySampleSwift.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		806CCAC621BAFCF10083836F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BDCC7EB319DE50AB008B2510 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BDCC7EBA19DE50AB008B2510;
+			remoteInfo = S3TransferUtilitySampleSwift;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		0904D7574D2D8458D57AFA18 /* Pods-S3TransferUtilitySampleSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-S3TransferUtilitySampleSwift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-S3TransferUtilitySampleSwift/Pods-S3TransferUtilitySampleSwift.debug.xcconfig"; sourceTree = "<group>"; };
 		17324510F844CFCA52567EFB /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		17480E021BC833D10022B2CF /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		249182B875FFD644D3950992 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		806CCAC121BAFCF10083836F /* S3TransferUtilitySampleSwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = S3TransferUtilitySampleSwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		806CCAC321BAFCF10083836F /* S3TransferUtilitySampleSwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = S3TransferUtilitySampleSwiftUITests.swift; sourceTree = "<group>"; };
+		806CCAC521BAFCF10083836F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		99B0E3DD009488F179BE0C40 /* Pods-S3TransferUtilitySampleSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-S3TransferUtilitySampleSwift.release.xcconfig"; path = "Pods/Target Support Files/Pods-S3TransferUtilitySampleSwift/Pods-S3TransferUtilitySampleSwift.release.xcconfig"; sourceTree = "<group>"; };
 		BDCC7EBB19DE50AB008B2510 /* S3TransferUtilitySampleSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = S3TransferUtilitySampleSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDCC7EBF19DE50AB008B2510 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -35,6 +49,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		806CCABE21BAFCF10083836F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BDCC7EB819DE50AB008B2510 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -57,10 +78,20 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		806CCAC221BAFCF10083836F /* S3TransferUtilitySampleSwiftUITests */ = {
+			isa = PBXGroup;
+			children = (
+				806CCAC321BAFCF10083836F /* S3TransferUtilitySampleSwiftUITests.swift */,
+				806CCAC521BAFCF10083836F /* Info.plist */,
+			);
+			path = S3TransferUtilitySampleSwiftUITests;
+			sourceTree = "<group>";
+		};
 		BDCC7EB219DE50AB008B2510 = {
 			isa = PBXGroup;
 			children = (
 				BDCC7EBD19DE50AB008B2510 /* S3BackgroundTransferSampleSwift */,
+				806CCAC221BAFCF10083836F /* S3TransferUtilitySampleSwiftUITests */,
 				BDCC7EBC19DE50AB008B2510 /* Products */,
 				C4286EAEE5FD4C7B9D5976C9 /* Frameworks */,
 				6A1630B205B314CA6C9BF279 /* Pods */,
@@ -71,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				BDCC7EBB19DE50AB008B2510 /* S3TransferUtilitySampleSwift.app */,
+				806CCAC121BAFCF10083836F /* S3TransferUtilitySampleSwiftUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -109,6 +141,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		806CCAC021BAFCF10083836F /* S3TransferUtilitySampleSwiftUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 806CCACA21BAFCF10083836F /* Build configuration list for PBXNativeTarget "S3TransferUtilitySampleSwiftUITests" */;
+			buildPhases = (
+				806CCABD21BAFCF10083836F /* Sources */,
+				806CCABE21BAFCF10083836F /* Frameworks */,
+				806CCABF21BAFCF10083836F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				806CCAC721BAFCF10083836F /* PBXTargetDependency */,
+			);
+			name = S3TransferUtilitySampleSwiftUITests;
+			productName = S3TransferUtilitySampleSwiftUITests;
+			productReference = 806CCAC121BAFCF10083836F /* S3TransferUtilitySampleSwiftUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		BDCC7EBA19DE50AB008B2510 /* S3TransferUtilitySampleSwift */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = BDCC7EDC19DE50AB008B2510 /* Build configuration list for PBXNativeTarget "S3TransferUtilitySampleSwift" */;
@@ -136,10 +186,15 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftMigration = 0700;
-				LastSwiftUpdateCheck = 0700;
+				LastSwiftUpdateCheck = 0930;
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = Amazon;
 				TargetAttributes = {
+					806CCAC021BAFCF10083836F = {
+						CreatedOnToolsVersion = 9.3.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = BDCC7EBA19DE50AB008B2510;
+					};
 					BDCC7EBA19DE50AB008B2510 = {
 						CreatedOnToolsVersion = 6.0.1;
 						LastSwiftMigration = 0820;
@@ -160,11 +215,19 @@
 			projectRoot = "";
 			targets = (
 				BDCC7EBA19DE50AB008B2510 /* S3TransferUtilitySampleSwift */,
+				806CCAC021BAFCF10083836F /* S3TransferUtilitySampleSwiftUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		806CCABF21BAFCF10083836F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BDCC7EB919DE50AB008B2510 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -234,6 +297,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		806CCABD21BAFCF10083836F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				806CCAC421BAFCF10083836F /* S3TransferUtilitySampleSwiftUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BDCC7EB719DE50AB008B2510 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -247,6 +318,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		806CCAC721BAFCF10083836F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BDCC7EBA19DE50AB008B2510 /* S3TransferUtilitySampleSwift */;
+			targetProxy = 806CCAC621BAFCF10083836F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		BDCC7EC619DE50AB008B2510 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -259,6 +338,60 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		806CCAC821BAFCF10083836F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = S3TransferUtilitySampleSwiftUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.amzn.S3TransferUtilitySampleSwiftUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = S3TransferUtilitySampleSwift;
+			};
+			name = Debug;
+		};
+		806CCAC921BAFCF10083836F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = S3TransferUtilitySampleSwiftUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.amzn.S3TransferUtilitySampleSwiftUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = S3TransferUtilitySampleSwift;
+			};
+			name = Release;
+		};
 		BDCC7EDA19DE50AB008B2510 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -392,6 +525,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		806CCACA21BAFCF10083836F /* Build configuration list for PBXNativeTarget "S3TransferUtilitySampleSwiftUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				806CCAC821BAFCF10083836F /* Debug */,
+				806CCAC921BAFCF10083836F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		BDCC7EB619DE50AB008B2510 /* Build configuration list for PBXProject "S3TransferUtilitySampleSwift" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
