@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		17480E031BC833D10022B2CF /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17480E021BC833D10022B2CF /* Launch Screen.storyboard */; };
 		806CCAC421BAFCF10083836F /* S3TransferUtilitySampleSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806CCAC321BAFCF10083836F /* S3TransferUtilitySampleSwiftUITests.swift */; };
+		8076715221C4876400D068E1 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 8076715121C4876300D068E1 /* awsconfiguration.json */; };
 		BDCC7EC119DE50AB008B2510 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCC7EC019DE50AB008B2510 /* AppDelegate.swift */; };
 		BDCC7EC319DE50AB008B2510 /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCC7EC219DE50AB008B2510 /* UploadViewController.swift */; };
 		BDCC7EC519DE50AB008B2510 /* DownloadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCC7EC419DE50AB008B2510 /* DownloadViewController.swift */; };
@@ -36,6 +37,7 @@
 		806CCAC121BAFCF10083836F /* S3TransferUtilitySampleSwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = S3TransferUtilitySampleSwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		806CCAC321BAFCF10083836F /* S3TransferUtilitySampleSwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = S3TransferUtilitySampleSwiftUITests.swift; sourceTree = "<group>"; };
 		806CCAC521BAFCF10083836F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8076715121C4876300D068E1 /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
 		99B0E3DD009488F179BE0C40 /* Pods-S3TransferUtilitySampleSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-S3TransferUtilitySampleSwift.release.xcconfig"; path = "Pods/Target Support Files/Pods-S3TransferUtilitySampleSwift/Pods-S3TransferUtilitySampleSwift.release.xcconfig"; sourceTree = "<group>"; };
 		BDCC7EBB19DE50AB008B2510 /* S3TransferUtilitySampleSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = S3TransferUtilitySampleSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDCC7EBF19DE50AB008B2510 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 		BDCC7EB219DE50AB008B2510 = {
 			isa = PBXGroup;
 			children = (
+				8076715121C4876300D068E1 /* awsconfiguration.json */,
 				BDCC7EBD19DE50AB008B2510 /* S3BackgroundTransferSampleSwift */,
 				806CCAC221BAFCF10083836F /* S3TransferUtilitySampleSwiftUITests */,
 				BDCC7EBC19DE50AB008B2510 /* Products */,
@@ -163,6 +166,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BDCC7EDC19DE50AB008B2510 /* Build configuration list for PBXNativeTarget "S3TransferUtilitySampleSwift" */;
 			buildPhases = (
+				8076715021C483C700D068E1 /* ShellScript */,
 				8C4F24B059DA434BB60233A9 /* [CP] Check Pods Manifest.lock */,
 				BDCC7EB719DE50AB008B2510 /* Sources */,
 				BDCC7EB819DE50AB008B2510 /* Frameworks */,
@@ -232,6 +236,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8076715221C4876400D068E1 /* awsconfiguration.json in Resources */,
 				BDCC7EC819DE50AB008B2510 /* Main.storyboard in Resources */,
 				17480E031BC833D10022B2CF /* Launch Screen.storyboard in Resources */,
 				BDCC7ECA19DE50AB008B2510 /* Images.xcassets in Resources */,
@@ -241,6 +246,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		8076715021C483C700D068E1 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ ! -e  awsconfiguration.json ]\nthen\necho \"awsconfiguration.json file is missing. Please add it to your xcode project inorder to run the app\" >&2\nexit 1\nfi";
+		};
 		8C4F24B059DA434BB60233A9 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
