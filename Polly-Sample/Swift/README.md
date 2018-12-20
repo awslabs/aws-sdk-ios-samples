@@ -35,11 +35,27 @@ This sample demonstrates use of the Amazon Polly APIs to retrieve list of voices
 
 1. Open `PollySample.xcworkspace`.
 
-1. Open `Constants.swift` and update the following lines with the appropriate constants:
+1. Open `awsconfiguration.json` and update the values for Cognito Identity Pool ID (from the value you saved above) and the region value for CognitoIdentity, Polly and PollySynthesizeSpeechUrlBuilder (for example us-east-1).
 
-	```c
-	let AwsRegion = AWSRegionType.Unknown
-	let CognitoIdentityPoolId = "YourCognitoIdentityPoolId"
+	```json
+	"CredentialsProvider": {
+        "CognitoIdentity": {
+            "Default": {
+                "PoolId": "CHANGE_ME",
+                "Region": "CHANGE_ME"
+            }
+        }
+    },
+    "Polly": {
+        "Default": {
+            "Region": "CHANGE_ME"
+        }
+    },
+    "PollySynthesizeSpeechUrlBuilder": {
+        "Default": {
+            "Region": "CHANGE_ME"
+        }
+    }
 	```
 
 1. Build and run the sample app.
