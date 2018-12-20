@@ -82,16 +82,29 @@ This sample demonstrates use of the AWS IoT APIs to securely publish to and subs
 
 1. Open `IoTSampleSwift.xcworkspace`.
 
+1. Open `awsconfiguration.json` and update the Cognito Identity Pool ID (from the value you saved above) and Cognito region for Cognito Identity Pool ID (for example us-east-1).
+
+  ```json
+  "CredentialsProvider": {
+    "CognitoIdentity": {
+      "Default": {
+          "PoolId": "CHANGE_ME",
+          "Region": "CHANGE_ME"
+      }
+    }
+  }
+  ```
+
 1. Open `Constants.swift` and update the following lines with the appropriate constants:
 
-	```c
-	let AwsRegion = AWSRegionType.Unknown
-	let CognitoIdentityPoolId = "YourCognitoIdentityPoolId"
+	```swift
 	let CertificateSigningRequestCommonName = "IoTSampleSwift Application"
 	let CertificateSigningRequestCountryName = "Your Country"
 	let CertificateSigningRequestOrganizationName = "Your Organization"
 	let CertificateSigningRequestOrganizationalUnitName = "Your Organizational Unit"
 	let PolicyName = "YourPolicyName"
+
+	let AwsRegion = AWSRegionType.Unknown
 	let IOT_ENDPOINT = "https://xxxxxxxxxx.iot.<region>.amazonaws.com" // make sure to include "https://" prefix
 	```
 

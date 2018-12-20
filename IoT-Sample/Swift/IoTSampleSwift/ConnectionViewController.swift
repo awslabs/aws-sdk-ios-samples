@@ -15,6 +15,7 @@
 
 import UIKit
 import AWSIoT
+import AWSMobileClient
 
 class ConnectionViewController: UIViewController, UITextViewDelegate {
 
@@ -227,18 +228,25 @@ class ConnectionViewController: UIViewController, UITextViewDelegate {
         tabBarViewController.viewControllers = [ self, configurationViewController ]
         logTextView.resignFirstResponder()
 
+        // Initialize AWSMobileClient for authorization
+        AWSMobileClient.sharedInstance().initialize { (userState, error) in
+            guard error == nil else {
+                print("Failed to initialize AWSMobileClient. Error: \(error!.localizedDescription)")
+                return
+            }
+            print("AWSMobileClient initialized.")
+        }
+        
         // Init IOT
-        // Set up Cognito
-        let credentialsProvider = AWSCognitoCredentialsProvider(regionType: AWSRegion, identityPoolId: CognitoIdentityPoolId)
         let iotEndPoint = AWSEndpoint(urlString: IOT_ENDPOINT)
         
         // Configuration for AWSIoT control plane APIs
-        let iotConfiguration = AWSServiceConfiguration(region: AWSRegion, credentialsProvider: credentialsProvider)
+        let iotConfiguration = AWSServiceConfiguration(region: AWSRegion, credentialsProvider: AWSMobileClient.sharedInstance())
         
         // Configuration for AWSIoT data plane APIs
         let iotDataConfiguration = AWSServiceConfiguration(region: AWSRegion,
                                                            endpoint: iotEndPoint,
-                                                           credentialsProvider: credentialsProvider)
+                                                           credentialsProvider: AWSMobileClient.sharedInstance())
         AWSServiceManager.default().defaultServiceConfiguration = iotConfiguration
 
         iotManager = AWSIoTManager.default()

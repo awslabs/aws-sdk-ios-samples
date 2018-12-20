@@ -4,5 +4,6 @@ platform :ios, '9.0'
 use_frameworks!
 
 target 'IoTSampleSwift' do
+    pod 'AWSMobileClient', '~> 2.8.0'
     pod 'AWSIoT', '~> 2.8.0'
 end
