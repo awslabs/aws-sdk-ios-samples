@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		177B8A0E21CB25760051068F /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 177B8A0D21CB25760051068F /* awsconfiguration.json */; };
 		17DA1C361DD517CD002DD9AF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DA1C351DD517CD002DD9AF /* Constants.swift */; };
 		17DD06671DD2C86200BD639D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DD06661DD2C86200BD639D /* AppDelegate.swift */; };
 		17DD066E1DD2C86200BD639D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17DD066D1DD2C86200BD639D /* Assets.xcassets */; };
@@ -32,6 +33,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		177B8A0D21CB25760051068F /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = SOURCE_ROOT; };
 		177C26EFDC1486C509970AF0 /* Pods_LexSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LexSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		17DA1C351DD517CD002DD9AF /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		17DD06631DD2C86200BD639D /* LexSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LexSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,6 +84,7 @@
 		17DD06651DD2C86200BD639D /* LexSwift */ = {
 			isa = PBXGroup;
 			children = (
+				177B8A0D21CB25760051068F /* awsconfiguration.json */,
 				17DD06661DD2C86200BD639D /* AppDelegate.swift */,
 				17DD066D1DD2C86200BD639D /* Assets.xcassets */,
 				17DD066F1DD2C86200BD639D /* LaunchScreen.storyboard */,
@@ -128,7 +131,6 @@
 				17DD06611DD2C86200BD639D /* Resources */,
 				17DD06881DD3CD3400BD639D /* Embed Frameworks */,
 				DA6D614B8983D2233D8D4EB8 /* [CP] Embed Pods Frameworks */,
-				6EB063CFAC1F0559D4416908 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -175,6 +177,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				177B8A0E21CB25760051068F /* awsconfiguration.json in Resources */,
 				17DD067B1DD3AF6100BD639D /* Main.storyboard in Resources */,
 				17DD06711DD2C86200BD639D /* LaunchScreen.storyboard in Resources */,
 				17DD066E1DD2C86200BD639D /* Assets.xcassets in Resources */,
@@ -202,21 +205,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		6EB063CFAC1F0559D4416908 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LexSwift/Pods-LexSwift-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		DA6D614B8983D2233D8D4EB8 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -224,15 +212,23 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-LexSwift/Pods-LexSwift-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AWSAuthCore/AWSAuthCore.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSCognitoIdentityProvider/AWSCognitoIdentityProvider.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSCognitoIdentityProviderASF/AWSCognitoIdentityProviderASF.framework",
 				"${BUILT_PRODUCTS_DIR}/AWSCore/AWSCore.framework",
 				"${BUILT_PRODUCTS_DIR}/AWSLex/AWSLex.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSMobileClient/AWSMobileClient.framework",
 				"${BUILT_PRODUCTS_DIR}/JSQMessagesViewController/JSQMessagesViewController.framework",
 				"${BUILT_PRODUCTS_DIR}/JSQSystemSoundPlayer/JSQSystemSoundPlayer.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSAuthCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCognitoIdentityProvider.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCognitoIdentityProviderASF.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSLex.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSMobileClient.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQMessagesViewController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQSystemSoundPlayer.framework",
 			);

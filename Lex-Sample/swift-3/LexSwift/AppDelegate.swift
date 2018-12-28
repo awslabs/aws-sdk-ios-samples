@@ -16,6 +16,7 @@
 import UIKit
 import AWSCore
 import AWSLex
+import AWSMobileClient
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -26,9 +27,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         
-        let credentialsProvider = AWSCognitoCredentialsProvider(regionType: CognitoRegion, identityPoolId: CognitoIdentityPoolId)
+        AWSMobileClient.sharedInstance().initialize { (userState, error) in
+            guard error == nil else {
+                print("Error initializing AWSMobileClient. Error: \(error!.localizedDescription)")
+                return
+            }
+            print("AWSMobileClient initialized.")
+        }
 
-        let configuration = AWSServiceConfiguration(region: LexRegion, credentialsProvider: credentialsProvider)
+        let configuration = AWSServiceConfiguration(region: LexRegion, credentialsProvider: AWSMobileClient.sharedInstance())
         AWSServiceManager.default().defaultServiceConfiguration = configuration
         
         let chatConfig = AWSLexInteractionKitConfig.defaultInteractionKitConfig(withBotName: BotName, botAlias: BotAlias)
