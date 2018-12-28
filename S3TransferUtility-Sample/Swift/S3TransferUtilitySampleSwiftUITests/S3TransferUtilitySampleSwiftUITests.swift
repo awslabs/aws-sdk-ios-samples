@@ -44,8 +44,12 @@ class S3TransferUtilitySampleSwiftUITests: XCTestCase {
         let uploadButton = tabBarsQuery.buttons["Upload"]
         uploadButton.tap()
         app.buttons["Select Image and Upload"].tap()
-        app.navigationBars["Photos"].buttons["Cancel"].tap()
+        let cancelButton = app.navigationBars["Photos"].buttons["Cancel"]
+        let exists = NSPredicate(format: "exists == 1")
 
+        expectation(for: exists, evaluatedWith: cancelButton, handler: nil)
+        waitForExpectations(timeout: 5, handler: nil)
+        cancelButton.tap()
         let readyStaticText = app.staticTexts["Ready"]
         readyStaticText.tap()
         tabBarsQuery.buttons["Download"].tap()
