@@ -7,16 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		177B8A1021CB2EB40051068F /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 177B8A0F21CB2EB40051068F /* awsconfiguration.json */; };
 		BAEA120E86126419B1B55A6A /* Pods_PollySample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DFBF32066A3749601390ADA /* Pods_PollySample.framework */; };
 		CF9D8AD21DB9385B003D7876 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9D8AD11DB9385B003D7876 /* AppDelegate.swift */; };
 		CF9D8AD41DB9385B003D7876 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9D8AD31DB9385B003D7876 /* ViewController.swift */; };
 		CF9D8AD71DB9385B003D7876 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF9D8AD51DB9385B003D7876 /* Main.storyboard */; };
 		CF9D8AD91DB9385B003D7876 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF9D8AD81DB9385B003D7876 /* Assets.xcassets */; };
 		CF9D8ADC1DB9385B003D7876 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF9D8ADA1DB9385B003D7876 /* LaunchScreen.storyboard */; };
-		CFF657AD1DBE0E9900964933 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF657AC1DBE0E9900964933 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		177B8A0F21CB2EB40051068F /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = SOURCE_ROOT; };
 		9DFBF32066A3749601390ADA /* Pods_PollySample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PollySample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6B7A7056C9BAE356FA8E9EC /* Pods-PollySample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PollySample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PollySample/Pods-PollySample.debug.xcconfig"; sourceTree = "<group>"; };
 		C4C1A0BABA3F051C0A5C684F /* Pods-PollySample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PollySample.release.xcconfig"; path = "Pods/Target Support Files/Pods-PollySample/Pods-PollySample.release.xcconfig"; sourceTree = "<group>"; };
@@ -27,7 +28,6 @@
 		CF9D8AD81DB9385B003D7876 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CF9D8ADB1DB9385B003D7876 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CF9D8ADD1DB9385B003D7876 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CFF657AC1DBE0E9900964933 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,13 +80,13 @@
 		CF9D8AD01DB9385B003D7876 /* PollySample */ = {
 			isa = PBXGroup;
 			children = (
+				177B8A0F21CB2EB40051068F /* awsconfiguration.json */,
 				CF9D8AD11DB9385B003D7876 /* AppDelegate.swift */,
 				CF9D8AD31DB9385B003D7876 /* ViewController.swift */,
 				CF9D8AD51DB9385B003D7876 /* Main.storyboard */,
 				CF9D8AD81DB9385B003D7876 /* Assets.xcassets */,
 				CF9D8ADA1DB9385B003D7876 /* LaunchScreen.storyboard */,
 				CF9D8ADD1DB9385B003D7876 /* Info.plist */,
-				CFF657AC1DBE0E9900964933 /* Constants.swift */,
 			);
 			path = PollySample;
 			sourceTree = "<group>";
@@ -103,7 +103,6 @@
 				CF9D8ACB1DB9385B003D7876 /* Frameworks */,
 				CF9D8ACC1DB9385B003D7876 /* Resources */,
 				070C362A8290AFDA27176721 /* [CP] Embed Pods Frameworks */,
-				BCD20B4A86A88CB3F1E29678 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -154,6 +153,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				177B8A1021CB2EB40051068F /* awsconfiguration.json in Resources */,
 				CF9D8ADC1DB9385B003D7876 /* LaunchScreen.storyboard in Resources */,
 				CF9D8AD91DB9385B003D7876 /* Assets.xcassets in Resources */,
 				CF9D8AD71DB9385B003D7876 /* Main.storyboard in Resources */,
@@ -169,9 +169,22 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-PollySample/Pods-PollySample-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AWSAuthCore/AWSAuthCore.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSCognitoIdentityProvider/AWSCognitoIdentityProvider.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSCognitoIdentityProviderASF/AWSCognitoIdentityProviderASF.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSCore/AWSCore.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSMobileClient/AWSMobileClient.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSPolly/AWSPolly.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSAuthCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCognitoIdentityProvider.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCognitoIdentityProviderASF.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSMobileClient.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSPolly.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -184,28 +197,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PollySample-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		BCD20B4A86A88CB3F1E29678 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PollySample/Pods-PollySample-resources.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -217,7 +218,6 @@
 			files = (
 				CF9D8AD41DB9385B003D7876 /* ViewController.swift in Sources */,
 				CF9D8AD21DB9385B003D7876 /* AppDelegate.swift in Sources */,
-				CFF657AD1DBE0E9900964933 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

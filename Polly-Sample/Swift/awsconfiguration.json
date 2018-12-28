@@ -1,0 +1,24 @@
+{
+    "Version": "1.0",
+    "IdentityManager": {
+        "Default": {}
+    },
+    "CredentialsProvider": {
+        "CognitoIdentity": {
+            "Default": {
+                "PoolId": "CHANGE_ME",
+                "Region": "CHANGE_ME"
+            }
+        }
+    },
+    "Polly": {
+        "Default": {
+            "Region": "CHANGE_ME"
+        }
+    },
+    "PollySynthesizeSpeechUrlBuilder": {
+        "Default": {
+            "Region": "CHANGE_ME"
+        }
+    }
+}
