@@ -22,9 +22,9 @@ class DownloadViewController: UIViewController{
     @IBOutlet var progressView: UIProgressView!
     @IBOutlet var statusLabel: UILabel!
     
-    var completionHandler: AWSS3TransferUtilityDownloadCompletionHandlerBlock?
+    @objc var completionHandler: AWSS3TransferUtilityDownloadCompletionHandlerBlock?
     
-    let transferUtility = AWSS3TransferUtility.default()
+    @objc let transferUtility = AWSS3TransferUtility.default()
     
     override func viewDidLoad() {
         super.viewDidLoad()

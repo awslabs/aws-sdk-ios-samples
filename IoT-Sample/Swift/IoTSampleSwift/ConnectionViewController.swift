@@ -22,14 +22,14 @@ class ConnectionViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     @IBOutlet weak var logTextView: UITextView!
 
-    var connected = false;
-    var publishViewController : UIViewController!;
-    var subscribeViewController : UIViewController!;
-    var configurationViewController : UIViewController!;
+    @objc var connected = false;
+    @objc var publishViewController : UIViewController!;
+    @objc var subscribeViewController : UIViewController!;
+    @objc var configurationViewController : UIViewController!;
 
-    var iotDataManager: AWSIoTDataManager!;
-    var iotManager: AWSIoTManager!;
-    var iot: AWSIoT!
+    @objc var iotDataManager: AWSIoTDataManager!;
+    @objc var iotManager: AWSIoTManager!;
+    @objc var iot: AWSIoT!
 
     @IBAction func connectButtonPressed(_ sender: UIButton) {
 
@@ -51,7 +51,7 @@ class ConnectionViewController: UIViewController, UITextViewDelegate {
                     case .connected:
                         tabBarViewController.mqttStatus = "Connected"
                         print( tabBarViewController.mqttStatus )
-                        sender.setTitle( "Disconnect", for:UIControlState())
+                        sender.setTitle( "Disconnect", for:UIControl.State())
                         self.activityIndicatorView.stopAnimating()
                         self.connected = true
                         sender.isEnabled = true
@@ -209,7 +209,7 @@ class ConnectionViewController: UIViewController, UITextViewDelegate {
                 DispatchQueue.main.async {
                     self.activityIndicatorView.stopAnimating()
                     self.connected = false
-                    sender.setTitle( "Connect", for:UIControlState())
+                    sender.setTitle( "Connect", for:UIControl.State())
                     sender.isEnabled = true
                     tabBarViewController.viewControllers = [ self, self.configurationViewController ]
                 }

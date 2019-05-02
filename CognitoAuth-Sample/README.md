@@ -156,7 +156,7 @@ __Swift__
 ```
 let cognitoAuth = AWSCognitoAuth(forKey: "cognitoAuth")
 ```
-# Override openURL 
+# Override openURL
 
 AWSCognitoAuth needs to extract details from the request to obtain a valid session when it redirects into your app.
 
@@ -192,7 +192,7 @@ AWSCognitoAuth * cognitoAuth = [AWSCognitoAuth defaultCognitoAuth];
             NSLog(@"Error: %@", error.userInfo[@"error"]);
         }else {
             //Do something with session
-            NSLog(@"Claims: %@", t.result.idToken.claims);        
+            NSLog(@"Claims: %@", t.result.idToken.claims);
         }
     }];
 
@@ -210,7 +210,7 @@ cognitoAuth.getSession(self)  { (session:AWSCognitoAuthUserSession?, error:Error
             }
         }
 ```
-    
+
 # Sign out
 
 From a view controller
@@ -223,7 +223,7 @@ __Objective-C__
             NSLog(@"Error: %@", error.userInfo[@"error"]);
         }else {
             //User successfully signed out
-            NSLog(@"User signed out");        
+            NSLog(@"User signed out");
         }
     }];
 ```

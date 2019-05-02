@@ -21,11 +21,11 @@ class UploadViewController: UIViewController, UINavigationControllerDelegate {
     @IBOutlet var progressView: UIProgressView!
     @IBOutlet var statusLabel: UILabel!
 
-    var completionHandler: AWSS3TransferUtilityUploadCompletionHandlerBlock?
-    var progressBlock: AWSS3TransferUtilityProgressBlock?
+    @objc var completionHandler: AWSS3TransferUtilityUploadCompletionHandlerBlock?
+    @objc var progressBlock: AWSS3TransferUtilityProgressBlock?
     
-    let imagePicker = UIImagePickerController()
-    let transferUtility = AWSS3TransferUtility.default()
+    @objc let imagePicker = UIImagePickerController()
+    @objc let transferUtility = AWSS3TransferUtility.default()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,7 +67,7 @@ class UploadViewController: UIViewController, UINavigationControllerDelegate {
         present(imagePicker, animated: true, completion: nil)
     }
     
-    func uploadImage(with data: Data) {
+    @objc func uploadImage(with data: Data) {
         let expression = AWSS3TransferUtilityUploadExpression()
         expression.progressBlock = progressBlock
 
@@ -107,13 +107,26 @@ class UploadViewController: UIViewController, UINavigationControllerDelegate {
 
 extension UploadViewController: UIImagePickerControllerDelegate {
     
-    public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        if "public.image" == info[UIImagePickerControllerMediaType] as? String {
-            let image: UIImage = info[UIImagePickerControllerOriginalImage] as! UIImage
-            self.uploadImage(with: UIImagePNGRepresentation(image)!)
+    public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+// Local variable inserted by Swift 4.2 migrator.
+let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
+
+        if "public.image" == info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.mediaType)] as? String {
+            let image: UIImage = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.originalImage)] as! UIImage
+            self.uploadImage(with: image.pngData()!)
         }
         
         
         dismiss(animated: true, completion: nil)
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKeyDictionary(_ input: [UIImagePickerController.InfoKey: Any]) -> [String: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map {key, value in (key.rawValue, value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKey(_ input: UIImagePickerController.InfoKey) -> String {
+	return input.rawValue
 }

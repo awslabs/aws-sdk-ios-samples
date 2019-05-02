@@ -22,15 +22,15 @@ let ServerSenderId = "Server"
 
 class ChatViewController: JSQMessagesViewController, JSQMessagesComposerTextViewPasteDelegate {
 
-    var messages: [JSQMessage]?
-    var interactionKit: AWSLexInteractionKit?
-    var sessionAttributes: [AnyHashable: Any]?
-    var outgoingBubbleImageData: JSQMessagesBubbleImage?
-    var incomingBubbleImageData: JSQMessagesBubbleImage?
+    @objc var messages: [JSQMessage]?
+    @objc var interactionKit: AWSLexInteractionKit?
+    @objc var sessionAttributes: [AnyHashable: Any]?
+    @objc var outgoingBubbleImageData: JSQMessagesBubbleImage?
+    @objc var incomingBubbleImageData: JSQMessagesBubbleImage?
     
-    var speechMessage: JSQMessage?
-    var speechIndex: Int = 0
-    var textModeSwitchingCompletion: AWSTaskCompletionSource<NSString>?
+    @objc var speechMessage: JSQMessage?
+    @objc var speechIndex: Int = 0
+    @objc var textModeSwitchingCompletion: AWSTaskCompletionSource<NSString>?
     var count: Int?
     
     override func viewDidLoad() {
@@ -170,7 +170,7 @@ class ChatViewController: JSQMessagesViewController, JSQMessagesComposerTextView
 // MARK: Interaction Kit
 extension ChatViewController: AWSLexInteractionDelegate {
     
-    public func interactionKitOnRecordingEnd(_ interactionKit: AWSLexInteractionKit, audioStream: Data, contentType: String) {
+    @objc public func interactionKitOnRecordingEnd(_ interactionKit: AWSLexInteractionKit, audioStream: Data, contentType: String) {
         DispatchQueue.main.async(execute: {
             let audioItem = JSQAudioMediaItem(data: audioStream)
             self.speechMessage = JSQMessage(senderId: ClientSenderId, displayName: "", media: audioItem)

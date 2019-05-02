@@ -91,8 +91,8 @@ class ViewController: UITableViewController, AWSCognitoAuthDelegate {
     
     func alertWithTitle(_ title:String, message:String?) -> Void {
         DispatchQueue.main.async {
-            let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-            let action = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default) { (UIAlertAction) in
+            let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+            let action = UIAlertAction(title: "Ok", style: UIAlertAction.Style.default) { (UIAlertAction) in
                 alert.dismiss(animated: false, completion: nil)
             }
             alert.addAction(action)
