@@ -37,7 +37,7 @@ class ViewController: UITableViewController, AWSCognitoAuthDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if(self.firstLoad){
-            self.signInTapped(signInButton)
+            self.signInTapped(signInButton as Any)
         }
         self.firstLoad = false
     }
