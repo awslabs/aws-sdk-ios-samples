@@ -17,37 +17,39 @@ import UIKit
 import AWSS3
 
 class DownloadViewController: UIViewController{
-    
+
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var progressView: UIProgressView!
     @IBOutlet var statusLabel: UILabel!
-    
-    var completionHandler: AWSS3TransferUtilityDownloadCompletionHandlerBlock?
-    
-    let transferUtility = AWSS3TransferUtility.default()
-    
+
+    @objc var completionHandler: AWSS3TransferUtilityDownloadCompletionHandlerBlock?
+
+    @objc lazy var transferUtility = {
+        AWSS3TransferUtility.default()
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
+
         self.progressView.progress = 0.0;
         self.statusLabel.text = "Ready"
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
     @IBAction func start(_ sender: UIButton) {
-        
+
         DispatchQueue.main.async(execute: {
             self.statusLabel.text = ""
             self.progressView.progress = 0
         })
-        
+
         self.imageView.image = nil;
-        
+
         let expression = AWSS3TransferUtilityDownloadExpression()
         expression.progressBlock = {(task, progress) in
             DispatchQueue.main.async(execute: {
@@ -56,7 +58,7 @@ class DownloadViewController: UIViewController{
                 }
             })
         }
-        
+
         self.completionHandler = { (task, location, data, error) -> Void in
             DispatchQueue.main.async(execute: {
                 if let error = error {
@@ -83,7 +85,7 @@ class DownloadViewController: UIViewController{
                         self.statusLabel.text = "Failed"
                     })
                 }
-                
+
                 if let _ = task.result {
                     DispatchQueue.main.async(execute: {
                         self.statusLabel.text = "Downloading..."

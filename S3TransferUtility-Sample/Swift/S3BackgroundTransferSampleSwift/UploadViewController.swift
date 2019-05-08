@@ -21,12 +21,15 @@ class UploadViewController: UIViewController, UINavigationControllerDelegate {
     @IBOutlet var progressView: UIProgressView!
     @IBOutlet var statusLabel: UILabel!
 
-    var completionHandler: AWSS3TransferUtilityUploadCompletionHandlerBlock?
-    var progressBlock: AWSS3TransferUtilityProgressBlock?
-    
-    let imagePicker = UIImagePickerController()
-    let transferUtility = AWSS3TransferUtility.default()
-    
+    @objc var completionHandler: AWSS3TransferUtilityUploadCompletionHandlerBlock?
+    @objc var progressBlock: AWSS3TransferUtilityProgressBlock?
+
+    @objc let imagePicker = UIImagePickerController()
+
+    @objc lazy var transferUtility = {
+        AWSS3TransferUtility.default()
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -63,11 +66,11 @@ class UploadViewController: UIViewController, UINavigationControllerDelegate {
     @IBAction func selectAndUpload(_ sender: UIButton) {
         imagePicker.allowsEditing = false
         imagePicker.sourceType = .photoLibrary
-        
+
         present(imagePicker, animated: true, completion: nil)
     }
-    
-    func uploadImage(with data: Data) {
+
+    @objc func uploadImage(with data: Data) {
         let expression = AWSS3TransferUtilityUploadExpression()
         expression.progressBlock = progressBlock
 
@@ -75,45 +78,58 @@ class UploadViewController: UIViewController, UINavigationControllerDelegate {
             self.statusLabel.text = ""
             self.progressView.progress = 0
         })
-        
+
         transferUtility.uploadData(
             data,
             key: S3UploadKeyName,
             contentType: "image/png",
             expression: expression,
-            completionHandler: completionHandler).continueWith { (task) -> AnyObject! in
+            completionHandler: completionHandler).continueWith { (task) -> AnyObject? in
                 if let error = task.error {
                     print("Error: \(error.localizedDescription)")
-                    
+
                     DispatchQueue.main.async {
                         self.statusLabel.text = "Failed"
                     }
                 }
-                
+
                 if let _ = task.result {
-                    
+
                     DispatchQueue.main.async {
                         self.statusLabel.text = "Uploading..."
                         print("Upload Starting!")
                     }
-                    
+
                     // Do something with uploadTask.
                 }
-                
+
                 return nil;
         }
     }
 }
 
 extension UploadViewController: UIImagePickerControllerDelegate {
-    
-    public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        if "public.image" == info[UIImagePickerControllerMediaType] as? String {
-            let image: UIImage = info[UIImagePickerControllerOriginalImage] as! UIImage
-            self.uploadImage(with: UIImagePNGRepresentation(image)!)
+
+    public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+// Local variable inserted by Swift 4.2 migrator.
+let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
+
+        if "public.image" == info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.mediaType)] as? String {
+            let image: UIImage = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.originalImage)] as! UIImage
+            self.uploadImage(with: image.pngData()!)
         }
-        
-        
+
+
         dismiss(animated: true, completion: nil)
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKeyDictionary(_ input: [UIImagePickerController.InfoKey: Any]) -> [String: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map {key, value in (key.rawValue, value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKey(_ input: UIImagePickerController.InfoKey) -> String {
+	return input.rawValue
 }

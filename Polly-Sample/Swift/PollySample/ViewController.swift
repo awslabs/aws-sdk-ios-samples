@@ -129,10 +129,10 @@ class ViewController: UIViewController, UITextViewDelegate, UIPickerViewDelegate
 	]
 
 	var originalConstraint: CGFloat!
-	var audioPlayer = AVPlayer()
+	@objc var audioPlayer = AVPlayer()
 	var selectedVoice: AWSPollyVoiceId!
 
-	var pickerNames: [String] = [String]()
+	@objc var pickerNames: [String] = [String]()
 	var pickerValues: [AWSPollyVoiceId] = [AWSPollyVoiceId]()
 
 	override func viewDidLoad() {
@@ -185,7 +185,7 @@ class ViewController: UIViewController, UITextViewDelegate, UIPickerViewDelegate
 		}.waitUntilFinished()
 
 		// Handle keyboard changing frame
-		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: .UIKeyboardWillChangeFrame, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
 
 		// Handle taping anywhere in the view outside text field and picker to dismiss the keyboard
 		let tap = UITapGestureRecognizer(target: self, action: #selector(ViewController.dismissKeyboard))
@@ -224,11 +224,11 @@ class ViewController: UIViewController, UITextViewDelegate, UIPickerViewDelegate
 
 	// Handle keyboard frame changes
 	@objc private func keyboardWillChange(notification: NSNotification) {
-		let duration = notification.userInfo![UIKeyboardAnimationDurationUserInfoKey] as! Double
-		let curve = notification.userInfo![UIKeyboardAnimationCurveUserInfoKey] as! UInt
+		let duration = notification.userInfo![UIResponder.keyboardAnimationDurationUserInfoKey] as! Double
+		let curve = notification.userInfo![UIResponder.keyboardAnimationCurveUserInfoKey] as! UInt
 
-		let currentFrameY = (notification.userInfo![UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue.origin.y
-		let targetFrameY = (notification.userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue.origin.y
+		let currentFrameY = (notification.userInfo![UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue.origin.y
+		let targetFrameY = (notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue.origin.y
 
 		var deltaY: CGFloat
 
@@ -244,7 +244,7 @@ class ViewController: UIViewController, UITextViewDelegate, UIPickerViewDelegate
 		// Update constraints before changing layout
 		self.view.updateConstraintsIfNeeded()
 
-		UIView.animateKeyframes(withDuration: duration, delay: 0.0, options: UIViewKeyframeAnimationOptions(rawValue: curve), animations: {
+		UIView.animateKeyframes(withDuration: duration, delay: 0.0, options: UIView.KeyframeAnimationOptions(rawValue: curve), animations: {
 			self.trailingSpaceConstraint.constant += deltaY
 
 			self.view.layoutIfNeeded()
@@ -252,7 +252,7 @@ class ViewController: UIViewController, UITextViewDelegate, UIPickerViewDelegate
 	}
 
 	// Dismiss keyboard (passed to event handler)
-	func dismissKeyboard() {
+	@objc func dismissKeyboard() {
 		view.endEditing(true)
 	}
 

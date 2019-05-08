@@ -18,7 +18,7 @@ import UIKit
 
 class TableViewController: UITableViewController {
     
-    var conversationTypes: [String]?
+    @objc var conversationTypes: [String]?
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -17,6 +17,6 @@ import UIKit
 
 class IoTSampleTabBarController: UITabBarController {
 
-    var mqttStatus: String = "Disconnected"
-    var topic: String = "slider"
+    @objc var mqttStatus: String = "Disconnected"
+    @objc var topic: String = "slider"
 }
