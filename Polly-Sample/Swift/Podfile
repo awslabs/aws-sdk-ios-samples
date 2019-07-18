@@ -4,7 +4,7 @@ platform :ios, '9.0'
 use_frameworks!
 
 target 'PollySample' do
-  $awsVersion = '~> 2.9.0'
+  $awsVersion = '~> 2.10.0'
   pod 'AWSMobileClient', $awsVersion
   pod 'AWSPolly', $awsVersion
 end
