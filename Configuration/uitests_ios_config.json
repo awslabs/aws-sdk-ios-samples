@@ -1,0 +1,31 @@
+{
+    "apps_to_uitest":{
+        "S3TransferUtility": {
+            "path": "S3TransferUtility-Sample/Swift/",
+            "cli_resources": ["auth", "storage"],
+            "sdk": {
+                "AWSMobileClient": {},
+                "AWSS3": {}
+            }
+        },
+        "PhotoAlbum": {
+            "path": "PhotoAlbum",
+            "cli_resources": ["auth", "storage", "api"],
+            "sdk": {
+                "AWSUserPoolsSignIn": {},
+                "AWSAuthUI": {},
+                "AWSMobileClient": {},
+                "AWSS3": {},
+                "AWSAppSync": {
+                    "podspec": "https://github.com/awslabs/aws-mobile-appsync-sdk-ios",
+                    "branch_to_uitest": "palpatim/apollo-variance-documentation"
+                }
+            }
+        }
+    },
+    "uitest_logfile_prefix": "raw_uitest_ios",
+    "cli_branch_to_uitest": "master",
+    "default_podspec_file_source": "https://github.com/aws-amplify/aws-sdk-ios",
+    "default_sdk_branch_to_uitest": "develop",
+    "simulator_specification": "platform=iOS Simulator,name=iPhone X,OS=12.4"
+}
