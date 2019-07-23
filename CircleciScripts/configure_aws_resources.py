@@ -8,16 +8,16 @@ from shutil import rmtree, copyfile
 ## Side Effects: If configure fails in a directory, the script cannot be re-run in the same directory
 ## delete should take path to project root?
 
-def configure_aws_resources(circleci_root_directory, appname, cli_resources):
+def configure_aws_resources(app_root_directory, appname, cli_resources):
 
-    pathToCliRepo = circleci_root_directory + '/configure-aws-resources/amplify-cli'
+    pathToCliRepo = app_root_directory + '/configure-aws-resources/amplify-cli'
 
     try:
-        if os.path.isdir(circleci_root_directory + '/configure-aws-resources'):
-            rmtree(circleci_root_directory + '/configure-aws-resources')
+        if os.path.isdir(app_root_directory + '/configure-aws-resources'):
+            rmtree(app_root_directory + '/configure-aws-resources')
 
-        os.mkdir(circleci_root_directory + '/configure-aws-resources')
-        os.chdir(circleci_root_directory + '/configure-aws-resources')
+        os.mkdir(app_root_directory + '/configure-aws-resources')
+        os.chdir(app_root_directory + '/configure-aws-resources')
         if os.path.isdir(pathToCliRepo):
             rmtree(pathToCliRepo)
     except OSError as err:
@@ -38,32 +38,32 @@ def configure_aws_resources(circleci_root_directory, appname, cli_resources):
     ## todo: change to take custom schema
 
     try:
-        os.chdir(circleci_root_directory + '/configure-aws-resources/amplify-cli/packages/amplify-ui-tests')
-        targetSchemaPath = circleci_root_directory + '/configure-aws-resources/amplify-cli/packages/amplify-ui-tests/schemas/simple_model.graphql'
-        # if os.path.exists(targetSchemaPath):
-        #      os.remove(targetSchemaPath)
-        # copyfile('/schema.graphql', targetSchemaPath)
+        os.chdir(app_root_directory + '/configure-aws-resources/amplify-cli/packages/amplify-ui-tests')
+        targetSchemaPath = app_root_directory + '/configure-aws-resources/amplify-cli/packages/amplify-ui-tests/schemas/simple_model.graphql'
+        if os.path.exists(targetSchemaPath):
+            os.remove(targetSchemaPath)
+        copyfile(app_root_directory + '/schema.graphql', targetSchemaPath)
 
     except OSError as err:
         raise OSErrorConfigureResources(appname, [str(err)])
 
-    configure_command = "npm run config {0} ios {1}".format(circleci_root_directory, " ".join(cli_resources))
+    configure_command = "npm run config {0} ios {1}".format(app_root_directory, " ".join(cli_resources))
 
     rn = runcommand(command = configure_command,
                     exception_to_raise = CliConfigException(appname))
 
 
 
-def delete_aws_resources(circleci_root_directory, appname):
+def delete_aws_resources(app_root_directory, appname):
 
-    pathToCliRepo = circleci_root_directory + '/configure-aws-resources/amplify-cli'
+    pathToCliRepo = app_root_directory + '/configure-aws-resources/amplify-cli'
 
     try:
-        os.chdir(circleci_root_directory + '/configure-aws-resources/amplify-cli/packages/amplify-ui-tests')
+        os.chdir(app_root_directory + '/configure-aws-resources/amplify-cli/packages/amplify-ui-tests')
     except OSError as err:
         raise OSErrorDeleteResources(appname, [str(err)])
 
-    configure_command = "npm run delete {0}".format(circleci_root_directory)
+    configure_command = "npm run delete {0}".format(app_root_directory)
 
     rn = runcommand(command = configure_command,
                     exception_to_raise = CliDeleteResourcesException(appname))
@@ -76,5 +76,5 @@ def delete_aws_resources(circleci_root_directory, appname):
 
 
 
-configure_aws_resources('/Users/edupp/Desktop/autotest/PhotoAlbum', 'PhotoAlbum', ['auth', 'storage', 'api'])
-delete_aws_resources('/Users/edupp/Desktop/autotest/PhotoAlbum', 'PhotoAlbum')
+# configure_aws_resources('/Users/edupp/Desktop/autotest/PhotoAlbum', 'PhotoAlbum', ['auth', 'storage', 'api'])
+# delete_aws_resources('/Users/edupp/Desktop/autotest/PhotoAlbum', 'PhotoAlbum')
