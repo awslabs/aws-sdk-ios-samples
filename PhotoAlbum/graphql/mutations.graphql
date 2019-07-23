@@ -1,0 +1,103 @@
+# this is an auto generated file. This will be overwritten
+mutation CreateAlbum($input: CreateAlbumInput!) {
+  createAlbum(input: $input) {
+    id
+    username
+    name
+    accesstype
+    photos {
+      items {
+        id
+        name
+        bucket
+        key
+      }
+      nextToken
+    }
+  }
+}
+mutation UpdateAlbum($input: UpdateAlbumInput!) {
+  updateAlbum(input: $input) {
+    id
+    username
+    name
+    accesstype
+    photos {
+      items {
+        id
+        name
+        bucket
+        key
+      }
+      nextToken
+    }
+  }
+}
+mutation DeleteAlbum($input: DeleteAlbumInput!) {
+  deleteAlbum(input: $input) {
+    id
+    username
+    name
+    accesstype
+    photos {
+      items {
+        id
+        name
+        bucket
+        key
+      }
+      nextToken
+    }
+  }
+}
+mutation CreatePhoto($input: CreatePhotoInput!) {
+  createPhoto(input: $input) {
+    id
+    name
+    bucket
+    key
+    album {
+      id
+      username
+      name
+      accesstype
+      photos {
+        nextToken
+      }
+    }
+  }
+}
+mutation UpdatePhoto($input: UpdatePhotoInput!) {
+  updatePhoto(input: $input) {
+    id
+    name
+    bucket
+    key
+    album {
+      id
+      username
+      name
+      accesstype
+      photos {
+        nextToken
+      }
+    }
+  }
+}
+mutation DeletePhoto($input: DeletePhotoInput!) {
+  deletePhoto(input: $input) {
+    id
+    name
+    bucket
+    key
+    album {
+      id
+      username
+      name
+      accesstype
+      photos {
+        nextToken
+      }
+    }
+  }
+}

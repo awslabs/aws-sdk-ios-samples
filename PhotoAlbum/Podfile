@@ -1,0 +1,27 @@
+
+platform :ios, '9.0'
+
+target 'PhotoAlbum' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+  # Pods for PhotoAlbum
+
+  pod 'AWSMobileClient'
+  pod 'AWSUserPoolsSignIn' ## optional dependency required to use drop-in UI
+  pod 'AWSAuthUI'
+  pod 'AWSS3'
+  pod 'AWSAppSync'
+  
+end
+target 'PhotoAlbumUITests' do
+  use_frameworks!
+  # Pods for PhotoAlbumUITests
+  
+  pod 'AWSMobileClient'
+  pod 'AWSUserPoolsSignIn' ## Optional dependency required to use drop-in UI
+  pod 'AWSAuthUI'
+  pod 'AWSS3'
+  pod 'AWSAppSync'
+  
+    # Pods for testing
+end

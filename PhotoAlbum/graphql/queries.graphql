@@ -1,0 +1,74 @@
+# this is an auto generated file. This will be overwritten
+query GetAlbum($id: ID!) {
+  getAlbum(id: $id) {
+    id
+    username
+    name
+    accesstype
+    photos {
+      items {
+        id
+        name
+        bucket
+        key
+      }
+      nextToken
+    }
+  }
+}
+query ListAlbums(
+  $filter: ModelAlbumFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listAlbums(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      username
+      name
+      accesstype
+      photos {
+        nextToken
+      }
+    }
+    nextToken
+  }
+}
+query GetPhoto($id: ID!) {
+  getPhoto(id: $id) {
+    id
+    name
+    bucket
+    key
+    album {
+      id
+      username
+      name
+      accesstype
+      photos {
+        nextToken
+      }
+    }
+  }
+}
+query ListPhotos(
+  $filter: ModelPhotoFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listPhotos(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      name
+      bucket
+      key
+      album {
+        id
+        username
+        name
+        accesstype
+      }
+    }
+    nextToken
+  }
+}
