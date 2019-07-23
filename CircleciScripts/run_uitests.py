@@ -8,13 +8,13 @@ from configure_aws_resources import configure_aws_resources, delete_aws_resource
 
 import argparse
 
-# arg_parser = argparse.ArgumentParser(description='Master Script to run uiTests on iOS sample apps')
-# arg_parser.add_argument('-c', '--circleci_root_directory', type=str, help='full path to circleci root')
-# arg_parser.add_argument('-a', '--app_repo_root_directory', type=str, help='full path to cloned sample apps repo')
-# args = arg_parser.parse_args()
+ arg_parser = argparse.ArgumentParser(description='Master Script to run uiTests on iOS sample apps')
+ arg_parser.add_argument('-c', '--circleci_root_directory', type=str, help='full path to circleci root')
+ arg_parser.add_argument('-a', '--app_repo_root_directory', type=str, help='full path to cloned sample apps repo')
+ args = arg_parser.parse_args()
 
-app_repo_root_directory = "/Users/edupp/Desktop/autotest"
-circleci_root_directory = "/Users/edupp/Desktop"
+#app_repo_root_directory = "/Users/edupp/Desktop/autotest"
+#circleci_root_directory = "/Users/edupp/Desktop"
 
 uitest_logfile_prefix = config_uitests.uitest_logfile_prefix
 
