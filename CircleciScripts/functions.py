@@ -1,12 +1,8 @@
 import sys
 from subprocess import Popen, PIPE
 import subprocess
-import xml.etree.ElementTree as ET
 import os
 from datetime import datetime
-from enum import Enum
-from collections import namedtuple
-import re
 import platform
 
 
