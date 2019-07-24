@@ -6,7 +6,7 @@ type Album @model @auth(rules: [{allow: owner}]) {
     photos: [Photo] @connection(name: "AlbumPhotos")
 }
 
-type Photo {
+type Photo @model {
     id: ID!
     name: String!
     bucket: String!

@@ -14,7 +14,6 @@ import sys
 import os
 import glob
 import ntpath
-import subprocess
 
 # - create directory
 # - Fetch project
@@ -48,18 +47,6 @@ import subprocess
 #     print("unable to add local specs repo for app {0}".format())
 #     exit(1)
 
-
-def line_prepender(filename, line):
-    with open(filename, 'r+') as f:
-        content = f.read()
-        f.seek(0, 0)
-        f.write(line.rstrip('\r\n') + '\n' + content)
-
-line = 'source /Users/edupp/Desktop/Podfile/podsdefault'
-line_prepender('/Users/edupp/Desktop/Podfile', line)
-line = 'source /Users/edupp/Desktop/Podfile/mypods'
-line_prepender('/Users/edupp/Desktop/Podfile', line)
-
-
+# rn = runcommand(command="python3 run_uitests.py")
 
 

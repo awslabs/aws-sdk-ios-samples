@@ -23,6 +23,9 @@ def build_and_uitest(circleci_root_directory, app_root_directory, appname, log_f
     raw_logfile_path = "{0}/{1}_{2}_raw.log".format(circleci_root_directory, log_file_prefix, appname)
     consolidated_logfile_path = "{0}/{1}_{2}_summary.log".format(circleci_root_directory, log_file_prefix, appname)
 
+    if os.path.exists(consolidated_logfile_path):
+        os.remove(consolidated_logfile_path)
+
     uitest_and_store_logs(appname = appname, simulator_specification = simulator_specification,
                           raw_logfile_path = raw_logfile_path,
                           consolidated_logfile_path = consolidated_logfile_path)
@@ -48,11 +51,14 @@ def uitest_and_store_logs(appname, simulator_specification,
     ## and the scheme for UITesting is named "<appname>UITests", where <appname> is configured
     ## in the ../Configuration/uitests_ios_config.json file
 
+    if os.path.exists(raw_logfile_path):
+        os.remove(raw_logfile_path)
+
     only_testing_string = " "
     if only_testing != None:
         only_testing_string = " -only-testing:{0}UITests/{1}".format(appname, only_testing)
 
-    runcommand(command = "xcodebuild -workspace {0}.xcworkspace -scheme \"{0}UITests\" -destination \"{1}\" {2} test | tee {3}".format(
+    runcommand(command = "xcodebuild -workspace {0}.xcworkspace -scheme \"{0}UITests\" -destination \"{1}\" {2} test >> {3}".format(
                           appname, simulator_specification, only_testing_string, raw_logfile_path),
                exception_to_raise=BuildAndUItestFailException(appname, raw_logfile_path))
 
@@ -84,4 +90,4 @@ def get_failed_testcases_from_logs(raw_logfile_path):
 
 # print(get_failed_testcases_from_logs('/Users/edupp/Documents/EndToEnd/local/PhotoAlbum/raw.log'))
 
-# build_and_uitest('/Users/edupp/Desktop', '/Users/edupp/Desktop/autotest/PhotoAlbum','PhotoAlbum','testinglogs','platform=iOS Simulator,name=iPhone X,OS=12.4')
+# build_and_uitest('/Users/edupp/Documents/EndToEnd/local', '/Users/edupp/Documents/EndToEnd/local/aws-sdk-ios-samples/PhotoAlbum','PhotoAlbum','logs','platform=iOS Simulator,name=iPhone X,OS=12.4')
