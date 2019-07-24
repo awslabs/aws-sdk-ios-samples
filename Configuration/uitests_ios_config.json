@@ -27,5 +27,5 @@
     "cli_branch_to_uitest": "master",
     "default_podspec_file_source": "https://github.com/aws-amplify/aws-sdk-ios",
     "default_sdk_branch_to_uitest": "develop",
-    "simulator_specification": "platform=iOS Simulator,name=iPhone X,OS=12.4"
+    "simulator_specification": "platform=iOS Simulator,name=iPhone X,OS=9.0"
 }
