@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a8d68a16-723b-4814-a719-27b86682eb83" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/autotest.py" beforeDir="false" afterPath="$PROJECT_DIR$/autotest.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build_and_uitest.py" beforeDir="false" afterPath="$PROJECT_DIR$/build_and_uitest.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run_uitests.py" beforeDir="false" afterPath="$PROJECT_DIR$/run_uitests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PhotoAlbum/PhotoAlbumUITests/UIActions.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../PhotoAlbum/PhotoAlbumUITests/UIActions.swift" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,11 +27,11 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/run_uitests.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="91">
-                  <caret line="61" column="47" lean-forward="true" selection-start-line="61" selection-start-column="47" selection-end-line="61" selection-end-column="47" />
+                <state relative-caret-position="231">
+                  <caret line="43" column="79" lean-forward="true" selection-start-line="43" selection-start-column="79" selection-end-line="43" selection-end-column="79" />
                   <folding>
                     <element signature="e#0#32#0" expanded="true" />
                   </folding>
@@ -40,7 +39,7 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/autotest.py">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="369">
@@ -79,7 +78,7 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/setup_pods.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="181">
+                <state relative-caret-position="1350">
                   <caret line="90" column="83" lean-forward="true" selection-start-line="90" selection-start-column="83" selection-end-line="90" selection-end-column="83" />
                   <folding>
                     <element signature="e#0#46#0" expanded="true" />
@@ -190,9 +189,9 @@
         <option value="$PROJECT_DIR$/configure_aws_resources.py" />
         <option value="$PROJECT_DIR$/functions.py" />
         <option value="$PROJECT_DIR$/retry_failing_uitests.py" />
-        <option value="$PROJECT_DIR$/run_uitests.py" />
         <option value="$PROJECT_DIR$/build_and_uitest.py" />
         <option value="$PROJECT_DIR$/autotest.py" />
+        <option value="$PROJECT_DIR$/run_uitests.py" />
       </list>
     </option>
   </component>
@@ -549,26 +548,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/setup_pods.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="90" column="83" lean-forward="true" selection-start-line="90" selection-start-column="83" selection-end-line="90" selection-end-column="83" />
-          <folding>
-            <element signature="e#0#46#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/run_uitests.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="91">
-          <caret line="61" column="47" lean-forward="true" selection-start-line="61" selection-start-column="47" selection-end-line="61" selection-end-column="47" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/build_and_uitest.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2">
@@ -585,6 +564,26 @@
           <caret line="49" column="2" selection-start-line="49" selection-start-column="2" selection-end-line="49" selection-end-column="2" />
           <folding>
             <element signature="e#574#620#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/setup_pods.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1350">
+          <caret line="90" column="83" lean-forward="true" selection-start-line="90" selection-start-column="83" selection-end-line="90" selection-end-column="83" />
+          <folding>
+            <element signature="e#0#46#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/run_uitests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="43" column="79" lean-forward="true" selection-start-line="43" selection-start-column="79" selection-end-line="43" selection-end-column="79" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
           </folding>
         </state>
       </provider>

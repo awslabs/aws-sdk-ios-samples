@@ -13,8 +13,8 @@ import XCTest
 struct UIActions {
     
     //todo: better handling of secure information
-    static var username = "testuser2"
-    static var password = "abc@123!"
+    static var username = "test01"
+    static var password = "The#test1"
     static var app = XCUIApplication()
     
     static func tapSignOut() {
