@@ -9,9 +9,9 @@ def runcommand(command, timeout=0,pipein=None, pipeout =  None, logcommandline =
         print("running command: ", command, "......")
     process = Popen(command, shell=True, stdin=pipein, stdout = pipeout, cwd = workingdirectory)
     wait_times = 0
-while True:
-    try:
-        process.communicate(timeout = 10)
+    while True:
+        try:
+            process.communicate(timeout = 10)
         except TimeoutExpired:
             #tell circleci I am still alive, don't kill me
             if wait_times % 30 == 0 :
@@ -21,13 +21,13 @@ while True:
                 print(str(datetime.now())+ ": time out")
                 return 1
             wait_times+=1
-            
+
             continue
         break
-    exit_code = process.wait()
-    if exit_code != 0 and exception_to_raise != None:
-        raise exception_to_raise
-    return exit_code
+        exit_code = process.wait()
+        if exit_code != 0 and exception_to_raise != None:
+            raise exception_to_raise
+        return exit_code
 
 
 #replace is a dictionary. it has a format
