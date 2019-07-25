@@ -42,7 +42,7 @@ def configure_aws_resources(app_root_directory, appname, cli_resources):
         targetSchemaPath = app_root_directory + '/configure-aws-resources/amplify-cli/packages/amplify-ui-tests/schemas/simple_model.graphql'
         if os.path.exists(targetSchemaPath):
             os.remove(targetSchemaPath)
-        copyfile(app_root_directory + '/schema.graphql', targetSchemaPath)
+        copyfile(app_root_directory + '/simple_model.graphql', targetSchemaPath)
 
     except OSError as err:
         raise OSErrorConfigureResources(appname, [str(err)])
