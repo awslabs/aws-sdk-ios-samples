@@ -16,7 +16,7 @@ def build_and_uitest(circleci_root_directory, app_root_directory, appname, log_f
     except OSError as err:
         raise RemovePodfileLockException(appname, [str(err)])
 
-    runcommand(command="pod install --repo-update",
+    runcommand(command="pod --version; pod install --repo-update --silent",
                exception_to_raise = PodInstallException)
 
     ## build app; run uitests and store logs

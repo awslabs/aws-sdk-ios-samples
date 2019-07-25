@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a8d68a16-723b-4814-a719-27b86682eb83" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/setup_pods.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup_pods.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build_and_uitest.py" beforeDir="false" afterPath="$PROJECT_DIR$/build_and_uitest.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -50,11 +50,11 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/build_and_uitest.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="345">
-                  <caret line="23" column="37" lean-forward="true" selection-start-line="23" selection-start-column="37" selection-end-line="23" selection-end-column="37" />
+                <state relative-caret-position="270">
+                  <caret line="18" column="39" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
                   <folding>
                     <element signature="e#0#32#0" expanded="true" />
                   </folding>
@@ -74,10 +74,10 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/setup_pods.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="721">
+                <state relative-caret-position="400">
                   <caret line="79" column="70" selection-start-line="79" selection-start-column="70" selection-end-line="79" selection-end-column="70" />
                   <folding>
                     <element signature="e#0#46#0" expanded="true" />
@@ -160,6 +160,7 @@
       <find>rmtree</find>
       <find>copy</find>
       <find>args[</find>
+      <find>&amp;</find>
     </findStrings>
     <replaceStrings>
       <replace>circleci_root_directory</replace>
@@ -188,10 +189,10 @@
         <option value="$PROJECT_DIR$/configure_aws_resources.py" />
         <option value="$PROJECT_DIR$/functions.py" />
         <option value="$PROJECT_DIR$/retry_failing_uitests.py" />
-        <option value="$PROJECT_DIR$/build_and_uitest.py" />
         <option value="$PROJECT_DIR$/autotest.py" />
         <option value="$PROJECT_DIR$/run_uitests.py" />
         <option value="$PROJECT_DIR$/setup_pods.py" />
+        <option value="$PROJECT_DIR$/build_and_uitest.py" />
       </list>
     </option>
   </component>
@@ -566,22 +567,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build_and_uitest.py">
+    <entry file="file://$PROJECT_DIR$/setup_pods.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="37" lean-forward="true" selection-start-line="23" selection-start-column="37" selection-end-line="23" selection-end-column="37" />
+        <state relative-caret-position="400">
+          <caret line="79" column="70" selection-start-line="79" selection-start-column="70" selection-end-line="79" selection-end-column="70" />
           <folding>
-            <element signature="e#0#32#0" expanded="true" />
+            <element signature="e#0#46#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/setup_pods.py">
+    <entry file="file://$PROJECT_DIR$/build_and_uitest.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="721">
-          <caret line="79" column="70" selection-start-line="79" selection-start-column="70" selection-end-line="79" selection-end-column="70" />
+        <state relative-caret-position="270">
+          <caret line="18" column="39" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
           <folding>
-            <element signature="e#0#46#0" expanded="true" />
+            <element signature="e#0#32#0" expanded="true" />
           </folding>
         </state>
       </provider>
