@@ -18,14 +18,14 @@
                 "AWSS3": {},
                 "AWSAppSync": {
                     "podspec": "https://github.com/awslabs/aws-mobile-appsync-sdk-ios",
-                    "branch_to_uitest": "palpatim/apollo-variance-documentation"
+                    "branch_to_uitest": "master"
                 }
             }
         }
     },
-    "uitest_logfile_prefix": "raw_uitest_ios",
+    "uitest_logfile_prefix": "uitest_ios",
     "cli_branch_to_uitest": "master",
     "default_podspec_file_source": "https://github.com/aws-amplify/aws-sdk-ios",
-    "default_sdk_branch_to_uitest": "develop",
+    "default_sdk_branch_to_uitest": "master",
     "simulator_specification": "platform=iOS Simulator,name=iPhone X,OS=12.2"
 }

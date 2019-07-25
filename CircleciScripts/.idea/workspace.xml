@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a8d68a16-723b-4814-a719-27b86682eb83" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/setup_pods.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup_pods.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -54,8 +53,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/build_and_uitest.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="405">
-                  <caret line="27" selection-start-line="27" selection-end-line="27" />
+                <state relative-caret-position="345">
+                  <caret line="23" column="37" lean-forward="true" selection-start-line="23" selection-start-column="37" selection-end-line="23" selection-end-column="37" />
                   <folding>
                     <element signature="e#0#32#0" expanded="true" />
                   </folding>
@@ -78,8 +77,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/setup_pods.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1185">
-                  <caret line="79" column="81" selection-start-line="79" selection-start-column="81" selection-end-line="79" selection-end-column="81" />
+                <state relative-caret-position="721">
+                  <caret line="79" column="70" selection-start-line="79" selection-start-column="70" selection-end-line="79" selection-end-column="70" />
                   <folding>
                     <element signature="e#0#46#0" expanded="true" />
                   </folding>
@@ -91,7 +90,7 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch.json">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="315">
@@ -100,7 +99,7 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/functions.py">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="15">
@@ -520,13 +519,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="47" selection-start-line="21" selection-start-column="47" selection-end-line="21" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/uitests_exceptions.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2295">
@@ -567,10 +559,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="47" selection-start-line="21" selection-start-column="47" selection-end-line="21" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/build_and_uitest.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
+        <state relative-caret-position="345">
+          <caret line="23" column="37" lean-forward="true" selection-start-line="23" selection-start-column="37" selection-end-line="23" selection-end-column="37" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
           </folding>
@@ -579,8 +578,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/setup_pods.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1185">
-          <caret line="79" column="81" selection-start-line="79" selection-start-column="81" selection-end-line="79" selection-end-column="81" />
+        <state relative-caret-position="721">
+          <caret line="79" column="70" selection-start-line="79" selection-start-column="70" selection-end-line="79" selection-end-column="70" />
           <folding>
             <element signature="e#0#46#0" expanded="true" />
           </folding>
