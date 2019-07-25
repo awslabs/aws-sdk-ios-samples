@@ -62,7 +62,7 @@ def setup_pods(app_repo_root_directory, appname, app_config):
     except OSError as err:
         raise InvalidDirectoryException(appname = appname, message = str(err))
 
-    runcommand(command = "pod setup", exception_to_raise = SetupMasterRepoPodsException(appname))
+    runcommand(command = "pod setup > /dev/null", exception_to_raise = SetupMasterRepoPodsException(appname))
 
     #### add pod local repos
     private_podspecs_local_reponame = 'a_uitests_ios_specs_repo'
@@ -77,7 +77,7 @@ def setup_pods(app_repo_root_directory, appname, app_config):
 
     for podspec in podspec_files:
         podspec_path = "{0}/{1}".format(podspecs_directory, podspec)
-        runcommand(command = "pod repo push --allow-warnings {0} {1}".format(private_podspecs_local_reponame, podspec_path),
+        runcommand(command = "pod repo push --allow-warnings {0} {1}  > /dev/null".format(private_podspecs_local_reponame, podspec_path),
                    exception_to_raise = PodspecsValidateException(appname, podspec))
 
     #### Optional:: help cocoapods clone local repo using another localclonerepo pointing to same private git repo
