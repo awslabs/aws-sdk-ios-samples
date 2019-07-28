@@ -10,12 +10,12 @@ import XCTest
 import AWSMobileClient
 
 class DropInUITest: XCTestCase {
-    let app = XCUIApplication()
+    var app: XCUIApplication?
     
     override func setUp() {
         
         continueAfterFailure = false
-        app.launch()
+        app = UIActions.launchApp()
         UIActions.tapSignOut()
     }
 
@@ -28,9 +28,9 @@ class DropInUITest: XCTestCase {
         
         XCTAssertTrue(UIElements.SignInScreen.navigationBar.waitForExistence(timeout: uiTimeout))
         
-        let tablesQuery = app.tables
+        let tablesQuery = app!.tables
         XCTAssertTrue(tablesQuery.staticTexts["User Name"].exists)
         XCTAssertTrue(tablesQuery.staticTexts["Password"].exists)
-        XCTAssertTrue(app.buttons["Sign In"].exists)
+        XCTAssertTrue(app!.buttons["Sign In"].exists)
     }
 }

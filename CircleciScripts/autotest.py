@@ -7,46 +7,19 @@
 # xcodebuild -workspace S3TransferUtilitySampleSwift.xcworkspace -scheme "S3TransferUtilitySampleSwiftUITests" -destination "${destination}" test | tee $rootDirectory/raw_ui_test.log
 # cd $rootDirectory
 # rm -rf aws-sdk-ios-samples
+
+# from functions import runcommand
 #
-
-from functions import runcommand, replacefiles
-import sys
-import os
-import glob
-import ntpath
-
-# - create directory
-# - Fetch project
-# - add awsconfig.json
-# - install pods
-# - build for testing
-# - store test logs
-
-
-# replaces = [
-#     {
-#         "match" : r":tag[[:space:]]*=>[[:space:]]*.*}",
-#         "replace" : r':branch => "development" }',
-#         "files" : [
-#             "AWSS3.podspec"
-#         ]
-#     },
-#     {
-#         "match" : r":tag[[:space:]]*=>[[:space:]]*.*,",
-#         "replace" : r':branch => "development" ,',
-#         "files" : [
-#             "AWSS3.podspec"
-#         ]
-#     }
-# ]
-#
-# replacefiles('/Users/edupp/Desktop/', replaces)
-# rn = runcommand(command = "gem install cocoapods")
-# rn = runcommand(command = "pods repo list")
-# if rn != 0:
-#     print("unable to add local specs repo for app {0}".format())
-#     exit(1)
-
-# rn = runcommand(command="python3 run_uitests.py")
+# app_repo_root_directory = "/Users/edupp/Desktop/autotest"
+# appname = "PhotoAlbum"
+# circleci_root_directory = "/Users/edupp/Desktop"
+# rn = runcommand(command="python3 run_setup_pods.py -n {0} -a {1}".format(appname, app_repo_root_directory))
+# print(rn)
+# rn = runcommand(command="python3 run_configure_aws_resources.py -n {0} -a {1}".format(appname, app_repo_root_directory))
+# print(rn)
+# rn = runcommand(command="python3 run_build_and_uitest.py -n {0} -a {1} -c {2}".format(appname, app_repo_root_directory, circleci_root_directory))
+# print(rn)
+#rn = runcommand(command="python3 run_cleanup_uitests.py -n {0} -a {1}".format(appname, app_repo_root_directory))
+#print(rn)
 
 

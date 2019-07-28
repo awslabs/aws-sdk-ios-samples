@@ -4,10 +4,12 @@ from uitests_exceptions import *
 from shutil import copyfile, rmtree
 
 
-def fetch_podspecs(appname, app_config, podspecs_directory):
+def fetch_podspecs(appname, app_config, private_podspecs_git_repo_clone_directory):
     ## fetch podspecs and edit to remove tag and add branch_to_uitest
 
     podspec_files = []
+    local_podspecs_version = '100.100.100'
+
     for podspec_name, podspec_config in vars(app_config.sdk).items():
 
         ## skip and use released version of sdk if branch_to_uitest == 'master'
@@ -25,13 +27,17 @@ def fetch_podspecs(appname, app_config, podspecs_directory):
             if branch_to_uitest == 'master':
                 continue
 
-        podspec_repo_directory = '{0}/{1}'.format(podspecs_directory, podspec_name)
-        runcommand(command = "git clone {0} {1}".format(podspec_url, podspec_repo_directory),
+        ## replicate directory structure resulting from pod repo push
+        podspec_repo_directory = '{0}/{1}/{2}'.format(private_podspecs_git_repo_clone_directory,
+                                                      podspec_name,
+                                                      local_podspecs_version)
+        runcommand(command = "git clone {0} {1}/source_clone".format(podspec_url, podspec_repo_directory),
                    exception_to_raise = FetchRemotePodspecFileException(appname, podspec_name))
 
+
         try:
-            src = "{0}/{1}.podspec".format(podspec_repo_directory, podspec_name)
-            des = "{0}/{1}.podspec".format(podspecs_directory, podspec_name)
+            src = "{0}/source_clone/{1}.podspec".format(podspec_repo_directory, podspec_name)
+            des = "{0}/{1}.podspec".format(podspec_repo_directory, podspec_name)
             copyfile(src, des)
         except IOError as err:
             raise FetchRemotePodspecFileException(appname, podspec_name, str(err))
@@ -61,14 +67,14 @@ def fetch_podspecs(appname, app_config, podspecs_directory):
 
         for replaceaction in replaces:
             replaceaction["replace"] = replaceaction["replace"].replace("[sdk_branch_to_uitest_placeholder]", branch_to_uitest.replace('/','\/')) # add escape character to branch names with / character
-            replaceaction["replace"] = replaceaction["replace"].replace("[version]", "100.100.100")
-        replacefiles(podspecs_directory, replaces)
+            replaceaction["replace"] = replaceaction["replace"].replace("[version]", local_podspecs_version)
+        replacefiles(podspec_repo_directory, replaces)
 
         ## clean up
         try:
-            os.chdir(podspecs_directory)
-            if os.path.isdir(podspec_repo_directory):
-                rmtree(podspec_repo_directory)
+            os.chdir(podspec_repo_directory)
+            if os.path.isdir(podspec_repo_directory + '/source_clone'):
+                rmtree(podspec_repo_directory + '/source_clone')
         except OSError as err:
             raise CleanupFetchPodspecsException(appname, podspec_name)
 

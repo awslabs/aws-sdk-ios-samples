@@ -15,7 +15,16 @@ struct UIActions {
     //todo: better handling of secure information
     static var username = "test01"
     static var password = "The#test1"
-    static var app = XCUIApplication()
+    static var app: XCUIApplication!
+    
+    static func launchApp() -> XCUIApplication {
+        
+        let appInstance: XCUIApplication = XCUIApplication()
+        appInstance.launchArguments = ["-StartFromCleanState", "YES"]
+        appInstance.launch()
+        app = appInstance
+        return appInstance
+    }
     
     static func tapSignOut() {
         
@@ -23,6 +32,8 @@ struct UIActions {
         let signOutFound = signOutButton.waitForExistence(timeout: networkTimeout)
         if signOutFound {
             signOutButton.tap()
+            let signInScreen = UIElements.SignInScreen.navigationBar
+            _ = signInScreen.waitForExistence(timeout: networkTimeout)
         }
     }
     

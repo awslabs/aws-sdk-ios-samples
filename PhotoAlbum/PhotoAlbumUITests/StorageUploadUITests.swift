@@ -14,12 +14,11 @@ class StoragePublicUploadUITests: XCTestCase {
     
     let albumName = UUID().uuidString
     let accessType = "Public"
-    let app = XCUIApplication()
+    var app: XCUIApplication?
     
     override func setUp() {
         continueAfterFailure = false
-        app.launch()
-        
+        app = UIActions.launchApp()
         UtilitiesForStorageUITests.setupUpload(albumName: albumName, accessType: accessType)
     }
 

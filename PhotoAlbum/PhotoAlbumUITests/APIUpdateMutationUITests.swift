@@ -13,12 +13,12 @@ class APIUpdateMutationUITests: XCTestCase {
     let albumName = UUID().uuidString
     let newName = UUID().uuidString
     let accessType = "Public"
-    let app = XCUIApplication()
+    var app: XCUIApplication?
     
     override func setUp() {
         
         continueAfterFailure = false
-        app.launch()
+        app = UIActions.launchApp()
         UIActions.signInWithValidCredentials()
         UIActions.createNewAlbumWith(albumName: albumName, accessType: accessType)
     }

@@ -26,10 +26,20 @@ class InvalidDirectoryException(SetupPodsException):
         super(InvalidDirectoryException, self).__init__(appname, message = message)
 
 
+class FetchAppConfigException(SetupPodsException):
+    def __init__(self, appname):
+        message = ["... Unable to setup private git for podspecs for app {0}...".format(appname)]
+        super(FetchAppConfigException, self).__init__(appname, message = message)
+
 class SetupPrivateGitForPodspecsException(SetupPodsException):
     def __init__(self, appname):
         message = ["... Unable to setup private git for podspecs for app {0}...".format(appname)]
         super(SetupPrivateGitForPodspecsException, self).__init__(appname, message = message)
+
+class PushPodspecsFromCloneToParentException(SetupPodsException):
+    def __init__(self, appname):
+        message = ["... Unable to push clone private repo to parent for app {0}...".format(appname)]
+        super(PushPodspecsFromCloneToParentException, self).__init__(appname, message = message)
 
 
 class SetupMasterRepoPodsException(SetupPodsException):
@@ -108,6 +118,14 @@ class RemovePodfileLockException(BuildAndUItestException):
         else: message = localmessage
         super(RemovePodfileLockException, self).__init__(appname, message = message)
 
+class SetUpLogFilesDirectoryException(BuildAndUItestException):
+    def __init__(self, appname, message=None):
+        localmessage = ["...Unable to delete Podfile.lock for {0} app...".format(appname)]
+        if message != None:
+            message = localmessage.extend(message)
+        else: message = localmessage
+        super(SetUpLogFilesDirectoryException, self).__init__(appname, message = message)
+
 class PodInstallException(BuildAndUItestException):
     def __init__(self, appname):
         message = ["...Failed to install pods for app {0}. Skip...".format(appname)]
@@ -156,8 +174,11 @@ class CliConfigException(ConfigureAWSResourcesException):
         super(CliConfigException, self).__init__(appname, message = message)
 
 class OSErrorDeleteResources(ConfigureAWSResourcesException):
-    def __init__(self, appname):
-        message = ["...Failed to navigate to cli delete resources script for app {0}. Skip...".format(appname)]
+    def __init__(self, appname, message=None):
+        localmessage = ["...Failed to navigate to cli delete resources script for app {0}. Skip...".format(appname)]
+        if message != None:
+            message = localmessage.extend(message)
+        else: message = localmessage
         super(OSErrorDeleteResources, self).__init__(appname, message = message)
 
 class CliDeleteResourcesException(ConfigureAWSResourcesException):
@@ -166,6 +187,9 @@ class CliDeleteResourcesException(ConfigureAWSResourcesException):
         super(CliDeleteResourcesException, self).__init__(appname, message = message)
 
 class OSErrorDeleteCliRepo(ConfigureAWSResourcesException):
-    def __init__(self, appname):
-        message = ["...Failed to delete the cloned amplify-cli repo for app {0}. Skip...".format(appname)]
+    def __init__(self, appname, message=None):
+        localmessage = ["...Failed to delete the cloned amplify-cli repo for app {0}. Skip...".format(appname)]
+        if message != None:
+            message = localmessage.extend(message)
+        else: message = localmessage
         super(OSErrorDeleteCliRepo, self).__init__(appname, message = message)

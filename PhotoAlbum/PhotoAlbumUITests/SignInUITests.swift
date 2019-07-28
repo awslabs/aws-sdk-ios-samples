@@ -11,14 +11,12 @@ import AWSMobileClient
 
 class SignInUITests: XCTestCase {
     
-    let app = XCUIApplication()
+    var app: XCUIApplication?
     
     override func setUp() {
         
         continueAfterFailure = false
-        let app = XCUIApplication()
-        app.launch()
-        
+        app = UIActions.launchApp()
         UIActions.tapSignOut()
     }
     
@@ -40,7 +38,7 @@ class SignInUITests: XCTestCase {
         // Given the app launches, When invalid sign in, then show "UserNotFoundException" alert and no page navigation
         
         UIActions.signInWith(username: "guesser", password: "simpleguess")
-        let usernotfoundexceptionAlert = app.alerts["UserNotFoundException"]
+        let usernotfoundexceptionAlert = app!.alerts["UserNotFoundException"]
         XCTAssertTrue(usernotfoundexceptionAlert.waitForExistence(timeout: networkTimeout))
         
         usernotfoundexceptionAlert.buttons["Retry"].tap()

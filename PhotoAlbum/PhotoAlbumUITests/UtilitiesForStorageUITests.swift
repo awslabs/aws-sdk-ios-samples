@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 import XCTest
 
-
 struct UtilitiesForStorageUITests {
     
     static func setupUpload(albumName: String, accessType: String) {

@@ -26,6 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             AWSServiceManager.initializeAWSInstances()
         }
 
+        AWSDDLog.sharedInstance.logLevel = .verbose
         return true
     }
 

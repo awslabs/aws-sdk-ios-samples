@@ -12,8 +12,11 @@ import XCTest
 
 struct UIElements {
     
+//    static var app: XCUIApplication {
+//        return XCUIApplication()
+//    }
     static var app: XCUIApplication {
-        return XCUIApplication()
+        return UIActions.app
     }
     
     struct SignInScreen {

@@ -1,14 +1,19 @@
-import os
 from functions import runcommand
 from uitests_exceptions import *
+from setup_pods import get_app_config_for
 from shutil import rmtree, copyfile
+import os
 
 ## Requirements: aws-cli, npm, yarn, git cli tools
 
-## Side Effects: If configure fails in a directory, the script cannot be re-run in the same directory
-## delete should take path to project root?
+def configure_aws_resources(app_repo_root_directory, appname):
 
-def configure_aws_resources(app_root_directory, appname, cli_resources):
+    app_config = get_app_config_for(appname = appname)
+    if app_config == None:
+        raise FetchAppConfigException(appname = appname)
+
+    app_root_directory = "{0}/{1}".format(app_repo_root_directory, app_config.path)
+    cli_resources = app_config.cli_resources
 
     pathToCliRepo = app_root_directory + '/configure-aws-resources/amplify-cli'
 
@@ -20,20 +25,22 @@ def configure_aws_resources(app_root_directory, appname, cli_resources):
         os.chdir(app_root_directory + '/configure-aws-resources')
         if os.path.isdir(pathToCliRepo):
             rmtree(pathToCliRepo)
+
     except OSError as err:
         raise OSErrorConfigureResources(appname, [str(err)])
 
-    rn = runcommand(command="git clone https://github.com/AaronZyLee/amplify-cli -b dev",
-                    exception_to_raise = GitCloneCliException(appname))
+    print("step: 1/3... Cloning amplify-cli repo \n ")
+    runcommand(command="git clone https://github.com/AaronZyLee/amplify-cli -b dev",
+               exception_to_raise = GitCloneCliException(appname))
 
     try:
         os.chdir(pathToCliRepo)
     except OSError as err:
         raise OSErrorConfigureResources(appname, [str(err)])
 
-
-    rn = runcommand(command = "npm run setup-dev",
-                    exception_to_raise = CliSetupDevException(appname))
+    print("step: 2/3... Run setup-dev \n ")
+    runcommand(command = "npm run setup-dev",
+               exception_to_raise = CliSetupDevException(appname))
 
     ## todo: change to take custom schema
 
@@ -47,34 +54,10 @@ def configure_aws_resources(app_root_directory, appname, cli_resources):
     except OSError as err:
         raise OSErrorConfigureResources(appname, [str(err)])
 
+    print("step: 3/3... config resources \n ")
     configure_command = "npm run config {0} ios {1}".format(app_root_directory, " ".join(cli_resources))
 
-    rn = runcommand(command = configure_command,
-                    exception_to_raise = CliConfigException(appname))
-
-
-
-def delete_aws_resources(app_root_directory, appname):
-
-    pathToCliRepo = app_root_directory + '/configure-aws-resources/amplify-cli'
-
-    try:
-        os.chdir(app_root_directory + '/configure-aws-resources/amplify-cli/packages/amplify-ui-tests')
-    except OSError as err:
-        raise OSErrorDeleteResources(appname, [str(err)])
-
-    configure_command = "npm run delete {0}".format(app_root_directory)
-
-    rn = runcommand(command = configure_command,
-                    exception_to_raise = CliDeleteResourcesException(appname))
-
-    try:
-        if os.path.isdir(pathToCliRepo):
-            rmtree(pathToCliRepo)
-    except OSError as err:
-        raise OSErrorDeleteCliRepo(appname, [str(err)])
-
-
+    runcommand(command = configure_command,
+               exception_to_raise = CliConfigException(appname))
 
 # configure_aws_resources('/Users/edupp/Desktop/autotest/PhotoAlbum', 'PhotoAlbum', ['auth', 'storage', 'api'])
-# delete_aws_resources('/Users/edupp/Desktop/autotest/PhotoAlbum', 'PhotoAlbum')
