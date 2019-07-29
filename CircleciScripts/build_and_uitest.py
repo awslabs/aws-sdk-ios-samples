@@ -36,9 +36,9 @@ def build_and_uitest(circleci_root_directory, appname, app_repo_root_directory):
     except OSError as err:
         raise SetUpLogFilesDirectoryException(appname, [str(err)])
 
-    print("step: 1/2... Install Pods with repo update \n ")
-    runcommand(command="pod --version; pod install --repo-update",
-               exception_to_raise = PodInstallException)
+    print("step: 1/2... Install Pods \n ")
+    runcommand(command="pod --version; pod install",
+               exception_to_raise = PodInstallException(appname))
 
     ## build app; run uitests and store logs
     raw_logfile_path = "{0}/{1}_raw.log".format(logs_folder_path, appname)

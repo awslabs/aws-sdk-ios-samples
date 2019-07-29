@@ -1,40 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a8d68a16-723b-4814-a719-27b86682eb83" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/cleanup_uitests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/edit_uitest_config.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run_build_and_uitest.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run_cleanup_uitests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run_configure_aws_resources.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run_setup_pods.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/autotest.py" beforeDir="false" afterPath="$PROJECT_DIR$/autotest.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build_and_uitest.py" beforeDir="false" afterPath="$PROJECT_DIR$/build_and_uitest.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build_iossample.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bump_iossample_version.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/configure_aws_resources.py" beforeDir="false" afterPath="$PROJECT_DIR$/configure_aws_resources.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/copy_resourcefiles.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fetch_podspecs.py" beforeDir="false" afterPath="$PROJECT_DIR$/fetch_podspecs.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pre_start_simulator.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/run_uitests.py" beforeDir="false" afterPath="$PROJECT_DIR$/run_uitests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/setup_pods.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup_pods.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uitests_exceptions.py" beforeDir="false" afterPath="$PROJECT_DIR$/uitests_exceptions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Configuration/uitests_ios_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Configuration/uitests_ios_config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PhotoAlbum/PhotoAlbum.xcodeproj/xcshareddata/xcschemes/PhotoAlbumUITests.xcscheme" beforeDir="false" afterPath="$PROJECT_DIR$/../PhotoAlbum/PhotoAlbum.xcodeproj/xcshareddata/xcschemes/PhotoAlbumUITests.xcscheme" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PhotoAlbum/PhotoAlbum/AppDelegate.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../PhotoAlbum/PhotoAlbum/AppDelegate.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PhotoAlbum/PhotoAlbumUITests/APICreateMutationUITests.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../PhotoAlbum/PhotoAlbumUITests/APICreateMutationUITests.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PhotoAlbum/PhotoAlbumUITests/APIDeleteMutationUITests.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../PhotoAlbum/PhotoAlbumUITests/APIDeleteMutationUITests.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PhotoAlbum/PhotoAlbumUITests/APIListQueryUITests.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../PhotoAlbum/PhotoAlbumUITests/APIListQueryUITests.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PhotoAlbum/PhotoAlbumUITests/APIUpdateMutationUITests.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../PhotoAlbum/PhotoAlbumUITests/APIUpdateMutationUITests.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PhotoAlbum/PhotoAlbumUITests/DropInUITest.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../PhotoAlbum/PhotoAlbumUITests/DropInUITest.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PhotoAlbum/PhotoAlbumUITests/SignInUITests.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../PhotoAlbum/PhotoAlbumUITests/SignInUITests.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PhotoAlbum/PhotoAlbumUITests/StorageDownloadUITests.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../PhotoAlbum/PhotoAlbumUITests/StorageDownloadUITests.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PhotoAlbum/PhotoAlbumUITests/StorageUploadUITests.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../PhotoAlbum/PhotoAlbumUITests/StorageUploadUITests.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PhotoAlbum/PhotoAlbumUITests/UIActions.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../PhotoAlbum/PhotoAlbumUITests/UIActions.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PhotoAlbum/PhotoAlbumUITests/UIElements.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../PhotoAlbum/PhotoAlbumUITests/UIElements.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PhotoAlbum/PhotoAlbumUITests/UtilitiesForStorageUITests.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../PhotoAlbum/PhotoAlbumUITests/UtilitiesForStorageUITests.swift" afterDir="false" />
-    </list>
+    <list default="true" id="a8d68a16-723b-4814-a719-27b86682eb83" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

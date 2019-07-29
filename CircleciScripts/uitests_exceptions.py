@@ -80,13 +80,13 @@ class FetchPodspecsException(SetupPodsException):
         else: return localmessage.extend(message)
 
 
-class FetchRemotePodspecFileException(FetchPodspecsException):
+class FetchRemotePodSourceException(FetchPodspecsException):
     def __init__(self, appname, podspec, message=None):
-        localmessage = ["...Unable to fetch {0}.podpsec for app {1}. check source url and retry...".format(podspec, appname)]
+        localmessage = ["...Unable to fetch {0} source for app {1}. check source url and retry...".format(podspec, appname)]
         if message != None:
             message = localmessage.extend(message)
         else: message = localmessage
-        super(FetchRemotePodspecFileException, self).__init__(appname, message = message)
+        super(FetchRemotePodSourceException, self).__init__(appname, message = message)
 
 
 class CleanupFetchPodspecsException(FetchPodspecsException):

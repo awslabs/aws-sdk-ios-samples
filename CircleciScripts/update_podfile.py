@@ -1,22 +1,26 @@
-from uitests_exceptions import UpdatePodfileException
+from uitests_exceptions import *
+from os import remove, rename
+import re
 
-## edit Podfile to add local git repo for private specs
-## Also add default cocoapods repo to use released versions of SDKs
+## edit Podfile to add path to pod source for a given pod
 
+def update_podfile(appname, app_root_directory, pod_name, pod_source_path):
 
-def update_podfile(private_podspecs_git_repo_directory, app_root_directory, appname):
+    podfile_path = "{0}/Podfile".format(app_root_directory)
+    podfile_copy_path = "{0}/Podfile_copy".format(app_root_directory)
 
-    released_pods_source = "source 'https://github.com/CocoaPods/Specs'"
-    private_pods_source = "source '{0}'".format(private_podspecs_git_repo_directory)
+    pattern = re.compile("pod\s+'\s*" + pod_name + "\s*'.*$")
+    sub = "pod '{0}', :path => '{1}'".format(pod_name, pod_source_path)
 
-    try:
-        prependline("{0}/Podfile".format(app_root_directory), released_pods_source)
-        prependline("{0}/Podfile".format(app_root_directory), private_pods_source)
-    except:
-        raise UpdatePodfileException(appname)
+    with open(podfile_copy_path, 'w+') as new_podfile:
+        with open(podfile_path) as old_podfile:
+            for line in old_podfile:
+                new_podfile.write(re.sub(pattern, sub, line))
 
-def prependline(file, line):
-    with open(file, 'r+') as f:
-        oldcontent = f.read()
-        f.seek(0, 0)
-        f.write(line.rstrip('\r\n') + '\n' + oldcontent) ## remove any form of line endings platform independent trim
+    # Remove original file
+    remove(podfile_path)
+
+    # Rename new file
+    rename(podfile_copy_path, podfile_path)
+
+# update_podfile('PhotoAlbum', '/Users/edupp/Desktop/autotest/PhotoAlbum', 'AWSAppSync', '/Users/edupp/Desktop/autotest/PhotoAlbum/something')

@@ -7,6 +7,10 @@
                 "storage"
             ],
             "sdk": {
+                "AWSAuthCore": {},
+                "AWSCognitoIdentityProvider": {},
+                "AWSCognitoIdentityProviderASF": {},
+                "AWSCore": {},
                 "AWSMobileClient": {},
                 "AWSS3": {}
             }
@@ -19,22 +23,25 @@
                 "api"
             ],
             "sdk": {
+                "AWSAuthCore": {},
+                "AWSCognitoIdentityProvider": {},
+                "AWSCognitoIdentityProviderASF": {},
                 "AWSCore": {},
                 "AWSUserPoolsSignIn": {},
                 "AWSAuthUI": {},
                 "AWSMobileClient": {},
                 "AWSS3": {},
                 "AWSAppSync": {
-                    "podspec": "https://github.com/awslabs/aws-mobile-appsync-sdk-ios",
-                    "branch_to_uitest": "palpatim/apollo-variance-documentation"
+                    "podspec": "https://github.com/phanisrikar93/aws-mobile-appsync-sdk-ios",
+                    "branch_to_uitest": "phanisrikar93-AppSync-Podspec"
                 }
             }
         }
     },
-    "logs_folder_name": "uitest_logs",
+    "logs_folder_name": "uitest_ios",
     "cli_branch_to_uitest": "master",
     "default_podspec_file_source": "https://github.com/aws-amplify/aws-sdk-ios",
-    "default_sdk_branch_to_uitest": "master",
+    "default_sdk_branch_to_uitest": "develop",
     "simulator_specification": "platform=iOS Simulator,name=iPhone X,OS=12.2",
     "retry_count": 0
 }
