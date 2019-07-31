@@ -2,25 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a8d68a16-723b-4814-a719-27b86682eb83" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../.idea/autotest.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/CircleciScripts.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/autotest.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build_and_uitest.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/functions.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/parse_config_uitests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/setup_pods.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uitests_exceptions.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/update_podfile.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Configuration/uitests_ios_config.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../PhotoAlbum" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/configure_aws_resources.py" beforeDir="false" afterPath="$PROJECT_DIR$/configure_aws_resources.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_cleanup_uitests.py" beforeDir="false" afterPath="$PROJECT_DIR$/run_cleanup_uitests.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -35,8 +19,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/edit_uitest_config.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="165">
-                  <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+                <state relative-caret-position="150">
+                  <caret line="11" selection-start-line="11" selection-end-line="11" />
                   <folding>
                     <element signature="e#0#11#0" expanded="true" />
                   </folding>
@@ -53,20 +37,20 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/build_and_uitest.py">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="94">
-                  <caret line="69" column="68" selection-start-line="69" selection-start-column="68" selection-end-line="69" selection-end-column="68" />
+                  <caret line="72" selection-start-line="72" selection-end-line="72" />
                 </state>
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/configure_aws_resources.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="645">
-                  <caret line="47" column="19" selection-start-line="47" selection-start-column="19" selection-end-line="47" selection-end-column="19" />
+                <state relative-caret-position="506">
+                  <caret line="58" column="43" lean-forward="true" selection-start-line="58" selection-start-column="43" selection-end-line="58" selection-end-column="43" />
                 </state>
               </provider>
             </entry>
@@ -75,7 +59,7 @@
             <entry file="file://$PROJECT_DIR$/cleanup_uitests.py">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="90">
-                  <caret line="10" column="52" lean-forward="true" selection-start-line="10" selection-start-column="52" selection-end-line="10" selection-end-column="52" />
+                  <caret line="10" column="52" selection-start-line="10" selection-start-column="52" selection-end-line="10" selection-end-column="52" />
                 </state>
               </provider>
             </entry>
@@ -106,7 +90,7 @@
             <entry file="file://$PROJECT_DIR$/functions.py">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="230">
-                  <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+                  <caret line="30" selection-start-line="30" selection-end-line="30" />
                   <folding>
                     <element signature="e#0#10#0" expanded="true" />
                   </folding>
@@ -117,8 +101,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/uitests_exceptions.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="183">
-                  <caret line="140" lean-forward="true" selection-start-line="140" selection-end-line="140" />
+                <state relative-caret-position="2085">
+                  <caret line="140" selection-start-line="140" selection-end-line="140" />
                   <folding>
                     <element signature="e#0#10#0" expanded="true" />
                   </folding>
@@ -198,11 +182,11 @@
         <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch.json" />
         <option value="$PROJECT_DIR$/setup_pods.py" />
         <option value="$PROJECT_DIR$/run_uitests.py" />
-        <option value="$PROJECT_DIR$/configure_aws_resources.py" />
         <option value="$PROJECT_DIR$/uitests_exceptions.py" />
         <option value="$PROJECT_DIR$/functions.py" />
         <option value="$PROJECT_DIR$/autotest.py" />
         <option value="$PROJECT_DIR$/build_and_uitest.py" />
+        <option value="$PROJECT_DIR$/configure_aws_resources.py" />
       </list>
     </option>
   </component>
@@ -227,23 +211,23 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="CircleciScripts" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CircleciScripts" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="Scope">
         <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
           <expand>
             <path>
               <item name="CircleciScripts" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="~/Documents/EndToEnd/local/PhotoAlbum/CircleciScripts" type="442cc68d:ScopeViewTreeModel$RootNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="CircleciScripts" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CircleciScripts" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -488,17 +472,36 @@
     <entry file="file://$PROJECT_DIR$/set_default_sdk_branch_to_uitest.py" />
     <entry file="file://$PROJECT_DIR$/run_uitests.py" />
     <entry file="file://$PROJECT_DIR$/fetch_podspecs.py" />
-    <entry file="file://$PROJECT_DIR$/configure_aws_resources.py">
+    <entry file="file://$PROJECT_DIR$/run_build_and_uitest.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="47" column="19" selection-start-line="47" selection-start-column="19" selection-end-line="47" selection-end-column="19" />
+        <state>
+          <folding>
+            <element signature="e#0#45#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/edit_uitest_config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/autotest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="38" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cleanup_uitests.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
-          <caret line="10" column="52" lean-forward="true" selection-start-line="10" selection-start-column="52" selection-end-line="10" selection-end-column="52" />
+          <caret line="10" column="52" selection-start-line="10" selection-start-column="52" selection-end-line="10" selection-end-column="52" />
         </state>
       </provider>
     </entry>
@@ -509,13 +512,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/edit_uitest_config.py">
+    <entry file="file://$PROJECT_DIR$/build_and_uitest.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="94">
+          <caret line="72" selection-start-line="72" selection-end-line="72" />
         </state>
       </provider>
     </entry>
@@ -528,26 +528,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/uitests_exceptions.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="140" lean-forward="true" selection-start-line="140" selection-end-line="140" />
+        <state relative-caret-position="2085">
+          <caret line="140" selection-start-line="140" selection-end-line="140" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/autotest.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="38" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/run_build_and_uitest.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#45#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -555,17 +539,17 @@
     <entry file="file://$PROJECT_DIR$/functions.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="230">
-          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build_and_uitest.py">
+    <entry file="file://$PROJECT_DIR$/configure_aws_resources.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="94">
-          <caret line="69" column="68" selection-start-line="69" selection-start-column="68" selection-end-line="69" selection-end-column="68" />
+        <state relative-caret-position="506">
+          <caret line="58" column="43" lean-forward="true" selection-start-line="58" selection-start-column="43" selection-end-line="58" selection-end-column="43" />
         </state>
       </provider>
     </entry>

@@ -11,7 +11,6 @@ args = arg_parser.parse_args()
 
 
 try:
-    runcommand(command = "pod repo remove a_uitests_ios_specs_repo")
     delete_aws_resources(app_repo_root_directory = args.app_repo_root_directory,
                          appname = args.appname)
 

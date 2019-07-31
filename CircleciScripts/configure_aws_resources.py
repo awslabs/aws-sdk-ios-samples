@@ -43,16 +43,15 @@ def configure_aws_resources(app_repo_root_directory, appname):
                exception_to_raise = CliSetupDevException(appname))
 
     ## todo: change to take custom schema
-    if 'api' in cli_resources:
-        try:
-            os.chdir(app_root_directory + '/configure-aws-resources/amplify-cli/packages/amplify-ui-tests')
+    try:
+        os.chdir(app_root_directory + '/configure-aws-resources/amplify-cli/packages/amplify-ui-tests')
+        if 'api' in cli_resources:
             targetSchemaPath = app_root_directory + '/configure-aws-resources/amplify-cli/packages/amplify-ui-tests/schemas/simple_model.graphql'
             if os.path.exists(targetSchemaPath):
                 os.remove(targetSchemaPath)
             copyfile(app_root_directory + '/simple_model.graphql', targetSchemaPath)
-
-        except OSError as err:
-            raise OSErrorConfigureResources(appname, [str(err)])
+    except OSError as err:
+        raise OSErrorConfigureResources(appname, [str(err)])
 
     print("step: 3/3... config resources \n ")
     configure_command = "npm run config {0} ios {1}".format(app_root_directory, " ".join(cli_resources))
