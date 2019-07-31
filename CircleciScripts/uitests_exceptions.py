@@ -133,7 +133,7 @@ class PodInstallException(BuildAndUItestException):
 
 class BuildAndUItestFailException(BuildAndUItestException):
     def __init__(self, appname, logfile_path):
-        message = ["...xcodebuild failed for app {0}. Check logs at {1}. Skip...".format(appname, logfile_path)]
+        message = ["...xcodebuild & test failed for app {0}. Check logs at {1}. Skip...".format(appname, logfile_path)]
         super(BuildAndUItestFailException, self).__init__(appname, message = message)
 
 

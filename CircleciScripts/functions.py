@@ -24,10 +24,10 @@ def runcommand(command, timeout=0,pipein=None, pipeout =  None, logcommandline =
 
             continue
         break
-        exit_code = process.wait()
-        if exit_code != 0 and exception_to_raise != None:
-            raise exception_to_raise
-        return exit_code
+    exit_code = process.wait()
+    if exit_code != 0 and exception_to_raise != None:
+        raise exception_to_raise
+    return exit_code
 
 
 #replace is a dictionary. it has a format
