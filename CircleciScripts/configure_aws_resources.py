@@ -30,7 +30,7 @@ def configure_aws_resources(app_repo_root_directory, appname):
         raise OSErrorConfigureResources(appname, [str(err)])
 
     print("step: 1/3... Cloning amplify-cli repo \n ")
-    runcommand(command="git clone https://github.com/AaronZyLee/amplify-cli -b dev",
+    runcommand(command="git clone https://github.com/AaronZyLee/amplify-cli -b integtest",
                exception_to_raise = GitCloneCliException(appname))
 
     try:
