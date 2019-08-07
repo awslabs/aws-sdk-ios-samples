@@ -43,5 +43,5 @@
     "default_sdk_branch_to_uitest": "develop",
     "logs_folder_name": "uitest_ios",
     "retry_count": 0,
-    "simulator_specification": "platform=iOS Simulator,name=iPhone X,OS=12.2"
+    "simulator_specification": "platform=iOS Simulator,name=iPhone X,OS=12.4"
 }
