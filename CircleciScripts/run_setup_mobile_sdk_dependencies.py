@@ -1,4 +1,4 @@
-from setup_pods import setup_pods
+from setup_mobile_sdk_dependencies import setup_pods
 from uitests_exceptions import *
 from traceback import print_exception
 import argparse
@@ -8,9 +8,6 @@ arg_parser.add_argument('-n', '--appname', type=str, help='name of sample app to
 arg_parser.add_argument('-a', '--app_repo_root_directory', type=str, help='full path to cloned sample apps repo')
 args = arg_parser.parse_args()
 
-# args.app_repo_root_directory = "/Users/edupp/Desktop/autotest"
-# args.appname = "S3TransferUtility"
-# args.circleci_root_directory = "/Users/edupp/Desktop"
 
 try:
     setup_pods(app_repo_root_directory=args.app_repo_root_directory,

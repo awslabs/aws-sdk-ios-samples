@@ -15,7 +15,7 @@ def fetch_pod_sources(appname, app_config, pod_sources_directory, app_root_direc
     sources_dict = { pod_url + '-' + branch_to_uitest:  default_source_path}
 
     if branch_to_uitest != 'master':
-        runcommand(command="git clone {0} -b {1} default".format(pod_url, branch_to_uitest),
+        runcommand(command="git clone {0} -b {1} --depth 1 default".format(pod_url, branch_to_uitest),
                    exception_to_raise=FetchRemotePodSourceException(appname, 'default'))
 
     for pod_name, pod_config in vars(app_config.sdk).items():
@@ -31,7 +31,7 @@ def fetch_pod_sources(appname, app_config, pod_sources_directory, app_root_direc
                 source_hash = pod_url + '-' + branch_to_uitest
                 source_path = pod_sources_directory + '/' + pod_name
                 if not (source_hash in sources_dict):
-                    runcommand(command="git clone {0} -b {1} {2}".format(pod_url,
+                    runcommand(command="git clone {0} -b {1} --depth 1 {2}".format(pod_url,
                                                                          branch_to_uitest,
                                                                          pod_name),
                                exception_to_raise=FetchRemotePodSourceException(appname, pod_name))

@@ -1,10 +1,9 @@
 from functions import runcommand
 from uitests_exceptions import *
 from parse_config_uitests import config_uitests
-from setup_pods import get_app_config_for
+from setup_mobile_sdk_dependencies import get_app_config_for
 from shutil import rmtree
 import re
-import datetime
 import os
 
 def build_and_uitest(circleci_root_directory, appname, app_repo_root_directory):
@@ -106,16 +105,6 @@ def uitest_and_store_logs(appname, app_path, simulator_specification,
                           raw_logfile_path,
                           consolidated_logfile_path),
                exception_to_raise=BuildAndUItestFailException(appname, raw_logfile_path))
-
-# def consolidate_test_results(raw_logfile_path, consolidated_logfile_path):
-#
-#     pattern = re.compile(r"^Test\s*(case|suite)\s*'.*'\s*(passed|failed|started)\s*on")
-#
-#     with open(consolidated_logfile_path, "a+") as consolidated_logfile:
-#         consolidated_logfile.write("\n\n Results for UITests run on: {0} \n".format(str(datetime.datetime.now())))
-#         for i, line in enumerate(open(raw_logfile_path)):
-#             for match in re.finditer(pattern, line):
-#                 consolidated_logfile.write(line)
 
 def get_failed_testcases_from_logs(raw_logfile_path):
 

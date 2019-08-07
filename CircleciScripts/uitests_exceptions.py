@@ -1,8 +1,28 @@
 import sys
 import os
 
-## double check snake_case or camelCase
-## use arrays to propogate
+## todo: use arrays to propogate
+
+### setup uitest config exceptions
+class SetupUITestConfigException(Exception):
+    def __init__(self, message=None):
+        self.message = self.construct_error_message_setup_config(message)
+
+    def construct_error_message_setup_config(self, message):
+        localmessage = ["...Unable generate uitests_ios_config file required to run UITests.Exit.. "]
+        if message == None:
+            return localmessage
+        else: return localmessage.extend(message)
+
+
+class InvalidDirectorySetUpConfigException(SetupUITestConfigException):
+    def __init__(self, message):
+        localmessage = ["...Unable to find config file template required for UITests."]
+        if message != None:
+            message = localmessage.extend(message)
+        else: message = localmessage
+        super(InvalidDirectorySetUpConfigException, self).__init__(message = message)
+
 
 ### setup pods exceptions
 class SetupPodsException(Exception):

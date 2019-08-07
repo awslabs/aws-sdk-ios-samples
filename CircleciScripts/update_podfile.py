@@ -22,5 +22,3 @@ def update_podfile(appname, app_root_directory, pod_name, pod_source_path):
 
     # Rename new file
     rename(podfile_copy_path, podfile_path)
-
-# update_podfile('PhotoAlbum', '/Users/edupp/Desktop/autotest/PhotoAlbum', 'AWSAppSync', '/Users/edupp/Desktop/autotest/PhotoAlbum/something')
