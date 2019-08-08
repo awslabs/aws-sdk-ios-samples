@@ -15,6 +15,9 @@ def configure_aws_resources(app_repo_root_directory, appname, path_to_cli_packag
     app_root_directory = "{0}/{1}".format(app_repo_root_directory, app_config.path)
     cli_resources = app_config.cli_resources
 
+    print(path_to_cli_packages)
+    print(os.path.isdir(path_to_cli_packages))
+
     if (path_to_cli_packages == None) or (not os.path.isdir(path_to_cli_packages)):
 
         pathToCliRepo = app_root_directory + '/configure-aws-resources/amplify-cli'
