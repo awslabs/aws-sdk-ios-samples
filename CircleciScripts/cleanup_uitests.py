@@ -16,7 +16,7 @@ def delete_aws_resources(app_repo_root_directory, appname, path_to_cli_packages)
     pathToCliRepo = app_root_directory + '/configure-aws-resources/amplify-cli'
 
     try:
-        if (path_to_cli_packages == None) or (not os.path.isdir(path_to_cli_packages)):
+        if path_to_cli_packages == None:
             path_to_cli_packages = pathToCliRepo + '/packages'
         os.chdir(path_to_cli_packages + '/amplify-ui-tests')
     except OSError as err:
