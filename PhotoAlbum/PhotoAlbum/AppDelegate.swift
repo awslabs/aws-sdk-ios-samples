@@ -57,5 +57,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 // Singleton reference to AppDelegate
 let appDelegate = UIApplication.shared.delegate as! AppDelegate
-let networkTimeout: TimeInterval = 7
-let uiTimeout: TimeInterval = 5
+let networkTimeout: TimeInterval = 10
+let uiTimeout: TimeInterval = 7

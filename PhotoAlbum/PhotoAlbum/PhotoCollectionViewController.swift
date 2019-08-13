@@ -57,7 +57,7 @@ class PhotoCollectionViewController: UICollectionViewController {
         //Todo: Implement selection from device
         // Randomly pick from the Assets
         // phani: Consider moving this to some constants file with metadata on images for testing?
-        let availableAssets: [String] = ["pic1", "pic2", "pic3", "pic4", "AppLogo"]
+        let availableAssets: [String] = ["pic1", "pic2", "pic3", "pic4"]
         let randomIndex = Int(arc4random_uniform(UInt32(availableAssets.count)))
         let givenImage: UIImage! = UIImage(named: availableAssets[randomIndex])
 
