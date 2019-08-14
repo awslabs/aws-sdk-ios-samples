@@ -98,4 +98,11 @@ This sample app demonstrates how to use the Authentication, Storage and AppSync 
 
 1. The app initializes ```AWSMobileClient.sharedInstance(), AWSAppSyncClient() and AWSS3TransferUtility.default() ``` in the ```AWSServiceManager.swift``` file to access Authentication, API and Storage respectively. Please refer to this file for more information.
 
+1. In order to run the UI Tests for the demo app, please sign up a test user and add the test user credentials in the ```UIActions.swift``` file here: 
+    ```
+    static var username = "testuser2"
+    static var password = "abc@123!"
+    
+    ```
+
 1. Please refer to [AWS iOS Mobile SDK Getting Started Guide](https://aws-amplify.github.io/docs/ios/start) for more information on the usage of AWS iOS Mobile SDK.
