@@ -32,8 +32,8 @@
                 "AWSMobileClient": {},
                 "AWSS3": {},
                 "AWSAppSync": {
-                    "podspec": "https://github.com/phanisrikar93/aws-mobile-appsync-sdk-ios",
-                    "branch_to_uitest": "phanisrikar93-AppSync-Podspec"
+                    "podspec": "https://github.com/awslabs/aws-mobile-appsync-sdk-ios",
+                    "branch_to_uitest": "master"
                 }
             }
         }
