@@ -4,12 +4,11 @@ platform :ios, '9.0'
 use_frameworks!
 
 target 'S3TransferUtilitySampleSwift' do
-  $awsVersion = '~> 2.10.0'
-  pod 'AWSAuthCore', $awsVersion
-  pod 'AWSCognitoIdentityProvider', $awsVersion
-  pod 'AWSCognitoIdentityProviderASF', $awsVersion
-  pod 'AWSCore', $awsVersion
-  pod 'AWSMobileClient', $awsVersion
-  pod 'AWSS3', $awsVersion
+  pod 'AWSAuthCore'
+  pod 'AWSCognitoIdentityProvider'
+  pod 'AWSCognitoIdentityProviderASF'
+  pod 'AWSCore'
+  pod 'AWSMobileClient'
+  pod 'AWSS3'
   
 end
