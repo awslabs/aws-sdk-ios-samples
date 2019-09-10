@@ -5,7 +5,7 @@ use_frameworks!
 target :'LexSwift' do
   pod 'JSQMessagesViewController', '~>7.3.4'
 
-  $awsVersion = '~> 2.9.0'
+  $awsVersion = '~> 2.11.0'
   pod 'AWSMobileClient', $awsVersion
   pod 'AWSLex', $awsVersion
 end
