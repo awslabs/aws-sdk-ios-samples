@@ -1,0 +1,19 @@
+--allman false
+--commas always
+--conflictmarkers reject
+--decimalgrouping none
+--elseposition same-line
+--exclude Pods
+--header "//\n// Copyright 2018-{created.year} Amazon.com,\n// Inc. or its affiliates. All Rights Reserved.\n//\n// SPDX-License-Identifier: Apache-2.0\n//"
+--hexgrouping none
+--hexliteralcase uppercase
+--ifdef indent
+--importgrouping alphabetized
+--indent 4
+--indentcase false
+--linebreaks lf
+--semicolons never
+--stripunusedargs always
+--trailingclosures
+--trimwhitespace always
+--swiftversion 5

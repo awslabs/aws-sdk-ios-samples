@@ -1,0 +1,8 @@
+included:
+  - PinpointSample
+excluded:
+  - Pods
+reporter: "xcode"
+
+# rules
+force_cast: warning
