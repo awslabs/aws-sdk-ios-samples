@@ -4,7 +4,7 @@ platform :ios, '9.0'
 use_frameworks!
 
 target 'CognitoYourUserPoolsSample' do
-  $awsVersion = '~> 2.11.0'
+  $awsVersion = '~> 2.12.0'
   pod 'AWSCore', $awsVersion
   pod 'AWSCognitoIdentityProvider', $awsVersion
 end
