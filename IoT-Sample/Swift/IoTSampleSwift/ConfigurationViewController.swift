@@ -1,5 +1,5 @@
 /*
-* Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+* Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
 * You may not use this file except in compliance with the License.
@@ -68,7 +68,7 @@ class ConfigurationViewController: UIViewController, UITextFieldDelegate {
                         let certificateArn = defaults.string( forKey: "certificateArn")
                         let detachPolicyRequest = AWSIoTDetachPrincipalPolicyRequest()
                         detachPolicyRequest?.principal = certificateArn
-                        detachPolicyRequest?.policyName = PolicyName
+                        detachPolicyRequest?.policyName = POLICY_NAME
 
                         iot.detachPrincipalPolicy(detachPolicyRequest!).continueWith(block: { (task) -> AnyObject? in
                             if let error = task.error {

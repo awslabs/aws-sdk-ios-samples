@@ -1,5 +1,5 @@
 /*
-* Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+* Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
 * You may not use this file except in compliance with the License.
@@ -22,9 +22,17 @@ let CertificateSigningRequestCommonName = "IoTSampleSwift Application"
 let CertificateSigningRequestCountryName = "Your Country"
 let CertificateSigningRequestOrganizationName = "Your Organization"
 let CertificateSigningRequestOrganizationalUnitName = "Your Organizational Unit"
-let PolicyName = "YourPolicyName"
+
+let POLICY_NAME = "YourPolicyName"
 
 // This is the endpoint in your AWS IoT console. eg: https://xxxxxxxxxx.iot.<region>.amazonaws.com
-let AWSRegion = AWSRegionType.Unknown // e.g. AWSRegionType.USEast1
+let AWS_REGION = AWSRegionType.Unknown
+
+//For both connecting over websockets and cert, IOT_ENDPOINT should look like
+//https://xxxxxxx-ats.iot.REGION.amazonaws.com
 let IOT_ENDPOINT = "https://xxxxxxxxxx.iot.<region>.amazonaws.com"
-let ASWIoTDataManager = "MyIotDataManager"
+let IDENTITY_POOL_ID = "<REGION>:<UUID>"
+
+//Used as keys to look up a reference of each manager
+let AWS_IOT_DATA_MANAGER_KEY = "MyIotDataManager"
+let AWS_IOT_MANAGER_KEY = "MyIotManager"
