@@ -6,8 +6,8 @@
     "CredentialsProvider": {
         "CognitoIdentity": {
             "Default": {
-                "PoolId": "CHANGE ME",
-                "Region": "CHANGE ME"
+                "PoolId": "CHANGE_ME",
+                "Region": "CHANGE_ME"
             }
         }
     }
