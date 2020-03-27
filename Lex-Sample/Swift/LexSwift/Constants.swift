@@ -18,7 +18,7 @@ import AWSCore
 
 // WARNING: To run this sample correctly, you must set the following constants.
 
-let LexRegion = AWSRegionType.USEast1                   // Change this is this is not your Lex region (most are currently AWSRegionType.USEast1)
-let BotName = "OrderFlowers"                                     // Put your bot name here
+let LexRegion = AWSRegionType.Unknown                       // Change this is this is not your Lex region (most are currently AWSRegionType.USEast1)
+let BotName = "BotName"                                     // Put your bot name here
 let BotAlias = "$LATEST"                                    // You can leave this if you always want to use
                                                             // the latest version of your bot or put the version
