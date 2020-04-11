@@ -55,7 +55,6 @@ class ChatViewController: JSQMessagesViewController, JSQMessagesComposerTextView
     }
     
     override func didPressSend(_ button: UIButton, withMessageText text: String, senderId: String, senderDisplayName: String, date: Date) {
-     
         let message = JSQMessage(senderId: senderId, senderDisplayName: senderDisplayName, date: date, text: text)
         self.messages?.append(message!)
         
@@ -199,10 +198,13 @@ extension ChatViewController: AWSLexInteractionDelegate {
                 }
             } else {
                 //if you have special characters you need to be returned, make sure you base 64 encode your responses in your bot and then they will be decoded here as needed.
-                if let base64DecodedText = switchModeInput.outputText?.base64Decoded {
-                     message = JSQMessage(senderId: ServerSenderId, senderDisplayName: "", date: Date(), text: base64DecodedText)
+                guard let text = switchModeInput.outputText else {
+                    return //no response was returned
+                }
+                if let base64DecodedText = text.base64Decoded {
+                    message = JSQMessage(senderId: ServerSenderId, senderDisplayName: "", date: Date(), text: base64DecodedText)
                 } else {
-                    message = JSQMessage(senderId: ServerSenderId, senderDisplayName: "", date: Date(), text: switchModeInput.outputText!)
+                    message = JSQMessage(senderId: ServerSenderId, senderDisplayName: "", date: Date(), text: text)
                 }
                
                 print(switchModeInput.outputText!)
