@@ -197,7 +197,16 @@ extension ChatViewController: AWSLexInteractionDelegate {
                     self.finishSendingMessage(animated: true)
                 }
             } else {
-                message = JSQMessage(senderId: ServerSenderId, senderDisplayName: "", date: Date(), text: switchModeInput.outputText!)
+                //if you have special characters you need to be returned, make sure you base 64 encode your responses in your bot and then they will be decoded here as needed.
+                guard let text = switchModeInput.outputText else {
+                    return //no response was returned
+                }
+                if let base64DecodedText = text.base64Decoded {
+                    message = JSQMessage(senderId: ServerSenderId, senderDisplayName: "", date: Date(), text: base64DecodedText)
+                } else {
+                    message = JSQMessage(senderId: ServerSenderId, senderDisplayName: "", date: Date(), text: text)
+                }
+
                 self.messages?.append(message)
                 self.finishSendingMessage(animated: true)
             }

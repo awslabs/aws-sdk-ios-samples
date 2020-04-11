@@ -16,6 +16,7 @@
 		17DD067D1DD3C34A00BD639D /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DD067C1DD3C34A00BD639D /* ChatViewController.swift */; };
 		17DD068E1DD3EE9D00BD639D /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DD068D1DD3EE9D00BD639D /* TableViewController.swift */; };
 		17DD06921DD3F18100BD639D /* VoiceChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DD06911DD3F18100BD639D /* VoiceChatViewController.swift */; };
+		953FDA39244126AD00D04FA5 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953FDA38244126AD00D04FA5 /* StringExtension.swift */; };
 		F8361B4D7F56F83622B9DDE8 /* Pods_LexSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 177C26EFDC1486C509970AF0 /* Pods_LexSwift.framework */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +49,7 @@
 		21D2D0F3B3AA17855995EE90 /* Pods-DeepSenseSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeepSenseSwift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DeepSenseSwift/Pods-DeepSenseSwift.debug.xcconfig"; sourceTree = "<group>"; };
 		6ACD689BA30992F1433ED163 /* Pods-DeepSenseSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeepSenseSwift.release.xcconfig"; path = "Pods/Target Support Files/Pods-DeepSenseSwift/Pods-DeepSenseSwift.release.xcconfig"; sourceTree = "<group>"; };
 		74B47E3512F8472A89B6AFAE /* Pods-LexSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LexSwift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LexSwift/Pods-LexSwift.debug.xcconfig"; sourceTree = "<group>"; };
+		953FDA38244126AD00D04FA5 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		9EF2C706B11C9DA498BB3B1A /* Pods-LexSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LexSwift.release.xcconfig"; path = "Pods/Target Support Files/Pods-LexSwift/Pods-LexSwift.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -94,6 +96,7 @@
 				17DD068D1DD3EE9D00BD639D /* TableViewController.swift */,
 				17DD06911DD3F18100BD639D /* VoiceChatViewController.swift */,
 				17DA1C351DD517CD002DD9AF /* Constants.swift */,
+				953FDA38244126AD00D04FA5 /* StringExtension.swift */,
 			);
 			path = LexSwift;
 			sourceTree = "<group>";
@@ -247,6 +250,7 @@
 			files = (
 				17DA1C361DD517CD002DD9AF /* Constants.swift in Sources */,
 				17DD06921DD3F18100BD639D /* VoiceChatViewController.swift in Sources */,
+				953FDA39244126AD00D04FA5 /* StringExtension.swift in Sources */,
 				17DD067D1DD3C34A00BD639D /* ChatViewController.swift in Sources */,
 				17DD06671DD2C86200BD639D /* AppDelegate.swift in Sources */,
 				17DD068E1DD3EE9D00BD639D /* TableViewController.swift in Sources */,
