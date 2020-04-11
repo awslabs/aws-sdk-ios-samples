@@ -207,7 +207,7 @@ extension ChatViewController: AWSLexInteractionDelegate {
                     message = JSQMessage(senderId: ServerSenderId, senderDisplayName: "", date: Date(), text: text)
                 }
                
-                print(switchModeInput.outputText!)
+                print(text)
 
                 self.messages?.append(message)
                 self.finishSendingMessage(animated: true)
