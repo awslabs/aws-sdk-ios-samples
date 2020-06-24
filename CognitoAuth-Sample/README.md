@@ -2,7 +2,7 @@
 
 The Amazon Cognito Auth SDK for iOS simplifies adding sign-up, sign-in functionality in your apps. With this SDK, you can use Cognito User Pools’ app integration and federation features, with a customizable UI hosted by AWS to sign up and sign in users, and with built-in federation for external identity providers via SAML. To learn more see our [Developer Guide](http://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-federation-beta-release-overview.html).
 
-If you are looking for our SDK to access all user APIs for Cognito User Pools, see the [iOS Cognito Identity Provider SDK](https://github.com/aws/aws-sdk-ios/tree/master/AWSCognitoIdentityProvider).
+If you are looking for our SDK to access all user APIs for Cognito User Pools, see the [iOS Cognito Identity Provider SDK](https://github.com/aws/aws-sdk-ios/tree/main/AWSCognitoIdentityProvider).
 
 # Installing the SDK
 Follow the instructions here: [Set Up the Mobile SDK for iOS.](http://docs.aws.amazon.com/mobile/sdkforios/developerguide/setup-aws-sdk-for-ios.html)
