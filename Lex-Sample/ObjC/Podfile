@@ -3,7 +3,7 @@ use_frameworks!
 target :'Lex-Sample' do
   pod 'JSQMessagesViewController', '~>7.3.4'
 
-  $awsVersion = '~> 2.13.0'
+  $awsVersion = '~> 2.14.0'
   pod 'AWSLex', $awsVersion
 end
 
