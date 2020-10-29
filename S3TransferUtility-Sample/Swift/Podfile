@@ -2,7 +2,6 @@ platform :ios, '9.0'
 use_frameworks!
 
 target 'S3TransferUtilitySampleSwift' do
-  $awsVersion = '~> 2.15.0'
-  pod 'AWSMobileClient', $awsVersion
-  pod 'AWSS3', $awsVersion
+  pod 'AWSMobileClient'
+  pod 'AWSS3'
 end

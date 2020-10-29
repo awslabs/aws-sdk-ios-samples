@@ -2,6 +2,5 @@ platform :ios, '9.0'
 use_frameworks!
 
 target 'S3TransferUtilitySampleObjC' do
-  $awsVersion = '~> 2.15.0'
-  pod 'AWSS3', $awsVersion
+  pod 'AWSS3'
 end
