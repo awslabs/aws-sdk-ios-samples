@@ -10,9 +10,6 @@ Please refer to **README.md** in each sample directory for more specific instruc
 
 ### List of Samples
 
-* CognitoYourUserPools-Sample ([Swift](https://github.com/awslabs/aws-sdk-ios-samples/tree/main/CognitoYourUserPools-Sample/Swift), [Objective-C](https://github.com/awslabs/aws-sdk-ios-samples/tree/main/CognitoYourUserPools-Sample/Objective-C/)). This is a sample mobile application that demonstrates how to sign up and sign in a user to display an authenticated portion of your app. Involved AWS Services are:
-  + Amazon Cognito Identity Provider (Your User Pools)
-
 * S3TransferUtility-Sample ([Swift](https://github.com/awslabs/aws-sdk-ios-samples/tree/main/S3TransferUtility-Sample/Swift/), [Objective-C](https://github.com/awslabs/aws-sdk-ios-samples/tree/main/S3TransferUtility-Sample/Objective-C/)). This is a sample mobile application that demonstrates how to use the Amazon S3 PreSigned URL Builder to download / upload files in background. Involved AWS Services are:
   + Amazon S3
   + Amazon Cognito Identity
