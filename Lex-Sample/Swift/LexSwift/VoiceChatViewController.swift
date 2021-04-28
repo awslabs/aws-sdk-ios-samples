@@ -39,9 +39,10 @@ class VoiceChatViewController: UIViewController, AWSLexVoiceButtonDelegate {
             
             if let outputText = response.outputText {
                 print("Output Transcript: " + outputText)
+                self.output.text = outputText
+            } else {
+                  self.output.text = ""
             }
-
-            self.output.text = response.outputText
         })
     }
     
