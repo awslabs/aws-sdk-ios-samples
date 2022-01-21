@@ -4,19 +4,10 @@ This sample demonstrates use of the Amazon Polly APIs to retrieve list of voices
 
 ## Requirements
 
-* Xcode 9.2 and later
-* iOS 8 and later
+* Xcode 11 and later
+* iOS 10 and later
 
 ## Using the Sample
-
-1. The AWS Mobile SDK for iOS is available through [CocoaPods](http://cocoapods.org). If you have not installed CocoaPods, install CocoaPods:
-
-		sudo gem install cocoapods
-		pod setup
-
-1. To install the AWS Mobile SDK for iOS, change the current directory to the one with your **Podfile** in it and run the following command:
-
-		pod install
 
 1. This sample requires Cognito to authorize to Amazon Polly.  Use Amazon Cognito to create a new identity pool:
 	1. In the [Amazon Cognito Console](https://console.aws.amazon.com/cognito/), press the `Manage Federated Identities` button and on the resulting page press the `Create new identity pool` button.
@@ -33,7 +24,7 @@ This sample demonstrates use of the Amazon Polly APIs to retrieve list of voices
 
 		**Note**: To keep this example simple it makes use of unauthenticated users in the identity pool.  This can be used for getting started and prototypes but unauthenticated users should typically only be given read-only permissions in production applications.  More information on Cognito identity pools including the Cognito developer guide can be found [here](http://aws.amazon.com/cognito/).
 
-1. Open `PollySample.xcworkspace`.
+1. Open `PollySample.xcodeproj`.
 
 1. Open `awsconfiguration.json` and update the values for Cognito Identity Pool ID (from the value you saved above) and the region value for CognitoIdentity, Polly and PollySynthesizeSpeechUrlBuilder (for example us-east-1).
 

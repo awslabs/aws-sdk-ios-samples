@@ -3,12 +3,17 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		177B8A1021CB2EB40051068F /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 177B8A0F21CB2EB40051068F /* awsconfiguration.json */; };
-		BAEA120E86126419B1B55A6A /* Pods_PollySample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DFBF32066A3749601390ADA /* Pods_PollySample.framework */; };
+		68988418279AFC5400912B66 /* AWSAuthCore in Frameworks */ = {isa = PBXBuildFile; productRef = 68988417279AFC5400912B66 /* AWSAuthCore */; };
+		6898841A279AFC5400912B66 /* AWSCognitoIdentityProvider in Frameworks */ = {isa = PBXBuildFile; productRef = 68988419279AFC5400912B66 /* AWSCognitoIdentityProvider */; };
+		6898841C279AFC5400912B66 /* AWSCognitoIdentityProviderASF in Frameworks */ = {isa = PBXBuildFile; productRef = 6898841B279AFC5400912B66 /* AWSCognitoIdentityProviderASF */; };
+		6898841E279AFC5400912B66 /* AWSCore in Frameworks */ = {isa = PBXBuildFile; productRef = 6898841D279AFC5400912B66 /* AWSCore */; };
+		68988420279AFC5400912B66 /* AWSMobileClientXCF in Frameworks */ = {isa = PBXBuildFile; productRef = 6898841F279AFC5400912B66 /* AWSMobileClientXCF */; };
+		68988422279AFC5400912B66 /* AWSPolly in Frameworks */ = {isa = PBXBuildFile; productRef = 68988421279AFC5400912B66 /* AWSPolly */; };
 		CF9D8AD21DB9385B003D7876 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9D8AD11DB9385B003D7876 /* AppDelegate.swift */; };
 		CF9D8AD41DB9385B003D7876 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9D8AD31DB9385B003D7876 /* ViewController.swift */; };
 		CF9D8AD71DB9385B003D7876 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF9D8AD51DB9385B003D7876 /* Main.storyboard */; };
@@ -18,9 +23,6 @@
 
 /* Begin PBXFileReference section */
 		177B8A0F21CB2EB40051068F /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = SOURCE_ROOT; };
-		9DFBF32066A3749601390ADA /* Pods_PollySample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PollySample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B6B7A7056C9BAE356FA8E9EC /* Pods-PollySample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PollySample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PollySample/Pods-PollySample.debug.xcconfig"; sourceTree = "<group>"; };
-		C4C1A0BABA3F051C0A5C684F /* Pods-PollySample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PollySample.release.xcconfig"; path = "Pods/Target Support Files/Pods-PollySample/Pods-PollySample.release.xcconfig"; sourceTree = "<group>"; };
 		CF9D8ACE1DB9385B003D7876 /* PollySample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PollySample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF9D8AD11DB9385B003D7876 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CF9D8AD31DB9385B003D7876 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -35,26 +37,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BAEA120E86126419B1B55A6A /* Pods_PollySample.framework in Frameworks */,
+				68988418279AFC5400912B66 /* AWSAuthCore in Frameworks */,
+				6898841C279AFC5400912B66 /* AWSCognitoIdentityProviderASF in Frameworks */,
+				68988420279AFC5400912B66 /* AWSMobileClientXCF in Frameworks */,
+				68988422279AFC5400912B66 /* AWSPolly in Frameworks */,
+				6898841A279AFC5400912B66 /* AWSCognitoIdentityProvider in Frameworks */,
+				6898841E279AFC5400912B66 /* AWSCore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0179116BB4D38FE104BB6251 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				B6B7A7056C9BAE356FA8E9EC /* Pods-PollySample.debug.xcconfig */,
-				C4C1A0BABA3F051C0A5C684F /* Pods-PollySample.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		453C988F5DCB659045F948E4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				9DFBF32066A3749601390ADA /* Pods_PollySample.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -64,7 +61,6 @@
 			children = (
 				CF9D8AD01DB9385B003D7876 /* PollySample */,
 				CF9D8ACF1DB9385B003D7876 /* Products */,
-				0179116BB4D38FE104BB6251 /* Pods */,
 				453C988F5DCB659045F948E4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -98,17 +94,23 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CF9D8AE01DB9385B003D7876 /* Build configuration list for PBXNativeTarget "PollySample" */;
 			buildPhases = (
-				1C42C3168FF7B3D3513D8BB8 /* [CP] Check Pods Manifest.lock */,
 				CF9D8ACA1DB9385B003D7876 /* Sources */,
 				CF9D8ACB1DB9385B003D7876 /* Frameworks */,
 				CF9D8ACC1DB9385B003D7876 /* Resources */,
-				070C362A8290AFDA27176721 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = PollySample;
+			packageProductDependencies = (
+				68988417279AFC5400912B66 /* AWSAuthCore */,
+				68988419279AFC5400912B66 /* AWSCognitoIdentityProvider */,
+				6898841B279AFC5400912B66 /* AWSCognitoIdentityProviderASF */,
+				6898841D279AFC5400912B66 /* AWSCore */,
+				6898841F279AFC5400912B66 /* AWSMobileClientXCF */,
+				68988421279AFC5400912B66 /* AWSPolly */,
+			);
 			productName = PollySample;
 			productReference = CF9D8ACE1DB9385B003D7876 /* PollySample.app */;
 			productType = "com.apple.product-type.application";
@@ -140,6 +142,9 @@
 				Base,
 			);
 			mainGroup = CF9D8AC51DB9385B003D7876;
+			packageReferences = (
+				68988416279AFC5400912B66 /* XCRemoteSwiftPackageReference "aws-sdk-ios-spm" */,
+			);
 			productRefGroup = CF9D8ACF1DB9385B003D7876 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -162,55 +167,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		070C362A8290AFDA27176721 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-PollySample/Pods-PollySample-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/AWSAuthCore/AWSAuthCore.framework",
-				"${BUILT_PRODUCTS_DIR}/AWSCognitoIdentityProvider/AWSCognitoIdentityProvider.framework",
-				"${BUILT_PRODUCTS_DIR}/AWSCognitoIdentityProviderASF/AWSCognitoIdentityProviderASF.framework",
-				"${BUILT_PRODUCTS_DIR}/AWSCore/AWSCore.framework",
-				"${BUILT_PRODUCTS_DIR}/AWSMobileClient/AWSMobileClient.framework",
-				"${BUILT_PRODUCTS_DIR}/AWSPolly/AWSPolly.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSAuthCore.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCognitoIdentityProvider.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCognitoIdentityProviderASF.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCore.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSMobileClient.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSPolly.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PollySample/Pods-PollySample-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		1C42C3168FF7B3D3513D8BB8 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-PollySample-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		CF9D8ACA1DB9385B003D7876 /* Sources */ = {
@@ -359,7 +315,6 @@
 		};
 		CF9D8AE11DB9385B003D7876 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B6B7A7056C9BAE356FA8E9EC /* Pods-PollySample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = Z3TJR38JD3;
@@ -373,7 +328,6 @@
 		};
 		CF9D8AE21DB9385B003D7876 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C4C1A0BABA3F051C0A5C684F /* Pods-PollySample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = Z3TJR38JD3;
@@ -407,6 +361,50 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		68988416279AFC5400912B66 /* XCRemoteSwiftPackageReference "aws-sdk-ios-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/aws-amplify/aws-sdk-ios-spm";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 2.27.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		68988417279AFC5400912B66 /* AWSAuthCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 68988416279AFC5400912B66 /* XCRemoteSwiftPackageReference "aws-sdk-ios-spm" */;
+			productName = AWSAuthCore;
+		};
+		68988419279AFC5400912B66 /* AWSCognitoIdentityProvider */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 68988416279AFC5400912B66 /* XCRemoteSwiftPackageReference "aws-sdk-ios-spm" */;
+			productName = AWSCognitoIdentityProvider;
+		};
+		6898841B279AFC5400912B66 /* AWSCognitoIdentityProviderASF */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 68988416279AFC5400912B66 /* XCRemoteSwiftPackageReference "aws-sdk-ios-spm" */;
+			productName = AWSCognitoIdentityProviderASF;
+		};
+		6898841D279AFC5400912B66 /* AWSCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 68988416279AFC5400912B66 /* XCRemoteSwiftPackageReference "aws-sdk-ios-spm" */;
+			productName = AWSCore;
+		};
+		6898841F279AFC5400912B66 /* AWSMobileClientXCF */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 68988416279AFC5400912B66 /* XCRemoteSwiftPackageReference "aws-sdk-ios-spm" */;
+			productName = AWSMobileClientXCF;
+		};
+		68988421279AFC5400912B66 /* AWSPolly */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 68988416279AFC5400912B66 /* XCRemoteSwiftPackageReference "aws-sdk-ios-spm" */;
+			productName = AWSPolly;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CF9D8AC61DB9385B003D7876 /* Project object */;
 }
