@@ -112,8 +112,8 @@ This sample demonstrates use of the AWS IoT APIs to securely publish to and subs
 	let IOT_ENDPOINT = "https://xxxxxxxxxx.iot.<region>.amazonaws.com" // make sure to include "https://" prefix
 	```
 
-  Note: The endpoint can be found under [IoT Home](https://console.aws.amazon.com/iot/home). Once there, scroll down and click Settings on the left side.
-
+    Note: The endpoint can be found under [IoT Home](https://console.aws.amazon.com/iot/home). Once there, scroll down and click Settings on the side navigation on the left side.  For Certificate details, navigate to ***Secure > Certificates*** and select the specific certificate to view certificate details such as CommonName (CN), OrganizationName (O), OrganizationUnit(OU), and Country (C).
+  
 1. Add the IoT certificate (IoT identity) to the Xcode project
     1. Follow the instructions below to create the certificate
     1. Place the PKCS #12 archive (.p12) in the same directory as Info.plist
@@ -122,14 +122,16 @@ This sample demonstrates use of the AWS IoT APIs to securely publish to and subs
 
 1. Build and run the sample app on two different simulators or devices. After you connect then changes in one devices publish panel will show up in the other devices subscribe panel.
 
-The sample application will allow you to connect to the AWS IoT platform, and then publish or subscribe to a topic using MQTT.  You can configure the topic name under the 'Configuration' tab; it's set to 'slider' by default (only when you are disconnected).  You can use another instance of this application so that one instance publishes while the other subscribes, or you can use the MQTT client in the [Amazon AWS IoT console](https://console.aws.amazon.com/iot/) to interact with your application.
+  The sample application will allow you to connect to the AWS IoT platform, and then publish or subscribe to a topic using MQTT.  You can configure the topic name under the 'Configuration' tab; it's set to 'slider' by default (only when you are disconnected).  You can use another instance of this application so that one instance publishes while the other subscribes, or you can use the MQTT client in the [Amazon AWS IoT console](https://console.aws.amazon.com/iot/) to interact with your application.
 
 ## Prepare IoT Certificate for Identity
 
-You can also configure the sample application to use an existing AWS IoT identity.  To do this, create a certificate and private key in the [Amazon AWS IoT console](https://console.aws.amazon.com/iot/) and associate it with a policy which allows access to 'iot:\*'. Go to the section named Security and click on Certificates. Download the generated files and use the following command to create a PKCS #12 archive from the certificate and private key (NOTE: the filename must use the .p12 suffix):
+You can also configure the sample application to use an existing AWS IoT identity.  To do this, create a certificate and private key in the [Amazon AWS IoT console](https://console.aws.amazon.com/iot/) and associate it with a policy which allows access to 'iot:\*'. Go to the section named Secure and click on Certificates on the side navigation on the left sideN. Download the generated files and use the following command to create a PKCS #12 archive from the certificate and private key (NOTE: the filename must use the .p12 suffix):
 
 ```sh
 openssl pkcs12 -export -in certificate.pem.crt -inkey private.pem.key -out awsiot-identity.p12
 ```
+
+When prompted for `Enter Export Password:`, enter the default empty string as the export password.
 
 The app will use this IoT identity instead of creating one dynamically. Note that when using your own certificate and private key, the "Delete" option under the "Configuration" tab only deletes them from the keychain; they remain in the application itself and will be re-added into the keychain the next time you connect.
