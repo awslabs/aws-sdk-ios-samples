@@ -15,7 +15,7 @@
 
 import UIKit
 import AWSCore
-import AWSMobileClient
+import AWSMobileClientXCF
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
