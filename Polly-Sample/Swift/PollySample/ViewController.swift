@@ -81,7 +81,7 @@ class ViewController: UIViewController, UITextViewDelegate, UIPickerViewDelegate
 
         //Japanese
         AWSPollyVoiceId.mizuki: "はじめまして。ミズキです。読みたいテキストを入力してください。",
-        AWSPollyVoiceId.takumi: "はじめまして。ミズキです。読みたいテキストを入力してください。",
+        AWSPollyVoiceId.takumi: "はじめまして。たくみです。読みたいテキストを入力してください。",
 		
 		//Korean
         AWSPollyVoiceId.seoyeon: "안녕하세요? 외국어를 구사하십니까? 이 세상에는 수많은 언어들이 있답니다。",
