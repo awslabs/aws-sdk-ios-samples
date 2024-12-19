@@ -387,6 +387,7 @@
 				DEVELOPMENT_TEAM = W3DRXD72QU;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/LexSwift/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.ios.sample.LexSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -402,6 +403,7 @@
 				DEVELOPMENT_TEAM = W3DRXD72QU;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/LexSwift/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.ios.sample.LexSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";

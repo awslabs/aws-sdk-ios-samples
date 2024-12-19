@@ -393,6 +393,7 @@
 					"$(PROJECT_DIR)/Lex-Sample",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Lex-Sample/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.amazonaws.sdk.ios.sample.Lex-Sample";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -410,6 +411,7 @@
 					"$(PROJECT_DIR)/Lex-Sample",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Lex-Sample/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.amazonaws.sdk.ios.sample.Lex-Sample";
 				PRODUCT_NAME = "$(TARGET_NAME)";

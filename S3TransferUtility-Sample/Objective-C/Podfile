@@ -1,4 +1,5 @@
-platform :ios, '9.0'
+ENV['SWIFT_VERSION'] = '5'
+platform :ios, '12.0'
 use_frameworks!
 
 target 'S3TransferUtilitySampleObjC' do
